@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Leon\\Documents\\Scripts\\VXAOSC#Server\\VXAOS_Server\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\scripts\\vxaosc#server\\vxaos_server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\scripts\\vxaosc#server\\vxaos_server\\code\\network\\buffer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:code\\network\\buffer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Buffer.cs",
+              "DocumentMoniker": "C:\\Users\\Leon\\Documents\\Scripts\\VXAOSC#Server\\VXAOS_Server\\Code\\Network\\Buffer.cs",
+              "RelativeDocumentMoniker": "Code\\Network\\Buffer.cs",
+              "ToolTip": "C:\\Users\\Leon\\Documents\\Scripts\\VXAOSC#Server\\VXAOS_Server\\Code\\Network\\Buffer.cs",
+              "RelativeToolTip": "Code\\Network\\Buffer.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAuwDwAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-08T16:03:14.569Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Leon\\Documents\\Scripts\\VXAOSC#Server\\VXAOS_Server\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Leon\\Documents\\Scripts\\VXAOSC#Server\\VXAOS_Server\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-08T15:55:43.881Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
