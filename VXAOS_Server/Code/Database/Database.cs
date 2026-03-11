@@ -33,7 +33,7 @@ namespace VXAOS_Server.Code.Database {
       }
       public IDbConnection CreateConnection() {
          switch (cfg.DbType) {
-            case DatabaseType.PostgreSQL:
+            case DatabaseType.POSTGRESQL:
                var pgConn =
                    $"Host={cfg.DbHost};" +
                    $"Port={cfg.DbPort};" +
@@ -44,7 +44,7 @@ namespace VXAOS_Server.Code.Database {
                    $"Maximum Pool Size={cfg.DbPoolMax};" +
                    $"Pooling=True;Max Auto Prepare=50;Auto Prepare Min Usages=2;";
                return new NpgsqlConnection(pgConn);
-            case DatabaseType.MySQL:
+            case DatabaseType.MYSQL:
                var myConn =
                    $"Server={cfg.DbHost};" +
                    $"Port={cfg.DbPort};" +
@@ -55,7 +55,7 @@ namespace VXAOS_Server.Code.Database {
                    $"MaximumPoolSize={cfg.DbPoolMax};" +
                    $"Pooling=True;ConnectionIdleTimeout=60";
                return new MySqlConnection(myConn);
-            case DatabaseType.SQLite:
+            case DatabaseType.SQLITE:
                var dbPath = Path.Combine("Data", cfg.DbName);
                var sqliteConn =
                    //$"Data Source={dbPath};";
@@ -69,11 +69,11 @@ namespace VXAOS_Server.Code.Database {
       }
       public Compiler GetCompiler() {
          switch (cfg.DbType) {
-            case DatabaseType.PostgreSQL:
+            case DatabaseType.POSTGRESQL:
                return new PostgresCompiler();
-            case DatabaseType.MySQL:
+            case DatabaseType.MYSQL:
                return new MySqlCompiler();
-            case DatabaseType.SQLite:
+            case DatabaseType.SQLITE:
                Console.WriteLine("Sqlit");
                return new SqliteCompiler();
             default:
@@ -144,7 +144,8 @@ namespace VXAOS_Server.Code.Database {
          foreach (var rowActor in actors) {
             int slot = rowActor.slot_id;
             Console.WriteLine(rowActor.id);
-            account.Actors[slot] = rowActor.name;//LoadPlayer(rowActor);
+            account.Actors.Add(slot, new Actor());
+            account.Actors[slot].Name = rowActor.name;//LoadPlayer(rowActor);
          }
 
          return account;

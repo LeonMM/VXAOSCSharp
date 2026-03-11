@@ -44,7 +44,7 @@ async Task HandleClient(TcpClient client) {
       Console.WriteLine(username);
       Console.WriteLine("Recebendo dados");
       var sw = Stopwatch.StartNew(); // inicia timer
-      string name = Db.LoadAccount(username).Result.Actors[0];
+      string name = Db.LoadAccount(username).Result.Actors[0].Name;
       sw.Stop(); // para timer
       Console.WriteLine($"Tempo: {sw.ElapsedMilliseconds} ms");
       Console.WriteLine(name);
