@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VXAOS_Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4d8437a284744615b1bc74ded71dc9a1efc603e7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+46c0711f8388ce9d12bd20fba2633a6b494c929b")]
 [assembly: System.Reflection.AssemblyProductAttribute("VXAOS_Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VXAOS_Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
