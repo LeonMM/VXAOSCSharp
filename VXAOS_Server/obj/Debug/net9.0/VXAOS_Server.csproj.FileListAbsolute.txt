@@ -66,3 +66,5 @@ C:\Users\Leon\Documents\GitHub\VXAOSCSharp\VXAOS_Server\obj\Debug\net9.0\VXAOS_S
 C:\Users\Leon\Documents\GitHub\VXAOSCSharp\VXAOS_Server\obj\Debug\net9.0\VXAOS_Server.genruntimeconfig.cache
 C:\Users\Leon\Documents\GitHub\VXAOSCSharp\VXAOS_Server\obj\Debug\net9.0\ref\VXAOS_Server.dll
 C:\Users\Leon\Documents\GitHub\VXAOSCSharp\VXAOS_Server\bin\Debug\net9.0\Newtonsoft.Json.dll
+C:\Users\Leon\Documents\GitHub\VXAOSCSharp\VXAOS_Server\bin\Debug\net9.0\Ruby\import.rb
+C:\Users\Leon\Documents\GitHub\VXAOSCSharp\VXAOS_Server\bin\Debug\net9.0\Ruby\rpg.rb

@@ -4,9 +4,7 @@ using System.Diagnostics;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
-using VXAOS_Server.Code.Core;
-using VXAOS_Server.Code.Database;
-using VXAOS_Server.Code.Network;
+using VXAOS_Server;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 TcpListener server = new TcpListener(IPAddress.Any, 5000);
@@ -16,10 +14,12 @@ Console.WriteLine("VXA-OS C# Server Port 5000");
 var cfg = ConfigLoader.Load("server.cfg");
 Console.WriteLine(cfg.DbType);
 
-//var connection = Database.CreateConnection(cfg);
-
-//var db = new QueryFactory(connection, Database.Compiler(cfg));
 var Db = new Database(cfg);
+
+Console.WriteLine(cfg.DataPath);
+DataManager dataManager = new DataManager(cfg.DataPath);
+
+Console.WriteLine(dataManager.data_armors[1].name);
 
 while (true) {
    var client = await server.AcceptTcpClientAsync();
@@ -42,22 +42,10 @@ async Task HandleClient(TcpClient client) {
    if (type == 1) {
       var username = reader.ReadString();
       Console.WriteLine(username);
-      Console.WriteLine("Recebendo dados");
-      var sw = Stopwatch.StartNew(); // inicia timer
-      string name = Db.LoadAccount(username).Result.Actors[0].Name;
-      sw.Stop(); // para timer
-      Console.WriteLine($"Tempo: {sw.ElapsedMilliseconds} ms");
-      Console.WriteLine(name);
-      Console.WriteLine(reader.ReadString());
-      Console.WriteLine(reader.ReadShort());
-      Console.WriteLine("EOP");
    }
    BufferWriter writer = new BufferWriter();
    writer.WriteByte(2);
    writer.WriteByte(2);
-   //await stream.WriteAsync(writer.ToArray());
-   Console.WriteLine("Enviando erro de Login, versão diferente");
-   Console.WriteLine(writer.ToStringBuffer());
    await SendPacket(stream, writer.ToStringBuffer());
 }
 

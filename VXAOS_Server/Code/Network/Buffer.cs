@@ -2,7 +2,7 @@
 using System.IO;
 using System.Text;
 
-namespace VXAOS_Server.Code.Network {
+namespace VXAOS_Server {
    public class BufferWriter {
       private MemoryStream stream;
       private BinaryWriter writer;

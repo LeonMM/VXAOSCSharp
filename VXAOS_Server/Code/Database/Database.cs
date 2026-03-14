@@ -10,10 +10,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VXAOS_Server.Code.Core;
-using static VXAOS_Server.Code.Core.Enums;
 
-namespace VXAOS_Server.Code.Database {
+namespace VXAOS_Server {
    public class Database {
       private ServerConfig cfg;
       private readonly Compiler compiler;
@@ -33,7 +31,7 @@ namespace VXAOS_Server.Code.Database {
       }
       public IDbConnection CreateConnection() {
          switch (cfg.DbType) {
-            case DatabaseType.POSTGRESQL:
+            case Enums.DatabaseType.POSTGRESQL:
                var pgConn =
                    $"Host={cfg.DbHost};" +
                    $"Port={cfg.DbPort};" +
@@ -44,7 +42,7 @@ namespace VXAOS_Server.Code.Database {
                    $"Maximum Pool Size={cfg.DbPoolMax};" +
                    $"Pooling=True;Max Auto Prepare=50;Auto Prepare Min Usages=2;";
                return new NpgsqlConnection(pgConn);
-            case DatabaseType.MYSQL:
+            case Enums.DatabaseType.MYSQL:
                var myConn =
                    $"Server={cfg.DbHost};" +
                    $"Port={cfg.DbPort};" +
@@ -55,7 +53,7 @@ namespace VXAOS_Server.Code.Database {
                    $"MaximumPoolSize={cfg.DbPoolMax};" +
                    $"Pooling=True;ConnectionIdleTimeout=60";
                return new MySqlConnection(myConn);
-            case DatabaseType.SQLITE:
+            case Enums.DatabaseType.SQLITE:
                var dbPath = Path.Combine("Data", cfg.DbName);
                var sqliteConn =
                    //$"Data Source={dbPath};";
@@ -69,11 +67,11 @@ namespace VXAOS_Server.Code.Database {
       }
       public Compiler GetCompiler() {
          switch (cfg.DbType) {
-            case DatabaseType.POSTGRESQL:
+            case Enums.DatabaseType.POSTGRESQL:
                return new PostgresCompiler();
-            case DatabaseType.MYSQL:
+            case Enums.DatabaseType.MYSQL:
                return new MySqlCompiler();
-            case DatabaseType.SQLITE:
+            case Enums.DatabaseType.SQLITE:
                Console.WriteLine("Sqlit");
                return new SqliteCompiler();
             default:

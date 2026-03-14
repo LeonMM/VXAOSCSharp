@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static VXAOS_Server.Code.Core.Enums;
 
-namespace VXAOS_Server.Code.Core {
+namespace VXAOS_Server {
    using System;
    using System.IO;
    using System.Collections.Generic;
@@ -60,6 +59,8 @@ namespace VXAOS_Server.Code.Core {
          cfg.DbFile = data.GetValueOrDefault("DB_FILE");
          cfg.DbPoolMin = int.Parse(data.GetValueOrDefault("DB_POOL_MIN", "1"));
          cfg.DbPoolMax = int.Parse(data.GetValueOrDefault("DB_POOL_MAX", "50"));
+
+         cfg.DataPath = data.GetValueOrDefault("DATA_PATH");
 
          cfg.SaveDataTime = int.Parse(data["SAVE_DATA_TIME"]);
          cfg.InactivityTime = int.Parse(data["INACTIVITY_TIME"]);
@@ -166,6 +167,9 @@ namespace VXAOS_Server.Code.Core {
       public string DbFile;
       public int DbPoolMin;
       public int DbPoolMax;
+
+      // DATA
+      public string DataPath;
 
       // TIMERS
       public int SaveDataTime;

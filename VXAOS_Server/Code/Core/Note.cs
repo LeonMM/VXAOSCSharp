@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace VXAOS_Server.Code.Core {
+namespace VXAOS_Server {
    public static class Note {
       public static List<List<Tuple<string, int>>> ReadGraphics(string note) {
          return note

@@ -5,7 +5,7 @@ using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VXAOS_Server.Code.Core {
+namespace VXAOS_Server {
    public class Hotbar {
       public int Type;
       public int ItemId;
