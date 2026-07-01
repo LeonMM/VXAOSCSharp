@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace VXAOS_Server {
+﻿namespace VXAOS_Server {
    public class Enums {
       public enum DatabaseType {
          POSTGRESQL = 0,
          MYSQL = 1,
          SQLITE = 2
+      }
+      public enum Sex {
+         MALE,
+         FEMALE
       }
       public enum Packet {
          NONE,
@@ -233,6 +231,28 @@ namespace VXAOS_Server {
          RANDOM,
          TOWARD_PLAYER,
          CUSTOM
+      }
+      public enum Feature {
+         ELEMENT_RATE = 11,
+         DEBUFF_RATE = 12,
+         STATE_RATE = 13,
+         STATE_RESIST = 14,
+         PARAM = 21,
+         XPARAM = 22,
+         SPARAM = 23,
+         ATK_ELEMENT = 31,
+         ATK_STATE = 32,
+         STYPE_ADD = 41,
+         STYPE_SEAL = 42,
+         SKILL_ADD = 43,
+         SKILL_SEAL = 44,
+         EQUIP_WTYPE = 51,
+         EQUIP_ATYPE = 52,
+         EQUIP_FIX = 53,
+         EQUIP_SEAL = 54,
+         SLOT_TYPE = 55,
+         SPECIAL_FLAG = 62,
+         PARTY_ABILITY = 64
       }
    }
 }

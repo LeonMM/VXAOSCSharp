@@ -286,7 +286,7 @@ class RPG::BaseItem
     data = json_string.is_a?(String) ? JSON.parse(json_string) : json_string
     self.new.tap do |this|
       data.each do |key, value|
-        if key == 'paramss'
+        if key == 'params'
           this.instance_variable_set(:@params, self.is_a?(RPG::Class) ? Table.from_json(value.to_json) : value)
         elsif key == "features"
            this.instance_variable_set(:@features, parse_array(RPG::BaseItem::Feature, value.to_json))
@@ -428,7 +428,7 @@ class RPG::Class < RPG::BaseItem
 
   def get_base_json
     super.merge({
-       'paramss' => @params,
+       'params' => @params,
        'exp_params' => @exp_params,
        'learnings' => @learnings
     })
@@ -804,7 +804,7 @@ class RPG::EquipItem < RPG::BaseItem
     super.merge({
         'price' => @price,
         'etype_id' => @etype_id,
-        'paramss' => @params
+        'params' => @params
     })
   end
 
@@ -912,7 +912,7 @@ class RPG::Enemy < RPG::BaseItem
     super.merge({
         'battler_name' => @battler_name,
         'battler_hue' => @battler_hue,
-        'paramss' => @params,
+        'params' => @params,
         'exp' => @exp,
         'gold' => @gold,
         'drop_items' => @drop_items,
@@ -1452,7 +1452,7 @@ class RPG::System::Terms
   def get_base_json
     {
         'basic' => @basic,
-        'paramss' => @params,
+        'params' => @params,
         'etypes' => @etypes,
         'commands' => @commands
     }
@@ -1464,7 +1464,7 @@ class RPG::System::Terms
     data = json_string.is_a?(String) ? JSON.parse(json_string) : json_string
     self.new.tap do |this|
       data.each do |key, value|
-        if key == 'paramss'
+        if key == 'params'
           this.instance_variable_set(:@params, value)
         else
           this.instance_variable_set("@#{key}".to_sym, value) if this.instance_variable_defined?("@#{key}".to_sym)

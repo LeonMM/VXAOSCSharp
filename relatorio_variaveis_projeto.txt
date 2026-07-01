@@ -1,0 +1,701 @@
+=====================================================================
+   RELATÓRIO DE VARIÁVEIS DE INSTÂNCIA E VARIÁVEIS GLOBAIS
+   Nota: Variaveis com '@*' foram geradas via attr_* sem uso literal de @
+   Gerado em: 30/06/2026 15:48:29
+=====================================================================
+
+=== VARIÁVEIS GLOBAIS DETECTADAS ===
+  - $data_actors              [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Database/database.rb, ./Scripts/Database/game_data.rb, ./Scripts/Network/network.rb]
+  - $data_animations          [Arquivos: ./Scripts/Database/game_data.rb, ./Scripts/Map/game_interpreter.rb, ./Scripts/Network/network.rb]
+  - $data_armors              [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Database/database.rb, ./Scripts/Database/game_data.rb, ./Scripts/Map/game_interpreter.rb, ./Scripts/Network/game_commands.rb, ./Scripts/Network/network.rb, ./Scripts/Trade/game_trade.rb]
+  - $data_classes             [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Database/database.rb, ./Scripts/Database/game_data.rb, ./Scripts/Network/handle_data.rb, ./Scripts/Network/network.rb]
+  - $data_common_events       [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Combat/game_client.rb, ./Scripts/Database/game_data.rb, ./Scripts/Map/game_interpreter.rb, ./Scripts/Network/network.rb]
+  - $data_enemies             [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Combat/game_enemy.rb, ./Scripts/Database/game_data.rb, ./Scripts/Map/game_event.rb, ./Scripts/Network/network.rb]
+  - $data_items               [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Combat/game_client.rb, ./Scripts/Database/database.rb, ./Scripts/Database/game_data.rb, ./Scripts/Map/game_interpreter.rb, ./Scripts/Network/game_commands.rb, ./Scripts/Network/handle_data.rb, ./Scripts/Network/network.rb, ./Scripts/Trade/game_trade.rb]
+  - $data_skills              [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Combat/game_client.rb, ./Scripts/Combat/game_enemy.rb, ./Scripts/Database/database.rb, ./Scripts/Database/game_data.rb, ./Scripts/Network/handle_data.rb, ./Scripts/Network/network.rb]
+  - $data_states              [Arquivos: ./Scripts/Client/game_character.rb, ./Scripts/Client/game_client.rb, ./Scripts/Database/database.rb, ./Scripts/Database/game_data.rb, ./Scripts/Network/network.rb]
+  - $data_system              [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Database/database.rb, ./Scripts/Database/game_data.rb]
+  - $data_tilesets            [Arquivos: ./Scripts/Database/game_data.rb, ./Scripts/Map/game_map.rb, ./Scripts/Network/network.rb]
+  - $data_weapons             [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Combat/game_client.rb, ./Scripts/Database/database.rb, ./Scripts/Database/game_data.rb, ./Scripts/Map/game_interpreter.rb, ./Scripts/Network/game_commands.rb, ./Scripts/Network/network.rb, ./Scripts/Trade/game_trade.rb]
+  - $network                  [Arquivos: ./Scripts/Client/game_account.rb, ./Scripts/Client/game_bank.rb, ./Scripts/Client/game_character.rb, ./Scripts/Client/game_client.rb, ./Scripts/Client/game_switches.rb, ./Scripts/Combat/game_battle.rb, ./Scripts/Combat/game_client.rb, ./Scripts/Combat/game_enemy.rb, ./Scripts/Database/database.rb, ./Scripts/Guild/game_guild.rb, ./Scripts/Map/game_event.rb, ./Scripts/Map/game_interpreter.rb, ./Scripts/Map/game_map.rb, ./Scripts/Party/game_party.rb, ./Scripts/Trade/game_trade.rb, ./Scripts/main.rb]
+================================================================================
+
+=== MAPEAMENTO DE CLASSES E MÓDULOS ===
+Classe: Buffer_Reader
+  Variáveis e suas Origens:
+    - @bytes                    [Arquivos: ./Scripts/Network/buffer.rb]
+--------------------------------------------------------------------------------
+Classe: Buffer_Writer
+  Variáveis e suas Origens:
+    - @buffer                   [Arquivos: ./Scripts/Network/buffer.rb]
+    - @pack                     [Arquivos: ./Scripts/Network/buffer.rb]
+    - @size                     [Arquivos: ./Scripts/Network/buffer.rb]
+--------------------------------------------------------------------------------
+Classe: Color
+  Variáveis e suas Origens:
+    - @alpha                    [Arquivos: ./Data/rgss.rb]
+    - @blue                     [Arquivos: ./Data/rgss.rb]
+    - @green                    [Arquivos: ./Data/rgss.rb]
+    - @red                      [Arquivos: ./Data/rgss.rb]
+--------------------------------------------------------------------------------
+Classe: Font
+  Variáveis e suas Origens:
+    - @*out_color               [Arquivos: ./Data/rgss.rb]
+    - @*outline                 [Arquivos: ./Data/rgss.rb]
+    - @*shadow                  [Arquivos: ./Data/rgss.rb]
+    - @bold                     [Arquivos: ./Data/rgss.rb]
+    - @color                    [Arquivos: ./Data/rgss.rb]
+    - @italic                   [Arquivos: ./Data/rgss.rb]
+    - @name                     [Arquivos: ./Data/rgss.rb]
+    - @size                     [Arquivos: ./Data/rgss.rb]
+--------------------------------------------------------------------------------
+Classe: Game_Client
+  Módulos Inclusos: Game_Account, Game_Character, Game_Battler, Game_Party, Game_Trade, Game_Bank
+  Variáveis e suas Origens:
+    - @*account_id_db           [Arquivos: ./Scripts/Client/game_account.rb]
+    - @*bank_id_db              [Arquivos: ./Scripts/Client/game_bank.rb]
+    - @actor_id                 [Arquivos: ./Scripts/Client/game_account.rb]
+    - @actors                   [Arquivos: ./Scripts/Client/game_account.rb]
+    - @added_vip_time           [Arquivos: ./Scripts/Client/game_account.rb]
+    - @antispam_time            [Arquivos: ./Scripts/Client/game_client.rb]
+    - @armors                   [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Client/game_account.rb]
+    - @bank_armors              [Arquivos: ./Scripts/Client/game_bank.rb]
+    - @bank_gold                [Arquivos: ./Scripts/Client/game_bank.rb]
+    - @bank_items               [Arquivos: ./Scripts/Client/game_bank.rb]
+    - @bank_weapons             [Arquivos: ./Scripts/Client/game_bank.rb]
+    - @buffs                    [Arquivos: ./Scripts/Client/game_character.rb, ./Scripts/Combat/game_battle.rb]
+    - @buffs_time               [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Client/game_character.rb]
+    - @character_index          [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Combat/game_client.rb, ./Scripts/Client/game_account.rb]
+    - @character_name           [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Client/game_account.rb]
+    - @choice                   [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Client/game_account.rb]
+    - @class_id                 [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Client/game_account.rb]
+    - @common_events            [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Combat/game_client.rb, ./Scripts/Client/game_account.rb]
+    - @creating_guild           [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Client/game_account.rb]
+    - @direction                [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Client/game_account.rb, ./Scripts/Client/game_character.rb, ./Scripts/Combat/game_battle.rb]
+    - @equips                   [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Client/game_account.rb]
+    - @event_interpreter        [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Combat/game_client.rb, ./Scripts/Client/game_account.rb, ./Scripts/Client/game_bank.rb]
+    - @exp                      [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Combat/game_client.rb, ./Scripts/Client/game_account.rb]
+    - @face_index               [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Client/game_account.rb]
+    - @face_name                [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Client/game_account.rb]
+    - @friends                  [Arquivos: ./Scripts/Client/game_account.rb]
+    - @global_antispam_time     [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Client/game_account.rb]
+    - @gold                     [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Combat/game_client.rb, ./Scripts/Client/game_account.rb]
+    - @group                    [Arquivos: ./Scripts/Client/game_account.rb]
+    - @guild_name               [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Client/game_account.rb]
+    - @hand_time                [Arquivos: ./Scripts/Client/game_account.rb]
+    - @handshake                [Arquivos: ./Scripts/Client/game_account.rb]
+    - @hotbar                   [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Client/game_account.rb]
+    - @hp                       [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Client/game_account.rb, ./Scripts/Client/game_character.rb, ./Scripts/Combat/game_battle.rb]
+    - @id                       [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Combat/game_client.rb, ./Scripts/Client/game_account.rb, ./Scripts/Combat/game_battle.rb, ./Scripts/Trade/game_trade.rb]
+    - @id_db                    [Arquivos: ./Scripts/Client/game_account.rb]
+    - @in_bank                  [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Client/game_account.rb, ./Scripts/Client/game_bank.rb]
+    - @inactivity_time          [Arquivos: ./Scripts/Client/game_account.rb]
+    - @ip                       [Arquivos: ./Scripts/Client/game_account.rb]
+    - @item_attack_time         [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Combat/game_client.rb, ./Scripts/Client/game_account.rb]
+    - @items                    [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Client/game_account.rb]
+    - @level                    [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Combat/game_client.rb, ./Scripts/Client/game_account.rb]
+    - @map_id                   [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Combat/game_client.rb, ./Scripts/Client/game_account.rb, ./Scripts/Client/game_character.rb, ./Scripts/Combat/game_battle.rb, ./Scripts/Party/game_party.rb, ./Scripts/Trade/game_trade.rb]
+    - @message_interpreter      [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Client/game_account.rb]
+    - @move_route_forcing       [Arquivos: ./Scripts/Client/game_client.rb]
+    - @move_succeed             [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Client/game_character.rb]
+    - @mp                       [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Client/game_account.rb, ./Scripts/Client/game_character.rb, ./Scripts/Combat/game_battle.rb]
+    - @muted_time               [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Client/game_account.rb]
+    - @name                     [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Client/game_account.rb]
+    - @online_friends_size      [Arquivos: ./Scripts/Client/game_account.rb]
+    - @original_character_index [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Client/game_account.rb]
+    - @original_character_name  [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Client/game_account.rb]
+    - @original_face_index      [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Client/game_account.rb]
+    - @original_face_name       [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Client/game_account.rb]
+    - @parallel_events_waiting  [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Client/game_account.rb]
+    - @param_base               [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Client/game_account.rb, ./Scripts/Client/game_character.rb]
+    - @party_id                 [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Client/game_account.rb, ./Scripts/Party/game_party.rb]
+    - @pass                     [Arquivos: ./Scripts/Client/game_account.rb]
+    - @points                   [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Client/game_account.rb]
+    - @priority_type            [Arquivos: ./Scripts/Client/game_character.rb]
+    - @quests                   [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Client/game_account.rb]
+    - @recover_time             [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Client/game_account.rb]
+    - @request                  [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Client/game_account.rb, ./Scripts/Party/game_party.rb, ./Scripts/Trade/game_trade.rb]
+    - @revive_map_id            [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Combat/game_client.rb, ./Scripts/Client/game_account.rb]
+    - @revive_x                 [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Combat/game_client.rb, ./Scripts/Client/game_account.rb]
+    - @revive_y                 [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Combat/game_client.rb, ./Scripts/Client/game_account.rb]
+    - @self_switches            [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Client/game_account.rb]
+    - @sex                      [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Client/game_account.rb]
+    - @shop_goods               [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Client/game_account.rb]
+    - @skill_cooldown_time      [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Combat/game_client.rb, ./Scripts/Client/game_account.rb]
+    - @skills                   [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Client/game_account.rb]
+    - @states                   [Arquivos: ./Scripts/Client/game_character.rb]
+    - @states_time              [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Client/game_character.rb]
+    - @stop_count               [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Client/game_account.rb]
+    - @switches                 [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Client/game_account.rb]
+    - @target                   [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Combat/game_client.rb, ./Scripts/Combat/game_battle.rb]
+    - @teleport_id              [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Client/game_account.rb]
+    - @through                  [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Client/game_character.rb]
+    - @tile_id                  [Arquivos: ./Scripts/Client/game_character.rb]
+    - @trade_armors             [Arquivos: ./Scripts/Trade/game_trade.rb]
+    - @trade_gold               [Arquivos: ./Scripts/Trade/game_trade.rb]
+    - @trade_items              [Arquivos: ./Scripts/Combat/game_client.rb, ./Scripts/Trade/game_trade.rb]
+    - @trade_player_id          [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Trade/game_trade.rb]
+    - @trade_weapons            [Arquivos: ./Scripts/Trade/game_trade.rb]
+    - @user                     [Arquivos: ./Scripts/Client/game_account.rb]
+    - @variables                [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Client/game_account.rb]
+    - @vip_time                 [Arquivos: ./Scripts/Client/game_account.rb]
+    - @waiting_event            [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Client/game_account.rb]
+    - @weapon_attack_time       [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Combat/game_client.rb, ./Scripts/Client/game_account.rb]
+    - @weapons                  [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Client/game_account.rb]
+    - @x                        [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Client/game_account.rb, ./Scripts/Client/game_character.rb, ./Scripts/Combat/game_battle.rb]
+    - @y                        [Arquivos: ./Scripts/Client/game_client.rb, ./Scripts/Client/game_account.rb, ./Scripts/Client/game_character.rb, ./Scripts/Combat/game_battle.rb]
+--------------------------------------------------------------------------------
+Classe: Game_Event
+  Módulos Inclusos: Game_Character, Game_Battler, Game_Enemy, Game_MoveEvent
+  Variáveis e suas Origens:
+    - @*variables               [Arquivos: ./Scripts/Client/game_character.rb]
+    - @action_time              [Arquivos: ./Scripts/Map/game_event.rb, ./Scripts/Combat/game_enemy.rb]
+    - @battle_stop_count_threshold [Arquivos: ./Scripts/Map/game_event.rb]
+    - @buffs                    [Arquivos: ./Scripts/Client/game_character.rb, ./Scripts/Combat/game_battle.rb]
+    - @buffs_time               [Arquivos: ./Scripts/Client/game_character.rb]
+    - @character_index          [Arquivos: ./Scripts/Map/game_event.rb, ./Scripts/Combat/game_enemy.rb]
+    - @direction                [Arquivos: ./Scripts/Map/game_event.rb, ./Scripts/Client/game_character.rb, ./Scripts/Combat/game_battle.rb, ./Scripts/Map/game_moveevent.rb]
+    - @enemy_id                 [Arquivos: ./Scripts/Map/game_event.rb, ./Scripts/Combat/game_enemy.rb]
+    - @escape                   [Arquivos: ./Scripts/Map/game_event.rb]
+    - @frequency_battle         [Arquivos: ./Scripts/Map/game_event.rb]
+    - @hp                       [Arquivos: ./Scripts/Map/game_event.rb, ./Scripts/Client/game_character.rb, ./Scripts/Combat/game_battle.rb, ./Scripts/Combat/game_enemy.rb]
+    - @id                       [Arquivos: ./Scripts/Map/game_event.rb, ./Scripts/Combat/game_battle.rb, ./Scripts/Combat/game_enemy.rb]
+    - @interpreter              [Arquivos: ./Scripts/Map/game_event.rb]
+    - @list                     [Arquivos: ./Scripts/Map/game_event.rb]
+    - @locked                   [Arquivos: ./Scripts/Map/game_event.rb]
+    - @map_id                   [Arquivos: ./Scripts/Map/game_event.rb, ./Scripts/Client/game_character.rb, ./Scripts/Combat/game_battle.rb, ./Scripts/Combat/game_enemy.rb]
+    - @move_frequency           [Arquivos: ./Scripts/Map/game_event.rb]
+    - @move_route               [Arquivos: ./Scripts/Map/game_event.rb]
+    - @move_route_forcing       [Arquivos: ./Scripts/Map/game_event.rb]
+    - @move_route_index         [Arquivos: ./Scripts/Map/game_event.rb]
+    - @move_succeed             [Arquivos: ./Scripts/Map/game_event.rb, ./Scripts/Client/game_character.rb, ./Scripts/Map/game_moveevent.rb]
+    - @move_type                [Arquivos: ./Scripts/Map/game_event.rb, ./Scripts/Combat/game_enemy.rb]
+    - @mp                       [Arquivos: ./Scripts/Map/game_event.rb, ./Scripts/Client/game_character.rb, ./Scripts/Combat/game_battle.rb, ./Scripts/Combat/game_enemy.rb]
+    - @page                     [Arquivos: ./Scripts/Map/game_event.rb]
+    - @pages                    [Arquivos: ./Scripts/Map/game_event.rb]
+    - @parallel_process_waiting [Arquivos: ./Scripts/Map/game_event.rb]
+    - @param_base               [Arquivos: ./Scripts/Map/game_event.rb, ./Scripts/Client/game_character.rb]
+    - @prelock_direction        [Arquivos: ./Scripts/Map/game_event.rb]
+    - @priority_type            [Arquivos: ./Scripts/Map/game_event.rb, ./Scripts/Client/game_character.rb]
+    - @region_id                [Arquivos: ./Scripts/Combat/game_enemy.rb]
+    - @revive_time              [Arquivos: ./Scripts/Map/game_event.rb, ./Scripts/Combat/game_enemy.rb]
+    - @sight                    [Arquivos: ./Scripts/Map/game_event.rb]
+    - @states                   [Arquivos: ./Scripts/Client/game_character.rb]
+    - @states_time              [Arquivos: ./Scripts/Client/game_character.rb]
+    - @stop_count               [Arquivos: ./Scripts/Map/game_event.rb]
+    - @stop_count_threshold     [Arquivos: ./Scripts/Map/game_event.rb]
+    - @target                   [Arquivos: ./Scripts/Map/game_event.rb, ./Scripts/Combat/game_battle.rb, ./Scripts/Combat/game_enemy.rb]
+    - @through                  [Arquivos: ./Scripts/Map/game_event.rb, ./Scripts/Client/game_character.rb]
+    - @tile_id                  [Arquivos: ./Scripts/Map/game_event.rb, ./Scripts/Client/game_character.rb]
+    - @trigger                  [Arquivos: ./Scripts/Map/game_event.rb]
+    - @x                        [Arquivos: ./Scripts/Map/game_event.rb, ./Scripts/Client/game_character.rb, ./Scripts/Combat/game_battle.rb, ./Scripts/Combat/game_enemy.rb]
+    - @y                        [Arquivos: ./Scripts/Map/game_event.rb, ./Scripts/Client/game_character.rb, ./Scripts/Combat/game_battle.rb, ./Scripts/Combat/game_enemy.rb]
+--------------------------------------------------------------------------------
+Classe: Game_GlobalSwitches
+  Variáveis e suas Origens:
+    - @data                     [Arquivos: ./Scripts/Client/game_switches.rb]
+--------------------------------------------------------------------------------
+Classe: Game_Interpreter
+  Variáveis e suas Origens:
+    - @branch                   [Arquivos: ./Scripts/Map/game_interpreter.rb]
+    - @client                   [Arquivos: ./Scripts/Map/game_interpreter.rb]
+    - @event_id                 [Arquivos: ./Scripts/Map/game_interpreter.rb]
+    - @fiber                    [Arquivos: ./Scripts/Map/game_interpreter.rb]
+    - @indent                   [Arquivos: ./Scripts/Map/game_interpreter.rb]
+    - @index                    [Arquivos: ./Scripts/Map/game_interpreter.rb]
+    - @list                     [Arquivos: ./Scripts/Map/game_interpreter.rb]
+    - @map_id                   [Arquivos: ./Scripts/Map/game_interpreter.rb]
+    - @object                   [Arquivos: ./Scripts/Map/game_interpreter.rb]
+    - @params                   [Arquivos: ./Scripts/Map/game_interpreter.rb]
+--------------------------------------------------------------------------------
+Classe: Game_Map
+  Variáveis e suas Origens:
+    - @data                     [Arquivos: ./Scripts/Map/game_map.rb]
+    - @drops                    [Arquivos: ./Scripts/Map/game_map.rb]
+    - @events                   [Arquivos: ./Scripts/Map/game_map.rb]
+    - @height                   [Arquivos: ./Scripts/Map/game_map.rb]
+    - @id                       [Arquivos: ./Scripts/Map/game_map.rb]
+    - @pvp                      [Arquivos: ./Scripts/Map/game_map.rb]
+    - @revive_regions           [Arquivos: ./Scripts/Map/game_map.rb]
+    - @tile_events              [Arquivos: ./Scripts/Map/game_map.rb]
+    - @tileset_id               [Arquivos: ./Scripts/Map/game_map.rb]
+    - @total_players            [Arquivos: ./Scripts/Map/game_map.rb]
+    - @width                    [Arquivos: ./Scripts/Map/game_map.rb]
+--------------------------------------------------------------------------------
+Classe: Game_Quest
+  Variáveis e suas Origens:
+    - @enemy_id                 [Arquivos: ./Scripts/Client/game_quest.rb]
+    - @item_amount              [Arquivos: ./Scripts/Client/game_quest.rb]
+    - @item_id                  [Arquivos: ./Scripts/Client/game_quest.rb]
+    - @item_kind                [Arquivos: ./Scripts/Client/game_quest.rb]
+    - @kills                    [Arquivos: ./Scripts/Client/game_quest.rb]
+    - @max_kills                [Arquivos: ./Scripts/Client/game_quest.rb]
+    - @repeat                   [Arquivos: ./Scripts/Client/game_quest.rb]
+    - @reward                   [Arquivos: ./Scripts/Client/game_quest.rb]
+    - @state                    [Arquivos: ./Scripts/Client/game_quest.rb]
+    - @switch_id                [Arquivos: ./Scripts/Client/game_quest.rb]
+    - @variable_amount          [Arquivos: ./Scripts/Client/game_quest.rb]
+    - @variable_id              [Arquivos: ./Scripts/Client/game_quest.rb]
+--------------------------------------------------------------------------------
+Classe: Game_SelfSwitches
+  Variáveis e suas Origens:
+    - @client                   [Arquivos: ./Scripts/Client/game_switches.rb]
+    - @data                     [Arquivos: ./Scripts/Client/game_switches.rb]
+--------------------------------------------------------------------------------
+Classe: Game_Switches
+  Variáveis e suas Origens:
+    - @client                   [Arquivos: ./Scripts/Client/game_switches.rb]
+    - @data                     [Arquivos: ./Scripts/Client/game_switches.rb]
+--------------------------------------------------------------------------------
+Classe: Game_Variables
+  Variáveis e suas Origens:
+    - @client                   [Arquivos: ./Scripts/Client/game_switches.rb]
+    - @data                     [Arquivos: ./Scripts/Client/game_switches.rb]
+--------------------------------------------------------------------------------
+Classe: Logger
+  Variáveis e suas Origens:
+    - @text                     [Arquivos: ./Scripts/Database/logger.rb]
+--------------------------------------------------------------------------------
+Classe: Network
+  Módulos Inclusos: Handle_Data, Send_Data, Game_General, Game_Commands, Game_Data, Game_Guild
+  Variáveis e suas Origens:
+    - @ban_list                 [Arquivos: ./Scripts/Network/network.rb, ./Scripts/Network/game_general.rb, ./Scripts/Network/game_commands.rb]
+    - @blocked_ips              [Arquivos: ./Scripts/Network/network.rb, ./Scripts/Network/handle_data.rb, ./Scripts/Network/game_general.rb]
+    - @client_high_id           [Arquivos: ./Scripts/Network/network.rb, ./Scripts/Network/game_general.rb]
+    - @client_ids_available     [Arquivos: ./Scripts/Network/network.rb, ./Scripts/Network/game_general.rb]
+    - @clients                  [Arquivos: ./Scripts/Network/network.rb, ./Scripts/Network/handle_data.rb, ./Scripts/Network/send_data.rb, ./Scripts/Network/game_general.rb, ./Scripts/Network/game_commands.rb, ./Scripts/Database/game_data.rb, ./Scripts/Guild/game_guild.rb]
+    - @guilds                   [Arquivos: ./Scripts/Network/network.rb, ./Scripts/Network/handle_data.rb, ./Scripts/Network/send_data.rb, ./Scripts/Network/game_general.rb, ./Scripts/Guild/game_guild.rb]
+    - @log                      [Arquivos: ./Scripts/Network/network.rb, ./Scripts/Network/handle_data.rb, ./Scripts/Network/game_commands.rb, ./Scripts/Database/game_data.rb]
+    - @maps                     [Arquivos: ./Scripts/Network/network.rb, ./Scripts/Network/handle_data.rb, ./Scripts/Network/send_data.rb, ./Scripts/Database/game_data.rb]
+    - @motd                     [Arquivos: ./Scripts/Network/send_data.rb, ./Scripts/Network/game_commands.rb, ./Scripts/Database/game_data.rb]
+    - @parties                  [Arquivos: ./Scripts/Network/network.rb, ./Scripts/Network/handle_data.rb, ./Scripts/Network/send_data.rb]
+    - @party_high_id            [Arquivos: ./Scripts/Network/network.rb]
+    - @party_ids_available      [Arquivos: ./Scripts/Network/network.rb]
+    - @switches                 [Arquivos: ./Scripts/Network/network.rb, ./Scripts/Network/send_data.rb, ./Scripts/Network/game_commands.rb, ./Scripts/Database/game_data.rb]
+--------------------------------------------------------------------------------
+Classe: RPG::Actor
+  Variáveis e suas Origens:
+    - @character_index          [Arquivos: ./Data/rpg.rb]
+    - @character_name           [Arquivos: ./Data/rpg.rb]
+    - @class_id                 [Arquivos: ./Data/rpg.rb]
+    - @equips                   [Arquivos: ./Data/rpg.rb]
+    - @face_index               [Arquivos: ./Data/rpg.rb]
+    - @face_name                [Arquivos: ./Data/rpg.rb]
+    - @initial_level            [Arquivos: ./Data/rpg.rb]
+    - @max_level                [Arquivos: ./Data/rpg.rb]
+    - @nickname                 [Arquivos: ./Data/rpg.rb]
+--------------------------------------------------------------------------------
+Classe: RPG::Animation
+  Variáveis e suas Origens:
+    - @animation1_hue           [Arquivos: ./Data/rpg.rb]
+    - @animation1_name          [Arquivos: ./Data/rpg.rb]
+    - @animation2_hue           [Arquivos: ./Data/rpg.rb]
+    - @animation2_name          [Arquivos: ./Data/rpg.rb]
+    - @frame_max                [Arquivos: ./Data/rpg.rb]
+    - @frames                   [Arquivos: ./Data/rpg.rb]
+    - @id                       [Arquivos: ./Data/rpg.rb]
+    - @name                     [Arquivos: ./Data/rpg.rb]
+    - @position                 [Arquivos: ./Data/rpg.rb]
+    - @timings                  [Arquivos: ./Data/rpg.rb]
+--------------------------------------------------------------------------------
+Classe: RPG::Animation::Frame
+  Variáveis e suas Origens:
+    - @cell_data                [Arquivos: ./Data/rpg.rb]
+    - @cell_max                 [Arquivos: ./Data/rpg.rb]
+--------------------------------------------------------------------------------
+Classe: RPG::Animation::Timing
+  Variáveis e suas Origens:
+    - @flash_color              [Arquivos: ./Data/rpg.rb]
+    - @flash_duration           [Arquivos: ./Data/rpg.rb]
+    - @flash_scope              [Arquivos: ./Data/rpg.rb]
+    - @frame                    [Arquivos: ./Data/rpg.rb]
+    - @se                       [Arquivos: ./Data/rpg.rb]
+--------------------------------------------------------------------------------
+Classe: RPG::Armor
+  Variáveis e suas Origens:
+    - @atype_id                 [Arquivos: ./Data/rpg.rb]
+    - @etype_id                 [Arquivos: ./Data/rpg.rb]
+    - @features                 [Arquivos: ./Data/rpg.rb]
+    - @sex                      [Arquivos: ./Data/rpg.rb]
+--------------------------------------------------------------------------------
+Classe: RPG::AudioFile
+  Variáveis e suas Origens:
+    - @name                     [Arquivos: ./Data/rpg.rb]
+    - @pitch                    [Arquivos: ./Data/rpg.rb]
+    - @volume                   [Arquivos: ./Data/rpg.rb]
+--------------------------------------------------------------------------------
+Classe: RPG::BGM
+  Variáveis e suas Origens:
+    - @name                     [Arquivos: ./Data/rpg.rb]
+    - @pitch                    [Arquivos: ./Data/rpg.rb]
+    - @pos                      [Arquivos: ./Data/rpg.rb]
+    - @volume                   [Arquivos: ./Data/rpg.rb]
+--------------------------------------------------------------------------------
+Classe: RPG::BGS
+  Variáveis e suas Origens:
+    - @name                     [Arquivos: ./Data/rpg.rb]
+    - @pitch                    [Arquivos: ./Data/rpg.rb]
+    - @pos                      [Arquivos: ./Data/rpg.rb]
+    - @volume                   [Arquivos: ./Data/rpg.rb]
+--------------------------------------------------------------------------------
+Classe: RPG::BaseItem
+  Variáveis e suas Origens:
+    - @description              [Arquivos: ./Data/rpg.rb]
+    - @features                 [Arquivos: ./Data/rpg.rb]
+    - @icon_index               [Arquivos: ./Data/rpg.rb]
+    - @id                       [Arquivos: ./Data/rpg.rb]
+    - @name                     [Arquivos: ./Data/rpg.rb]
+    - @note                     [Arquivos: ./Data/rpg.rb]
+--------------------------------------------------------------------------------
+Classe: RPG::BaseItem::Feature
+  Variáveis e suas Origens:
+    - @code                     [Arquivos: ./Data/rpg.rb]
+    - @data_id                  [Arquivos: ./Data/rpg.rb]
+    - @value                    [Arquivos: ./Data/rpg.rb]
+--------------------------------------------------------------------------------
+Classe: RPG::Class
+  Variáveis e suas Origens:
+    - @exp_params               [Arquivos: ./Data/rpg.rb]
+    - @features                 [Arquivos: ./Data/rpg.rb]
+    - @graphics                 [Arquivos: ./Data/rpg.rb]
+    - @learnings                [Arquivos: ./Data/rpg.rb]
+    - @params                   [Arquivos: ./Data/rpg.rb]
+--------------------------------------------------------------------------------
+Classe: RPG::Class::Learning
+  Variáveis e suas Origens:
+    - @level                    [Arquivos: ./Data/rpg.rb]
+    - @note                     [Arquivos: ./Data/rpg.rb]
+    - @skill_id                 [Arquivos: ./Data/rpg.rb]
+--------------------------------------------------------------------------------
+Classe: RPG::CommonEvent
+  Variáveis e suas Origens:
+    - @id                       [Arquivos: ./Data/rpg.rb]
+    - @list                     [Arquivos: ./Data/rpg.rb]
+    - @name                     [Arquivos: ./Data/rpg.rb]
+    - @switch_id                [Arquivos: ./Data/rpg.rb]
+    - @trigger                  [Arquivos: ./Data/rpg.rb]
+--------------------------------------------------------------------------------
+Classe: RPG::Enemy
+  Variáveis e suas Origens:
+    - @actions                  [Arquivos: ./Data/rpg.rb]
+    - @ani_index                [Arquivos: ./Data/rpg.rb]
+    - @battler_hue              [Arquivos: ./Data/rpg.rb]
+    - @battler_name             [Arquivos: ./Data/rpg.rb]
+    - @disable_switch_id        [Arquivos: ./Data/rpg.rb]
+    - @disable_variable_id      [Arquivos: ./Data/rpg.rb]
+    - @drop_items               [Arquivos: ./Data/rpg.rb]
+    - @escape                   [Arquivos: ./Data/rpg.rb]
+    - @exp                      [Arquivos: ./Data/rpg.rb]
+    - @features                 [Arquivos: ./Data/rpg.rb]
+    - @gold                     [Arquivos: ./Data/rpg.rb]
+    - @params                   [Arquivos: ./Data/rpg.rb]
+    - @revive_time              [Arquivos: ./Data/rpg.rb]
+    - @sight                    [Arquivos: ./Data/rpg.rb]
+--------------------------------------------------------------------------------
+Classe: RPG::Enemy::Action
+  Variáveis e suas Origens:
+    - @condition_param1         [Arquivos: ./Data/rpg.rb]
+    - @condition_param2         [Arquivos: ./Data/rpg.rb]
+    - @condition_type           [Arquivos: ./Data/rpg.rb]
+    - @rating                   [Arquivos: ./Data/rpg.rb]
+    - @skill_id                 [Arquivos: ./Data/rpg.rb]
+--------------------------------------------------------------------------------
+Classe: RPG::Enemy::DropItem
+  Variáveis e suas Origens:
+    - @data_id                  [Arquivos: ./Data/rpg.rb]
+    - @denominator              [Arquivos: ./Data/rpg.rb]
+    - @kind                     [Arquivos: ./Data/rpg.rb]
+--------------------------------------------------------------------------------
+Classe: RPG::EquipItem
+  Variáveis e suas Origens:
+    - @etype_id                 [Arquivos: ./Data/rpg.rb]
+    - @level                    [Arquivos: ./Data/rpg.rb]
+    - @params                   [Arquivos: ./Data/rpg.rb]
+    - @price                    [Arquivos: ./Data/rpg.rb]
+    - @soulbound                [Arquivos: ./Data/rpg.rb]
+    - @vip                      [Arquivos: ./Data/rpg.rb]
+--------------------------------------------------------------------------------
+Classe: RPG::Event
+  Variáveis e suas Origens:
+    - @id                       [Arquivos: ./Data/rpg.rb]
+    - @name                     [Arquivos: ./Data/rpg.rb]
+    - @pages                    [Arquivos: ./Data/rpg.rb]
+    - @x                        [Arquivos: ./Data/rpg.rb]
+    - @y                        [Arquivos: ./Data/rpg.rb]
+--------------------------------------------------------------------------------
+Classe: RPG::Event::Page
+  Variáveis e suas Origens:
+    - @condition                [Arquivos: ./Data/rpg.rb]
+    - @direction_fix            [Arquivos: ./Data/rpg.rb]
+    - @graphic                  [Arquivos: ./Data/rpg.rb]
+    - @list                     [Arquivos: ./Data/rpg.rb]
+    - @move_frequency           [Arquivos: ./Data/rpg.rb]
+    - @move_route               [Arquivos: ./Data/rpg.rb]
+    - @move_speed               [Arquivos: ./Data/rpg.rb]
+    - @move_type                [Arquivos: ./Data/rpg.rb]
+    - @priority_type            [Arquivos: ./Data/rpg.rb]
+    - @step_anime               [Arquivos: ./Data/rpg.rb]
+    - @through                  [Arquivos: ./Data/rpg.rb]
+    - @trigger                  [Arquivos: ./Data/rpg.rb]
+    - @walk_anime               [Arquivos: ./Data/rpg.rb]
+--------------------------------------------------------------------------------
+Classe: RPG::Event::Page::Condition
+  Variáveis e suas Origens:
+    - @actor_id                 [Arquivos: ./Data/rpg.rb]
+    - @actor_valid              [Arquivos: ./Data/rpg.rb]
+    - @item_id                  [Arquivos: ./Data/rpg.rb]
+    - @item_valid               [Arquivos: ./Data/rpg.rb]
+    - @self_switch_ch           [Arquivos: ./Data/rpg.rb]
+    - @self_switch_valid        [Arquivos: ./Data/rpg.rb]
+    - @switch1_id               [Arquivos: ./Data/rpg.rb]
+    - @switch1_valid            [Arquivos: ./Data/rpg.rb]
+    - @switch2_id               [Arquivos: ./Data/rpg.rb]
+    - @switch2_valid            [Arquivos: ./Data/rpg.rb]
+    - @variable_id              [Arquivos: ./Data/rpg.rb]
+    - @variable_valid           [Arquivos: ./Data/rpg.rb]
+    - @variable_value           [Arquivos: ./Data/rpg.rb]
+--------------------------------------------------------------------------------
+Classe: RPG::Event::Page::Graphic
+  Variáveis e suas Origens:
+    - @character_index          [Arquivos: ./Data/rpg.rb]
+    - @character_name           [Arquivos: ./Data/rpg.rb]
+    - @direction                [Arquivos: ./Data/rpg.rb]
+    - @pattern                  [Arquivos: ./Data/rpg.rb]
+    - @tile_id                  [Arquivos: ./Data/rpg.rb]
+--------------------------------------------------------------------------------
+Classe: RPG::EventCommand
+  Variáveis e suas Origens:
+    - @code                     [Arquivos: ./Data/rpg.rb]
+    - @indent                   [Arquivos: ./Data/rpg.rb]
+    - @parameters               [Arquivos: ./Data/rpg.rb]
+--------------------------------------------------------------------------------
+Classe: RPG::Item
+  Variáveis e suas Origens:
+    - @consumable               [Arquivos: ./Data/rpg.rb]
+    - @itype_id                 [Arquivos: ./Data/rpg.rb]
+    - @price                    [Arquivos: ./Data/rpg.rb]
+    - @scope                    [Arquivos: ./Data/rpg.rb]
+    - @soulbound                [Arquivos: ./Data/rpg.rb]
+--------------------------------------------------------------------------------
+Classe: RPG::ME
+  Variáveis e suas Origens:
+    - @name                     [Arquivos: ./Data/rpg.rb]
+    - @pitch                    [Arquivos: ./Data/rpg.rb]
+    - @volume                   [Arquivos: ./Data/rpg.rb]
+--------------------------------------------------------------------------------
+Classe: RPG::Map
+  Variáveis e suas Origens:
+    - @*battleback1_name        [Arquivos: ./Data/rpg.rb]
+    - @*battleback2_name        [Arquivos: ./Data/rpg.rb]
+    - @autoplay_bgm             [Arquivos: ./Data/rpg.rb]
+    - @autoplay_bgs             [Arquivos: ./Data/rpg.rb]
+    - @battleback_floor_name    [Arquivos: ./Data/rpg.rb]
+    - @battleback_wall_name     [Arquivos: ./Data/rpg.rb]
+    - @bgm                      [Arquivos: ./Data/rpg.rb]
+    - @bgs                      [Arquivos: ./Data/rpg.rb]
+    - @data                     [Arquivos: ./Data/rpg.rb]
+    - @disable_dashing          [Arquivos: ./Data/rpg.rb]
+    - @display_name             [Arquivos: ./Data/rpg.rb]
+    - @encounter_list           [Arquivos: ./Data/rpg.rb]
+    - @encounter_step           [Arquivos: ./Data/rpg.rb]
+    - @events                   [Arquivos: ./Data/rpg.rb]
+    - @height                   [Arquivos: ./Data/rpg.rb]
+    - @note                     [Arquivos: ./Data/rpg.rb]
+    - @parallax_loop_x          [Arquivos: ./Data/rpg.rb]
+    - @parallax_loop_y          [Arquivos: ./Data/rpg.rb]
+    - @parallax_name            [Arquivos: ./Data/rpg.rb]
+    - @parallax_show            [Arquivos: ./Data/rpg.rb]
+    - @parallax_sx              [Arquivos: ./Data/rpg.rb]
+    - @parallax_sy              [Arquivos: ./Data/rpg.rb]
+    - @scroll_type              [Arquivos: ./Data/rpg.rb]
+    - @specify_battleback       [Arquivos: ./Data/rpg.rb]
+    - @tileset_id               [Arquivos: ./Data/rpg.rb]
+    - @width                    [Arquivos: ./Data/rpg.rb]
+--------------------------------------------------------------------------------
+Classe: RPG::MapInfo
+  Variáveis e suas Origens:
+    - @expanded                 [Arquivos: ./Data/rpg.rb]
+    - @name                     [Arquivos: ./Data/rpg.rb]
+    - @order                    [Arquivos: ./Data/rpg.rb]
+    - @parent_id                [Arquivos: ./Data/rpg.rb]
+    - @scroll_x                 [Arquivos: ./Data/rpg.rb]
+    - @scroll_y                 [Arquivos: ./Data/rpg.rb]
+--------------------------------------------------------------------------------
+Classe: RPG::MoveCommand
+  Variáveis e suas Origens:
+    - @code                     [Arquivos: ./Data/rpg.rb]
+    - @parameters               [Arquivos: ./Data/rpg.rb]
+--------------------------------------------------------------------------------
+Classe: RPG::MoveRoute
+  Variáveis e suas Origens:
+    - @list                     [Arquivos: ./Data/rpg.rb]
+    - @repeat                   [Arquivos: ./Data/rpg.rb]
+    - @skippable                [Arquivos: ./Data/rpg.rb]
+    - @wait                     [Arquivos: ./Data/rpg.rb]
+--------------------------------------------------------------------------------
+Classe: RPG::SE
+  Variáveis e suas Origens:
+    - @name                     [Arquivos: ./Data/rpg.rb]
+    - @pitch                    [Arquivos: ./Data/rpg.rb]
+    - @volume                   [Arquivos: ./Data/rpg.rb]
+--------------------------------------------------------------------------------
+Classe: RPG::Skill
+  Variáveis e suas Origens:
+    - @cooldown                 [Arquivos: ./Data/rpg.rb]
+    - @message1                 [Arquivos: ./Data/rpg.rb]
+    - @message2                 [Arquivos: ./Data/rpg.rb]
+    - @mp_cost                  [Arquivos: ./Data/rpg.rb]
+    - @required_wtype_id1       [Arquivos: ./Data/rpg.rb]
+    - @required_wtype_id2       [Arquivos: ./Data/rpg.rb]
+    - @scope                    [Arquivos: ./Data/rpg.rb]
+    - @stype_id                 [Arquivos: ./Data/rpg.rb]
+    - @tp_cost                  [Arquivos: ./Data/rpg.rb]
+--------------------------------------------------------------------------------
+Classe: RPG::State
+  Variáveis e suas Origens:
+    - @auto_removal_timing      [Arquivos: ./Data/rpg.rb]
+    - @chance_by_damage         [Arquivos: ./Data/rpg.rb]
+    - @max_turns                [Arquivos: ./Data/rpg.rb]
+    - @message1                 [Arquivos: ./Data/rpg.rb]
+    - @message2                 [Arquivos: ./Data/rpg.rb]
+    - @message3                 [Arquivos: ./Data/rpg.rb]
+    - @message4                 [Arquivos: ./Data/rpg.rb]
+    - @min_turns                [Arquivos: ./Data/rpg.rb]
+    - @priority                 [Arquivos: ./Data/rpg.rb]
+    - @remove_at_battle_end     [Arquivos: ./Data/rpg.rb]
+    - @remove_by_damage         [Arquivos: ./Data/rpg.rb]
+    - @remove_by_restriction    [Arquivos: ./Data/rpg.rb]
+    - @remove_by_walking        [Arquivos: ./Data/rpg.rb]
+    - @restriction              [Arquivos: ./Data/rpg.rb]
+    - @save                     [Arquivos: ./Data/rpg.rb]
+    - @steps_to_remove          [Arquivos: ./Data/rpg.rb]
+--------------------------------------------------------------------------------
+Classe: RPG::System
+  Variáveis e suas Origens:
+    - @airship                  [Arquivos: ./Data/rpg.rb]
+    - @armor_types              [Arquivos: ./Data/rpg.rb]
+    - @battle_bgm               [Arquivos: ./Data/rpg.rb]
+    - @battle_end_me            [Arquivos: ./Data/rpg.rb]
+    - @battleback1_name         [Arquivos: ./Data/rpg.rb]
+    - @battleback2_name         [Arquivos: ./Data/rpg.rb]
+    - @battler_hue              [Arquivos: ./Data/rpg.rb]
+    - @battler_name             [Arquivos: ./Data/rpg.rb]
+    - @boat                     [Arquivos: ./Data/rpg.rb]
+    - @currency_unit            [Arquivos: ./Data/rpg.rb]
+    - @edit_map_id              [Arquivos: ./Data/rpg.rb]
+    - @elements                 [Arquivos: ./Data/rpg.rb]
+    - @game_title               [Arquivos: ./Data/rpg.rb]
+    - @gameover_me              [Arquivos: ./Data/rpg.rb]
+    - @japanese                 [Arquivos: ./Data/rpg.rb]
+    - @opt_display_tp           [Arquivos: ./Data/rpg.rb]
+    - @opt_draw_title           [Arquivos: ./Data/rpg.rb]
+    - @opt_extra_exp            [Arquivos: ./Data/rpg.rb]
+    - @opt_floor_death          [Arquivos: ./Data/rpg.rb]
+    - @opt_followers            [Arquivos: ./Data/rpg.rb]
+    - @opt_slip_death           [Arquivos: ./Data/rpg.rb]
+    - @opt_transparent          [Arquivos: ./Data/rpg.rb]
+    - @opt_use_midi             [Arquivos: ./Data/rpg.rb]
+    - @party_members            [Arquivos: ./Data/rpg.rb]
+    - @ship                     [Arquivos: ./Data/rpg.rb]
+    - @skill_types              [Arquivos: ./Data/rpg.rb]
+    - @sounds                   [Arquivos: ./Data/rpg.rb]
+    - @start_map_id             [Arquivos: ./Data/rpg.rb]
+    - @start_x                  [Arquivos: ./Data/rpg.rb]
+    - @start_y                  [Arquivos: ./Data/rpg.rb]
+    - @switches                 [Arquivos: ./Data/rpg.rb]
+    - @terms                    [Arquivos: ./Data/rpg.rb]
+    - @test_battlers            [Arquivos: ./Data/rpg.rb]
+    - @test_troop_id            [Arquivos: ./Data/rpg.rb]
+    - @title1_name              [Arquivos: ./Data/rpg.rb]
+    - @title2_name              [Arquivos: ./Data/rpg.rb]
+    - @title_bgm                [Arquivos: ./Data/rpg.rb]
+    - @variables                [Arquivos: ./Data/rpg.rb]
+    - @version_id               [Arquivos: ./Data/rpg.rb]
+    - @weapon_types             [Arquivos: ./Data/rpg.rb]
+    - @window_tone              [Arquivos: ./Data/rpg.rb]
+--------------------------------------------------------------------------------
+Classe: RPG::System::Terms
+  Variáveis e suas Origens:
+    - @basic                    [Arquivos: ./Data/rpg.rb]
+    - @commands                 [Arquivos: ./Data/rpg.rb]
+    - @etypes                   [Arquivos: ./Data/rpg.rb]
+    - @params                   [Arquivos: ./Data/rpg.rb]
+--------------------------------------------------------------------------------
+Classe: RPG::System::TestBattler
+  Variáveis e suas Origens:
+    - @actor_id                 [Arquivos: ./Data/rpg.rb]
+    - @equips                   [Arquivos: ./Data/rpg.rb]
+    - @level                    [Arquivos: ./Data/rpg.rb]
+--------------------------------------------------------------------------------
+Classe: RPG::System::Vehicle
+  Variáveis e suas Origens:
+    - @bgm                      [Arquivos: ./Data/rpg.rb]
+    - @character_index          [Arquivos: ./Data/rpg.rb]
+    - @character_name           [Arquivos: ./Data/rpg.rb]
+    - @start_map_id             [Arquivos: ./Data/rpg.rb]
+    - @start_x                  [Arquivos: ./Data/rpg.rb]
+    - @start_y                  [Arquivos: ./Data/rpg.rb]
+--------------------------------------------------------------------------------
+Classe: RPG::Tileset
+  Variáveis e suas Origens:
+    - @flags                    [Arquivos: ./Data/rpg.rb]
+    - @id                       [Arquivos: ./Data/rpg.rb]
+    - @mode                     [Arquivos: ./Data/rpg.rb]
+    - @name                     [Arquivos: ./Data/rpg.rb]
+    - @note                     [Arquivos: ./Data/rpg.rb]
+    - @tileset_names            [Arquivos: ./Data/rpg.rb]
+--------------------------------------------------------------------------------
+Classe: RPG::UsableItem
+  Variáveis e suas Origens:
+    - @ani_index                [Arquivos: ./Data/rpg.rb]
+    - @animation_id             [Arquivos: ./Data/rpg.rb]
+    - @aoe                      [Arquivos: ./Data/rpg.rb]
+    - @damage                   [Arquivos: ./Data/rpg.rb]
+    - @effects                  [Arquivos: ./Data/rpg.rb]
+    - @hit_type                 [Arquivos: ./Data/rpg.rb]
+    - @level                    [Arquivos: ./Data/rpg.rb]
+    - @occasion                 [Arquivos: ./Data/rpg.rb]
+    - @range                    [Arquivos: ./Data/rpg.rb]
+    - @repeats                  [Arquivos: ./Data/rpg.rb]
+    - @scope                    [Arquivos: ./Data/rpg.rb]
+    - @speed                    [Arquivos: ./Data/rpg.rb]
+    - @success_rate             [Arquivos: ./Data/rpg.rb]
+    - @tp_gain                  [Arquivos: ./Data/rpg.rb]
+--------------------------------------------------------------------------------
+Classe: RPG::UsableItem::Damage
+  Variáveis e suas Origens:
+    - @critical                 [Arquivos: ./Data/rpg.rb]
+    - @element_id               [Arquivos: ./Data/rpg.rb]
+    - @formula                  [Arquivos: ./Data/rpg.rb]
+    - @type                     [Arquivos: ./Data/rpg.rb]
+    - @variance                 [Arquivos: ./Data/rpg.rb]
+--------------------------------------------------------------------------------
+Classe: RPG::UsableItem::Effect
+  Variáveis e suas Origens:
+    - @code                     [Arquivos: ./Data/rpg.rb]
+    - @data_id                  [Arquivos: ./Data/rpg.rb]
+    - @value1                   [Arquivos: ./Data/rpg.rb]
+    - @value2                   [Arquivos: ./Data/rpg.rb]
+--------------------------------------------------------------------------------
+Classe: RPG::Weapon
+  Variáveis e suas Origens:
+    - @ani_index                [Arquivos: ./Data/rpg.rb]
+    - @animation_id             [Arquivos: ./Data/rpg.rb]
+    - @features                 [Arquivos: ./Data/rpg.rb]
+    - @wtype_id                 [Arquivos: ./Data/rpg.rb]
+--------------------------------------------------------------------------------
+Classe: Table
+  Variáveis e suas Origens:
+    - @data                     [Arquivos: ./Data/rgss.rb]
+    - @size                     [Arquivos: ./Data/rgss.rb]
+    - @xsize                    [Arquivos: ./Data/rgss.rb]
+    - @ysize                    [Arquivos: ./Data/rgss.rb]
+    - @zsize                    [Arquivos: ./Data/rgss.rb]
+--------------------------------------------------------------------------------
+Classe: Tone
+  Variáveis e suas Origens:
+    - @blue                     [Arquivos: ./Data/rgss.rb]
+    - @gray                     [Arquivos: ./Data/rgss.rb]
+    - @green                    [Arquivos: ./Data/rgss.rb]
+    - @red                      [Arquivos: ./Data/rgss.rb]
+--------------------------------------------------------------------------------

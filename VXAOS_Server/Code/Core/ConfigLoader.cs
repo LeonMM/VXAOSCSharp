@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace VXAOS_Server {
-   using System;
+﻿namespace VXAOS_Server {
    using System.IO;
    using System.Collections.Generic;
    using System.Text.RegularExpressions;
@@ -62,6 +55,7 @@ namespace VXAOS_Server {
 
          cfg.DataPath = data.GetValueOrDefault("DATA_PATH");
 
+         cfg.AuthenticationTime = int.Parse(data["AUTHENTICATION_TIME"]);
          cfg.SaveDataTime = int.Parse(data["SAVE_DATA_TIME"]);
          cfg.InactivityTime = int.Parse(data["INACTIVITY_TIME"]);
          cfg.MaxAttempts = int.Parse(data["MAX_ATTEMPS"]);
@@ -172,6 +166,7 @@ namespace VXAOS_Server {
       public string DataPath;
 
       // TIMERS
+      public int AuthenticationTime;
       public int SaveDataTime;
       public int InactivityTime;
       public int IpBlockingTime;

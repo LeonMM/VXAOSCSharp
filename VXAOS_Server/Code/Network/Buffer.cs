@@ -1,6 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Text;
+﻿using System.Text;
 
 namespace VXAOS_Server {
    public class BufferWriter {
@@ -46,7 +44,7 @@ namespace VXAOS_Server {
          writer.Write(bytes);
       }
 
-      public void WriteTime(DateTime time) {
+      public void WriteTime(DateTimeOffset time) {
          WriteShort((short)time.Year);
          WriteByte((byte)time.Month);
          WriteByte((byte)time.Day);
@@ -105,11 +103,11 @@ namespace VXAOS_Server {
          return Encoding.UTF8.GetString(bytes);
       }
 
-      public DateTime ReadTime() {
+      public DateTimeOffset ReadTime() {
          int year = ReadShort();
          int month = ReadByte();
          int day = ReadByte();
-         return new DateTime(year, month, day);
+         return new DateTimeOffset(new DateTime(year, month, day));
       }
 
       public bool EOF() {

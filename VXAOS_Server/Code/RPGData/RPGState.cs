@@ -1,4 +1,6 @@
-﻿namespace VXAOS_Server.RPGData {
+﻿using System.Runtime.Serialization;
+
+namespace VXAOS_Server.RPGData {
 	public class RPGState:RPGBaseItem {
 		public double restriction = 0;
 		public double priority = 50;
@@ -15,5 +17,10 @@
 		public string message2 = "";
 		public string message3 = "";
 		public string message4 = "";
+		public bool save = false;
+		[OnDeserialized]
+		internal void OnDeserialized(StreamingContext context) {
+			save = Note.ReadBoolean("Save", note);
+		}
 	}
 }

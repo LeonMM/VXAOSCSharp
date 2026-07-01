@@ -68,3 +68,12 @@ C:\Users\Leon\Documents\GitHub\VXAOSCSharp\VXAOS_Server\obj\Debug\net9.0\ref\VXA
 C:\Users\Leon\Documents\GitHub\VXAOSCSharp\VXAOS_Server\bin\Debug\net9.0\Newtonsoft.Json.dll
 C:\Users\Leon\Documents\GitHub\VXAOSCSharp\VXAOS_Server\bin\Debug\net9.0\Ruby\import.rb
 C:\Users\Leon\Documents\GitHub\VXAOSCSharp\VXAOS_Server\bin\Debug\net9.0\Ruby\rpg.rb
+C:\Users\Leon\Documents\GitHub\VXAOSCSharp\VXAOS_Server\bin\Debug\net9.0\Ruby\rgss.rb
+C:\Users\Leon\Documents\GitHub\VXAOSCSharp\VXAOS_Server\bin\Debug\net9.0\ExtendedNumerics.BigDecimal.dll
+C:\Users\Leon\Documents\GitHub\VXAOSCSharp\VXAOS_Server\bin\Debug\net9.0\NCalc.dll
+C:\Users\Leon\Documents\GitHub\VXAOSCSharp\VXAOS_Server\bin\Debug\net9.0\NCalc.Core.dll
+C:\Users\Leon\Documents\GitHub\VXAOSCSharp\VXAOS_Server\bin\Debug\net9.0\NCalc.Domain.dll
+C:\Users\Leon\Documents\GitHub\VXAOSCSharp\VXAOS_Server\bin\Debug\net9.0\NCalc.Parser.dll
+C:\Users\Leon\Documents\GitHub\VXAOSCSharp\VXAOS_Server\bin\Debug\net9.0\Parlot.dll
+C:\Users\Leon\Documents\GitHub\VXAOSCSharp\VXAOS_Server\bin\Debug\net9.0\System.Collections.Immutable.dll
+C:\Users\Leon\Documents\GitHub\VXAOSCSharp\VXAOS_Server\bin\Debug\net9.0\System.Diagnostics.DiagnosticSource.dll

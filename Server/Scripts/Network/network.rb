@@ -72,17 +72,19 @@ class Network
 
 	def find_empty_client_id
 		# Remove o primeiro elemento da matriz e o retorna
-		return @client_ids_available.shift unless @client_ids_available.empty?
-		index = @client_high_id
-		@client_high_id += 1
-		index
+		#return @client_ids_available.shift unless @client_ids_available.empty?
+		#index = @client_high_id
+		#@client_high_id += 1
+		#index
+		@client_ids_available.empty? ? @clients.size : @client_ids_available.shift
 	end
 
 	def find_empty_party_id
-		return @party_ids_available.shift unless @party_ids_available.empty?
-		index = @party_high_id
-		@party_high_id += 1
-		index
+		#return @party_ids_available.shift unless @party_ids_available.empty?
+		#index = @party_high_id
+		#@party_high_id += 1
+		#index
+		@party_ids_available.empty? ? @parties.size : @party_ids_available.shift
 	end
 
 end

@@ -1,31 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace VXAOS_Server {
+﻿namespace VXAOS_Server {
    public class Hotbar {
-      public int Type;
+      public Enums.Hotbar Type;
       public int ItemId;
+      public Hotbar(Enums.Hotbar type, int itemId) {
+         Type = type;
+         ItemId = itemId;
+      }
    }
-
    public class Target {
-      public int Type;
-      public int Id;
+      public Enums.Target Type = Enums.Target.NONE;
+      public int Id = -1;
    }
-
+   public class Request {
+      public Enums.Request Type = Enums.Request.NONE;
+      public int Id = -1;
+   }
    public class Region {
       public int X;
       public int Y;
+      public Region(int x, int y) {
+         X = x;
+         Y = y;
+      }
    }
-
    public class IPBlocked {
       public int Attempts;
-      public int Time;
+      public DateTimeOffset Time;
    }
-
    public class Drop {
       public int ItemId;
       public int Kind;
@@ -34,48 +35,47 @@ namespace VXAOS_Server {
       public int PartyId;
       public int X;
       public int Y;
-      public int DespawnTime;
-      public int PickUpTime;
+      public DateTimeOffset DespawnTime;
+      public DateTimeOffset PickUpTime;
    }
-
-   public class Reward {
+   public class RewardData {
       public int ItemId;
       public int ItemKind;
       public int ItemAmount;
       public int Exp;
       public int Gold;
    }
-
    public class Interpreter {
       public int List;
       public int EventId;
       public int Index;
       public int Time;
    }
-
    public class Guild {
       public int IdDb;
       public string Leader;
-      public int[] Flag;
-      public string[] Members;
+      public List<int> Flag;
+      public List<string> Members;
       public string Notice;
    }
-
    public class Account {
       public int IdDb;
       public string Pass;
       public int Group;
-      public DateTime VipTime;
+      public DateTimeOffset VipTime;
       public Dictionary<int, Actor> Actors = new();
       public List<string> Friends = new();
    }
-
+   public class Party {
+      public int Id;
+      public List<int> Members = new();
+   }
    public class Actor {
       public int IdDb;
-      public string Name;
-      public string CharacterName;
+      public string Name = "";
+      public string CharacterName = "";
       public int CharacterIndex;
-      public string FaceName;
+      public string FaceName = "";
       public int FaceIndex;
       public int ClassId;
       public int Sex;
@@ -83,10 +83,10 @@ namespace VXAOS_Server {
       public int Exp;
       public int Hp;
       public int Mp;
-      public int[] ParamBase;
-      public int Equips;
+      public int[] ParamBase = new int[8];
+      public List<int> Equips = new();
       public int Points;
-      public string GuildName;
+      public string GuildName = "";
       public int ReviveMapId;
       public int ReviveX;
       public int ReviveY;
@@ -98,13 +98,13 @@ namespace VXAOS_Server {
       public Dictionary<int,int> Items = new();
       public Dictionary<int,int> Weapons = new();
       public Dictionary<int,int> Armors = new();
-      public int[] Skills;
-      public Dictionary<int, string> Quests; // Game_Quest
-      public Dictionary<int, Hotbar> Hotbar = new();
-      public bool[] Switches;
-      public int[] Variables;
-      public Dictionary<int, bool> SelfSwitches = new();
-      public int[] States;
+      public List<int> Skills = new();
+      public Dictionary<int, GameQuest> Quests = new();
+      public List<Hotbar> Hotbar = new();
+      public List<bool> Switches = new();
+      public List<int> Variables = new();
+      public Dictionary<(int MapId, int EventId, char Ch), bool> SelfSwitches = new();
+      public List<int> States = new();
       public Dictionary<int, int> StatesTime = new();
    }
 }

@@ -6,7 +6,7 @@ namespace VXAOS_Server.RPGData {
 		[JsonConverter(typeof(ListConverter<string>))]
 		public List<string> basic = Enumerable.Repeat("",8).ToList();
 		[JsonConverter(typeof(ListConverter<string>))]
-		public List<string> paramss = Enumerable.Repeat("",8).ToList();
+		public List<string> @params = Enumerable.Repeat("",8).ToList();
 		[JsonConverter(typeof(ListConverter<string>))]
 		public List<string> etypes = Enumerable.Repeat("",5).ToList();
 		[JsonConverter(typeof(ListConverter<string>))]

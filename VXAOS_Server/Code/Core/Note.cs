@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+﻿using System.Text.RegularExpressions;
 
 namespace VXAOS_Server {
    public static class Note {
@@ -29,9 +24,9 @@ namespace VXAOS_Server {
          return match.Success && match.Groups[1].Value == "true";
       }
 
-      public static int ReadNumber(string str, string note) {
+      public static int ReadNumber(string str, string note, int defaultValue = 0) {
          var match = Regex.Match(note, $@"{str}=(.*)");
-         return match.Success ? int.Parse(match.Groups[1].Value) : 0;
+         return match.Success ? int.Parse(match.Groups[1].Value) : defaultValue;
       }
 
       private static Tuple<string, int> Split(string str) {

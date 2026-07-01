@@ -1,6 +1,8 @@
 require 'json'
 require 'base64'
+require 'zlib'
 require_relative 'rpg'
+require_relative 'rgss'
 $stdout.sync = true
 $stderr.sync = true
 Encoding.default_external = Encoding::UTF_8
@@ -11,6 +13,7 @@ def load_data(file_name)
 end
 
 def load_game_data
+    $scripts            = load_data("Scripts.rvdata2")
     $data_actors        = load_data("Actors.rvdata2")
     $data_classes       = load_data("Classes.rvdata2")
     $data_skills        = load_data("Skills.rvdata2")
@@ -18,8 +21,8 @@ def load_game_data
     $data_weapons       = load_data("Weapons.rvdata2")
     $data_armors        = load_data("Armors.rvdata2")
     $data_enemies       = load_data("Enemies.rvdata2")
-    $data_troops        = load_data("Troops.rvdata2")
     $data_states        = load_data("States.rvdata2")
+    $data_animations    = load_data("Animations.rvdata2")
     $data_tilesets      = load_data("Tilesets.rvdata2")
     $data_common_events = load_data("CommonEvents.rvdata2")
     $data_system        = load_data("System.rvdata2")
@@ -29,6 +32,10 @@ end
 
 def export_jsons
     $log = ""
+    evaluate_source(Zlib::Inflate.inflate($scripts[1][2]))
+    puts JSON.generate(export_module(Configs)) 
+    evaluate_source(Zlib::Inflate.inflate($scripts[2][2]))
+    puts JSON.generate(export_module(Quests)) 
     puts $data_actors.to_json
     puts $data_classes.to_json
     puts $data_skills.to_json
@@ -36,8 +43,8 @@ def export_jsons
     puts $data_weapons.to_json
     puts $data_armors.to_json
     puts $data_enemies.to_json
-    puts $data_troops.to_json
     puts $data_states.to_json
+    puts $data_animations.to_json
     puts $data_tilesets.to_json
     puts $data_common_events.to_json
     puts $data_system.to_json
@@ -67,7 +74,7 @@ required_files = [
     'Actors.rvdata2', 'Classes.rvdata2', 'Skills.rvdata2', 'Items.rvdata2',
     'Weapons.rvdata2', 'Armors.rvdata2', 'Enemies.rvdata2', 'Troops.rvdata2',
     'States.rvdata2', 'Tilesets.rvdata2', 'CommonEvents.rvdata2',
-    'System.rvdata2', 'MapInfos.rvdata2'
+    'System.rvdata2', 'MapInfos.rvdata2', 'Scripts.rvdata2'
 ]
       
 data = Base64.decode64(ARGV[0])
