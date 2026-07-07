@@ -60,7 +60,7 @@ namespace VXAOS_Server {
          return damage >= 0 ? damage + var : damage - var;
       }
       public void MakeDamageValue(GameBattler user, RPGUsableItem item, bool critical, int animationId, int aniIndex) {
-         float value = item.damage.Eval(user, this, user.Variables);
+         float value = item.damage.Eval(user, this, user.Variables.Data);
          value *= ItemElementRate(user, item);
          if (item.IsPhysical())
             value *= Pdr;

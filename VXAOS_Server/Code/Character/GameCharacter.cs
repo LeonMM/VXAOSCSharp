@@ -16,7 +16,7 @@ namespace VXAOS_Server {
       public int TileId = 0;
       public bool MoveSucceed { get; private set; } = false;
       public bool MoveRouteForcing = false;
-      public List<int> Variables = new();
+      public GameVariables Variables = new GameVariables(null, new List<int>());
       public List<int> States = new();
       public Dictionary<int, DateTimeOffset> StatesTime = new();
       public int[] ParamBase = new int[8];

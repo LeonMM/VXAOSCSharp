@@ -9,6 +9,9 @@
       public static bool HasIndex<T>(this IList<T> list, int index) {
          return index >= 0 && index < list.Count;
       }
+      public static T GetWithFallback<T>(this IList<T> list, int index, T fallback = default) {
+         return (index >= 0 && index < list.Count) ? list[index] : fallback;
+      }
    }
    public static class Utils {
       public static double Rand()

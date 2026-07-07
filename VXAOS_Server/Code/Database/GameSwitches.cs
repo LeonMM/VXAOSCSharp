@@ -17,15 +17,15 @@ namespace VXAOS_Server {
       }
 
       public bool this[int switchId] {
-         get => Data[switchId - 1];
+         get => Data.GetWithFallback((switchId - 1), false);//[switchId - 1];
          set {
             Data[switchId - 1] = value;
-            //Network.SendPlayerSwitch(_client, switchId);
+            Network.SendPlayerSwitch(_client, (short)switchId);
          }
       }
    }
    public class GameVariables {
-      private readonly GameClient _client;
+      private readonly GameClient? _client;
       public List<int> Data {
          get;
       }
@@ -36,10 +36,11 @@ namespace VXAOS_Server {
       }
 
       public int this[int variableId] {
-         get => Data[variableId - 1];
+         get => Data.GetWithFallback((variableId - 1), 0);//[variableId - 1];
          set {
             Data[variableId - 1] = value;
-            //Network.SendPlayerVariable(_client, variableId);
+            if(_client is not null)
+               Network.SendPlayerVariable(_client, (short)variableId);
          }
       }
    }
@@ -58,7 +59,7 @@ namespace VXAOS_Server {
          get => Data.TryGetValue(key, out bool value) && value;
          set {
             Data[key] = value;
-            //Network.SendPlayerSelfSwitch(_client, key);
+            Network.SendPlayerSelfSwitch(_client, key);
          }
       }
    }
@@ -79,7 +80,7 @@ namespace VXAOS_Server {
          set {
             int index = switchId - Configs.MaxPlayerSwitches - 1;
             Data[index] = value;
-           // Network.SendGlobalSwitch(switchId, value);
+            Network.SendGlobalSwitch((short)switchId, value);
             foreach (var map in Network.Maps.Values)
                map.Refresh();
          }

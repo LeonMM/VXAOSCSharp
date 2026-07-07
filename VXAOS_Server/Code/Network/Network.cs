@@ -40,8 +40,17 @@ namespace VXAOS_Server {
             var tcp = await Listener.AcceptTcpClientAsync();
             int id = FindClientId();
             var client = new GameClient(id, tcp);
-            Clients[id] = client;
             Console.WriteLine($"Tentativa de conexão IP {client.Ip}");
+            if (FullClients()) {
+               SendFailedLogin(client, Enums.Login.SERVER_FULL);
+               client.CloseAfterWriting();
+               return;
+            }else if (IsBanned($"{client.Ip}")) {
+               SendFailedLogin(client, Enums.Login.IP_BANNED);
+               client.CloseAfterWriting();
+               return;
+            }
+            Clients[id] = client;
             await Task.Delay(200);
             client.Start();
          }
@@ -67,6 +76,24 @@ namespace VXAOS_Server {
       public static void RemoveParty(int id) {
          Parties.TryRemove(id, out _);
          PartyAvaiableIds.Enqueue(id);
+      }
+      public static void Update() {
+         UpdateClients();
+         UpdateMaps();
+      }
+      private static void UpdateClients() {
+         foreach(var client in Clients.Values) {
+            if (client.IsInGame()) {
+               client.UpdateGame();
+            } else {
+               client.UpdateMenu();
+            }
+         }
+      }
+      private static void UpdateMaps() {
+         foreach(var map in Maps.Values) {
+            map.Update();
+         }
       }
    }
 }

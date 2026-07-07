@@ -30,17 +30,18 @@ namespace VXAOS_Server {
       public Dictionary<int, int> Armors = new();
       public List<int> Skills = new();
       public List<Hotbar> Hotbar = new();
-      public List<bool> Switches = new();
-      public Dictionary<(int MapId, int EventId, char Ch), bool> SelfSwitches = new();
+      public GameSwitches Switches;
+      public GameSelfSwitches SelfSwitches;
       public List<(int, int, int, int)> ShopGoods = new();
       public Request Request = new();
       public Dictionary<int, GameQuest> Quests = new();
       public int PartyId = -1;
       public int TeleportId = -1;
       public string EventInterpreter;//interpreter
+      public Dictionary<int, string> CommonEvents = new();//interpreter
       public Dictionary<int, string> ParallelEventsWating = new();//interpreter
       public bool CreatingGuild = false;
-      public string WaitingEvent;//Interpreter
+      public string? WaitingEvent;//Interpreter
       public DateTimeOffset MutedTime;
       public DateTimeOffset StopCount;
       public DateTimeOffset AntispamTime;
@@ -75,11 +76,39 @@ namespace VXAOS_Server {
          return SkillCooldownTime.ContainsKey(skillId) && (SkillCooldownTime[skillId] > DateTimeOffset.UtcNow);
       }
       public bool IsMuted() { return (MutedTime > DateTimeOffset.UtcNow); }
+      public void ClearRequest() {
+         Request.Id = -1;
+         Request.Type = Enums.Request.NONE;
+      }
+      public new void AddNewState(int stateId) {
+         base.AddNewState(stateId);
+         float time = 0;
+         if (StatesTime.TryGetValue(stateId, out var expiration))
+            time = (float)(expiration - DateTimeOffset.UtcNow).TotalSeconds;
+         Network.SendPlayerState(this, (short)stateId, true, time);
+      }
+      public void AddNewState(int stateId, int time = 0) {
+         base.AddNewState(stateId);
+         if(StatesTime.ContainsKey(stateId))
+            StatesTime[stateId] = DateTimeOffset.UtcNow.AddSeconds(time + 0.1f);
+         Network.SendPlayerState(this, (short)stateId, true, (time + 0.1f));
+      }
       public void LearnSkill(int skillId) {
 
       }
       private void ItemEffectLearnSkill(GameBattler user, RPGUsableItem item, RPGUsableItemEffect effect) {
          LearnSkill((int)effect.data_id);
+      }
+      public void UpdateGame() {
+      }
+      public void LoadOriginalGraphic() {
+         if (string.IsNullOrEmpty(OriginalCharacterName))
+            return;
+         CharacterName = OriginalCharacterName;
+         CharacterIndex = OriginalCharacterIndex;
+         FaceName = OriginalFaceName;
+         FaceIndex = OriginalFaceIndex;
+         OriginalCharacterName = string.Empty;
       }
    }
 }

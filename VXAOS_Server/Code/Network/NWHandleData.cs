@@ -37,6 +37,7 @@ namespace VXAOS_Server {
                _ = HandleUseActor(client, buffer);
                break;
          }
+         client.InactivityTime = DateTimeOffset.UtcNow.AddSeconds(Cfg.InactivityTime);
       }
       static void HandleGameMessages(GameClient client, Enums.Packet packet, BufferReader buffer) {
          switch (packet) {
@@ -281,18 +282,18 @@ namespace VXAOS_Server {
          byte actorId = buffer.ReadByte();
          if (!client.Actors.ContainsKey(actorId))
             return;
-         //client.LoadData(actorId);
-         //SendPlayerData(client, client.MapId);
-         //Maps[client.MapId].TotalPlayers++;
-         //await DB.ChangeWhosOnline(client.IdDb, true);
-         //client.JoinGame(actorId);
-         //SendUseActor(client);
-         //client.LoadStates();
-         //SendGlobalSwitches(client);
-         //SendMapPlayers(client);
-         //SendMapEvents(client);
-         //SendMapDrops(client);
-         //SendMotd(client);
+         client.LoadData(actorId);
+         SendPlayerData(client, client.MapId);
+         Maps[client.MapId].TotalPlayers++;
+         await DB.ChangeWhosOnline(client.IdDb, true);
+         client.JoinGame(actorId);
+         SendUseActor(client);
+         client.LoadStates();
+         SendGlobalSwitches(client);
+         SendMapPlayers(client);
+         SendMapEvents(client);
+         SendMapDrops(client);
+         SendMotd(client);
       }
       private static void HandlePlayerMovement(GameClient client, BufferReader buffer) {
          
@@ -403,7 +404,7 @@ namespace VXAOS_Server {
          
       }
       private static void HandleLogout(GameClient client) {
-         
+         client.InactivityTime = DateTimeOffset.UtcNow.AddSeconds(Cfg.InactivityTime);
       }
       private static void HandleAdminCommand(GameClient client, BufferReader buffer) {
          

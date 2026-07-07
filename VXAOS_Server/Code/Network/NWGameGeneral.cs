@@ -7,21 +7,23 @@ namespace VXAOS_Server {
       public static bool FullClients() {
          return Clients.Count == Cfg.MaxConnections && ClientAvaiableIds.IsEmpty;
       }
-      public static GameClient FindPlayer(string name) {
+      public static GameClient? FindPlayer(string name) {
          foreach (var client in Clients.Values) {
             if (client != null && client.Name == name) return client;
          }
          return null;
       }
-      public static string FindGuildMember(Guild guild, string name) {
+      public static string? FindGuildMember(Guild guild, string name) {
          foreach (var member in guild.Members) {
             if (name == member)
                return member;
          }
          return null;
       }
-      public static bool IsMemberInGuild(Guild guild, string name) {
-         return FindGuildMember(guild, name) != null;
+      public static bool IsMemberInGuild(string guildName, string name) {
+         if(Guilds.ContainsKey(guildName))
+            return FindGuildMember(Guilds[guildName], name) != null;
+         return false;
       }
       public static bool LoginHackingAttempt(GameClient client) {
          return !client.IsConnected() || client.IsLogged();
@@ -60,7 +62,6 @@ namespace VXAOS_Server {
          }
          return result;
       }
-
       static void AddAttempt(GameClient client) {
          if (!BlockedIps.ContainsKey(client.Ip) || DateTimeOffset.UtcNow > BlockedIps[client.Ip].Time)
             BlockedIps.TryAdd(client.Ip, new IPBlocked());
@@ -73,7 +74,6 @@ namespace VXAOS_Server {
             BlockedIps[client.Ip].Time = DateTimeOffset.UtcNow.AddSeconds(60);
          }
       }
-
       static bool MultiAccounts(string user, IPAddress ip) {
          var client = Clients.Values.FirstOrDefault(c =>
             c != null &&
@@ -87,7 +87,6 @@ namespace VXAOS_Server {
          }
          return client != null;
       }
-
       static bool IsBanned(string key) {
          bool banned = BanList.ContainsKey(key);
          if (banned && DateTimeOffset.UtcNow > BanList[key]) {

@@ -478,20 +478,20 @@ namespace VXAOS_Server {
             await qry.Query("actors")
                .Where("id", client.IdDb)
                .UpdateAsync(new {
-                  //character_name = client.CharacterName, character_index = client.CharacterIndex,
-                  //face_name = client.FaceName, face_index = client.FaceIndex,
-                  //class_id = client.ClassId, sex = client.Sex,
-                  //level => client.Level, exp => client.Exp,
-                  //hp => client.Hp, mp => client.Mp,
-                  //mhp => client.ParamBase[0], mmp => client.ParamBase[1],
-                  //atk => client.ParamBase[2], def => client.ParamBase[3],
-                  //int => client.ParamBase[4], res => client.ParamBase[5],
-                  //agi => client.ParamBase[6], luk => client.ParamBase[7],
-                  //points => client.Points, guild_id => Network.FindGuildIdDb(client.GuildName),
-                  //revive_map_id => client.ReviveMapId, revive_x => client.ReviveX,
-                  //revive_y => client.ReviveY, map_id => client.MapId,
-                  //x => client.X, y => client.Y, direction => client.Direction,
-                  //gold => client.Gold, last_login => DateTimeOffset.UtcNow.ToUnixTimeSeconds()
+                  character_name = client.CharacterName, character_index = client.CharacterIndex,
+                  face_name = client.FaceName, face_index = client.FaceIndex,
+                  class_id = client.ClassId, sex = client.Sex,
+                  level = client.Level, exp = client.Exp,
+                  hp = client.Hp, mp = client.Mp,
+                  mhp = client.ParamBase[0], mmp = client.ParamBase[1],
+                  atk = client.ParamBase[2], def = client.ParamBase[3],
+                  @int = client.ParamBase[4], res = client.ParamBase[5],
+                  agi = client.ParamBase[6], luk = client.ParamBase[7],
+                  points = client.Points, guild_id = Network.FindGuildIdDb(client.GuildName),
+                  revive_map_id = client.ReviveMapId, revive_x = client.ReviveX,
+                  revive_y = client.ReviveY, map_id = client.MapId,
+                  x = client.X, y = client.Y, direction = client.Direction,
+                  gold = client.Gold, last_login = DateTimeOffset.UtcNow.ToUnixTimeSeconds()
                });
             //for (int i = 0; i < client.Equips.Count; i++) { }
 
