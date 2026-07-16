@@ -24,21 +24,24 @@ namespace VXAOS_Server {
       public DateTimeOffset[] BuffsTime = new DateTimeOffset[8];
       private int _hp;
       private int _mp;
-      private long _exp;
       public int Hp { 
          get { return _hp; }
          set { 
             _hp = Math.Clamp(value, 0, Mhp);
             if (IsDead())
                Die();
+            OnHpChanged();
          }
       }
       public int Mp {
          get { return _mp; }
          set {
             _mp = Math.Clamp(value, 0, Mmp);
+            OnMpChanged();
          }
       }
+      protected virtual void OnHpChanged() { }
+      protected virtual void OnMpChanged() { }
       public int Level = 1;
       public int Tp = 1;
       public int Mhp { get { return Param(0); } }
@@ -101,7 +104,7 @@ namespace VXAOS_Server {
          return !HasDeathState() && DataStates.HasIndex(stateId) && 
             !IsStateResist(stateId) && !IsStateRestrict(stateId);
       }
-      public void AddNewState(int stateId) {
+      public virtual void AddNewState(int stateId) {
          if(stateId == DeathStateId) {
             Die();
             return;
@@ -120,13 +123,13 @@ namespace VXAOS_Server {
                RemoveState((int)state.id);
          }
       }
-      public void RemoveState(int stateId) {
+      public virtual void RemoveState(int stateId) {
          if (States.Contains(stateId)) {
             States.Remove(stateId);
             StatesTime.Remove(stateId);
          }
       }
-      public void AddBuff(int paramId, int time) {
+      public virtual void AddBuff(int paramId, int time) {
          if (HasDeathState())
             return;
          if(!IsBuffMaxed(paramId))
@@ -136,7 +139,7 @@ namespace VXAOS_Server {
             EraseBuff(paramId);
          Refresh();
       }
-      public void AddDeBuff(int paramId, int time) {
+      public virtual void AddDeBuff(int paramId, int time) {
          if (HasDeathState())
             return;
          if (!IsDebuffMaxed(paramId))
@@ -152,7 +155,7 @@ namespace VXAOS_Server {
          EraseBuff(paramId);
          Refresh();
       }
-      private void EraseBuff(int paramId) {
+      public virtual void EraseBuff(int paramId) {
          Buffs[paramId] = 0;
          BuffsTime[paramId] = DateTimeOffset.UtcNow;
       }
@@ -179,7 +182,7 @@ namespace VXAOS_Server {
          value *= ParamRate(paramId) * ParamBuffRate(paramId);
          return Math.Clamp((int)value, ParamMin(paramId), Configs.MaxParams);
       }
-      public float ParamPlus(int paramId) {
+      public virtual float ParamPlus(int paramId) {
          return 0;
       }
       public float ParamRate(int paramId) {
@@ -237,7 +240,7 @@ namespace VXAOS_Server {
 
          return result.ToList();
       }
-      public void AddParam(int paramId, int value) {
+      public virtual void AddParam(int paramId, int value) {
          ParamBase[paramId] += value;
       }
       public float XParam(int xparamId) {
@@ -261,7 +264,7 @@ namespace VXAOS_Server {
       public bool IsStateResist(int stateId) {
         return StateResistSet().Contains(stateId);
       }
-      public List<int> AtkElements() {
+      public virtual List<int> AtkElements() {
          return FeaturesSet((int)Enums.Feature.ATK_ELEMENT);
       }
       public List<int> AtkStates() {
@@ -316,13 +319,13 @@ namespace VXAOS_Server {
       private bool IsStateRestrict(int stateId) {
          return DataStates[stateId].remove_by_restriction && Restriction() > 0;
       }
-      public bool IsSkillLearned(int skillId) {
+      public virtual bool IsSkillLearned(int skillId) {
          return true;
       }
       public bool IsSkillWTypeOk(RPGSkill skill) {
          return true;
       }
-      public bool HasAddedSkillType(RPGSkill skill) {
+      public virtual bool HasAddedSkillType(RPGSkill skill) {
          return true;
       }
       public bool UsableItemConditionsMet(RPGUsableItem item) {
@@ -340,7 +343,7 @@ namespace VXAOS_Server {
       public bool ItemConditionsMet(RPGItem item) {
          return UsableItemConditionsMet(item) && HasItem(item);
       }
-      private bool HasItem(RPGItem item) {
+      public bool HasItem(RPGItem item) {
          return true;
       }
       public bool Usable(RPGUsableItem item) {
@@ -398,7 +401,7 @@ namespace VXAOS_Server {
          return ((IsPassable(x, y, vert) && IsPassable(x, y2, horz)) || 
                   IsPassable(x, y, horz) && IsPassable(x2, y, vert));
       }
-      public bool CollideWithCharacters(int x, int y) {
+      public virtual bool CollideWithCharacters(int x, int y) {
          return CollideWithEvents(x, y);
       }
       internal bool CollideWithEvents(int x, int y) {
@@ -467,7 +470,7 @@ namespace VXAOS_Server {
          Y = y;
          SendMovement();
       }
-      private void SendMovement() {}
+      public virtual void SendMovement() {}
       public int DistanceXFrom(int x) { return X - x; }
       public int DistanceYFrom(int y) { return Y - y; }
       public void Swap(GameCharacter character) {

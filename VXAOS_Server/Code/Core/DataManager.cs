@@ -119,23 +119,23 @@ namespace VXAOS_Server {
 						counter++;
 					}
             }catch (Exception ex) {
-               CSExt.WriteColor("Erro ao carregar dados básicos.", ConsoleColor.Red);
-					CSExt.WriteColor($"Erro: {ex}", ConsoleColor.Red);
+               WriteColor("Erro ao carregar dados básicos.", ConsoleColor.Red);
+					WriteColor($"Erro: {ex}", ConsoleColor.Red);
             }
             LoadMotd();
             Console.WriteLine("Carregando lista de banidos...");
 				try {
 					_ = Network.DB.LoadBanList();
 				} catch(Exception ex) {
-					CSExt.WriteColor("O banco de dados SQL está off-line!", ConsoleColor.Red);
-					CSExt.WriteColor("A lista de banidos não foi carregada!", ConsoleColor.Red);
-					CSExt.WriteColor($"Erro: {ex}", ConsoleColor.Red);
+					WriteColor("O banco de dados SQL está off-line!", ConsoleColor.Red);
+					WriteColor("A lista de banidos não foi carregada!", ConsoleColor.Red);
+					WriteColor($"Erro: {ex}", ConsoleColor.Red);
 				}
             Console.WriteLine("Carregando guildas...");
 				try {
                _ = Network.DB.LoadGuilds();
             } catch {
-               CSExt.WriteColor("As guildas não foram carregadas!", ConsoleColor.Red);
+               WriteColor("As guildas não foram carregadas!", ConsoleColor.Red);
 				}
 				if(_success)
 					Console.WriteLine("Dados Carregados com sucesso");
@@ -144,6 +144,17 @@ namespace VXAOS_Server {
       public static void LoadMotd() {
          Console.WriteLine("Carregando mensagem do dia...");
          Motd = File.ReadAllText("motd.txt", Encoding.UTF8);
+      }
+      public static async Task SaveGameData() {
+			WriteColor($"Salvando todos os dados às {DateTimeOffset.Now:H'h'mm'min.'}", ConsoleColor.Green);
+			File.WriteAllText("motd.txt", Motd, Encoding.UTF8);
+			File.WriteAllText("Data/switches.json", JsonConvert.SerializeObject(Network.Switches.Data));
+			foreach(var client in Network.Clients.Values) {
+				if (client.IsInGame())
+					await Network.DB.SavePlayer(client);
+			}
+			await Network.DB.SaveBanList();
+			Network.Log.SaveAll();
       }
    }
 }

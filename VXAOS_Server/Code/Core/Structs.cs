@@ -46,10 +46,13 @@
       public int Gold;
    }
    public class Interpreter {
-      public int List;
-      public int EventId;
-      public int Index;
-      public int Time;
+     // public int List;
+     // public int EventId;
+     // public int Index;
+      public DateTimeOffset Time;
+      public Interpreter(DateTimeOffset time) {
+         Time = time;
+      }
    }
    public class Guild {
       public int IdDb;
@@ -105,6 +108,6 @@
       public List<int> Variables = new();
       public Dictionary<(int MapId, int EventId, char Ch), bool> SelfSwitches = new();
       public List<int> States = new();
-      public Dictionary<int, int> StatesTime = new();
+      public Dictionary<int, float> StatesTime = new();
    }
 }

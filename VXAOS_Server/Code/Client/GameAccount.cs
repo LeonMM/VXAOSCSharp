@@ -205,7 +205,7 @@ namespace VXAOS_Server {
       }
       public void LoadStates() {
          foreach(var state in Actors[ActorId].States) {
-            int time = 0;
+            float time = 0;
             if (Actors[ActorId].StatesTime.ContainsKey(state))
                time = Actors[ActorId].StatesTime[state];
             AddNewState(state, time);

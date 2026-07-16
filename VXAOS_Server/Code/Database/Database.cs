@@ -1,6 +1,8 @@
 ﻿using Microsoft.Data.Sqlite;
+using Microsoft.Extensions.Logging;
 using MySqlConnector;
 using Npgsql;
+using Npgsql.Internal.Postgres;
 using SqlKata.Compilers;
 using SqlKata.Execution;
 using System;
@@ -8,8 +10,11 @@ using System.Data;
 using System.Data.Common;
 using System.Diagnostics;
 using System.Net;
+using System.Numerics;
 using System.Security.Principal;
 using System.Xml.Linq;
+using VXAOS_Server.RPGData;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 using static VXAOS_Server.Enums;
 
 namespace VXAOS_Server {
@@ -71,14 +76,14 @@ namespace VXAOS_Server {
          var conn = CreateConnection();
          return new QueryFactory(conn, compiler);
       }
-      internal async Task CreateAccount(string user, string pass, string email) {
+      internal async Task CreateAccount(string user, string pass, string nEmail) {
          var now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
          var qry = Query();
          try {
             var accountId = await qry.Query("accounts").InsertGetIdAsync<int>(new {
                username = user,
                password = pass,
-               email = email,
+               email = nEmail,
                vip_time = now,
                creation_date = now,
                cash = 0
@@ -464,9 +469,9 @@ namespace VXAOS_Server {
                       .Where("actor_id", actor.IdDb)
                       .Select("state_id", "state_time")
                       .GetAsync();
-         foreach (var armor in states) {
-            int stateId = Convert.ToInt32(armor.state_id);
-            int stateTime = Convert.ToInt32(armor.state_time);
+         foreach (var state in states) {
+            int stateId = Convert.ToInt32(state.state_id);
+            float stateTime = Convert.ToDecimal(state.state_time);
             actor.States.Add(stateId);
             if (stateTime > 0)
                actor.StatesTime.Add(stateId, stateTime);
@@ -493,9 +498,185 @@ namespace VXAOS_Server {
                   x = client.X, y = client.Y, direction = client.Direction,
                   gold = client.Gold, last_login = DateTimeOffset.UtcNow.ToUnixTimeSeconds()
                });
-            //for (int i = 0; i < client.Equips.Count; i++) { }
-
+            for (int slotId = 0; slotId < client.Equips.Count; slotId++) {
+               await qry.Query("actor_equips").
+                  Where("actor_id", client.IdDb).Where("slot_id",slotId).
+                  UpdateAsync(new {
+                     equip_id = client.Equips[slotId]
+                  });
+            }
+            for (int slotId = 0; slotId < client.Hotbar.Count; slotId++) {
+               await qry.Query("actor_hotbars").
+                  Where("actor_id", client.IdDb).Where("slot_id",slotId).
+                  UpdateAsync(new {
+                     type = (int)client.Hotbar[slotId].Type,
+                     item_id = client.Hotbar[slotId].ItemId
+                  });
+            }
+            for (int switchId = 0; switchId < client.Switches.Count; switchId++) {
+               await qry.Query("actor_switches").
+                  Where("actor_id", client.IdDb).Where("switch_id", (switchId + 1)).
+                  UpdateAsync(new {
+                     value = (client.Switches[switchId] ? 1 : 0)
+                  });
+            }
+            for (int variableId = 0; variableId < client.Variables.Count; variableId++) {
+               await qry.Query("actor_variables").
+                  Where("actor_id", client.IdDb).Where("variable_id", variableId).
+                  UpdateAsync(new {
+                     value = client.Variables[variableId]
+                  });
+            }
+            await SaveItems(client, qry, client.Items, "item");
+            await SaveItems(client, qry, client.Weapons, "weapon");
+            await SaveItems(client, qry, client.Armors, "armor");
+            await SavePlayerSkills(client, qry);
+            await SavePlayerQuests(client, qry);
+            await SavePlayerSelfSwitches(client, qry);
+            await SavePlayerStates(client, qry);
+            await SaveAccount(client, qry);
+            await SaveBank(client, qry);
          } finally { qry.Connection.Dispose(); }
+      }
+      internal async Task SaveItems(GameClient client, QueryFactory qry, Dictionary<int, int> actItems, string iType, bool isBank = false) {
+         int idDb = isBank ? client.AccountIdDb : client.IdDb;
+         string objectId = isBank ? "bank_id" : "actor_id";
+         string table = isBank ? $"bank_{iType}s" : $"actor_{iType}s";
+         string iTypeId = $"{iType}_id";
+         var items = (await qry.Query(table)
+                        .Where(objectId, idDb)
+                        .SelectRaw($"{iTypeId} as ItemId")
+                        .Select("amount")
+                        .GetAsync<(int ItemId, int Amount)>())
+                        .ToDictionary(x => x.ItemId, x => x.Amount);
+         foreach (var (itemId, amnt) in actItems) {
+            if (!items.TryGetValue(itemId, out var dbAmount)) {
+               await qry.Query(table).InsertAsync(new Dictionary<string, object> {
+                  [objectId] = idDb,
+                  [iTypeId] = itemId,
+                  ["amount"] = amnt
+               });
+               continue;
+            } else if (amnt != dbAmount) {
+               await qry.Query(table).
+                  Where(objectId, idDb).
+                  Where(iTypeId, itemId).
+                  UpdateAsync(new {
+                     amount = amnt
+                  });
+            }
+            items.Remove(itemId);
+         }
+         foreach (var itemId in items.Keys) {
+            await qry.Query(table).
+                  Where(objectId, idDb).
+                  Where(iTypeId, itemId).
+                  DeleteAsync();
+         }
+      }
+      internal async Task SavePlayerSkills(GameClient client, QueryFactory qry) {
+         var skills = (await qry.Query("actor_skills").
+            Where("actor_id", client.IdDb).
+            Select("skill_id").
+            GetAsync<int>()).ToList();
+         foreach(var skillId in skills.Except(client.Skills)) {
+            await qry.Query("actor_skills").
+               Where("actor_id", client.IdDb).
+               Where("skill_id", skillId).
+               DeleteAsync();
+         }
+         foreach (var skillId in client.Skills.Except(skills)) {
+            await qry.Query("actor_skills").
+               InsertAsync(new {
+                  actor_id = client.IdDb,
+                  skill_id = skillId
+               });
+         }
+      }
+      internal async Task SavePlayerQuests(GameClient client, QueryFactory qry) {
+         var quests = (await qry.Query("actor_quests").
+            Where("actor_id", client.IdDb).
+            Select("quest_id").
+            GetAsync<int>()).ToList();
+         foreach(var (questId, quest) in client.Quests) {
+            if (quests.Contains(questId)) {
+               await qry.Query("actor_quests").
+                  Where("actor_id", client.IdDb).
+                  Where("quest_id", questId).
+                  UpdateAsync(new {
+                     state = (int)quest.State,
+                     kills = quest.Kills
+                  });
+               quests.Remove(questId);
+            } else {
+               await qry.Query("actor_quests").InsertAsync(new {
+                  actor_id = client.IdDb,
+                  quest_id = questId,
+                  state = (int)quest.State,
+                  kills = quest.Kills
+               });
+            }
+         }
+         foreach(var questId in quests) {
+            await qry.Query("actor_quests").
+               Where("actor_id", client.IdDb).
+               Where("quest_id", questId).
+               DeleteAsync();
+         }
+      }
+      internal async Task SavePlayerSelfSwitches(GameClient client, QueryFactory qry) {
+         //(int MapId, int EventId, char Ch)
+         Dictionary<(int MapId, int EventId, char Ch), bool> selfSwitches = new();
+         var rows = await qry.Query("actor_self_switches")
+                  .Where("actor_id", client.IdDb)
+                  .GetAsync();
+         foreach (var row in rows) {
+            selfSwitches[
+                (Convert.ToInt32(row.map_id),
+                 Convert.ToInt32(row.event_id),
+                 Convert.ToChar(row.ch))
+            ] = row.value == 1;
+         }
+         foreach(var (key, value) in client.SelfSwitches.Data) {
+            if (selfSwitches.TryGetValue(key, out bool nValue) && value != nValue) {
+               await qry.Query("actor_self_switches").
+                  Where("actor_id", client.IdDb).
+                  Where("map_id", key.MapId).
+                  Where("event_id", key.EventId).
+                  Where("ch", key.Ch).
+                  UpdateAsync(new {
+                     value = (value ? 1 : 0)
+                  });
+            } else if (!selfSwitches.ContainsKey(key)) {
+               await qry.Query("actor_self_switches").
+                  InsertAsync(new {
+                     actor_id = client.IdDb,
+                     map_id = key.MapId,
+                     event_id = key.EventId,
+                     ch = key.Ch,
+                     value = (value ? 1 : 0)
+                  });
+            }
+         }
+      }
+      internal async Task SavePlayerStates(GameClient client, QueryFactory qry) {
+         await qry.Query("actor_states").
+            Where("actor_id", client.IdDb).
+            DeleteAsync();
+         foreach(var stateId in client.States) {
+            if (!DataStates[stateId].save)
+               continue;
+            float time = -1f;
+            if(client.StatesTime.TryGetValue(stateId, out DateTimeOffset value)) {
+               time = (float)(value - DateTimeOffset.UtcNow).TotalSeconds;
+            }
+            await qry.Query("actor_states").
+               InsertAsync(new {
+                  actor_id = client.IdDb, 
+                  state_id = stateId,
+                  state_time = time
+               });
+         }
       }
       internal async Task<bool> DoPlayerExist(string name) {
          var qry = Query();
@@ -514,43 +695,59 @@ namespace VXAOS_Server {
             using var transaction = qry.Connection.BeginTransaction();
             await qry.Query("actors")
                 .Where("id", actorIdDb)
-                .DeleteAsync();
+                .DeleteAsync(transaction);
             await qry.Query("actor_equips")
                 .Where("actor_id", actorIdDb)
-                .DeleteAsync();
+                .DeleteAsync(transaction);
             await qry.Query("actor_items")
                 .Where("actor_id", actorIdDb)
-                .DeleteAsync();
+                .DeleteAsync(transaction);
             await qry.Query("actor_weapons")
                 .Where("actor_id", actorIdDb)
-                .DeleteAsync();
+                .DeleteAsync(transaction);
             await qry.Query("actor_armors")
                 .Where("actor_id", actorIdDb)
-                .DeleteAsync();
+                .DeleteAsync(transaction);
             await qry.Query("actor_skills")
                 .Where("actor_id", actorIdDb)
-                .DeleteAsync();
+                .DeleteAsync(transaction);
             await qry.Query("actor_quests")
                 .Where("actor_id", actorIdDb)
-                .DeleteAsync();
+                .DeleteAsync(transaction);
             await qry.Query("actor_hotbars")
                 .Where("actor_id", actorIdDb)
-                .DeleteAsync();
+                .DeleteAsync(transaction);
             await qry.Query("actor_switches")
                 .Where("actor_id", actorIdDb)
-                .DeleteAsync();
+                .DeleteAsync(transaction);
             await qry.Query("actor_variables")
                 .Where("actor_id", actorIdDb)
-                .DeleteAsync();
+                .DeleteAsync(transaction);
             await qry.Query("actor_self_switches")
                 .Where("actor_id", actorIdDb)
-                .DeleteAsync();
+                .DeleteAsync(transaction);
             await qry.Query("actor_states")
                 .Where("actor_id", actorIdDb)
-                .DeleteAsync();
+                .DeleteAsync(transaction);
             transaction.Commit();
          } catch {
             throw;
+         } finally { qry.Connection.Dispose(); }
+      }
+      internal async Task LoadDistributor(GameClient client) {
+         var qry = Query();
+         try {
+            var items = await qry.Query("distributor").
+                Where("account_id", client.AccountIdDb).
+                GetAsync();
+            foreach(var item in items) {
+               var container = client.BankItemContainer(item.kind);
+               container[(int)item.item_id] = Math.Min(Configs.MaxItems,
+                     client.BankItemNumber(item.kind, item.item_id) + (int)item.amount);
+            }
+            await qry.Query("distributor").
+                Where("account_id", client.AccountIdDb).
+                DeleteAsync();
          } finally { qry.Connection.Dispose(); }
       }
       internal async Task LoadBank(GameClient client) {
@@ -587,16 +784,26 @@ namespace VXAOS_Server {
             }
          } finally { qry.Connection.Dispose(); }
       }
-      internal async Task CreateGuild(string name) {
+      internal async Task SaveBank(GameClient client, QueryFactory qry) {
+         await qry.Query("banks").
+            Where("account_id", client.AccountIdDb).
+            UpdateAsync(new {
+               gold = client.BankGold
+            });
+         await SaveItems(client, qry, client.BankItems, "item", true);
+         await SaveItems(client, qry, client.BankWeapons, "weapon", true);
+         await SaveItems(client, qry, client.BankArmors, "armor", true);
+      }
+      internal async Task CreateGuild(string gName) {
          var qry = Query();
          try {
             var guildIdDb = await qry.Query("guilds").InsertGetIdAsync<int>(new {
-               name = name,
-               leader = Network.Guilds[name].Leader,
-               flag = string.Join(",", Network.Guilds[name].Flag),
+               name = gName,
+               leader = Network.Guilds[gName].Leader,
+               flag = string.Join(",", Network.Guilds[gName].Flag),
                creation_date = DateTimeOffset.UtcNow.ToUnixTimeSeconds()
             });
-            Network.Guilds[name].IdDb = guildIdDb;
+            Network.Guilds[gName].IdDb = guildIdDb;
          } finally { qry.Connection.Dispose(); }
       }
       internal async Task LoadGuilds() {

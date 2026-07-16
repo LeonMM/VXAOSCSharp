@@ -107,10 +107,10 @@ namespace VXAOS_Server {
          buffer.WriteByte((byte)Enums.Packet.REMOVE_ACTOR);
          client.Send(buffer.ToStringBuffer());
       }
-      public static void SendRemovePlayer(GameClient client, int mapId) {
+      public static void SendRemovePlayer(int clientId, int mapId) {
          BufferWriter buffer = new BufferWriter();
          buffer.WriteByte((byte)Enums.Packet.REMOVE_ACTOR);
-         client.Send(buffer.ToStringBuffer());
+         SendDataToMap(mapId, buffer.ToStringBuffer());
       }
       public static void SendPlayerMovement(GameClient client) {
          BufferWriter buffer = new BufferWriter();
@@ -227,7 +227,7 @@ namespace VXAOS_Server {
          buffer.WriteByte((byte)Enums.Packet.REMOVE_ACTOR);
          SendDataToMap(client.MapId, buffer.ToStringBuffer());
       }
-      public static void SendVitals(GameClient client) {
+      public static void SendPlayerVitals(GameClient client) {
          BufferWriter buffer = new BufferWriter();
          buffer.WriteByte((byte)Enums.Packet.REMOVE_ACTOR);
          SendDataToMap(client.MapId, buffer.ToStringBuffer());
@@ -243,7 +243,7 @@ namespace VXAOS_Server {
          buffer.WriteByte((byte)Enums.Packet.REMOVE_ACTOR);
          SendDataToMap(client.MapId, buffer.ToStringBuffer());
       }
-      public static void SendPlayerBuff(GameClient client, byte paramId, byte buffLevel,
+      public static void SendPlayerBuff(GameClient client, byte paramId, short buffLevel,
                float buffTime = 0, float buffMaxTime = 0) {
          BufferWriter buffer = new BufferWriter();
          buffer.WriteByte((byte)Enums.Packet.REMOVE_ACTOR);
@@ -410,7 +410,7 @@ namespace VXAOS_Server {
          buffer.WriteByte((byte)Enums.Packet.REMOVE_ACTOR);
          client.Send(buffer.ToStringBuffer());
       }
-      public static void SendOpenShot(GameClient client, short eventId, short index) {
+      public static void SendOpenShop(GameClient client, short eventId, short index) {
          BufferWriter buffer = new BufferWriter();
          buffer.WriteByte((byte)Enums.Packet.REMOVE_ACTOR);
          client.Send(buffer.ToStringBuffer());

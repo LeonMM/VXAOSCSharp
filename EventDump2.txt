@@ -1,0 +1,515 @@
+Mapa: 1
+Evento: 1
+Nome: EV001
+Pagina: 2
+______________________________________________________________________________
+Code: 201 : Transfer Player
+Indent: 0
+Parameters:
+  0: 0
+  1: 1
+  2: 5
+  3: 6
+  4: 0
+  5: 0
+______________________________________________________________________________
+Code: 201 : Transfer Player
+Indent: 0
+Parameters:
+  0: 1
+  1: 1
+  2: 2
+  3: 4
+  4: 0
+  5: 0
+______________________________________________________________________________
+Code: 202 : Set Vehicle Location
+Indent: 0
+Parameters:
+  0: 0
+  1: 0
+  2: 1
+  3: 5
+  4: 6
+______________________________________________________________________________
+Code: 202 : Set Vehicle Location
+Indent: 0
+Parameters:
+  0: 0
+  1: 1
+  2: 1
+  3: 4
+  4: 1
+______________________________________________________________________________
+Code: 203 : Set Event Location
+Indent: 0
+Parameters:
+  0: 0
+  1: 0
+  2: 5
+  3: 6
+  4: 4
+______________________________________________________________________________
+Code: 203 : Set Event Location
+Indent: 0
+Parameters:
+  0: 0
+  1: 1
+  2: 1
+  3: 5
+  4: 0
+______________________________________________________________________________
+Code: 203 : Set Event Location
+Indent: 0
+Parameters:
+  0: 0
+  1: 2
+  2: 1
+  3: 0
+  4: 8
+______________________________________________________________________________
+Code: 204 : Scroll Map
+Indent: 0
+Parameters:
+  0: 2
+  1: 1
+  2: 4
+______________________________________________________________________________
+Code: 205 : Set Move Route
+Indent: 0
+Parameters:
+  0: -1
+  1: #<RPG::MoveRoute:0x5a6a02c @repeat=false, @skippable=false, @wait=true, @list=[#<RPG::MoveCommand:0x5a69fc8 @code=1, @parameters=[]>, #<RPG::MoveCommand:0x5a69f28 @code=2, @parameters=[]>, #<RPG::MoveCommand:0x5a69e4c @code=3, @parameters=[]>, #<RPG::MoveCommand:0x5a69b7c @code=4, @parameters=[]>, #<RPG::MoveCommand:0x5a69a14 @code=5, @parameters=[]>, #<RPG::MoveCommand:0x5a69988 @code=6, @parameters=[]>, #<RPG::MoveCommand:0x5a69960 @code=7, @parameters=[]>, #<RPG::MoveCommand:0x5a698fc @code=8, @parameters=[]>, #<RPG::MoveCommand:0x5a69884 @code=9, @parameters=[]>, #<RPG::MoveCommand:0x5a6980c @code=10, @parameters=[]>, #<RPG::MoveCommand:0x5a69794 @code=11, @parameters=[]>, #<RPG::MoveCommand:0x5a6971c @code=12, @parameters=[]>, #<RPG::MoveCommand:0x5a6967c @code=13, @parameters=[]>, #<RPG::MoveCommand:0x5a69604 @code=14, @parameters=[0, 1]>, #<RPG::MoveCommand:0x5a69578 @code=15, @parameters=[60]>, #<RPG::MoveCommand:0x5a69460 @code=16, @parameters=[]>, #<RPG::MoveCommand:0x5a69438 @code=17, @parameters=[]>, #<RPG::MoveCommand:0x5a69384 @code=18, @parameters=[]>, #<RPG::MoveCommand:0x5a692e4 @code=19, @parameters=[]>, #<RPG::MoveCommand:0x5a692bc @code=21, @parameters=[]>, #<RPG::MoveCommand:0x5a69258 @code=20, @parameters=[]>, #<RPG::MoveCommand:0x5a691cc @code=22, @parameters=[]>, #<RPG::MoveCommand:0x5a690c8 @code=23, @parameters=[]>, #<RPG::MoveCommand:0x5a69028 @code=24, @parameters=[]>, #<RPG::MoveCommand:0x5a68f88 @code=25, @parameters=[]>, #<RPG::MoveCommand:0x5a68e98 @code=26, @parameters=[]>, #<RPG::MoveCommand:0x5a68df8 @code=27, @parameters=[1]>, #<RPG::MoveCommand:0x5a68d30 @code=28, @parameters=[1]>, #<RPG::MoveCommand:0x5a68d08 @code=29, @parameters=[3]>, #<RPG::MoveCommand:0x5a68ce0 @code=30, @parameters=[3]>, #<RPG::MoveCommand:0x5a68c68 @code=31, @parameters=[]>, #<RPG::MoveCommand:0x5a68bdc @code=32, @parameters=[]>, #<RPG::MoveCommand:0x5a68b50 @code=33, @parameters=[]>, #<RPG::MoveCommand:0x5a68b14 @code=34, @parameters=[]>, #<RPG::MoveCommand:0x5a68a10 @code=35, @parameters=[]>, #<RPG::MoveCommand:0x5a68948 @code=36, @parameters=[]>, #<RPG::MoveCommand:0x5a688d0 @code=37, @parameters=[]>, #<RPG::MoveCommand:0x5a687e0 @code=38, @parameters=[]>, #<RPG::MoveCommand:0x5a68768 @code=39, @parameters=[]>, #<RPG::MoveCommand:0x5a686dc @code=40, @parameters=[]>, #<RPG::MoveCommand:0x5a685ec @code=41, @parameters=["Actor2", 0]>, #<RPG::MoveCommand:0x5a684e8 @code=42, @parameters=[255]>, #<RPG::MoveCommand:0x5a684ac @code=43, @parameters=[0]>, #<RPG::MoveCommand:0x5a68434 @code=44, @parameters=[#<RPG::SE:0x5a6831c @name="Battle2", @pitch=140, @volume=45>]>, #<RPG::MoveCommand:0x5a68218 @code=45, @parameters=["dasdasd"]>, #<RPG::MoveCommand:0x5a68164 @code=0, @parameters=[]>]>
+______________________________________________________________________________
+Code: 505 : Move Route Command
+Indent: 0
+Parameters:
+  0: #<RPG::MoveCommand:0x5a69fc8 @code=1, @parameters=[]>
+______________________________________________________________________________
+Code: 505 : Move Route Command
+Indent: 0
+Parameters:
+  0: #<RPG::MoveCommand:0x5a69f28 @code=2, @parameters=[]>
+______________________________________________________________________________
+Code: 505 : Move Route Command
+Indent: 0
+Parameters:
+  0: #<RPG::MoveCommand:0x5a69e4c @code=3, @parameters=[]>
+______________________________________________________________________________
+Code: 505 : Move Route Command
+Indent: 0
+Parameters:
+  0: #<RPG::MoveCommand:0x5a69b7c @code=4, @parameters=[]>
+______________________________________________________________________________
+Code: 505 : Move Route Command
+Indent: 0
+Parameters:
+  0: #<RPG::MoveCommand:0x5a69a14 @code=5, @parameters=[]>
+______________________________________________________________________________
+Code: 505 : Move Route Command
+Indent: 0
+Parameters:
+  0: #<RPG::MoveCommand:0x5a69988 @code=6, @parameters=[]>
+______________________________________________________________________________
+Code: 505 : Move Route Command
+Indent: 0
+Parameters:
+  0: #<RPG::MoveCommand:0x5a69960 @code=7, @parameters=[]>
+______________________________________________________________________________
+Code: 505 : Move Route Command
+Indent: 0
+Parameters:
+  0: #<RPG::MoveCommand:0x5a698fc @code=8, @parameters=[]>
+______________________________________________________________________________
+Code: 505 : Move Route Command
+Indent: 0
+Parameters:
+  0: #<RPG::MoveCommand:0x5a69884 @code=9, @parameters=[]>
+______________________________________________________________________________
+Code: 505 : Move Route Command
+Indent: 0
+Parameters:
+  0: #<RPG::MoveCommand:0x5a6980c @code=10, @parameters=[]>
+______________________________________________________________________________
+Code: 505 : Move Route Command
+Indent: 0
+Parameters:
+  0: #<RPG::MoveCommand:0x5a69794 @code=11, @parameters=[]>
+______________________________________________________________________________
+Code: 505 : Move Route Command
+Indent: 0
+Parameters:
+  0: #<RPG::MoveCommand:0x5a6971c @code=12, @parameters=[]>
+______________________________________________________________________________
+Code: 505 : Move Route Command
+Indent: 0
+Parameters:
+  0: #<RPG::MoveCommand:0x5a6967c @code=13, @parameters=[]>
+______________________________________________________________________________
+Code: 505 : Move Route Command
+Indent: 0
+Parameters:
+  0: #<RPG::MoveCommand:0x5a69604 @code=14, @parameters=[0, 1]>
+______________________________________________________________________________
+Code: 505 : Move Route Command
+Indent: 0
+Parameters:
+  0: #<RPG::MoveCommand:0x5a69578 @code=15, @parameters=[60]>
+______________________________________________________________________________
+Code: 505 : Move Route Command
+Indent: 0
+Parameters:
+  0: #<RPG::MoveCommand:0x5a69460 @code=16, @parameters=[]>
+______________________________________________________________________________
+Code: 505 : Move Route Command
+Indent: 0
+Parameters:
+  0: #<RPG::MoveCommand:0x5a69438 @code=17, @parameters=[]>
+______________________________________________________________________________
+Code: 505 : Move Route Command
+Indent: 0
+Parameters:
+  0: #<RPG::MoveCommand:0x5a69384 @code=18, @parameters=[]>
+______________________________________________________________________________
+Code: 505 : Move Route Command
+Indent: 0
+Parameters:
+  0: #<RPG::MoveCommand:0x5a692e4 @code=19, @parameters=[]>
+______________________________________________________________________________
+Code: 505 : Move Route Command
+Indent: 0
+Parameters:
+  0: #<RPG::MoveCommand:0x5a692bc @code=21, @parameters=[]>
+______________________________________________________________________________
+Code: 505 : Move Route Command
+Indent: 0
+Parameters:
+  0: #<RPG::MoveCommand:0x5a69258 @code=20, @parameters=[]>
+______________________________________________________________________________
+Code: 505 : Move Route Command
+Indent: 0
+Parameters:
+  0: #<RPG::MoveCommand:0x5a691cc @code=22, @parameters=[]>
+______________________________________________________________________________
+Code: 505 : Move Route Command
+Indent: 0
+Parameters:
+  0: #<RPG::MoveCommand:0x5a690c8 @code=23, @parameters=[]>
+______________________________________________________________________________
+Code: 505 : Move Route Command
+Indent: 0
+Parameters:
+  0: #<RPG::MoveCommand:0x5a69028 @code=24, @parameters=[]>
+______________________________________________________________________________
+Code: 505 : Move Route Command
+Indent: 0
+Parameters:
+  0: #<RPG::MoveCommand:0x5a68f88 @code=25, @parameters=[]>
+______________________________________________________________________________
+Code: 505 : Move Route Command
+Indent: 0
+Parameters:
+  0: #<RPG::MoveCommand:0x5a68e98 @code=26, @parameters=[]>
+______________________________________________________________________________
+Code: 505 : Move Route Command
+Indent: 0
+Parameters:
+  0: #<RPG::MoveCommand:0x5a68df8 @code=27, @parameters=[1]>
+______________________________________________________________________________
+Code: 505 : Move Route Command
+Indent: 0
+Parameters:
+  0: #<RPG::MoveCommand:0x5a68d30 @code=28, @parameters=[1]>
+______________________________________________________________________________
+Code: 505 : Move Route Command
+Indent: 0
+Parameters:
+  0: #<RPG::MoveCommand:0x5a68d08 @code=29, @parameters=[3]>
+______________________________________________________________________________
+Code: 505 : Move Route Command
+Indent: 0
+Parameters:
+  0: #<RPG::MoveCommand:0x5a68ce0 @code=30, @parameters=[3]>
+______________________________________________________________________________
+Code: 505 : Move Route Command
+Indent: 0
+Parameters:
+  0: #<RPG::MoveCommand:0x5a68c68 @code=31, @parameters=[]>
+______________________________________________________________________________
+Code: 505 : Move Route Command
+Indent: 0
+Parameters:
+  0: #<RPG::MoveCommand:0x5a68bdc @code=32, @parameters=[]>
+______________________________________________________________________________
+Code: 505 : Move Route Command
+Indent: 0
+Parameters:
+  0: #<RPG::MoveCommand:0x5a68b50 @code=33, @parameters=[]>
+______________________________________________________________________________
+Code: 505 : Move Route Command
+Indent: 0
+Parameters:
+  0: #<RPG::MoveCommand:0x5a68b14 @code=34, @parameters=[]>
+______________________________________________________________________________
+Code: 505 : Move Route Command
+Indent: 0
+Parameters:
+  0: #<RPG::MoveCommand:0x5a68a10 @code=35, @parameters=[]>
+______________________________________________________________________________
+Code: 505 : Move Route Command
+Indent: 0
+Parameters:
+  0: #<RPG::MoveCommand:0x5a68948 @code=36, @parameters=[]>
+______________________________________________________________________________
+Code: 505 : Move Route Command
+Indent: 0
+Parameters:
+  0: #<RPG::MoveCommand:0x5a688d0 @code=37, @parameters=[]>
+______________________________________________________________________________
+Code: 505 : Move Route Command
+Indent: 0
+Parameters:
+  0: #<RPG::MoveCommand:0x5a687e0 @code=38, @parameters=[]>
+______________________________________________________________________________
+Code: 505 : Move Route Command
+Indent: 0
+Parameters:
+  0: #<RPG::MoveCommand:0x5a68768 @code=39, @parameters=[]>
+______________________________________________________________________________
+Code: 505 : Move Route Command
+Indent: 0
+Parameters:
+  0: #<RPG::MoveCommand:0x5a686dc @code=40, @parameters=[]>
+______________________________________________________________________________
+Code: 505 : Move Route Command
+Indent: 0
+Parameters:
+  0: #<RPG::MoveCommand:0x5a685ec @code=41, @parameters=["Actor2", 0]>
+______________________________________________________________________________
+Code: 505 : Move Route Command
+Indent: 0
+Parameters:
+  0: #<RPG::MoveCommand:0x5a684e8 @code=42, @parameters=[255]>
+______________________________________________________________________________
+Code: 505 : Move Route Command
+Indent: 0
+Parameters:
+  0: #<RPG::MoveCommand:0x5a684ac @code=43, @parameters=[0]>
+______________________________________________________________________________
+Code: 505 : Move Route Command
+Indent: 0
+Parameters:
+  0: #<RPG::MoveCommand:0x5a68434 @code=44, @parameters=[#<RPG::SE:0x5a6831c @name="Battle2", @pitch=140, @volume=45>]>
+______________________________________________________________________________
+Code: 505 : Move Route Command
+Indent: 0
+Parameters:
+  0: #<RPG::MoveCommand:0x5a68218 @code=45, @parameters=["dasdasd"]>
+______________________________________________________________________________
+Code: 206 : Unknown
+Indent: 0
+Parameters:
+______________________________________________________________________________
+Code: 211 : Change Transparency
+Indent: 0
+Parameters:
+  0: 0
+______________________________________________________________________________
+Code: 216 : Change Player Followers
+Indent: 0
+Parameters:
+  0: 0
+______________________________________________________________________________
+Code: 217 : Gather Followers
+Indent: 0
+Parameters:
+______________________________________________________________________________
+Code: 212 : Show Animation
+Indent: 0
+Parameters:
+  0: -1
+  1: 26
+  2: true
+______________________________________________________________________________
+Code: 213 : Show Balloon Icon
+Indent: 0
+Parameters:
+  0: -1
+  1: 4
+  2: false
+______________________________________________________________________________
+Code: 214 : Erase Event
+Indent: 0
+Parameters:
+______________________________________________________________________________
+Code: 221 : Fadeout Screen
+Indent: 0
+Parameters:
+______________________________________________________________________________
+Code: 222 : Fadein Screen
+Indent: 0
+Parameters:
+______________________________________________________________________________
+Code: 223 : Tint Screen
+Indent: 0
+Parameters:
+  0: (-238.000000, 136.000000, 102.000000, 0.000000)
+  1: 60
+  2: true
+______________________________________________________________________________
+Code: 224 : Flash Screen
+Indent: 0
+Parameters:
+  0: (255.000000, 51.000000, 51.000000, 85.000000)
+  1: 60
+  2: false
+______________________________________________________________________________
+Code: 225 : Shake Screen
+Indent: 0
+Parameters:
+  0: 2
+  1: 7
+  2: 60
+  3: true
+______________________________________________________________________________
+Code: 230 : Wait
+Indent: 0
+Parameters:
+  0: 60
+______________________________________________________________________________
+Code: 231 : Show Picture
+Indent: 0
+Parameters:
+  0: 1
+  1: "ComboBox"
+  2: 0
+  3: 0
+  4: 0
+  5: 0
+  6: 100
+  7: 100
+  8: 255
+  9: 0
+______________________________________________________________________________
+Code: 231 : Show Picture
+Indent: 0
+Parameters:
+  0: 2
+  1: "ComboBox"
+  2: 1
+  3: 1
+  4: 1
+  5: 15
+  6: 102
+  7: 99
+  8: 255
+  9: 1
+______________________________________________________________________________
+Code: 232 : Move Picture
+Indent: 0
+Parameters:
+  0: 1
+  1: nil
+  2: 0
+  3: 0
+  4: 0
+  5: 0
+  6: 100
+  7: 100
+  8: 255
+  9: 0
+  10: 60
+  11: true
+______________________________________________________________________________
+Code: 232 : Move Picture
+Indent: 0
+Parameters:
+  0: 2
+  1: nil
+  2: 1
+  3: 1
+  4: 1
+  5: 5
+  6: 100
+  7: 100
+  8: 255
+  9: 2
+  10: 60
+  11: false
+______________________________________________________________________________
+Code: 233 : Rotate Picture
+Indent: 0
+Parameters:
+  0: 1
+  1: 5
+______________________________________________________________________________
+Code: 234 : Tint Picture
+Indent: 0
+Parameters:
+  0: 2
+  1: (0.000000, 204.000000, -238.000000, 0.000000)
+  2: 60
+  3: false
+______________________________________________________________________________
+Code: 235 : Erase Picture
+Indent: 0
+Parameters:
+  0: 1
+______________________________________________________________________________
+Code: 236 : Set Weather Effect
+Indent: 0
+Parameters:
+  0: :storm
+  1: 5
+  2: 4
+  3: true
+______________________________________________________________________________
+Code: 241 : Play BGM
+Indent: 0
+Parameters:
+  0: #<RPG::BGM:0xdd30eac @name="Battle2", @volume=90, @pitch=100>
+______________________________________________________________________________
+Code: 242 : Fadeout BGM
+Indent: 0
+Parameters:
+  0: 10
+______________________________________________________________________________
+Code: 243 : Save BGM
+Indent: 0
+Parameters:
+______________________________________________________________________________
+Code: 244 : Replay BGM
+Indent: 0
+Parameters:
+______________________________________________________________________________
+Code: 245 : Play BGS
+Indent: 0
+Parameters:
+  0: #<RPG::BGS:0xdd31ab4 @name="Sea", @volume=80, @pitch=100>
+______________________________________________________________________________
+Code: 246 : Fadeout BGS
+Indent: 0
+Parameters:
+  0: 10
+______________________________________________________________________________
+Code: 249 : Play ME
+Indent: 0
+Parameters:
+  0: #<RPG::ME:0xdd318d4 @name="Shock", @pitch=100, @volume=100>
+______________________________________________________________________________
+Code: 250 : Play SE
+Indent: 0
+Parameters:
+  0: #<RPG::SE:0xdd317d0 @name="Battle1", @pitch=100, @volume=80>
+______________________________________________________________________________
+Code: 251 : Stop SE
+Indent: 0
+Parameters:
+______________________________________________________________________________
+Code: 0 : Unknown
+Indent: 0
+Parameters:
+______________________________________________________________________________
+UNKNOWN COMMAND CODES
+0
+206

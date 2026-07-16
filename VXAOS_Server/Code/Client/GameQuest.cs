@@ -36,10 +36,10 @@ namespace VXAOS_Server {
          Reward.Gold = Quests.Data[id].RewGold;
          Repeat = Quests.Data[id].Get("Repeat", false);
       }
-      public bool InProgress() {
+      public bool IsInProgress() {
          return State == Enums.Quest.IN_PROGRESS;
       }
-      public bool Finished() {
+      public bool IsFinished() {
          return State == Enums.Quest.FINISHED;
       }
    }

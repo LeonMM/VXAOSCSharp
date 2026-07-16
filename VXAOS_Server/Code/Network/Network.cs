@@ -3,6 +3,7 @@ global using static VXAOS_Server.Extensions.Utils;
 using System.Collections.Concurrent;
 using System.Net;
 using System.Net.Sockets;
+using VXAOS_Server.Code.Core;
 
 namespace VXAOS_Server {
    public static partial class Network {
@@ -20,22 +21,26 @@ namespace VXAOS_Server {
       public static ConcurrentDictionary<string, Guild> Guilds = new();
       public static GameGlobalSwitches Switches = new();
       public static Database DB;
+      public static Logger Log;
       public static void Start() {
          try {
             Cfg = ConfigLoader.Load("server.cfg");
             Console.WriteLine("Iniciando Servidor...");
             DB = new(Cfg);
-            DataManager.Load(Cfg.DataPath);
+            Log = new();
+            Load(Cfg.DataPath);
             Listener = new TcpListener(IPAddress.Any, Cfg.ServerPort);
             Listener.Start();
             Console.WriteLine($"Servidor iniciado às {DateTimeOffset.Now:H'h'mm'min.'}");
             Console.WriteLine("Aguardando Clientes...");
-            AcceptLoop();
+            _ = AcceptLoop();
+            _ = UpdateLoop();
+            _ = SaveLoop();
          } catch (Exception ex) {
             Console.WriteLine(ex);
          }
       }
-      static async void AcceptLoop() {
+      static async Task AcceptLoop() {
          while (true) {
             var tcp = await Listener.AcceptTcpClientAsync();
             int id = FindClientId();
@@ -93,6 +98,20 @@ namespace VXAOS_Server {
       private static void UpdateMaps() {
          foreach(var map in Maps.Values) {
             map.Update();
+         }
+      }
+      static async Task UpdateLoop() {
+         var timer = new PeriodicTimer(TimeSpan.FromMilliseconds(80));
+         while (await timer.WaitForNextTickAsync()) {
+            Update();
+         }
+      }
+      static async Task SaveLoop() {
+         var timer = new PeriodicTimer(
+             TimeSpan.FromSeconds(Network.Cfg.SaveDataTime));
+
+         while (await timer.WaitForNextTickAsync()) {
+            await SaveGameData();
          }
       }
    }

@@ -15,7 +15,7 @@ namespace VXAOS_Server {
                throw new Exception("Packet Inválido / Invalid Packet");
             }
          } catch (Exception e) {
-            CSExt.WriteColor($"Error {e.Message}",ConsoleColor.Red);
+            WriteColor($"Error {e.Message}",ConsoleColor.Red);
             client.Disconnect();
          }
       }
