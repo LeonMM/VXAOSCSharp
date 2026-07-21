@@ -1,16 +1,25 @@
 {
   "version": 2,
-  "dgSpecHash": "YlBYn9kbQPE=",
+  "dgSpecHash": "KjtKhSAfaOA=",
   "success": true,
   "projectFilePath": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\VXAOS_Server.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Leon\\.nuget\\packages\\dapper\\2.1.72\\dapper.2.1.72.nupkg.sha512",
     "C:\\Users\\Leon\\.nuget\\packages\\extendednumerics.bigdecimal\\3003.0.0.346\\extendednumerics.bigdecimal.3003.0.0.346.nupkg.sha512",
     "C:\\Users\\Leon\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\Leon\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\5.3.0\\microsoft.codeanalysis.analyzers.5.3.0.nupkg.sha512",
+    "C:\\Users\\Leon\\.nuget\\packages\\microsoft.codeanalysis.common\\5.6.0\\microsoft.codeanalysis.common.5.6.0.nupkg.sha512",
+    "C:\\Users\\Leon\\.nuget\\packages\\microsoft.codeanalysis.csharp\\5.6.0\\microsoft.codeanalysis.csharp.5.6.0.nupkg.sha512",
+    "C:\\Users\\Leon\\.nuget\\packages\\microsoft.codeanalysis.csharp.scripting\\5.6.0\\microsoft.codeanalysis.csharp.scripting.5.6.0.nupkg.sha512",
+    "C:\\Users\\Leon\\.nuget\\packages\\microsoft.codeanalysis.scripting.common\\5.6.0\\microsoft.codeanalysis.scripting.common.5.6.0.nupkg.sha512",
     "C:\\Users\\Leon\\.nuget\\packages\\microsoft.data.sqlite\\10.0.4\\microsoft.data.sqlite.10.0.4.nupkg.sha512",
     "C:\\Users\\Leon\\.nuget\\packages\\microsoft.data.sqlite.core\\10.0.4\\microsoft.data.sqlite.core.10.0.4.nupkg.sha512",
-    "C:\\Users\\Leon\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\10.0.7\\microsoft.extensions.dependencyinjection.abstractions.10.0.7.nupkg.sha512",
-    "C:\\Users\\Leon\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\10.0.7\\microsoft.extensions.logging.abstractions.10.0.7.nupkg.sha512",
+    "C:\\Users\\Leon\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\10.0.10\\microsoft.extensions.caching.abstractions.10.0.10.nupkg.sha512",
+    "C:\\Users\\Leon\\.nuget\\packages\\microsoft.extensions.caching.memory\\10.0.10\\microsoft.extensions.caching.memory.10.0.10.nupkg.sha512",
+    "C:\\Users\\Leon\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\10.0.10\\microsoft.extensions.dependencyinjection.abstractions.10.0.10.nupkg.sha512",
+    "C:\\Users\\Leon\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\10.0.10\\microsoft.extensions.logging.abstractions.10.0.10.nupkg.sha512",
+    "C:\\Users\\Leon\\.nuget\\packages\\microsoft.extensions.options\\10.0.10\\microsoft.extensions.options.10.0.10.nupkg.sha512",
+    "C:\\Users\\Leon\\.nuget\\packages\\microsoft.extensions.primitives\\10.0.10\\microsoft.extensions.primitives.10.0.10.nupkg.sha512",
     "C:\\Users\\Leon\\.nuget\\packages\\mysqlconnector\\2.5.0\\mysqlconnector.2.5.0.nupkg.sha512",
     "C:\\Users\\Leon\\.nuget\\packages\\ncalc\\6.3.2\\ncalc.6.3.2.nupkg.sha512",
     "C:\\Users\\Leon\\.nuget\\packages\\ncalc.core\\6.3.2\\ncalc.core.6.3.2.nupkg.sha512",
@@ -26,8 +35,9 @@
     "C:\\Users\\Leon\\.nuget\\packages\\sqlkata\\4.0.1\\sqlkata.4.0.1.nupkg.sha512",
     "C:\\Users\\Leon\\.nuget\\packages\\sqlkata.execution\\4.0.1\\sqlkata.execution.4.0.1.nupkg.sha512",
     "C:\\Users\\Leon\\.nuget\\packages\\system.collections.immutable\\10.0.7\\system.collections.immutable.10.0.7.nupkg.sha512",
-    "C:\\Users\\Leon\\.nuget\\packages\\system.diagnostics.diagnosticsource\\10.0.7\\system.diagnostics.diagnosticsource.10.0.7.nupkg.sha512",
-    "C:\\Users\\Leon\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512"
+    "C:\\Users\\Leon\\.nuget\\packages\\system.diagnostics.diagnosticsource\\10.0.10\\system.diagnostics.diagnosticsource.10.0.10.nupkg.sha512",
+    "C:\\Users\\Leon\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
+    "C:\\Users\\Leon\\.nuget\\packages\\system.reflection.metadata\\10.0.1\\system.reflection.metadata.10.0.1.nupkg.sha512"
   ],
   "logs": []
 }

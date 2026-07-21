@@ -42,6 +42,12 @@ namespace VXAOS_Server.Extensions {
       public static char AsChar(this JToken token) {
          return token.Value<char>();
       }
+      public static byte AsByte(this JToken token) {
+         return token.Value<byte>();
+      }
+      public static short AsShort(this JToken token) {
+         return token.Value<short>();
+      }
    }
    public static class JArrayExtensions {
       public static int Int(this JArray arr, int index) {

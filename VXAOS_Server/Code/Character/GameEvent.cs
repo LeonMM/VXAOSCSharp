@@ -7,6 +7,7 @@ using VXAOS_Server.RPGData;
 
 namespace VXAOS_Server {
    public partial class GameEvent : GameBattler {
+      public DateTimeOffset ParallelProcessWaiting;
       public GameEvent(int id, RPGEvent @event, int mapId) { 
          Id = id;
          MapId = mapId;

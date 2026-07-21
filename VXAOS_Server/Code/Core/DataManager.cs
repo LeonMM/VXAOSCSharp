@@ -21,7 +21,7 @@ namespace VXAOS_Server {
 		public static Dictionary<int,RPGMapInfo> DataMapInfos = new();
 		public static Dictionary<int,RPGMap> DataMaps = new();
 		public static string Motd = "";
-		public static void Load(string projectRootFolder) {
+		public static void LoadData(string projectRootFolder) {
          if (Directory.Exists(projectRootFolder)) {
 				List<string> jsons = new List<string>();
 				string error = "";

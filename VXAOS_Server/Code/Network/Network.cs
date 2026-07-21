@@ -28,7 +28,7 @@ namespace VXAOS_Server {
             Console.WriteLine("Iniciando Servidor...");
             DB = new(Cfg);
             Log = new();
-            Load(Cfg.DataPath);
+            LoadData(Cfg.DataPath);
             Listener = new TcpListener(IPAddress.Any, Cfg.ServerPort);
             Listener.Start();
             Console.WriteLine($"Servidor iniciado às {DateTimeOffset.Now:H'h'mm'min.'}");

@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualBasic;
+using Newtonsoft.Json.Linq;
 using System.Collections.Concurrent;
 using System.Net;
 using System.Net.Sockets;
@@ -42,7 +43,7 @@ namespace VXAOS_Server {
       public List<Hotbar> Hotbar = new();
       public GameSwitches Switches;
       public GameSelfSwitches SelfSwitches;
-      public List<(int, int, int, int)> ShopGoods = new();
+      public List<JArray> ShopGoods = new();
       public Request Request = new();
       public Dictionary<int, GameQuest> Quests = new();
       public int PartyId = -1;
@@ -103,7 +104,7 @@ namespace VXAOS_Server {
          return false;
       }
       public bool IsFinishedQuestRequirements(int questId) {
-         if(Quests.TryGetValue(questId -1, out var quest){
+         if(Quests.TryGetValue(questId -1, out var quest)){
             if(quest.SwitchId > 0 && !Switches[quest.SwitchId])
                return false;
             if (quest.VariableId > 0 && Variables[quest.VariableId] < quest.VariableAmount)
@@ -135,7 +136,7 @@ namespace VXAOS_Server {
       }
       public override List<int> AtkElements() {
          List<int> set = base.AtkElements();
-         if (!UsingNormalWeapon() && !set.Contains(1)) {
+         if (!IsUsingNormalWeapon() && !set.Contains(1)) {
             set.Add(1);
          }
          return set;
@@ -173,7 +174,7 @@ namespace VXAOS_Server {
          X = x; Y = y;
          Direction = direction;
       }
-      internal void CheckPoin(int mapId, int x, int y) {
+      internal void CheckPoint(int mapId, int x, int y) {
          ReviveMapId = mapId;
          ReviveX = x; ReviveY = y;
       }
@@ -521,7 +522,7 @@ namespace VXAOS_Server {
          //ABILITY_GOLD_DOUBLE      = 4
          return PartyAbility(4) ? 2 : 1;
       }
-      public void OpenShop(List<(int, int, int, int)> shopGoods, int eventId, int index) {
+      public void OpenShop(List<JArray> shopGoods, int eventId, int index) {
          ShopGoods = shopGoods;
          Network.SendOpenShop(this, (short)eventId, (short)index);
       }
