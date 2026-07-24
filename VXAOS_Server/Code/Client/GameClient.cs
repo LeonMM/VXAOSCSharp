@@ -46,7 +46,6 @@ namespace VXAOS_Server {
       public List<JArray> ShopGoods = new();
       public Request Request = new();
       public Dictionary<int, GameQuest> Quests = new();
-      public int PartyId = -1;
       public int TeleportId = -1;
       public GameInterpreter EventInterpreter;
       public Dictionary<int, GameInterpreter> CommonEvents = new();
@@ -63,7 +62,7 @@ namespace VXAOS_Server {
       public DateTimeOffset WeaponAttackTime = DateTimeOffset.UtcNow;
       public DateTimeOffset ItemAttackTime = DateTimeOffset.UtcNow;
       public Dictionary<int, DateTimeOffset> SkillCooldownTime = new();
-      public DateTimeOffset RecoverTime = DateTimeOffset.UtcNow.AddSeconds(Network.Cfg.RecoverTime);
+      public DateTimeOffset RecoverTime = DateTimeOffset.UtcNow.AddSeconds(ServerConfig.RecoverTime);
       public bool IsInShop() { return ShopGoods.Count > 0; }
       public bool IsInTrade() { return TradePlayerId >= 0; }
       public bool IsInTeleport() { return TeleportId >= 0; }
@@ -119,12 +118,12 @@ namespace VXAOS_Server {
          }
          return true;
       }
-      public float VipExpBonus() { return IsVip() ? Network.Cfg.VipExpBonus : 1; }
-      public float VipGoldBonus() { return IsVip() ? Network.Cfg.VipGoldBonus : 1; }
-      public float VipDropBonus() { return IsVip() ? Network.Cfg.VipDropBonus : 1; }
-      public float VipRecoverBonus() { return IsVip() ? Network.Cfg.VipRecoverBonus : 1; }
-      public float LoseExpRate() { return IsVip() ? Network.Cfg.LoseVipExpRate : Network.Cfg.LoseDefaultExpRate; }
-      internal new IEnumerable<RPGBaseItem> FeatureObjects() {
+      public float VipExpBonus() { return IsVip() ? ServerConfig.VipExpBonus : 1; }
+      public float VipGoldBonus() { return IsVip() ? ServerConfig.VipGoldBonus : 1; }
+      public float VipDropBonus() { return IsVip() ? ServerConfig.VipDropBonus : 1; }
+      public float VipRecoverBonus() { return IsVip() ? ServerConfig.VipRecoverBonus : 1; }
+      public float LoseExpRate() { return IsVip() ? ServerConfig.LoseVipExpRate : ServerConfig.LoseDefaultExpRate; }
+      internal override IEnumerable<RPGBaseItem> FeatureObjects() {
          foreach (var obj in base.FeatureObjects())
             yield return obj;
          yield return DataActors[ClassId];
@@ -371,7 +370,7 @@ namespace VXAOS_Server {
             Network.SendPlayerParam(this, (byte)paramId, (short)(value - ParamBase[paramId]));
             ParamBase[paramId] = value;
          }
-         Points = Configs.StartPoints + (Level - 1) * Network.Cfg.LevelUpPoints;
+         Points = Configs.StartPoints + (Level - 1) * ServerConfig.LevelUpPoints;
          Refresh();
       }
       public void ChangeTarget(int targetId, Enums.Target type) {
@@ -404,7 +403,7 @@ namespace VXAOS_Server {
             }
          }
          Level += 1;
-         Points += Network.Cfg.LevelUpPoints;
+         Points += ServerConfig.LevelUpPoints;
       }
       internal void LevelDown() {
          foreach(var forgetting in DataClasses[ClassId].learnings) {
@@ -412,7 +411,7 @@ namespace VXAOS_Server {
                ForgetSkill((int)forgetting.skill_id);
             }
          }
-         Points -= Network.Cfg.LevelUpPoints;
+         Points -= ServerConfig.LevelUpPoints;
          Level -= 1;
       }
       public override bool IsSkillLearned(int skillId) {
@@ -530,7 +529,7 @@ namespace VXAOS_Server {
          if (!IsInShop()) return;
          ShopGoods.Clear();
          Network.SendCloseWindow(this);
-         //EventInterpreter.Resume();
+         EventInterpreter.Resume();
       }
       public void OpenTeleport(int teleportId) {
          TeleportId = teleportId;
@@ -540,7 +539,7 @@ namespace VXAOS_Server {
          if (!IsInTeleport()) return;
          TeleportId = -1;
          Network.SendCloseWindow(this);
-         //EventInterpreter.Resume();
+         EventInterpreter.Resume();
       }
       public void CloseEventMessage() {
          Choice = -1;
@@ -559,7 +558,7 @@ namespace VXAOS_Server {
          if(!IsCreatingGuild()) return;
          CreatingGuild = false;
          Network.SendCloseWindow(this);
-         //EventInterpreter.Resume();
+         EventInterpreter.Resume();
       }
       public void AcceptGuild() {
          if (IsInGuild()) return;
@@ -627,19 +626,35 @@ namespace VXAOS_Server {
          Network.SendPlayerMovement(this);
       }
       public void StartMapEvent(int x, int y, List<int> triggers, bool normal) {
-
+         if(EventInterpreter.IsRunning) return;
+         foreach(var @event in Network.Maps[MapId].EventsXY(x, y)) {
+            if (!@event.IsEnemy() && @event.IsTriggerIn(triggers) && @event.IsNormalPriority() == normal)
+               @event.StartClient(this);
+         }
       }
       public void CheckEventTriggerHere(List<int> triggers) {
-
+         if(EventInterpreter.IsRunning) return;
+         StartMapEvent(X, Y, triggers, false);
       }
       public void CheckEventTriggerThere(List<int> triggers) { 
-
+         if(EventInterpreter.IsRunning) return;
+         int x2 = Network.Maps[MapId].RoundXWithDirection(X, Direction);
+         int y2 = Network.Maps[MapId].RoundYWithDirection(Y, Direction);
+         StartMapEvent(x2, y2, triggers, true);
+         if(EventInterpreter.IsRunning) return;
+         if (Network.Maps[MapId].IsCounter(x2, y2)) {
+            int x3 = Network.Maps[MapId].RoundXWithDirection(x2, Direction);
+            int y3 = Network.Maps[MapId].RoundYWithDirection(y2, Direction);
+            StartMapEvent(x2, y2, triggers, true);
+         }
       }
       public void CheckEventTriggerTouch(int x, int y) {
-
+         if(EventInterpreter.IsRunning) return;
+         StartMapEvent(x, y, [1, 2], true);
       }
       public void CheckTouchEvent() {
-
+         if(EventInterpreter.IsRunning) return;
+         CheckEventTriggerHere([1, 2]);
       }
       public void UpdateGame() {
          RecoverVital();
@@ -654,8 +669,8 @@ namespace VXAOS_Server {
          if(Hp < Mhp || Mp < Mmp) {
             float n = (Agi / 100) + 1;
             ChangeVitals(
-                  Convert.ToInt32(Hp + Network.Cfg.RecoverHP * VipRecoverBonus() * n),
-                  Convert.ToInt32(Mp + Network.Cfg.RecoverMP * VipRecoverBonus() * n)
+                  Convert.ToInt32(Hp + ServerConfig.RecoverHP * VipRecoverBonus() * n),
+                  Convert.ToInt32(Mp + ServerConfig.RecoverMP * VipRecoverBonus() * n)
                );
          }
       }

@@ -15,11 +15,11 @@ namespace VXAOS_Server {
                continue;
             }
             player.GuildName = string.Empty;
-            //SendGuildName(player);
-            //PlayerChatMessage(
-             //   player,
-            //    message,
-            //    Configs.ErrorColor);
+            SendGuildName(player);
+            PlayerChatMessage(
+                player,
+                message,
+                Configs.ErrorColor);
          }
          if (Network.Guilds.TryRemove(guildName, out var guild)) {
             await DB.RemoveGuild(guild);

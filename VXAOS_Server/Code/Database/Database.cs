@@ -19,40 +19,40 @@ using static VXAOS_Server.Enums;
 
 namespace VXAOS_Server {
    public class Database {
-      private ServerConfig cfg;
+      //private ServerConfig cfg;
       private readonly Compiler compiler;
-      public Database(ServerConfig cfg) {
-         this.cfg = cfg;
+      public Database() {
+         //this.cfg = cfg;
          compiler = GetCompiler();
-         Console.WriteLine($"Banco de Dados {cfg.DbType} incializado.");
+         Console.WriteLine($"Banco de Dados {ServerConfig.DbType} incializado.");
       }
       public IDbConnection CreateConnection() {
-         switch (cfg.DbType) {
+         switch (ServerConfig.DbType) {
             case Enums.DatabaseType.POSTGRESQL:
                var pgConn =
-                   $"Host={cfg.DbHost};" +
-                   $"Port={cfg.DbPort};" +
-                   $"Database={cfg.DbName};" +
-                   $"Username={cfg.DbUser};" +
-                   $"Password={cfg.DbPass};" +
-                   $"Minimum Pool Size={cfg.DbPoolMin};" +
-                   $"Maximum Pool Size={cfg.DbPoolMax};" +
+                   $"Host={ServerConfig.DbHost};" +
+                   $"Port={ServerConfig.DbPort};" +
+                   $"Database={ServerConfig.DbName};" +
+                   $"Username={ServerConfig.DbUser};" +
+                   $"Password={ServerConfig.DbPass};" +
+                   $"Minimum Pool Size={ServerConfig.DbPoolMin};" +
+                   $"Maximum Pool Size={ServerConfig.DbPoolMax};" +
                    $"Pooling=True;Max Auto Prepare=50;Auto Prepare Min Usages=2;";
                return new NpgsqlConnection(pgConn);
             case Enums.DatabaseType.MYSQL:
                var myConn =
-                   $"Server={cfg.DbHost};" +
-                   $"Port={cfg.DbPort};" +
-                   $"Database={cfg.DbName};" +
-                   $"User ID={cfg.DbUser};" +
-                   $"Password={cfg.DbPass};" +
-                   $"MinimumPoolSize={cfg.DbPoolMin};" +
-                   $"MaximumPoolSize={cfg.DbPoolMax};" +
+                   $"Server={ServerConfig.DbHost};" +
+                   $"Port={ServerConfig.DbPort};" +
+                   $"Database={ServerConfig.DbName};" +
+                   $"User ID={ServerConfig.DbUser};" +
+                   $"Password={ServerConfig.DbPass};" +
+                   $"MinimumPoolSize={ServerConfig.DbPoolMin};" +
+                   $"MaximumPoolSize={ServerConfig.DbPoolMax};" +
                    $"Pooling=True;ConnectionIdleTimeout=60";
                return new MySqlConnection(myConn);
             case Enums.DatabaseType.SQLITE:
                var sqliteConn =
-                   $"Data Source=Data/{cfg.DbFile}.db;" +
+                   $"Data Source=Data/{ServerConfig.DbFile}.db;" +
                    $"Pooling=True;";
                return new SqliteConnection(sqliteConn);
 
@@ -61,7 +61,7 @@ namespace VXAOS_Server {
          }
       }
       public Compiler GetCompiler() {
-         switch (cfg.DbType) {
+         switch (ServerConfig.DbType) {
             case Enums.DatabaseType.POSTGRESQL:
                return new PostgresCompiler();
             case Enums.DatabaseType.MYSQL:

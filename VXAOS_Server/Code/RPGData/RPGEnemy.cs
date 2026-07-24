@@ -30,7 +30,7 @@ namespace VXAOS_Server.RPGData {
 		internal void OnDeserialized(StreamingContext context) {
 			sight = Note.ReadNumber("Sight", note);
          int reviveTime = Note.ReadNumber("ReviveTime", note);
-         revive_time = reviveTime > 0 ? reviveTime : Network.Cfg.ReviveTime;
+         revive_time = reviveTime > 0 ? reviveTime : ServerConfig.ReviveTime;
          disable_switch_id = Note.ReadNumber("SwitchID", note);
          disable_variable_id = Note.ReadNumber("VariableID", note);
          ani_index = Note.ReadNumber("AniIndex", note, 8);

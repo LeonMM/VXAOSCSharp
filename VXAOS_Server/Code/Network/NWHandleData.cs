@@ -37,7 +37,7 @@ namespace VXAOS_Server {
                _ = HandleUseActor(client, buffer);
                break;
          }
-         client.InactivityTime = DateTimeOffset.UtcNow.AddSeconds(Cfg.InactivityTime);
+         client.InactivityTime = DateTimeOffset.UtcNow.AddSeconds(ServerConfig.InactivityTime);
       }
       static void HandleGameMessages(GameClient client, Enums.Packet packet, BufferReader buffer) {
          switch (packet) {
@@ -404,7 +404,7 @@ namespace VXAOS_Server {
          
       }
       private static void HandleLogout(GameClient client) {
-         client.InactivityTime = DateTimeOffset.UtcNow.AddSeconds(Cfg.InactivityTime);
+         client.InactivityTime = DateTimeOffset.UtcNow.AddSeconds(ServerConfig.InactivityTime);
       }
       private static void HandleAdminCommand(GameClient client, BufferReader buffer) {
          

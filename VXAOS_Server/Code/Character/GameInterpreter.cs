@@ -55,10 +55,10 @@ namespace VXAOS_Server {
          }
          FinalizeRun();
       }
-      private void FinalizeRun() {
+      public void FinalizeRun() {
          IsRunning = false;
          if (EventId > 0 && Client != null) {
-            //Network.Maps[MapId].Events[EventId].Unlock(Client.Id);
+            Network.Maps[MapId].Events[EventId].Unlock(Client.Id);
          }
       }
       public void Resume() {

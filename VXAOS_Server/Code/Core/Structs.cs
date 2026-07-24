@@ -1,4 +1,6 @@
-﻿namespace VXAOS_Server {
+﻿using static Humanizer.In;
+
+namespace VXAOS_Server {
    public class Hotbar {
       public Enums.Hotbar Type;
       public int ItemId;
@@ -45,15 +47,15 @@
       public int Exp;
       public int Gold;
    }
-   public class Interpreter {
-     // public int List;
-     // public int EventId;
-     // public int Index;
+   /*public class Interpreter {
+      public int List;
+      public int EventId;
+      public int Index;
       public DateTimeOffset Time;
       public Interpreter(DateTimeOffset time) {
          Time = time;
       }
-   }
+   }*/
    public class Guild {
       public int IdDb;
       public string Leader;
@@ -72,6 +74,18 @@
    public class Party {
       public int Id;
       public List<int> Members = new();
+      public Party(int id, int leader) {
+         Id = id;
+         Members.Add(leader);
+      }
+      public IEnumerable<GameClient> Clients {
+         get {
+            foreach (var id in Members) {
+               if (Network.Clients.TryGetValue(id, out var client))
+                  yield return client;
+            }
+         }
+      }
    }
    public class Actor {
       public int IdDb;

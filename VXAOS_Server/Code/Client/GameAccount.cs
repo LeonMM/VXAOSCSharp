@@ -97,7 +97,7 @@ namespace VXAOS_Server {
             Disconnect();
       }
       public async Task StartHandshakeTimeout() {
-         await Task.Delay(TimeSpan.FromSeconds(Network.Cfg.AuthenticationTime));
+         await Task.Delay(TimeSpan.FromSeconds(ServerConfig.AuthenticationTime));
          if (!Handshake) {
             Disconnect();
          }
@@ -176,7 +176,7 @@ namespace VXAOS_Server {
       }
       public void JoinGame(int actorId) {
          ActorId = actorId;
-         RecoverTime = DateTimeOffset.UtcNow.AddSeconds(Network.Cfg.RecoverTime);
+         RecoverTime = DateTimeOffset.UtcNow.AddSeconds(ServerConfig.RecoverTime);
          GlobalAntispamTime = DateTimeOffset.UtcNow;
          WeaponAttackTime = DateTimeOffset.UtcNow;
          ItemAttackTime = DateTimeOffset.UtcNow;

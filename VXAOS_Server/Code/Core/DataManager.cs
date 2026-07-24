@@ -69,9 +69,9 @@ namespace VXAOS_Server {
 					return;
 				}
 				JsonSerializerSettings settings = new JsonSerializerSettings {
-					NullValueHandling = NullValueHandling.Ignore//, // Ignore null values
-																											//DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate, // Populate default values
-																											//Converters = new List<JsonConverter> { new TableConverter() } // Add custom converter
+					NullValueHandling = NullValueHandling.Ignore//, 
+					//DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate,
+					//Converters = new List<JsonConverter> { new TableConverter() }
 				};
 				bool _success = true;
 				try { 

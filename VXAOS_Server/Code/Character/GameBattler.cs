@@ -28,7 +28,7 @@ namespace VXAOS_Server {
             };
       }
       public Target Target = new();
-      public bool IsInFront(GameBattler target) {
+      public override bool IsInFront(GameBattler target) {
          int x = Network.Maps[MapId].RoundXWithDirection(X, Direction);
          int y = Network.Maps[MapId].RoundYWithDirection(Y, Direction);
          return target.Pos(x, y);
@@ -105,7 +105,8 @@ namespace VXAOS_Server {
          Mp += (int)damage;
          Refresh();
       }
-      private void SendAttack(int v1, int damage, bool critical, int id, int v2, int aniIndex, int animationId, bool notShowMissed) {
+      internal virtual void SendAttack(int hpDamage, int mpDamage, bool critical, int attackerId,
+         int attackerType, int aniIndex, int animationId, bool notShowMissed) {
       }
       private float ApplyGuard(float damage) {
          return damage / (damage > 0 && IsGuard() ? 2 * Grd : 1);
@@ -154,7 +155,7 @@ namespace VXAOS_Server {
          } else if (item.animation_id > 0) {
             byte attackerType = (byte)(user is GameClient ? 0 : 1);
             byte characterType = (byte)(this is GameClient ? 0 : 1);
-            //Network.SendAnimation(this, item.animation_id, user.Id, attackerType, aniIndex, characterType);
+            Network.SendAnimation(this, (short)item.animation_id, (short)user.Id, attackerType, (byte)aniIndex, characterType);
          }
          if (IsDead())
             return;

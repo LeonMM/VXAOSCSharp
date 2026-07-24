@@ -221,8 +221,8 @@ namespace VXAOS_Server {
          buffer.WriteByte((byte)Enums.Packet.REMOVE_ACTOR);
          SendDataToMap(mapId, buffer.ToStringBuffer());
       }
-      public static void SendAddProjectile(GameClient client, short finishX, short finishY, 
-               Target target, byte projectileType, byte projectileId) {
+      public static void SendAddProjectile(GameBattler client, short finishX, short finishY, 
+               GameBattler target, byte projectileType, byte projectileId) {
          BufferWriter buffer = new BufferWriter();
          buffer.WriteByte((byte)Enums.Packet.REMOVE_ACTOR);
          SendDataToMap(client.MapId, buffer.ToStringBuffer());

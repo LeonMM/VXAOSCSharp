@@ -34,14 +34,13 @@ namespace VXAOS_Server {
          Height = (int)map.height;
          TilesetId = (int)map.tileset_id;
          PvP = Note.ReadBoolean("PvP", map.note);
-         for (int i = 0; i < Network.Cfg.MaxReviveRegions; i++) { 
+         for (int i = 0; i < ServerConfig.MaxReviveRegions; i++) { 
             ReviveRegions.Add(new List<Region>());
          }
-         // ReviveRegions = new List<List<Region>>(Network.Cfg.MaxReviveRegions);
          for (int x = 0; x < Width; x++) {
             for (int y = 0; y < Height; y++) {
                int rid = RegionId(x, y);
-               if (rid > 0 && rid <= Network.Cfg.MaxReviveRegions)
+               if (rid > 0 && rid <= ServerConfig.MaxReviveRegions)
                   ReviveRegions[rid - 1].Add(new Region(x, y));
             }
          }
@@ -157,14 +156,14 @@ namespace VXAOS_Server {
          drop.Y = y;
          drop.Name = name;
          drop.PartyId = partyId;
-         drop.DespawnTime = DateTimeOffset.UtcNow.AddSeconds(Network.Cfg.DropDespawnTime);
-         drop.PickUpTime = DateTimeOffset.UtcNow.AddSeconds(Network.Cfg.DropPickUpTime);
+         drop.DespawnTime = DateTimeOffset.UtcNow.AddSeconds(ServerConfig.DropDespawnTime);
+         drop.PickUpTime = DateTimeOffset.UtcNow.AddSeconds(ServerConfig.DropPickUpTime);
          Drops.TryAdd(FindDropId(), drop);
-         //Network.SendAddDrop(Id, itemId, kind, amount, x, y);
+         Network.SendAddDrop(Id, (short)itemId, (byte)kind, (short)amount, (short)x, (short)y);
       }
       public void RemoveDrop(int dropId) {
          Drops.TryRemove(dropId, out _);
-         //Network.SendRemoveDrop(Id, dropId);
+         Network.SendRemoveDrop(Id, (short)dropId);
       }
       public void Update() {
          UpdateEvents();
@@ -179,6 +178,9 @@ namespace VXAOS_Server {
             if (DateTimeOffset.UtcNow > drop.DespawnTime)
                RemoveDrop(dropId);
          }
+      }
+      public bool PvPAble() {
+         return PvP && TotalPlayers > 1;
       }
    }
 }

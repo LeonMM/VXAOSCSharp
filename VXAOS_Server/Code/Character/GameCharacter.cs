@@ -4,7 +4,7 @@ using VXAOS_Server.RPGData;
 using static VXAOS_Server.Enums;
 
 namespace VXAOS_Server {
-   public class GameCharacter {
+   public partial class GameCharacter {
       public const int FLAG_ID_GUARD = 1;
       public int Id = -1;
       public int Direction;
@@ -14,7 +14,7 @@ namespace VXAOS_Server {
       public bool Through = false;
       public int PriorityType = 1;
       public int TileId = 0;
-      public bool MoveSucceed { get; private set; } = false;
+      public bool MoveSucceed { get; internal set; } = false;
       public bool MoveRouteForcing = false;
       public GameVariables Variables = new GameVariables(null, new List<int>());
       public List<int> States = new();
@@ -22,8 +22,8 @@ namespace VXAOS_Server {
       public int[] ParamBase = new int[8];
       public int[] Buffs = {0,0,0,0,0,0,0,0,0};
       public DateTimeOffset[] BuffsTime = new DateTimeOffset[8];
-      private int _hp;
-      private int _mp;
+      protected int _hp;
+      protected int _mp;
       public int Hp { 
          get { return _hp; }
          set { 
@@ -180,7 +180,7 @@ namespace VXAOS_Server {
       public int Param(int paramId) {
          float value = ParamBase[paramId] + ParamPlus(paramId);
          value *= ParamRate(paramId) * ParamBuffRate(paramId);
-         return Math.Clamp((int)value, ParamMin(paramId), Configs.MaxParams);
+         return Math.Clamp((int)value, (int)ParamMin(paramId), Configs.MaxParams);
       }
       public virtual float ParamPlus(int paramId) {
          return 0;
@@ -227,7 +227,7 @@ namespace VXAOS_Server {
             }
          }
       }
-      internal IEnumerable<RPGBaseItem> FeatureObjects() {
+      internal virtual IEnumerable<RPGBaseItem> FeatureObjects() {
          foreach (var state in RPGStates())
             yield return state;
       }
@@ -346,7 +346,7 @@ namespace VXAOS_Server {
       public bool HasItem(RPGItem item) {
          return true;
       }
-      public bool Usable(RPGUsableItem item) {
+      public bool IsUsable(RPGUsableItem item) {
          if (item is RPGSkill skill)
             return SkillConditionsMet(skill);
          if (item is RPGItem inventoryItem)
@@ -364,11 +364,11 @@ namespace VXAOS_Server {
             return ((float)Mp) / ((float)Mmp);
          return 0;
       }
-      public void Refresh() {
+      public virtual void Refresh() {
          Hp = Math.Clamp(Hp, 0, Mhp);
          Mp = Math.Clamp(Mp, 0, Mmp);
       }
-      public void Die() {
+      public virtual void Die() {
       }
       public bool Pos(int x, int y) {
          return X == x && Y == y;
@@ -490,6 +490,9 @@ namespace VXAOS_Server {
             if (DateTimeOffset.UtcNow >= timer) 
                RemoveState(state_id);
          }
+      }
+      public virtual bool IsInFront(GameBattler character) {
+         return false;
       }
    }
 }

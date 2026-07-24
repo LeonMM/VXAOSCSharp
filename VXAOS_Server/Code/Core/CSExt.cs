@@ -22,6 +22,9 @@ namespace VXAOS_Server.Extensions {
           => Random.Shared.Next(max);
       public static int Rand(int min, int max)
           => Random.Shared.Next(min, max);
+      public static int OrDefaultValue(this int value, int defaultValueMarker, int fallback) {
+         return value == defaultValueMarker ? fallback : value;
+      }
    }
    public static class JTokenExtensions {
       public static JArray AsArray(this JToken token) {

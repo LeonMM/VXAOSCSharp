@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 namespace VXAOS_Server {
    public static partial class Network {
       public static bool FullClients() {
-         return Clients.Count == Cfg.MaxConnections && ClientAvaiableIds.IsEmpty;
+         return Clients.Count == ServerConfig.MaxConnections && ClientAvaiableIds.IsEmpty;
       }
       public static GameClient? FindPlayer(string name) {
          foreach (var client in Clients.Values) {
@@ -55,7 +55,7 @@ namespace VXAOS_Server {
          return Regex.IsMatch(name, @"[^A-Za-z0-9 ]");
       }
       static bool IsIpBlocked(IPAddress ip) {
-         bool result = BlockedIps.ContainsKey(ip) && BlockedIps[ip].Attempts == Cfg.MaxAttempts;
+         bool result = BlockedIps.ContainsKey(ip) && BlockedIps[ip].Attempts == ServerConfig.MaxAttempts;
          if(result && DateTimeOffset.UtcNow > BlockedIps[ip].Time) {
             BlockedIps.TryRemove(ip, out _);
             result = false;
@@ -66,8 +66,8 @@ namespace VXAOS_Server {
          if (!BlockedIps.ContainsKey(client.Ip) || DateTimeOffset.UtcNow > BlockedIps[client.Ip].Time)
             BlockedIps.TryAdd(client.Ip, new IPBlocked());
          BlockedIps[client.Ip].Attempts++;
-         if (BlockedIps[client.Ip].Attempts == Cfg.MaxAttempts) {
-            BlockedIps[client.Ip].Time = DateTimeOffset.UtcNow.AddSeconds(Cfg.IpBlockingTime);
+         if (BlockedIps[client.Ip].Attempts == ServerConfig.MaxAttempts) {
+            BlockedIps[client.Ip].Time = DateTimeOffset.UtcNow.AddSeconds(ServerConfig.IpBlockingTime);
             SendFailedLogin(client, Enums.Login.IP_BLOCKED);
             client.CloseAfterWriting();
          } else {
