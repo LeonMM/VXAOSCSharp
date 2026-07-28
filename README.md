@@ -8,8 +8,9 @@ A versão usada aqui é a versão 2.1.6 com as minhas modificações (Estados e 
 
 ## Planejamento de Desenvolvimento
 - [ ] Primeiro: Adaptar o Servidor Ruby do VXA-OS para C#;
-- [ ] Segundo: Adaptar o novo Servidor e o Cliente do VXA-OS para ler arquivos do RPG Maker MZ;
-- [ ] Terceiro: Criar um novo Cliente em C#, ainda decidindo entre Godot ou Monogame ou outro motor ou API;
+- [ ] Segundo: Criar um novo Cliente em C#, ainda decidindo entre Godot ou Monogame ou outro motor ou API;
+- [ ] Terceiro: Adaptar o novo Servidor e o novo Cliente do VXA-OS para ler arquivos do RPG Maker MZ;
+- [ ] Terceiro.1: Renomear projeto para MZC#OS ou algum novo nome, aberto a sugestões;
 - [ ] Quarto: Melhorar o Servidor para aceitar plugins sem necessidade de editar código fonte e compila-lo a cada modificação.
 
 ## Motivação e Meta
