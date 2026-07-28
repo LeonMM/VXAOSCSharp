@@ -10,16 +10,16 @@ namespace VXAOS_Server {
          writer = new BinaryWriter(stream);
       }
 
-      public void WriteByte(byte value) {
-         writer.Write(value);
+      public void WriteByte(int value) {
+         writer.Write((byte)value);
       }
 
       public void WriteBoolean(bool value) {
          WriteByte((byte)(value ? 1 : 0));
       }
 
-      public void WriteShort(short value) {
-         writer.Write(value);
+      public void WriteShort(int value) {
+         writer.Write((short)value);
       }
 
       public void WriteFloat(float value) {

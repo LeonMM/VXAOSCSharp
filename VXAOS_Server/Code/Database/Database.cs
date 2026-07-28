@@ -91,7 +91,7 @@ namespace VXAOS_Server {
             await qry.Query("banks").InsertAsync(new { account_id = accountId });
          } finally { qry.Connection.Dispose(); }
       }
-      internal async Task<Account> LoadAccount(string user) {
+      internal async Task<Account?> LoadAccount(string user) {
          var qry = Query();
          var account = new Account();
          try {
@@ -332,36 +332,36 @@ namespace VXAOS_Server {
          actor.ReviveMapId = Convert.ToInt32(rowActor.revive_map_id);
          actor.ReviveX = Convert.ToInt32(rowActor.revive_x);
          actor.ReviveY = Convert.ToInt32(rowActor.revive_y);
-         int map_id = Convert.ToInt32(rowActor.map_id);
-         bool mapExists = Network.Maps.ContainsKey(map_id);
-         actor.MapId = mapExists ? map_id : Convert.ToInt32(actor.ReviveMapId);
-         actor.X = mapExists ? rowActor.x : Convert.ToInt32(actor.ReviveX);
-         actor.Y = mapExists ? rowActor.y : Convert.ToInt32(actor.ReviveY);
+         int mapId = Convert.ToInt32(rowActor.map_id);
+         bool mapExists = Network.Maps.ContainsKey(mapId);
+         actor.MapId = mapExists ? mapId : actor.ReviveMapId;
+         actor.X = mapExists ? Convert.ToInt32(rowActor.x) : actor.ReviveX;
+         actor.Y = mapExists ? Convert.ToInt32(rowActor.y) : actor.ReviveY;
          actor.Direction = Convert.ToInt32(rowActor.direction);
          actor.Gold = Convert.ToInt32(rowActor.gold);
          var skills = await qry.Query("actor_skills")
-             .Where("actor_id", actor.IdDb)
-             .Select("skill_id")
-             .GetAsync<int>();
+               .Where("actor_id", actor.IdDb)
+               .Select("skill_id")
+               .GetAsync<int>();
          actor.Skills = skills.ToList();
          var switches = await qry.Query("actor_switches")
-             .Where("actor_id", actor.IdDb)
-             .Select("value")
-             .GetAsync<int>();
+               .Where("actor_id", actor.IdDb)
+               .Select("value")
+               .GetAsync<int>();
          actor.Switches = switches.Select(v => v == 1).ToList();
          var variables = await qry.Query("actor_variables")
-                      .Where("actor_id", actor.IdDb)
-                      .Select("value")
-                      .GetAsync<int>();
+                        .Where("actor_id", actor.IdDb)
+                        .Select("value")
+                        .GetAsync<int>();
          actor.Variables = variables.ToList();
          var rows = await qry.Query("actor_self_switches")
                   .Where("actor_id", actor.IdDb)
                   .GetAsync();
          foreach (var row in rows) {
             actor.SelfSwitches[
-                (Convert.ToInt32(row.map_id),
-                 Convert.ToInt32(row.event_id),
-                 Convert.ToChar(row.ch))
+                  (Convert.ToInt32(row.map_id),
+                  Convert.ToInt32(row.event_id),
+                  Convert.ToChar(row.ch))
             ] = row.value == 1;
          }
          await LoadPlayerEquips(qry, actor);
@@ -756,8 +756,8 @@ namespace VXAOS_Server {
             var bank = await qry.Query("banks")
                         .Where("account_id", client.AccountIdDb)
                         .FirstAsync();
-            client.BankIdDb = bank.id;
-            client.BankGold = bank.gold;
+            client.BankIdDb = Convert.ToInt32(bank.id);
+            client.BankGold = Convert.ToInt32(bank.gold);
             client.BankItems = new Dictionary<int, int>();
             var items = await qry.Query("bank_items")
                 .Where("bank_id", client.BankIdDb)
@@ -782,6 +782,8 @@ namespace VXAOS_Server {
             foreach (var armor in armors) {
                client.BankArmors[(int)armor.armor_id] = (int)armor.amount;
             }
+         } catch (Exception ex) {
+            Console.WriteLine(ex.ToString());
          } finally { qry.Connection.Dispose(); }
       }
       internal async Task SaveBank(GameClient client, QueryFactory qry) {

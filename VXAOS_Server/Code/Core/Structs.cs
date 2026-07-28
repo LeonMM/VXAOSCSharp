@@ -33,7 +33,7 @@ namespace VXAOS_Server {
       public int ItemId;
       public int Kind;
       public int Amount;
-      public string Name;
+      public string Name = "";
       public int PartyId;
       public int X;
       public int Y;
@@ -58,14 +58,14 @@ namespace VXAOS_Server {
    }*/
    public class Guild {
       public int IdDb;
-      public string Leader;
-      public List<int> Flag;
-      public List<string> Members;
-      public string Notice;
+      public string Leader = "";
+      public List<int> Flag = new();
+      public List<string> Members = new();
+      public string Notice = "";
    }
    public class Account {
       public int IdDb;
-      public string Pass;
+      public string Pass = "";
       public int Group;
       public DateTimeOffset VipTime;
       public Dictionary<int, Actor> Actors = new();

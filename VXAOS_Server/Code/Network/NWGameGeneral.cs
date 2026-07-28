@@ -25,9 +25,6 @@ namespace VXAOS_Server {
             return FindGuildMember(Guilds[guildName], name) != null;
          return false;
       }
-      public static bool LoginHackingAttempt(GameClient client) {
-         return !client.IsConnected() || client.IsLogged();
-      }
       public static int FindGuildIdDb(string name) {
          return string.IsNullOrEmpty(name) || !Guilds.ContainsKey(name) ? 0 : Guilds[name].IdDb;
       }
@@ -54,6 +51,62 @@ namespace VXAOS_Server {
       public static bool IsInvalidName(string name) {
          return Regex.IsMatch(name, @"[^A-Za-z0-9 ]");
       }
+      static bool MultiAccounts(string user, IPAddress ip) {
+         var client = Clients.Values.FirstOrDefault(c =>
+            c != null &&
+            string.Equals(c.User, user, StringComparison.OrdinalIgnoreCase)
+         );
+         if (client != null && client.Ip == ip) { 
+            if(client.IsInGame())
+               client.LeaveGame();
+            client.Disconnect();
+            return false;
+         }
+         return client != null;
+      }
+      public static bool LoginHackingAttempt(GameClient client) {
+         return !client.IsConnected() || client.IsLogged();
+      }
+      public static bool CreateAccountHackingAtempt(GameClient client, string user, string pass, string email) {
+         return !client.IsConnected() || 
+               client.IsLogged() ||
+               user.Length < Configs.MinCharacters ||
+               user.Length > Configs.MaxCharacters ||
+               pass.Length < Configs.MinCharacters ||
+               pass.Length > 32 ||
+               IsInvalidUser(user) ||
+               IsInvalidEmail(email) ||
+               email.Length > 40;
+      }
+      public static bool IllegalName(string name) {
+         foreach (string word in (IEnumerable<string>)Configs.ForbiddenNames) {
+            if (name.Contains(word, StringComparison.OrdinalIgnoreCase))
+               return true;
+         }
+         return false;
+      }
+      public static bool IsRequestedUnavailable(GameClient client, GameClient? requested) {
+         if (requested == null || !requested.IsInGame()) return true;
+         if (client.Id == requested.Id) return true;
+         if (client.MapId != requested.MapId) return true;
+         if (!client.IsInRange(requested, 10)) return true;
+         return false;
+      }
+      public static bool CanPickUpDrop(Drop drop, GameClient client) {
+         if (string.IsNullOrEmpty(drop.Name)) return true;
+         if (drop.Name == client.Name) return true;
+         if (drop.PartyId > -1 && drop.PartyId == client.PartyId) return true;
+         if (DateTimeOffset.UtcNow >= drop.PickUpTime) return true;
+         return false;
+      }
+      static bool IsBanned(string key) {
+         bool banned = BanList.ContainsKey(key);
+         if (banned && DateTimeOffset.UtcNow > BanList[key]) {
+            BanList.TryRemove(key, out _);
+            return false;
+         }
+         return banned;
+      }
       static bool IsIpBlocked(IPAddress ip) {
          bool result = BlockedIps.ContainsKey(ip) && BlockedIps[ip].Attempts == ServerConfig.MaxAttempts;
          if(result && DateTimeOffset.UtcNow > BlockedIps[ip].Time) {
@@ -74,44 +127,23 @@ namespace VXAOS_Server {
             BlockedIps[client.Ip].Time = DateTimeOffset.UtcNow.AddSeconds(60);
          }
       }
-      static bool MultiAccounts(string user, IPAddress ip) {
-         var client = Clients.Values.FirstOrDefault(c =>
-            c != null &&
-            string.Equals(c.User, user, StringComparison.OrdinalIgnoreCase)
-         );
-         if (client != null && client.Ip == ip) { 
-            if(client.IsInGame())
-               client.LeaveGame();
-            client.Disconnect();
-            return false;
+      public static string ChatFilter(string message) {
+         foreach( var word in ServerConfig.ChatFilter) {
+            message = message.Replace(word, new('*', word.Length));
          }
-         return client != null;
+         return message;
       }
-      static bool IsBanned(string key) {
-         bool banned = BanList.ContainsKey(key);
-         if (banned && DateTimeOffset.UtcNow > BanList[key]) {
-            BanList.TryRemove(key, out _);
-            return false;
+      public static void WhosOnline(GameClient player) {
+         List<string> names = new();
+         foreach(var client in Clients.Values) {
+            if (client != null && client.IsInGame())
+               names.Add($"{client.Name} [{client.Level}]");
          }
-         return banned;
-      }
-      public static bool CreateAccountHackingAtempt(GameClient client, string user, string pass, string email) {
-         return !client.IsConnected() || 
-               client.IsLogged() ||
-               user.Length < Configs.MinCharacters ||
-               user.Length > Configs.MaxCharacters ||
-               pass.Length < Configs.MinCharacters ||
-               pass.Length > 32 ||
-               IsInvalidUser(user) ||
-               IsInvalidEmail(email) ||
-               email.Length > 40;
-      }
-      public static bool IllegalName(string name) {
-         foreach (string word in (IEnumerable<string>)Configs.ForbiddenNames) {
-            if (name.Contains(word, StringComparison.OrdinalIgnoreCase))
-               return true;
+         if(names.Count > 1) {
+            SendWhosOnline(player, string.Format(Vocab.Connected, names.Count, string.Join(", ", names.Take(40))));
+         } else {
+            SendWhosOnline(player, Vocab.NobodyConnected);
          }
-         return false;
       }
    }
 }

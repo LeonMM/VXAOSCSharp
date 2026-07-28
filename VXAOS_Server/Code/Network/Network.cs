@@ -57,7 +57,7 @@ namespace VXAOS_Server {
                return;
             }
             Clients[id] = client;
-            await Task.Delay(200);
+            //await Task.Delay(2);
             client.Start();
          }
       }

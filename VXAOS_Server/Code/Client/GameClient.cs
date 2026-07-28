@@ -102,7 +102,7 @@ namespace VXAOS_Server {
          }
          return false;
       }
-      public bool IsFinishedQuestRequirements(int questId) {
+      public bool HasFinishedQuestRequirements(int questId) {
          if(Quests.TryGetValue(questId -1, out var quest)){
             if(quest.SwitchId > 0 && !Switches[quest.SwitchId])
                return false;
@@ -653,7 +653,7 @@ namespace VXAOS_Server {
          StartMapEvent(x, y, [1, 2], true);
       }
       public void CheckTouchEvent() {
-         if(EventInterpreter.IsRunning) return;
+         if (EventInterpreter == null || EventInterpreter.IsRunning) return;
          CheckEventTriggerHere([1, 2]);
       }
       public void UpdateGame() {

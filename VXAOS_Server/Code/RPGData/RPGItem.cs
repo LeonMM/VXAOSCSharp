@@ -2,7 +2,7 @@
 using System.Text.RegularExpressions;
 
 namespace VXAOS_Server.RPGData {
-	public class RPGItem:RPGUsableItem {
+	public class RPGItem:RPGUsableItem, IRPGItem {
 		public double itype_id = 1;
 		public double price = 0;
 		public bool consumable = true;
@@ -17,6 +17,12 @@ namespace VXAOS_Server.RPGData {
          level = Note.ReadNumber("Level", note);
          ani_index = Note.ReadNumber("AniIndex", note, 8);
          soulbound = Note.ReadBoolean("Soulbound", note);
+      }
+      public bool IsSoulbound() {
+         return soulbound;
+      }
+      public int Price() {
+         return (int)price;
       }
    }
 }

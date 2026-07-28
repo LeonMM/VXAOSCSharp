@@ -150,8 +150,8 @@ namespace VXAOS_Server {
          Sex = Actors[actorId].Sex;
          Level = Actors[actorId].Level;
          Exp = Actors[actorId].Exp;
-         Hp = Actors[actorId].Hp;
-         Mp = Actors[actorId].Mp;
+         _hp = Actors[actorId].Hp;
+         _mp = Actors[actorId].Mp;
          ParamBase = Actors[actorId].ParamBase;
          Equips = Actors[actorId].Equips;
          Points = Actors[actorId].Points;

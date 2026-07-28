@@ -158,8 +158,9 @@ namespace VXAOS_Server {
          drop.PartyId = partyId;
          drop.DespawnTime = DateTimeOffset.UtcNow.AddSeconds(ServerConfig.DropDespawnTime);
          drop.PickUpTime = DateTimeOffset.UtcNow.AddSeconds(ServerConfig.DropPickUpTime);
-         Drops.TryAdd(FindDropId(), drop);
-         Network.SendAddDrop(Id, (short)itemId, (byte)kind, (short)amount, (short)x, (short)y);
+         int dropId = FindDropId();
+         Drops.TryAdd(dropId, drop);
+         Network.SendAddDrop(Id, dropId, (short)itemId, (byte)kind, (short)amount, (short)x, (short)y);
       }
       public void RemoveDrop(int dropId) {
          Drops.TryRemove(dropId, out _);

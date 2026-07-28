@@ -8,8 +8,10 @@ namespace VXAOS_Server {
    public class GameInterpreter {
       private static readonly MemoryCache _globalScriptCache = new(new MemoryCacheOptions());
       private static readonly ScriptOptions _scriptOptions = ScriptOptions.Default.
-         WithReferences(typeof(GameInterpreter).Assembly, typeof(DataManager).Assembly).
-         WithImports("System", "System.Math", "VXAOS_Server", "static VXAOS_Server.DataManager");
+         WithReferences(typeof(GameInterpreter).Assembly, typeof(DataManager).Assembly,
+            typeof(Network).Assembly, typeof(Microsoft.CSharp.RuntimeBinder.Binder).Assembly).
+         WithImports("System", "System.Math", "VXAOS_Server", "VXAOS_Server.RPGData",
+            "static VXAOS_Server.DataManager", "static VXAOS_Server.Modules");
       private SemaphoreSlim Semaphore = new SemaphoreSlim(0, 1);
       private List<RPGEventCommand> List = new();
       private GameClient? Client;
