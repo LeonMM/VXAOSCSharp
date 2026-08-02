@@ -58,8 +58,8 @@ end
 def export_module(mod)
   result = {}
   mod.constants.each { |const|
+    next if IGNORE_CONSTANTS.include?(const.to_s)
     name = pascal_case(const.to_s)
-    next if IGNORE_CONSTANTS.include?(name)
     value = mod.const_get(const)
     result[name] = normalize(value)
   }

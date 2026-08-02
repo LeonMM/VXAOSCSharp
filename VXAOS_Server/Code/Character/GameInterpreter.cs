@@ -2,6 +2,7 @@
 using Microsoft.CodeAnalysis.Scripting;
 using Microsoft.Extensions.Caching.Memory;
 using Newtonsoft.Json.Linq;
+using System.Diagnostics.CodeAnalysis;
 using VXAOS_Server.RPGData;
 
 namespace VXAOS_Server {
@@ -11,9 +12,9 @@ namespace VXAOS_Server {
          WithReferences(typeof(GameInterpreter).Assembly, typeof(DataManager).Assembly,
             typeof(Network).Assembly, typeof(Microsoft.CSharp.RuntimeBinder.Binder).Assembly).
          WithImports("System", "System.Math", "VXAOS_Server", "VXAOS_Server.RPGData",
-            "static VXAOS_Server.DataManager", "static VXAOS_Server.Modules");
-      private SemaphoreSlim Semaphore = new SemaphoreSlim(0, 1);
-      private List<RPGEventCommand> List = new();
+            "VXAOS_Server.DataManager", "VXAOS_Server.Modules");
+      private readonly SemaphoreSlim Semaphore = new(0, 1);
+      private List<RPGEventCommand> List = [];
       private GameClient? Client;
       private int EventId = 0;
       private int Index;
@@ -24,18 +25,18 @@ namespace VXAOS_Server {
       private int Indent;
       private Dictionary<int, int> Branch;
       public bool IsRunning = false;
-      private List<int> CmdExcludeList = new List<int>() {
+      private readonly List<int> CmdExcludeList = [
             111, 113, 115, 117, 119, 121, 124, 138, 203, 204,
             213, 221, 222, 223, 224, 225, 230, 231, 232, 233,
             234, 235, 236, 241, 242, 243, 244, 245, 246, 249,
-            250, 251, 261, 282, 284, 355, 411, 413 };
+            250, 251, 261, 282, 284, 355, 411, 413 ];
       public void Setup(GameClient? client, List<RPGEventCommand> list, int eventId = 0, object? obj = null) {
          Client = client;
          if (Client != null)
             MapId = Client.MapId;
          EventId = eventId;
          List = list;
-         Branch = new();
+         Branch = [];
          Index = 0;
          switch (obj) {
             case (GameEvent ev):
@@ -67,12 +68,12 @@ namespace VXAOS_Server {
          Semaphore.Release();
       }
       private async Task ExecuteCommand() {
-         if (Client == null && CmdExcludeList.Contains((int)List[Index].code))
+         if (Client == null && CmdExcludeList.Contains(List[Index].code))
             return;
          var command = List[Index];
          Params = command.parameters;
-         Indent = (int)command.indent;
-         switch ((int)command.code) {
+         Indent = command.indent;
+         switch (command.code) {
             case 101: await ShowMessage(); break;
             case 102: await ShowChoice(); break;
             case 103: await StoreNumber(); break;
@@ -134,7 +135,7 @@ namespace VXAOS_Server {
       }
       internal int? NextEventCode() {
          if (Index + 1 < List.Count) {
-            return (int)List[Index + 1].code;
+            return List[Index + 1].code;
          }
          return 0;
       }
@@ -144,7 +145,7 @@ namespace VXAOS_Server {
          return Network.Maps[MapId].Events[param > 0 ? param : EventId];
       }
       internal float OperateValue(int operation, int operandType, int operand) {
-         float value = operandType == 0 ? operand : Client.Variables[operand];
+         float value = operandType == 0 || Client == null ? operand : Client.Variables[operand];
          return operation == 0 ? value : -value;
       }
       public Task DefaultEventCommand(int initialIndex = -1, int finalIndex = -1) {
@@ -152,7 +153,7 @@ namespace VXAOS_Server {
          if (finalIndex < 0) finalIndex = Index + 1;
          if (Client != null) {
             Network.SendEventCommand(Client, (short)EventId, (short)initialIndex, (short)finalIndex);
-         } else {
+         } else if (ObjEvent != null) {
             Network.SendParallelProcessCommand(ObjEvent, (short)initialIndex, (short)finalIndex);
          }
          return Task.CompletedTask;
@@ -191,6 +192,7 @@ namespace VXAOS_Server {
          await SetupChoices(Params);
       }
       internal async Task SetupChoices(JArray @params) {
+         if (Client == null) return;
          await Semaphore.WaitAsync();
          Branch[Indent] = Math.Min(Client.Choice, @params[0].AsArray().Count);
          Client.CloseEventMessage();
@@ -202,6 +204,7 @@ namespace VXAOS_Server {
          await SetupNumInput(Params);
       }
       internal async Task SetupNumInput(JArray @params) {
+         if (Client == null) return;
          await Semaphore.WaitAsync();
          Client.Variables[@params[0].AsInt()] = Math.Min(Client.Choice, 99999999);
          Client.CloseEventMessage();
@@ -213,14 +216,17 @@ namespace VXAOS_Server {
          await SetupItemChoice(Params);
       }
       internal async Task SetupItemChoice(JArray @params) {
+         if (Client == null) return;
          await Semaphore.WaitAsync();
          Client.Variables[@params[0].AsInt()] = Math.Min(Client.Choice, DataItems.Count);
          Client.CloseEventMessage();
       }
-      public async Task ShowScrollingText() {
+      public Task ShowScrollingText() {
+         if (Client == null) return Task.CompletedTask;
          int initialIndex = Index;
          while (NextEventCode() == 405) Index++;
          Network.SendEventCommand(Client, (short)EventId, (short)initialIndex, (short)Index);
+         return Task.CompletedTask;
       }
       public async Task Choice() {
          if (Branch[Indent] != Params[0].AsInt()) await CommandSkip();
@@ -234,6 +240,7 @@ namespace VXAOS_Server {
             case 0:
                int swId = Params[1].AsInt();
                if(swId <= Configs.MaxPlayerSwitches) {
+                  if (Client == null) return;
                   result = Client.Switches[swId] == (Params[2].AsInt() == 0);
                } else {
                   result = Network.Switches[swId] == (Params[2].AsInt() == 0);
@@ -241,7 +248,7 @@ namespace VXAOS_Server {
                break;
             case 1:
                int value1 = Params[1].AsInt();
-               int value2 = Params[2].AsInt() == 0 ? Params[3].AsInt() : Client.Variables[Params[3].AsInt()];
+               int value2 = Params[2].AsInt() == 0 || Client == null ? Params[3].AsInt() : Client.Variables[Params[3].AsInt()];
                switch (Params[4].AsInt()) {
                   case 0:
                      result = value1 == value2;
@@ -265,10 +272,12 @@ namespace VXAOS_Server {
                break;
             case 2:
                if(EventId > 0) {
+                  if (Client == null) return;
                   result = Client.SelfSwitches[(MapId, EventId, Params[1].AsChar())] == (Params[2].AsInt() == 0);
                }
                break;
             case 4:
+               if (Client == null) return;
                switch (Params[2].AsInt()) {
                   case 1:
                      result = Client.Name == Params[3].AsString();
@@ -297,6 +306,7 @@ namespace VXAOS_Server {
                }
                break;
             case 7:
+               if (Client == null) return;
                switch (Params[2].AsInt()) {
                   case 0:
                      result = Client.Gold >= Params[1].AsInt();
@@ -310,12 +320,15 @@ namespace VXAOS_Server {
                }
                break;
             case 8:
+               if (Client == null) return;
                result = Client.HasItem(DataItems[Params[1].AsInt()]);
                break;
             case 9:
+               if (Client == null) return;
                result = Client.HasItem(DataWeapons[Params[1].AsInt()], Params[2].AsBool());
                break;
             case 10:
+               if (Client == null) return;
                result = Client.HasItem(DataArmors[Params[1].AsInt()], Params[2].AsBool());
                break;
             case 12:
@@ -331,7 +344,7 @@ namespace VXAOS_Server {
       public Task RepeatAbove() {
          do {
             Index--;
-         } while (((int)List[Index].indent) != Indent);
+         } while (List[Index].indent != Indent);
          return Task.CompletedTask;
       }
       public Task BreakCycle() {
@@ -366,7 +379,7 @@ namespace VXAOS_Server {
       }
       public Task ChangeSwitch() {
          var value = (Params[2].AsInt() == 0);
-         for (int swId = Params[0].AsInt(); swId < Params[1].AsInt(); swId++) {
+         for (int swId = Params[0].AsInt(); swId <= Params[1].AsInt(); swId++) {
              if(swId <= Configs.MaxPlayerSwitches) {
                if (Client == null) return Task.CompletedTask;
                Client.Switches[swId] = value;
@@ -564,7 +577,7 @@ namespace VXAOS_Server {
             Network.SendAnimation(character, Params[1].AsShort(), (short)character.Id, (byte)(type - 1), 8, (byte)type);
          }
          if (Params[2].AsBool())
-            await Wait((int)DataAnimations[Params[1].AsInt()].frame_max * 4 + 1);
+            await Wait(DataAnimations[Params[1].AsInt()].frame_max * 4 + 1);
       }
       public async Task ShowBalloon() {
          var character = GetCharacter(Params[0].AsInt());
@@ -597,7 +610,7 @@ namespace VXAOS_Server {
          }else if (EventId > 0 && ObjEvent == null && Client != null) {
             Client.WaitingEvent = DateTimeOffset.UtcNow.AddSeconds(duration / 60);
          }else if (ObjCommonEvent != null && Client != null) {
-            Client.ParallelEventsWating[(int)ObjCommonEvent.id] = DateTimeOffset.UtcNow.AddSeconds(duration / 60);
+            Client.ParallelEventsWaiting[ObjCommonEvent.id] = DateTimeOffset.UtcNow.AddSeconds(duration / 60);
          }
          await Semaphore.WaitAsync();
       }
@@ -618,7 +631,7 @@ namespace VXAOS_Server {
       }
       public Task PositionInformation() {
          if (Client == null) return Task.CompletedTask;
-         int x, y, value;
+         int x, y;
          if (Params[2].AsInt() == 0) {
             x = Params[3].AsInt();
             y = Params[4].AsInt();
@@ -626,26 +639,18 @@ namespace VXAOS_Server {
             x = Client.Variables[Params[3].AsInt()];
             y = Client.Variables[Params[4].AsInt()];
          }
-         switch (Params[1].AsInt()) {
-            case 0:
-               value = Network.Maps[MapId].TerrainTag(x, y);
-               break;
-            case 1:
-               value = Network.Maps[MapId].EventIdXY(x, y);
-               break;
-            case 2: case 3: case 4:
-               value = Network.Maps[MapId].TileId(x, y, Params[1].AsInt() - 2);
-               break;
-            default:
-               value = Network.Maps[MapId].RegionId(x, y);
-               break;
-         }
+         var value = Params[1].AsInt() switch {
+            0 => Network.Maps[MapId].TerrainTag(x, y),
+            1 => Network.Maps[MapId].EventIdXY(x, y),
+            2 or 3 or 4 => Network.Maps[MapId].TileId(x, y, Params[1].AsInt() - 2),
+            _ => Network.Maps[MapId].RegionId(x, y),
+         };
          Client.Variables[Params[0].AsInt()] = value;
          return Task.CompletedTask;
       }
       public async Task OpenShop() {
          if (Client == null) return;
-         List<JArray> goods = new List<JArray>() {Params};
+         List<JArray> goods = [Params];
          int initialIndex = Index;
          while(NextEventCode() == 605) {
             Index++;
@@ -829,6 +834,7 @@ namespace VXAOS_Server {
             }
             await runner(globals: this);
          } catch (Exception e) {
+            Console.WriteLine(e);
          }
       }
    }

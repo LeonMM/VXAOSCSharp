@@ -1,14 +1,13 @@
 ﻿using System.Runtime.Serialization;
-using System.Text.RegularExpressions;
 
 namespace VXAOS_Server.RPGData {
 	public class RPGItem:RPGUsableItem, IRPGItem {
-		public double itype_id = 1;
-		public double price = 0;
+		public int itype_id = 1;
+		public int price = 0;
 		public bool consumable = true;
 		public bool soulbound = false;
 		public RPGItem() {
-			this.scope = 7;
+		   scope = 7;
 		}
       [OnDeserialized]
       internal void OnDeserialized(StreamingContext context) {
@@ -22,7 +21,7 @@ namespace VXAOS_Server.RPGData {
          return soulbound;
       }
       public int Price() {
-         return (int)price;
+         return price;
       }
    }
 }

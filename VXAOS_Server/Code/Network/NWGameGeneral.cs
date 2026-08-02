@@ -21,12 +21,12 @@ namespace VXAOS_Server {
          return null;
       }
       public static bool IsMemberInGuild(string guildName, string name) {
-         if(Guilds.ContainsKey(guildName))
-            return FindGuildMember(Guilds[guildName], name) != null;
+         if(Guilds.TryGetValue(guildName, out Guild? value))
+            return FindGuildMember(value, name) != null;
          return false;
       }
       public static int FindGuildIdDb(string name) {
-         return string.IsNullOrEmpty(name) || !Guilds.ContainsKey(name) ? 0 : Guilds[name].IdDb;
+         return string.IsNullOrEmpty(name) || !Guilds.TryGetValue(name, out Guild? value) ? 0 : value.IdDb;
       }
       public static string FindGuildName(int idDb) {
          if (idDb == 0)
@@ -42,14 +42,13 @@ namespace VXAOS_Server {
                 .Select(word => CultureInfo.CurrentCulture.TextInfo.ToTitleCase(word.ToLower())));
       }
       public static bool IsInvalidEmail(string email) {
-         return !Regex.IsMatch(email,@"^([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+$",
-             RegexOptions.IgnoreCase);
+         return !InvalidEmailRegex().IsMatch(email);
       }
       public static bool IsInvalidUser(string user) {
-         return Regex.IsMatch(user, @"[\/\\\""*<>|]");
+         return InvalidUserRegex().IsMatch(user);
       }
       public static bool IsInvalidName(string name) {
-         return Regex.IsMatch(name, @"[^A-Za-z0-9 ]");
+         return InvalidNameRegex().IsMatch(name);
       }
       static bool MultiAccounts(string user, IPAddress ip) {
          var client = Clients.Values.FirstOrDefault(c =>
@@ -116,7 +115,7 @@ namespace VXAOS_Server {
          return result;
       }
       static void AddAttempt(GameClient client) {
-         if (!BlockedIps.ContainsKey(client.Ip) || DateTimeOffset.UtcNow > BlockedIps[client.Ip].Time)
+         if (!BlockedIps.TryGetValue(client.Ip, out IPBlocked? value) || DateTimeOffset.UtcNow > value.Time)
             BlockedIps.TryAdd(client.Ip, new IPBlocked());
          BlockedIps[client.Ip].Attempts++;
          if (BlockedIps[client.Ip].Attempts == ServerConfig.MaxAttempts) {
@@ -134,7 +133,7 @@ namespace VXAOS_Server {
          return message;
       }
       public static void WhosOnline(GameClient player) {
-         List<string> names = new();
+         List<string> names = [];
          foreach(var client in Clients.Values) {
             if (client != null && client.IsInGame())
                names.Add($"{client.Name} [{client.Level}]");
@@ -145,5 +144,12 @@ namespace VXAOS_Server {
             SendWhosOnline(player, Vocab.NobodyConnected);
          }
       }
+
+      [GeneratedRegex(@"^([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+$", RegexOptions.IgnoreCase, "pt-BR")]
+      private static partial Regex InvalidEmailRegex();
+      [GeneratedRegex(@"[\/\\\""*<>|]")]
+      private static partial Regex InvalidUserRegex();
+      [GeneratedRegex(@"[^A-Za-z0-9 ]")]
+      private static partial Regex InvalidNameRegex();
    }
 }

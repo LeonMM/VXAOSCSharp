@@ -1,13 +1,11 @@
 ﻿using Newtonsoft.Json;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace VXAOS_Server.RPGData {
 	public class RPGSystem {
 		public string game_title = "";
-		public double version_id = 0;
+		public int version_id = 0;
 		public bool japanese = false;
-		public double[] party_members = [1];
+		public int[] party_members = [1];
 		public string currency_unit = "";
 		public string[] elements = ["",""];
 		public string[] skill_types = ["",""];
@@ -37,15 +35,15 @@ namespace VXAOS_Server.RPGData {
 		public List<RPGSE> sounds = Enumerable.Repeat(new RPGSE(),24).ToList();
 		[JsonConverter(typeof(ListConverter<RPGSystemTestBattler>))]
 		public List<RPGSystemTestBattler> test_battlers = new List<RPGSystemTestBattler>();
-		public double test_troop_id = 1;
-		public double start_map_id = 1;
-		public double start_x = 0;
-		public double start_y = 0;
+		public int test_troop_id = 1;
+		public int start_map_id = 1;
+		public int start_x = 0;
+		public int start_y = 0;
 		public RPGSystemTerms terms = new();
 		public string battleback1_name = "";
 		public string battleback2_name = "";
 		public string battler_name = "";
-		public double battler_hue = 0;
-		public double edit_map_id = 1;
+		public int battler_hue = 0;
+		public int edit_map_id = 1;
 	}
 }

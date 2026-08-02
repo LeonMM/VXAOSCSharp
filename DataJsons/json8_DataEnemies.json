@@ -1,0 +1,2748 @@
+[
+  null,
+  {
+    "id": 1,
+    "name": "Gosma",
+    "icon_index": null,
+    "description": null,
+    "features": [
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.95
+      },
+      {
+        "code": 22,
+        "data_id": 1,
+        "value": 0.05
+      },
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 100
+      },
+      {
+        "code": 11,
+        "data_id": 4,
+        "value": 2.0
+      }
+    ],
+    "note": "Sight=6",
+    "battler_name": "",
+    "battler_hue": 0,
+    "params": [
+      200,
+      0,
+      12,
+      4,
+      8,
+      8,
+      10,
+      10
+    ],
+    "exp": 3,
+    "gold": 5,
+    "drop_items": [
+      {
+        "kind": 1,
+        "data_id": 1,
+        "denominator": 2
+      },
+      {
+        "kind": 0,
+        "data_id": 7,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 13,
+        "denominator": 1
+      }
+    ],
+    "actions": [
+      {
+        "skill_id": 1,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Morcego",
+    "icon_index": null,
+    "description": null,
+    "features": [
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.95
+      },
+      {
+        "code": 22,
+        "data_id": 1,
+        "value": 0.05
+      },
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 100
+      },
+      {
+        "code": 32,
+        "data_id": 3,
+        "value": 0.25
+      },
+      {
+        "code": 11,
+        "data_id": 8,
+        "value": 2.0
+      },
+      {
+        "code": 11,
+        "data_id": 7,
+        "value": 0.5
+      }
+    ],
+    "note": "Sight=6\r\nReviveTime=10\r\nEscape=true",
+    "battler_name": "",
+    "battler_hue": 0,
+    "params": [
+      250,
+      0,
+      16,
+      7,
+      12,
+      12,
+      16,
+      16
+    ],
+    "exp": 8,
+    "gold": 15,
+    "drop_items": [
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      }
+    ],
+    "actions": [
+      {
+        "skill_id": 1,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Soldada",
+    "icon_index": null,
+    "description": null,
+    "features": [
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.95
+      },
+      {
+        "code": 22,
+        "data_id": 1,
+        "value": 0.05
+      },
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 100
+      },
+      {
+        "code": 32,
+        "data_id": 2,
+        "value": 0.25
+      },
+      {
+        "code": 11,
+        "data_id": 8,
+        "value": 0.1
+      },
+      {
+        "code": 11,
+        "data_id": 7,
+        "value": 0.5
+      }
+    ],
+    "note": "Sight=6\r\nAniIndex=1",
+    "battler_name": "",
+    "battler_hue": 0,
+    "params": [
+      300,
+      100,
+      16,
+      7,
+      12,
+      12,
+      16,
+      16
+    ],
+    "exp": 8,
+    "gold": 15,
+    "drop_items": [
+      {
+        "kind": 0,
+        "data_id": 3,
+        "denominator": 2
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      }
+    ],
+    "actions": [
+      {
+        "skill_id": 1,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      },
+      {
+        "skill_id": 55,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Aranha",
+    "icon_index": null,
+    "description": null,
+    "features": [
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.95
+      },
+      {
+        "code": 22,
+        "data_id": 1,
+        "value": 0.05
+      },
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 100
+      },
+      {
+        "code": 32,
+        "data_id": 2,
+        "value": 0.25
+      },
+      {
+        "code": 11,
+        "data_id": 3,
+        "value": 2.0
+      }
+    ],
+    "note": "Sight=6",
+    "battler_name": "",
+    "battler_hue": 0,
+    "params": [
+      220,
+      0,
+      18,
+      8,
+      14,
+      14,
+      18,
+      18
+    ],
+    "exp": 13,
+    "gold": 25,
+    "drop_items": [
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      }
+    ],
+    "actions": [
+      {
+        "skill_id": 1,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Rato",
+    "icon_index": null,
+    "description": null,
+    "features": [
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.95
+      },
+      {
+        "code": 22,
+        "data_id": 1,
+        "value": 0.05
+      },
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 100
+      },
+      {
+        "code": 11,
+        "data_id": 3,
+        "value": 1.5
+      }
+    ],
+    "note": "Sight=6",
+    "battler_name": "",
+    "battler_hue": 0,
+    "params": [
+      300,
+      0,
+      20,
+      9,
+      16,
+      16,
+      22,
+      22
+    ],
+    "exp": 19,
+    "gold": 40,
+    "drop_items": [
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      }
+    ],
+    "actions": [
+      {
+        "skill_id": 1,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      },
+      {
+        "skill_id": 21,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Fogo-Fátuo",
+    "icon_index": null,
+    "description": null,
+    "features": [
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.95
+      },
+      {
+        "code": 22,
+        "data_id": 1,
+        "value": 0.05
+      },
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 100
+      },
+      {
+        "code": 32,
+        "data_id": 7,
+        "value": 0.15
+      },
+      {
+        "code": 11,
+        "data_id": 7,
+        "value": 0.5
+      }
+    ],
+    "note": "Sight=6",
+    "battler_name": "",
+    "battler_hue": 0,
+    "params": [
+      350,
+      60,
+      30,
+      20,
+      18,
+      18,
+      24,
+      24
+    ],
+    "exp": 26,
+    "gold": 50,
+    "drop_items": [
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      }
+    ],
+    "actions": [
+      {
+        "skill_id": 1,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      },
+      {
+        "skill_id": 51,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Cobra",
+    "icon_index": null,
+    "description": null,
+    "features": [
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.95
+      },
+      {
+        "code": 22,
+        "data_id": 1,
+        "value": 0.05
+      },
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 100
+      },
+      {
+        "code": 11,
+        "data_id": 4,
+        "value": 2.0
+      }
+    ],
+    "note": "Sight=6",
+    "battler_name": "",
+    "battler_hue": 0,
+    "params": [
+      400,
+      0,
+      28,
+      20,
+      20,
+      20,
+      28,
+      28
+    ],
+    "exp": 34,
+    "gold": 70,
+    "drop_items": [
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      }
+    ],
+    "actions": [
+      {
+        "skill_id": 1,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      },
+      {
+        "skill_id": 4,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Escorpião",
+    "icon_index": null,
+    "description": null,
+    "features": [
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.95
+      },
+      {
+        "code": 22,
+        "data_id": 1,
+        "value": 0.05
+      },
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 100
+      },
+      {
+        "code": 32,
+        "data_id": 2,
+        "value": 0.25
+      },
+      {
+        "code": 11,
+        "data_id": 4,
+        "value": 1.5
+      }
+    ],
+    "note": "Sight=6",
+    "battler_name": "",
+    "battler_hue": 0,
+    "params": [
+      450,
+      0,
+      36,
+      30,
+      25,
+      25,
+      30,
+      30
+    ],
+    "exp": 43,
+    "gold": 90,
+    "drop_items": [
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      }
+    ],
+    "actions": [
+      {
+        "skill_id": 1,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Água-Viva",
+    "icon_index": null,
+    "description": null,
+    "features": [
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.95
+      },
+      {
+        "code": 22,
+        "data_id": 1,
+        "value": 0.05
+      },
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 100
+      },
+      {
+        "code": 32,
+        "data_id": 3,
+        "value": 0.25
+      },
+      {
+        "code": 11,
+        "data_id": 5,
+        "value": 2.0
+      }
+    ],
+    "note": "Sight=6",
+    "battler_name": "",
+    "battler_hue": 0,
+    "params": [
+      500,
+      0,
+      32,
+      15,
+      25,
+      25,
+      32,
+      32
+    ],
+    "exp": 53,
+    "gold": 105,
+    "drop_items": [
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      }
+    ],
+    "actions": [
+      {
+        "skill_id": 1,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Planta Carnívora",
+    "icon_index": null,
+    "description": null,
+    "features": [
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.95
+      },
+      {
+        "code": 22,
+        "data_id": 1,
+        "value": 0.05
+      },
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 100
+      },
+      {
+        "code": 11,
+        "data_id": 3,
+        "value": 1.5
+      },
+      {
+        "code": 11,
+        "data_id": 6,
+        "value": 0.5
+      }
+    ],
+    "note": "Sight=6",
+    "battler_name": "",
+    "battler_hue": 0,
+    "params": [
+      600,
+      0,
+      40,
+      17,
+      30,
+      30,
+      36,
+      36
+    ],
+    "exp": 63,
+    "gold": 130,
+    "drop_items": [
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      }
+    ],
+    "actions": [
+      {
+        "skill_id": 1,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      },
+      {
+        "skill_id": 17,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 3
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Fantasma",
+    "icon_index": null,
+    "description": null,
+    "features": [
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.95
+      },
+      {
+        "code": 22,
+        "data_id": 1,
+        "value": 0.05
+      },
+      {
+        "code": 31,
+        "data_id": 10,
+        "value": 100
+      },
+      {
+        "code": 11,
+        "data_id": 1,
+        "value": 0.75
+      },
+      {
+        "code": 11,
+        "data_id": 2,
+        "value": 0.0
+      },
+      {
+        "code": 11,
+        "data_id": 9,
+        "value": 2.0
+      },
+      {
+        "code": 11,
+        "data_id": 10,
+        "value": 0
+      }
+    ],
+    "note": "Sight=6",
+    "battler_name": "",
+    "battler_hue": 0,
+    "params": [
+      700,
+      80,
+      48,
+      20,
+      40,
+      40,
+      38,
+      38
+    ],
+    "exp": 75,
+    "gold": 150,
+    "drop_items": [
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      }
+    ],
+    "actions": [
+      {
+        "skill_id": 1,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      },
+      {
+        "skill_id": 51,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Esqueleto",
+    "icon_index": null,
+    "description": null,
+    "features": [
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.95
+      },
+      {
+        "code": 22,
+        "data_id": 1,
+        "value": 0.05
+      },
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 100
+      },
+      {
+        "code": 32,
+        "data_id": 3,
+        "value": 0.25
+      },
+      {
+        "code": 11,
+        "data_id": 2,
+        "value": 0.0
+      },
+      {
+        "code": 11,
+        "data_id": 3,
+        "value": 1.5
+      },
+      {
+        "code": 11,
+        "data_id": 9,
+        "value": 2.0
+      }
+    ],
+    "note": "Sight=6",
+    "battler_name": "",
+    "battler_hue": 0,
+    "params": [
+      800,
+      0,
+      50,
+      25,
+      35,
+      35,
+      40,
+      40
+    ],
+    "exp": 87,
+    "gold": 180,
+    "drop_items": [
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      }
+    ],
+    "actions": [
+      {
+        "skill_id": 1,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Orc",
+    "icon_index": null,
+    "description": null,
+    "features": [
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.95
+      },
+      {
+        "code": 22,
+        "data_id": 1,
+        "value": 0.05
+      },
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 100
+      },
+      {
+        "code": 11,
+        "data_id": 6,
+        "value": 2.0
+      },
+      {
+        "code": 22,
+        "data_id": 2,
+        "value": 0.1
+      }
+    ],
+    "note": "Sight=6",
+    "battler_name": "",
+    "battler_hue": 0,
+    "params": [
+      850,
+      0,
+      55,
+      30,
+      30,
+      30,
+      42,
+      42
+    ],
+    "exp": 99,
+    "gold": 200,
+    "drop_items": [
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      }
+    ],
+    "actions": [
+      {
+        "skill_id": 1,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      },
+      {
+        "skill_id": 20,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Diabrete",
+    "icon_index": null,
+    "description": null,
+    "features": [
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.95
+      },
+      {
+        "code": 22,
+        "data_id": 1,
+        "value": 0.05
+      },
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 100
+      },
+      {
+        "code": 11,
+        "data_id": 8,
+        "value": 2.0
+      }
+    ],
+    "note": "Sight=6",
+    "battler_name": "",
+    "battler_hue": 0,
+    "params": [
+      900,
+      150,
+      60,
+      32,
+      40,
+      40,
+      45,
+      45
+    ],
+    "exp": 110,
+    "gold": 220,
+    "drop_items": [
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      }
+    ],
+    "actions": [
+      {
+        "skill_id": 1,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      },
+      {
+        "skill_id": 55,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      },
+      {
+        "skill_id": 50,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Gayzer",
+    "icon_index": null,
+    "description": null,
+    "features": [
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.95
+      },
+      {
+        "code": 22,
+        "data_id": 1,
+        "value": 0.05
+      },
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 100
+      },
+      {
+        "code": 32,
+        "data_id": 6,
+        "value": 0.25
+      },
+      {
+        "code": 11,
+        "data_id": 5,
+        "value": 2.0
+      }
+    ],
+    "note": "Sight=6",
+    "battler_name": "",
+    "battler_hue": 0,
+    "params": [
+      950,
+      0,
+      65,
+      35,
+      40,
+      40,
+      50,
+      50
+    ],
+    "exp": 130,
+    "gold": 250,
+    "drop_items": [
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      }
+    ],
+    "actions": [
+      {
+        "skill_id": 1,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      },
+      {
+        "skill_id": 23,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "name": "Marionete",
+    "icon_index": null,
+    "description": null,
+    "features": [
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.95
+      },
+      {
+        "code": 22,
+        "data_id": 1,
+        "value": 0.05
+      },
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 100.0
+      },
+      {
+        "code": 11,
+        "data_id": 6,
+        "value": 1.5
+      },
+      {
+        "code": 11,
+        "data_id": 7,
+        "value": 1.5
+      }
+    ],
+    "note": "Sight=6",
+    "battler_name": "",
+    "battler_hue": 0,
+    "params": [
+      1000,
+      200,
+      70,
+      40,
+      35,
+      35,
+      55,
+      55
+    ],
+    "exp": 160,
+    "gold": 280,
+    "drop_items": [
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      }
+    ],
+    "actions": [
+      {
+        "skill_id": 1,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      },
+      {
+        "skill_id": 53,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      },
+      {
+        "skill_id": 65,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "name": "Zumbi",
+    "icon_index": null,
+    "description": null,
+    "features": [
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.95
+      },
+      {
+        "code": 22,
+        "data_id": 1,
+        "value": 0.05
+      },
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 100
+      },
+      {
+        "code": 11,
+        "data_id": 2,
+        "value": 0.0
+      },
+      {
+        "code": 11,
+        "data_id": 3,
+        "value": 1.5
+      },
+      {
+        "code": 11,
+        "data_id": 9,
+        "value": 2.0
+      }
+    ],
+    "note": "Sight=6",
+    "battler_name": "",
+    "battler_hue": 0,
+    "params": [
+      1050,
+      0,
+      75,
+      40,
+      45,
+      45,
+      50,
+      50
+    ],
+    "exp": 180,
+    "gold": 320,
+    "drop_items": [
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      }
+    ],
+    "actions": [
+      {
+        "skill_id": 1,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      },
+      {
+        "skill_id": 4,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 3
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "name": "Basilisco",
+    "icon_index": null,
+    "description": null,
+    "features": [
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.95
+      },
+      {
+        "code": 22,
+        "data_id": 1,
+        "value": 0.05
+      },
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 100
+      },
+      {
+        "code": 11,
+        "data_id": 8,
+        "value": 2.0
+      }
+    ],
+    "note": "Sight=6",
+    "battler_name": "",
+    "battler_hue": 0,
+    "params": [
+      1100,
+      0,
+      80,
+      50,
+      40,
+      40,
+      60,
+      60
+    ],
+    "exp": 260,
+    "gold": 400,
+    "drop_items": [
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      }
+    ],
+    "actions": [
+      {
+        "skill_id": 1,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      },
+      {
+        "skill_id": 10,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      },
+      {
+        "skill_id": 19,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "name": "Quimera",
+    "icon_index": null,
+    "description": null,
+    "features": [
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.95
+      },
+      {
+        "code": 22,
+        "data_id": 1,
+        "value": 0.05
+      },
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 100
+      },
+      {
+        "code": 11,
+        "data_id": 3,
+        "value": 0.5
+      },
+      {
+        "code": 11,
+        "data_id": 4,
+        "value": 0.5
+      },
+      {
+        "code": 11,
+        "data_id": 5,
+        "value": 0.5
+      },
+      {
+        "code": 11,
+        "data_id": 6,
+        "value": 2.0
+      }
+    ],
+    "note": "Sight=6",
+    "battler_name": "",
+    "battler_hue": 0,
+    "params": [
+      1200,
+      0,
+      85,
+      45,
+      50,
+      50,
+      60,
+      60
+    ],
+    "exp": 450,
+    "gold": 900,
+    "drop_items": [
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      }
+    ],
+    "actions": [
+      {
+        "skill_id": 4,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      },
+      {
+        "skill_id": 9,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      },
+      {
+        "skill_id": 18,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "name": "Mímico",
+    "icon_index": null,
+    "description": null,
+    "features": [
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.95
+      },
+      {
+        "code": 22,
+        "data_id": 1,
+        "value": 0.1
+      },
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 100
+      },
+      {
+        "code": 32,
+        "data_id": 5,
+        "value": 0.2
+      },
+      {
+        "code": 22,
+        "data_id": 2,
+        "value": 0.2
+      },
+      {
+        "code": 61,
+        "data_id": 0,
+        "value": 0.5
+      }
+    ],
+    "note": "Sight=6",
+    "battler_name": "",
+    "battler_hue": 0,
+    "params": [
+      2000,
+      0,
+      100,
+      65,
+      60,
+      60,
+      65,
+      65
+    ],
+    "exp": 700,
+    "gold": 1600,
+    "drop_items": [
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      }
+    ],
+    "actions": [
+      {
+        "skill_id": 1,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      },
+      {
+        "skill_id": 12,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 3
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "name": "Lobisomem",
+    "icon_index": null,
+    "description": null,
+    "features": [
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.95
+      },
+      {
+        "code": 22,
+        "data_id": 1,
+        "value": 0.05
+      },
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 100
+      },
+      {
+        "code": 32,
+        "data_id": 2,
+        "value": 0.25
+      },
+      {
+        "code": 11,
+        "data_id": 3,
+        "value": 1.5
+      },
+      {
+        "code": 22,
+        "data_id": 2,
+        "value": 0.1
+      }
+    ],
+    "note": "Sight=6",
+    "battler_name": "",
+    "battler_hue": 0,
+    "params": [
+      1600,
+      0,
+      90,
+      70,
+      65,
+      65,
+      70,
+      70
+    ],
+    "exp": 660,
+    "gold": 1300,
+    "drop_items": [
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      }
+    ],
+    "actions": [
+      {
+        "skill_id": 1,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      },
+      {
+        "skill_id": 22,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 3
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "name": "Sahagin",
+    "icon_index": null,
+    "description": null,
+    "features": [
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.95
+      },
+      {
+        "code": 22,
+        "data_id": 1,
+        "value": 0.05
+      },
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 100
+      },
+      {
+        "code": 11,
+        "data_id": 5,
+        "value": 2.0
+      },
+      {
+        "code": 11,
+        "data_id": 6,
+        "value": 0.5
+      }
+    ],
+    "note": "Sight=6",
+    "battler_name": "",
+    "battler_hue": 0,
+    "params": [
+      1800,
+      400,
+      110,
+      75,
+      60,
+      60,
+      80,
+      80
+    ],
+    "exp": 690,
+    "gold": 1800,
+    "drop_items": [
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      }
+    ],
+    "actions": [
+      {
+        "skill_id": 1,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      },
+      {
+        "skill_id": 13,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 4
+      },
+      {
+        "skill_id": 64,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "name": "Ogre",
+    "icon_index": null,
+    "description": null,
+    "features": [
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.75
+      },
+      {
+        "code": 22,
+        "data_id": 1,
+        "value": 0.0
+      },
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 100
+      },
+      {
+        "code": 11,
+        "data_id": 3,
+        "value": 1.5
+      },
+      {
+        "code": 11,
+        "data_id": 5,
+        "value": 1.5
+      },
+      {
+        "code": 22,
+        "data_id": 2,
+        "value": 0.15
+      }
+    ],
+    "note": "Sight=6",
+    "battler_name": "",
+    "battler_hue": 0,
+    "params": [
+      2600,
+      0,
+      140,
+      80,
+      50,
+      50,
+      70,
+      70
+    ],
+    "exp": 1600,
+    "gold": 3200,
+    "drop_items": [
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      }
+    ],
+    "actions": [
+      {
+        "skill_id": 1,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      },
+      {
+        "skill_id": 21,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "name": "Gárgula",
+    "icon_index": null,
+    "description": null,
+    "features": [
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.95
+      },
+      {
+        "code": 22,
+        "data_id": 1,
+        "value": 0.05
+      },
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 100
+      },
+      {
+        "code": 11,
+        "data_id": 5,
+        "value": 1.5
+      },
+      {
+        "code": 11,
+        "data_id": 10,
+        "value": 0.5
+      }
+    ],
+    "note": "Sight=6",
+    "battler_name": "",
+    "battler_hue": 0,
+    "params": [
+      2400,
+      0,
+      130,
+      80,
+      70,
+      70,
+      90,
+      90
+    ],
+    "exp": 1400,
+    "gold": 2400,
+    "drop_items": [
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      }
+    ],
+    "actions": [
+      {
+        "skill_id": 1,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      },
+      {
+        "skill_id": 4,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      },
+      {
+        "skill_id": 8,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      },
+      {
+        "skill_id": 19,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "name": "Lamia",
+    "icon_index": null,
+    "description": null,
+    "features": [
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.95
+      },
+      {
+        "code": 22,
+        "data_id": 1,
+        "value": 0.05
+      },
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 100
+      },
+      {
+        "code": 32,
+        "data_id": 3,
+        "value": 0.25
+      },
+      {
+        "code": 11,
+        "data_id": 4,
+        "value": 2.0
+      }
+    ],
+    "note": "Sight=6",
+    "battler_name": "",
+    "battler_hue": 0,
+    "params": [
+      3200,
+      1000,
+      120,
+      90,
+      80,
+      80,
+      95,
+      95
+    ],
+    "exp": 2600,
+    "gold": 4400,
+    "drop_items": [
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      }
+    ],
+    "actions": [
+      {
+        "skill_id": 1,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      },
+      {
+        "skill_id": 16,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 3
+      },
+      {
+        "skill_id": 15,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 4
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "name": "Vampiro",
+    "icon_index": null,
+    "description": null,
+    "features": [
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.95
+      },
+      {
+        "code": 22,
+        "data_id": 1,
+        "value": 0.05
+      },
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 100
+      },
+      {
+        "code": 11,
+        "data_id": 4,
+        "value": 0.5
+      },
+      {
+        "code": 11,
+        "data_id": 9,
+        "value": 2.0
+      },
+      {
+        "code": 11,
+        "data_id": 10,
+        "value": 0.5
+      },
+      {
+        "code": 22,
+        "data_id": 2,
+        "value": 0.1
+      }
+    ],
+    "note": "Sight=6",
+    "battler_name": "",
+    "battler_hue": 0,
+    "params": [
+      5200,
+      2000,
+      135,
+      100,
+      90,
+      90,
+      100,
+      100
+    ],
+    "exp": 3000,
+    "gold": 5600,
+    "drop_items": [
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      }
+    ],
+    "actions": [
+      {
+        "skill_id": 1,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      },
+      {
+        "skill_id": 3,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      },
+      {
+        "skill_id": 23,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      },
+      {
+        "skill_id": 11,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 3
+      },
+      {
+        "skill_id": 58,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "name": "Súcubo",
+    "icon_index": null,
+    "description": null,
+    "features": [
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.95
+      },
+      {
+        "code": 22,
+        "data_id": 1,
+        "value": 0.05
+      },
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 100
+      },
+      {
+        "code": 32,
+        "data_id": 5,
+        "value": 0.2
+      }
+    ],
+    "note": "Sight=6",
+    "battler_name": "",
+    "battler_hue": 0,
+    "params": [
+      6000,
+      3000,
+      150,
+      120,
+      100,
+      100,
+      110,
+      110
+    ],
+    "exp": 4000,
+    "gold": 8000,
+    "drop_items": [
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      }
+    ],
+    "actions": [
+      {
+        "skill_id": 2,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      },
+      {
+        "skill_id": 38,
+        "condition_type": 1,
+        "condition_param1": 0,
+        "condition_param2": 4,
+        "rating": 5
+      },
+      {
+        "skill_id": 39,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 4
+      },
+      {
+        "skill_id": 49,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "name": "Demônio",
+    "icon_index": null,
+    "description": null,
+    "features": [
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.95
+      },
+      {
+        "code": 22,
+        "data_id": 1,
+        "value": 0.05
+      },
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 100
+      },
+      {
+        "code": 11,
+        "data_id": 3,
+        "value": 0.5
+      },
+      {
+        "code": 11,
+        "data_id": 9,
+        "value": 1.5
+      },
+      {
+        "code": 11,
+        "data_id": 10,
+        "value": 0.5
+      }
+    ],
+    "note": "Sight=6",
+    "battler_name": "",
+    "battler_hue": 0,
+    "params": [
+      8000,
+      5000,
+      170,
+      120,
+      120,
+      120,
+      120,
+      120
+    ],
+    "exp": 6500,
+    "gold": 12000,
+    "drop_items": [
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      }
+    ],
+    "actions": [
+      {
+        "skill_id": 4,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      },
+      {
+        "skill_id": 36,
+        "condition_type": 1,
+        "condition_param1": 1,
+        "condition_param2": 3,
+        "rating": 4
+      },
+      {
+        "skill_id": 41,
+        "condition_type": 1,
+        "condition_param1": 2,
+        "condition_param2": 7,
+        "rating": 8
+      },
+      {
+        "skill_id": 71,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 4
+      },
+      {
+        "skill_id": 54,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 4
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "name": "Lorde Sombrio",
+    "icon_index": null,
+    "description": null,
+    "features": [
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.95
+      },
+      {
+        "code": 22,
+        "data_id": 1,
+        "value": 0.05
+      },
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 100
+      },
+      {
+        "code": 11,
+        "data_id": 10,
+        "value": 0
+      },
+      {
+        "code": 13,
+        "data_id": 1,
+        "value": 0.0
+      },
+      {
+        "code": 13,
+        "data_id": 5,
+        "value": 0.0
+      },
+      {
+        "code": 22,
+        "data_id": 2,
+        "value": 0.1
+      },
+      {
+        "code": 22,
+        "data_id": 3,
+        "value": 0.2
+      },
+      {
+        "code": 61,
+        "data_id": 0,
+        "value": 1.0
+      },
+      {
+        "code": 63,
+        "data_id": 1,
+        "value": 0.0
+      }
+    ],
+    "note": "Sight=6",
+    "battler_name": "",
+    "battler_hue": 0,
+    "params": [
+      12000,
+      9999,
+      200,
+      150,
+      140,
+      140,
+      1,
+      140
+    ],
+    "exp": 15000,
+    "gold": 30000,
+    "drop_items": [
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      }
+    ],
+    "actions": [
+      {
+        "skill_id": 1,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 6
+      },
+      {
+        "skill_id": 54,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      },
+      {
+        "skill_id": 58,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      },
+      {
+        "skill_id": 62,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      },
+      {
+        "skill_id": 72,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      },
+      {
+        "skill_id": 46,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      },
+      {
+        "skill_id": 24,
+        "condition_type": 2,
+        "condition_param1": 0,
+        "condition_param2": 0.8,
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "name": "Deus Maligno",
+    "icon_index": null,
+    "description": null,
+    "features": [
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.95
+      },
+      {
+        "code": 22,
+        "data_id": 1,
+        "value": 0.05
+      },
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 100
+      },
+      {
+        "code": 11,
+        "data_id": 10,
+        "value": 0
+      },
+      {
+        "code": 13,
+        "data_id": 1,
+        "value": 0.0
+      },
+      {
+        "code": 13,
+        "data_id": 5,
+        "value": 0.0
+      },
+      {
+        "code": 61,
+        "data_id": 0,
+        "value": 1.0
+      },
+      {
+        "code": 63,
+        "data_id": 1,
+        "value": 0.0
+      }
+    ],
+    "note": "Sight=6",
+    "battler_name": "",
+    "battler_hue": 0,
+    "params": [
+      20000,
+      9999,
+      240,
+      150,
+      160,
+      160,
+      150,
+      150
+    ],
+    "exp": 25000,
+    "gold": 50000,
+    "drop_items": [
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 1,
+        "denominator": 1
+      }
+    ],
+    "actions": [
+      {
+        "skill_id": 1,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 6
+      },
+      {
+        "skill_id": 74,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      },
+      {
+        "skill_id": 8,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      },
+      {
+        "skill_id": 9,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      },
+      {
+        "skill_id": 15,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      },
+      {
+        "skill_id": 13,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      },
+      {
+        "skill_id": 12,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "name": "Boss",
+    "icon_index": null,
+    "description": null,
+    "features": [
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.95
+      },
+      {
+        "code": 22,
+        "data_id": 1,
+        "value": 0.05
+      },
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 100
+      },
+      {
+        "code": 11,
+        "data_id": 4,
+        "value": 2.0
+      }
+    ],
+    "note": "Sight=10\r\nBoss=true\r\nSwitchID=102",
+    "battler_name": "",
+    "battler_hue": 0,
+    "params": [
+      1000,
+      300,
+      25,
+      20,
+      8,
+      20,
+      10,
+      10
+    ],
+    "exp": 500,
+    "gold": 300,
+    "drop_items": [
+      {
+        "kind": 2,
+        "data_id": 21,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 7,
+        "denominator": 1
+      },
+      {
+        "kind": 0,
+        "data_id": 13,
+        "denominator": 1
+      }
+    ],
+    "actions": [
+      {
+        "skill_id": 1,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      },
+      {
+        "skill_id": 51,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      },
+      {
+        "skill_id": 27,
+        "condition_type": 2,
+        "condition_param1": 0,
+        "condition_param2": 0.7,
+        "rating": 5
+      },
+      {
+        "skill_id": 53,
+        "condition_type": 0,
+        "condition_param1": 0,
+        "condition_param2": 0,
+        "rating": 5
+      }
+    ]
+  }
+]

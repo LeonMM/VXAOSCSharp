@@ -1,13 +1,7 @@
-﻿using static Humanizer.In;
-
-namespace VXAOS_Server {
-   public class Hotbar {
-      public Enums.Hotbar Type;
-      public int ItemId;
-      public Hotbar(Enums.Hotbar type, int itemId) {
-         Type = type;
-         ItemId = itemId;
-      }
+﻿namespace VXAOS_Server {
+   public class Hotbar(Enums.Hotbar type, int itemId) {
+      public Enums.Hotbar Type = type;
+      public int ItemId = itemId;
    }
    public class Target {
       public Enums.Target Type = Enums.Target.NONE;
@@ -17,13 +11,9 @@ namespace VXAOS_Server {
       public Enums.Request Type = Enums.Request.NONE;
       public int Id = -1;
    }
-   public class Region {
-      public int X;
-      public int Y;
-      public Region(int x, int y) {
-         X = x;
-         Y = y;
-      }
+   public class Region(int x, int y) {
+      public int X = x;
+      public int Y = y;
    }
    public class IPBlocked {
       public int Attempts;
@@ -59,8 +49,8 @@ namespace VXAOS_Server {
    public class Guild {
       public int IdDb;
       public string Leader = "";
-      public List<int> Flag = new();
-      public List<string> Members = new();
+      public List<int> Flag = [];
+      public List<string> Members = [];
       public string Notice = "";
    }
    public class Account {
@@ -68,12 +58,12 @@ namespace VXAOS_Server {
       public string Pass = "";
       public int Group;
       public DateTimeOffset VipTime;
-      public Dictionary<int, Actor> Actors = new();
-      public List<string> Friends = new();
+      public Dictionary<int, Actor> Actors = [];
+      public List<string> Friends = [];
    }
    public class Party {
       public int Id;
-      public List<int> Members = new();
+      public List<int> Members = [];
       public Party(int id, int leader) {
          Id = id;
          Members.Add(leader);
@@ -101,7 +91,7 @@ namespace VXAOS_Server {
       public int Hp;
       public int Mp;
       public int[] ParamBase = new int[8];
-      public List<int> Equips = new();
+      public List<int> Equips = [];
       public int Points;
       public string GuildName = "";
       public int ReviveMapId;
@@ -112,16 +102,16 @@ namespace VXAOS_Server {
       public int Y;
       public int Direction;
       public int Gold;
-      public Dictionary<int,int> Items = new();
-      public Dictionary<int,int> Weapons = new();
-      public Dictionary<int,int> Armors = new();
-      public List<int> Skills = new();
-      public Dictionary<int, GameQuest> Quests = new();
-      public List<Hotbar> Hotbar = new();
-      public List<bool> Switches = new();
-      public List<int> Variables = new();
-      public Dictionary<(int MapId, int EventId, char Ch), bool> SelfSwitches = new();
-      public List<int> States = new();
-      public Dictionary<int, float> StatesTime = new();
+      public Dictionary<int,int> Items = [];
+      public Dictionary<int,int> Weapons = [];
+      public Dictionary<int,int> Armors = [];
+      public List<int> Skills = [];
+      public Dictionary<int, GameQuest> Quests = [];
+      public List<Hotbar> Hotbar = [];
+      public List<bool> Switches = [];
+      public List<int> Variables = [];
+      public Dictionary<(int MapId, int EventId, char Ch), bool> SelfSwitches = [];
+      public List<int> States = []  ;
+      public Dictionary<int, float> StatesTime = [];
    }
 }

@@ -1,0 +1,857 @@
+[
+  null,
+  {
+    "id": 1,
+    "name": "Nocauteado",
+    "icon_index": 17,
+    "description": null,
+    "features": [
+      {
+        "code": 23,
+        "data_id": 9,
+        "value": 0.0
+      }
+    ],
+    "note": "O Estado Nº 1 será adicionada automaticamente quando HP atingir 0.",
+    "restriction": 4,
+    "priority": 100,
+    "remove_at_battle_end": false,
+    "remove_by_restriction": false,
+    "auto_removal_timing": 0,
+    "min_turns": 1,
+    "max_turns": 1,
+    "remove_by_damage": false,
+    "chance_by_damage": 100,
+    "remove_by_walking": false,
+    "steps_to_remove": 100,
+    "message1": " caiu!",
+    "message2": " morreu!",
+    "message3": "",
+    "message4": " levantou-se!"
+  },
+  {
+    "id": 2,
+    "name": "Envenenado",
+    "icon_index": 18,
+    "description": null,
+    "features": [
+      {
+        "code": 22,
+        "data_id": 7,
+        "value": -0.1
+      }
+    ],
+    "note": "",
+    "restriction": 0,
+    "priority": 65,
+    "remove_at_battle_end": false,
+    "remove_by_restriction": false,
+    "auto_removal_timing": 0,
+    "min_turns": 1,
+    "max_turns": 1,
+    "remove_by_damage": false,
+    "chance_by_damage": 100,
+    "remove_by_walking": false,
+    "steps_to_remove": 100,
+    "message1": " foi envenenado!",
+    "message2": " foi envenenado!",
+    "message3": "",
+    "message4": " sente-se melhor!"
+  },
+  {
+    "id": 3,
+    "name": "Cego",
+    "icon_index": 19,
+    "description": null,
+    "features": [
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": -0.6
+      }
+    ],
+    "note": "",
+    "restriction": 0,
+    "priority": 70,
+    "remove_at_battle_end": true,
+    "remove_by_restriction": false,
+    "auto_removal_timing": 1,
+    "min_turns": 3,
+    "max_turns": 5,
+    "remove_by_damage": false,
+    "chance_by_damage": 100,
+    "remove_by_walking": false,
+    "steps_to_remove": 100,
+    "message1": " está cego!",
+    "message2": " está cego!",
+    "message3": "",
+    "message4": " pode ver novamente!"
+  },
+  {
+    "id": 4,
+    "name": "Mudo",
+    "icon_index": 20,
+    "description": null,
+    "features": [
+      {
+        "code": 42,
+        "data_id": 2,
+        "value": 0.0
+      }
+    ],
+    "note": "",
+    "restriction": 0,
+    "priority": 75,
+    "remove_at_battle_end": true,
+    "remove_by_restriction": false,
+    "auto_removal_timing": 1,
+    "min_turns": 3,
+    "max_turns": 5,
+    "remove_by_damage": false,
+    "chance_by_damage": 100,
+    "remove_by_walking": false,
+    "steps_to_remove": 100,
+    "message1": " está mudo!",
+    "message2": " está mudo!",
+    "message3": "",
+    "message4": " pode falar novamente!"
+  },
+  {
+    "id": 5,
+    "name": "Confuso",
+    "icon_index": 21,
+    "description": null,
+    "features": [],
+    "note": "",
+    "restriction": 2,
+    "priority": 80,
+    "remove_at_battle_end": true,
+    "remove_by_restriction": false,
+    "auto_removal_timing": 1,
+    "min_turns": 2,
+    "max_turns": 4,
+    "remove_by_damage": true,
+    "chance_by_damage": 50,
+    "remove_by_walking": false,
+    "steps_to_remove": 100,
+    "message1": " está confuso!",
+    "message2": " está confuso!",
+    "message3": "",
+    "message4": " voltou ao normal!"
+  },
+  {
+    "id": 6,
+    "name": "Dormindo",
+    "icon_index": 22,
+    "description": null,
+    "features": [
+      {
+        "code": 22,
+        "data_id": 1,
+        "value": -1.0
+      }
+    ],
+    "note": "",
+    "restriction": 4,
+    "priority": 85,
+    "remove_at_battle_end": true,
+    "remove_by_restriction": false,
+    "auto_removal_timing": 1,
+    "min_turns": 3,
+    "max_turns": 5,
+    "remove_by_damage": true,
+    "chance_by_damage": 100,
+    "remove_by_walking": false,
+    "steps_to_remove": 100,
+    "message1": " caiu no sono!",
+    "message2": " caiu no sono!",
+    "message3": " continua dormindo…",
+    "message4": "は目を覚ました！"
+  },
+  {
+    "id": 7,
+    "name": "Paralisado",
+    "icon_index": 23,
+    "description": null,
+    "features": [
+      {
+        "code": 22,
+        "data_id": 1,
+        "value": -1.0
+      }
+    ],
+    "note": "",
+    "restriction": 4,
+    "priority": 90,
+    "remove_at_battle_end": true,
+    "remove_by_restriction": false,
+    "auto_removal_timing": 1,
+    "min_turns": 4,
+    "max_turns": 6,
+    "remove_by_damage": false,
+    "chance_by_damage": 100,
+    "remove_by_walking": false,
+    "steps_to_remove": 100,
+    "message1": " entrou em paralisia!",
+    "message2": " entrou em paralisia!",
+    "message3": " continua em paralisia…",
+    "message4": " pode mover-se novamente!"
+  },
+  {
+    "id": 8,
+    "name": "Atordoado",
+    "icon_index": 24,
+    "description": null,
+    "features": [],
+    "note": "",
+    "restriction": 4,
+    "priority": 60,
+    "remove_at_battle_end": true,
+    "remove_by_restriction": false,
+    "auto_removal_timing": 2,
+    "min_turns": 1,
+    "max_turns": 2,
+    "remove_by_damage": false,
+    "chance_by_damage": 100,
+    "remove_by_walking": false,
+    "steps_to_remove": 100,
+    "message1": " está aturdido!",
+    "message2": " está aturdido!",
+    "message3": " continua aturdido…",
+    "message4": " recuperou-se!"
+  },
+  {
+    "id": 9,
+    "name": "Defendendo",
+    "icon_index": 0,
+    "description": "",
+    "features": [
+      {
+        "code": 62,
+        "data_id": 1,
+        "value": 0.0
+      }
+    ],
+    "note": "",
+    "restriction": 0,
+    "priority": 0,
+    "remove_at_battle_end": true,
+    "remove_by_restriction": true,
+    "auto_removal_timing": 2,
+    "min_turns": 1,
+    "max_turns": 1,
+    "remove_by_damage": false,
+    "chance_by_damage": 100,
+    "remove_by_walking": false,
+    "steps_to_remove": 100,
+    "message1": "",
+    "message2": "",
+    "message3": "",
+    "message4": ""
+  },
+  {
+    "id": 10,
+    "name": "Invulnerável",
+    "icon_index": 0,
+    "description": "",
+    "features": [
+      {
+        "code": 14,
+        "data_id": 1,
+        "value": 0.0
+      }
+    ],
+    "note": "",
+    "restriction": 0,
+    "priority": 0,
+    "remove_at_battle_end": true,
+    "remove_by_restriction": false,
+    "auto_removal_timing": 0,
+    "min_turns": 1,
+    "max_turns": 1,
+    "remove_by_damage": false,
+    "chance_by_damage": 100,
+    "remove_by_walking": false,
+    "steps_to_remove": 100,
+    "message1": "",
+    "message2": "",
+    "message3": "",
+    "message4": ""
+  },
+  {
+    "id": 11,
+    "name": "Cobrindo",
+    "icon_index": 0,
+    "description": "",
+    "features": [
+      {
+        "code": 62,
+        "data_id": 2,
+        "value": 0.0
+      }
+    ],
+    "note": "",
+    "restriction": 0,
+    "priority": 0,
+    "remove_at_battle_end": true,
+    "remove_by_restriction": true,
+    "auto_removal_timing": 2,
+    "min_turns": 1,
+    "max_turns": 1,
+    "remove_by_damage": false,
+    "chance_by_damage": 100,
+    "remove_by_walking": false,
+    "steps_to_remove": 100,
+    "message1": "",
+    "message2": "",
+    "message3": "",
+    "message4": ""
+  },
+  {
+    "id": 12,
+    "name": "Provocando",
+    "icon_index": 25,
+    "description": "",
+    "features": [
+      {
+        "code": 23,
+        "data_id": 0,
+        "value": 10.0
+      }
+    ],
+    "note": "",
+    "restriction": 0,
+    "priority": 50,
+    "remove_at_battle_end": true,
+    "remove_by_restriction": false,
+    "auto_removal_timing": 2,
+    "min_turns": 5,
+    "max_turns": 5,
+    "remove_by_damage": false,
+    "chance_by_damage": 100,
+    "remove_by_walking": false,
+    "steps_to_remove": 100,
+    "message1": "",
+    "message2": "",
+    "message3": "",
+    "message4": ""
+  },
+  {
+    "id": 13,
+    "name": "Escondido",
+    "icon_index": 28,
+    "description": "",
+    "features": [
+      {
+        "code": 23,
+        "data_id": 0,
+        "value": 0.1
+      }
+    ],
+    "note": "",
+    "restriction": 0,
+    "priority": 50,
+    "remove_at_battle_end": true,
+    "remove_by_restriction": true,
+    "auto_removal_timing": 2,
+    "min_turns": 5,
+    "max_turns": 5,
+    "remove_by_damage": false,
+    "chance_by_damage": 100,
+    "remove_by_walking": false,
+    "steps_to_remove": 100,
+    "message1": "",
+    "message2": "",
+    "message3": "",
+    "message4": ""
+  },
+  {
+    "id": 14,
+    "name": "Regeneração de HP",
+    "icon_index": 26,
+    "description": "",
+    "features": [
+      {
+        "code": 22,
+        "data_id": 7,
+        "value": 0.1
+      }
+    ],
+    "note": "",
+    "restriction": 0,
+    "priority": 50,
+    "remove_at_battle_end": true,
+    "remove_by_restriction": false,
+    "auto_removal_timing": 2,
+    "min_turns": 4,
+    "max_turns": 4,
+    "remove_by_damage": false,
+    "chance_by_damage": 100,
+    "remove_by_walking": false,
+    "steps_to_remove": 100,
+    "message1": "",
+    "message2": "",
+    "message3": "",
+    "message4": ""
+  },
+  {
+    "id": 15,
+    "name": "Regeneração de MP",
+    "icon_index": 26,
+    "description": "",
+    "features": [
+      {
+        "code": 22,
+        "data_id": 8,
+        "value": 0.05
+      }
+    ],
+    "note": "",
+    "restriction": 0,
+    "priority": 50,
+    "remove_at_battle_end": true,
+    "remove_by_restriction": false,
+    "auto_removal_timing": 2,
+    "min_turns": 4,
+    "max_turns": 4,
+    "remove_by_damage": false,
+    "chance_by_damage": 100,
+    "remove_by_walking": false,
+    "steps_to_remove": 100,
+    "message1": "",
+    "message2": "",
+    "message3": "",
+    "message4": ""
+  },
+  {
+    "id": 16,
+    "name": "Regeneração de TP",
+    "icon_index": 26,
+    "description": "",
+    "features": [
+      {
+        "code": 22,
+        "data_id": 9,
+        "value": 0.1
+      }
+    ],
+    "note": "",
+    "restriction": 0,
+    "priority": 50,
+    "remove_at_battle_end": true,
+    "remove_by_restriction": false,
+    "auto_removal_timing": 2,
+    "min_turns": 4,
+    "max_turns": 4,
+    "remove_by_damage": false,
+    "chance_by_damage": 100,
+    "remove_by_walking": false,
+    "steps_to_remove": 100,
+    "message1": "",
+    "message2": "",
+    "message3": "",
+    "message4": ""
+  },
+  {
+    "id": 17,
+    "name": "Rígido",
+    "icon_index": 29,
+    "description": "",
+    "features": [
+      {
+        "code": 23,
+        "data_id": 6,
+        "value": 0.1
+      }
+    ],
+    "note": "",
+    "restriction": 0,
+    "priority": 50,
+    "remove_at_battle_end": true,
+    "remove_by_restriction": true,
+    "auto_removal_timing": 2,
+    "min_turns": 3,
+    "max_turns": 3,
+    "remove_by_damage": false,
+    "chance_by_damage": 100,
+    "remove_by_walking": false,
+    "steps_to_remove": 100,
+    "message1": "",
+    "message2": "",
+    "message3": "",
+    "message4": ""
+  },
+  {
+    "id": 18,
+    "name": "Contra-Atacando",
+    "icon_index": 27,
+    "description": "",
+    "features": [
+      {
+        "code": 22,
+        "data_id": 6,
+        "value": 1.0
+      }
+    ],
+    "note": "",
+    "restriction": 0,
+    "priority": 50,
+    "remove_at_battle_end": true,
+    "remove_by_restriction": true,
+    "auto_removal_timing": 2,
+    "min_turns": 3,
+    "max_turns": 3,
+    "remove_by_damage": false,
+    "chance_by_damage": 100,
+    "remove_by_walking": false,
+    "steps_to_remove": 100,
+    "message1": "",
+    "message2": "",
+    "message3": "",
+    "message4": ""
+  },
+  {
+    "id": 19,
+    "name": "Esquiva Mágica",
+    "icon_index": 29,
+    "description": "",
+    "features": [
+      {
+        "code": 22,
+        "data_id": 4,
+        "value": 1.0
+      }
+    ],
+    "note": "",
+    "restriction": 0,
+    "priority": 50,
+    "remove_at_battle_end": true,
+    "remove_by_restriction": false,
+    "auto_removal_timing": 2,
+    "min_turns": 3,
+    "max_turns": 3,
+    "remove_by_damage": false,
+    "chance_by_damage": 100,
+    "remove_by_walking": false,
+    "steps_to_remove": 100,
+    "message1": "",
+    "message2": "",
+    "message3": "",
+    "message4": ""
+  },
+  {
+    "id": 20,
+    "name": "Reflexão Mágica",
+    "icon_index": 31,
+    "description": "",
+    "features": [
+      {
+        "code": 22,
+        "data_id": 5,
+        "value": 1.0
+      }
+    ],
+    "note": "",
+    "restriction": 0,
+    "priority": 50,
+    "remove_at_battle_end": true,
+    "remove_by_restriction": false,
+    "auto_removal_timing": 2,
+    "min_turns": 1,
+    "max_turns": 1,
+    "remove_by_damage": false,
+    "chance_by_damage": 100,
+    "remove_by_walking": false,
+    "steps_to_remove": 100,
+    "message1": "",
+    "message2": "",
+    "message3": "",
+    "message4": ""
+  },
+  {
+    "id": 21,
+    "name": "Poder de Fogo",
+    "icon_index": 104,
+    "description": "",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 3,
+        "value": 1.0
+      },
+      {
+        "code": 11,
+        "data_id": 3,
+        "value": 0.5
+      },
+      {
+        "code": 21,
+        "data_id": 2,
+        "value": 1.1
+      }
+    ],
+    "note": "",
+    "restriction": 0,
+    "priority": 50,
+    "remove_at_battle_end": true,
+    "remove_by_restriction": false,
+    "auto_removal_timing": 2,
+    "min_turns": 5,
+    "max_turns": 5,
+    "remove_by_damage": false,
+    "chance_by_damage": 100,
+    "remove_by_walking": false,
+    "steps_to_remove": 100,
+    "message1": " empunha o poder do fogo!",
+    "message2": " empunha o poder do fogo!",
+    "message3": "",
+    "message4": ""
+  },
+  {
+    "id": 22,
+    "name": "Poder de Gelo",
+    "icon_index": 105,
+    "description": "",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 4,
+        "value": 1.0
+      },
+      {
+        "code": 11,
+        "data_id": 4,
+        "value": 0.5
+      },
+      {
+        "code": 21,
+        "data_id": 2,
+        "value": 1.1
+      }
+    ],
+    "note": "",
+    "restriction": 0,
+    "priority": 50,
+    "remove_at_battle_end": true,
+    "remove_by_restriction": false,
+    "auto_removal_timing": 2,
+    "min_turns": 5,
+    "max_turns": 5,
+    "remove_by_damage": false,
+    "chance_by_damage": 100,
+    "remove_by_walking": false,
+    "steps_to_remove": 100,
+    "message1": " empunha o poder do gelo!",
+    "message2": " empunha o poder do gelo!",
+    "message3": "",
+    "message4": ""
+  },
+  {
+    "id": 23,
+    "name": "Poder de Trovão",
+    "icon_index": 106,
+    "description": "",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 5,
+        "value": 1.0
+      },
+      {
+        "code": 11,
+        "data_id": 5,
+        "value": 0.5
+      },
+      {
+        "code": 21,
+        "data_id": 2,
+        "value": 1.1
+      }
+    ],
+    "note": "",
+    "restriction": 0,
+    "priority": 50,
+    "remove_at_battle_end": true,
+    "remove_by_restriction": false,
+    "auto_removal_timing": 2,
+    "min_turns": 5,
+    "max_turns": 5,
+    "remove_by_damage": false,
+    "chance_by_damage": 100,
+    "remove_by_walking": false,
+    "steps_to_remove": 100,
+    "message1": " empunha o poder do trovão!",
+    "message2": " empunha o poder do trovão!",
+    "message3": "",
+    "message4": ""
+  },
+  {
+    "id": 24,
+    "name": "Prevenção",
+    "icon_index": 29,
+    "description": "",
+    "features": [
+      {
+        "code": 13,
+        "data_id": 2,
+        "value": 0.0
+      },
+      {
+        "code": 13,
+        "data_id": 3,
+        "value": 0.0
+      },
+      {
+        "code": 13,
+        "data_id": 4,
+        "value": 0.0
+      },
+      {
+        "code": 13,
+        "data_id": 5,
+        "value": 0.0
+      },
+      {
+        "code": 13,
+        "data_id": 6,
+        "value": 0.0
+      },
+      {
+        "code": 13,
+        "data_id": 7,
+        "value": 0.0
+      },
+      {
+        "code": 13,
+        "data_id": 8,
+        "value": 0.0
+      }
+    ],
+    "note": "",
+    "restriction": 0,
+    "priority": 50,
+    "remove_at_battle_end": true,
+    "remove_by_restriction": false,
+    "auto_removal_timing": 2,
+    "min_turns": 5,
+    "max_turns": 5,
+    "remove_by_damage": false,
+    "chance_by_damage": 100,
+    "remove_by_walking": false,
+    "steps_to_remove": 100,
+    "message1": "",
+    "message2": "",
+    "message3": "",
+    "message4": ""
+  },
+  {
+    "id": 25,
+    "name": "Redução de Custo MP",
+    "icon_index": 30,
+    "description": "",
+    "features": [
+      {
+        "code": 23,
+        "data_id": 4,
+        "value": 0.25
+      }
+    ],
+    "note": "",
+    "restriction": 0,
+    "priority": 50,
+    "remove_at_battle_end": true,
+    "remove_by_restriction": false,
+    "auto_removal_timing": 2,
+    "min_turns": 5,
+    "max_turns": 5,
+    "remove_by_damage": false,
+    "chance_by_damage": 100,
+    "remove_by_walking": false,
+    "steps_to_remove": 100,
+    "message1": "",
+    "message2": "",
+    "message3": "",
+    "message4": ""
+  },
+  {
+    "id": 26,
+    "name": "Sai em 5",
+    "icon_index": 281,
+    "description": "",
+    "features": [
+      {
+        "code": 21,
+        "data_id": 1,
+        "value": 1.2
+      }
+    ],
+    "note": "",
+    "restriction": 0,
+    "priority": 50,
+    "remove_at_battle_end": false,
+    "remove_by_restriction": false,
+    "auto_removal_timing": 1,
+    "min_turns": 5,
+    "max_turns": 1,
+    "remove_by_damage": false,
+    "chance_by_damage": 100,
+    "remove_by_walking": false,
+    "steps_to_remove": 100,
+    "message1": "",
+    "message2": "",
+    "message3": "",
+    "message4": ""
+  },
+  {
+    "id": 27,
+    "name": "Sai em 15",
+    "icon_index": 179,
+    "description": "",
+    "features": [
+      {
+        "code": 21,
+        "data_id": 0,
+        "value": 1.1
+      }
+    ],
+    "note": "Save=true",
+    "restriction": 0,
+    "priority": 50,
+    "remove_at_battle_end": false,
+    "remove_by_restriction": false,
+    "auto_removal_timing": 1,
+    "min_turns": 15,
+    "max_turns": 0,
+    "remove_by_damage": false,
+    "chance_by_damage": 100,
+    "remove_by_walking": false,
+    "steps_to_remove": 100,
+    "message1": "",
+    "message2": "",
+    "message3": "",
+    "message4": ""
+  },
+  {
+    "id": 28,
+    "name": "Só sai quando morre",
+    "icon_index": 339,
+    "description": "",
+    "features": [],
+    "note": "",
+    "restriction": 0,
+    "priority": 50,
+    "remove_at_battle_end": true,
+    "remove_by_restriction": false,
+    "auto_removal_timing": 0,
+    "min_turns": 1,
+    "max_turns": 1,
+    "remove_by_damage": false,
+    "chance_by_damage": 100,
+    "remove_by_walking": false,
+    "steps_to_remove": 100,
+    "message1": "",
+    "message2": "",
+    "message3": "",
+    "message4": ""
+  }
+]

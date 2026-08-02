@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using VXAOS_Server.RPGData;
+﻿using VXAOS_Server.RPGData;
 using static VXAOS_Server.Enums;
 
 namespace VXAOS_Server {
@@ -8,7 +6,7 @@ namespace VXAOS_Server {
       public static void HandleMessages(GameClient client, BufferReader buffer) {
          try {
             Packet packet = (Packet)buffer.ReadByte();
-            if (Enum.IsDefined(typeof(Packet), packet)) {
+            if (Enum.IsDefined(packet)) {
                if (client.IsInGame()) {
                   HandleGameMessages(client, packet, buffer);
                } else {
@@ -252,7 +250,7 @@ namespace VXAOS_Server {
          byte sex = buffer.ReadByte();
          int[] @params = new int[8];
          for (int i = 0; i < 8; i++) {
-            @params[i] = (int)buffer.ReadByte();
+            @params[i] = buffer.ReadByte();
          }
          int maxParams = @params.Sum(x => x);
          int points = Configs.StartPoints - maxParams;
@@ -443,7 +441,7 @@ namespace VXAOS_Server {
          client.ChangeTarget(targetId, type);
       }
       private static void HandleOpenFriends(GameClient client) {
-         List<string> friends = new();
+         List<string> friends = [];
          int onlineIndex = 0;
          foreach (var name in client.Friends) {
             if (FindPlayer(name) != null) {
@@ -468,7 +466,7 @@ namespace VXAOS_Server {
          if (!client.IsCreatingGuild() || client.IsInGuild() || client.IsSpawning()) return;
          string name = Titleize(buffer.ReadString());
          if (name.Length < Configs.MinCharacters || name.Length > Configs.MaxCharacters || IsInvalidName(name)) return;
-         List<int> flag = new();
+         List<int> flag = [];
          for(int i = 0; i < 64; i++) {
             flag.Add(buffer.ReadByte());
          }

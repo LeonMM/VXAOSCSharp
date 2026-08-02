@@ -2,7 +2,7 @@
 
 namespace VXAOS_Server {
    public partial class GameEvent : GameBattler {
-      private Dictionary<int, Func<int, int, bool>> _conditionsMetTable = new();
+      private Dictionary<int, Func<int, int, bool>> _conditionsMetTable = [];
       internal void InitializeEnemy() {
          _conditionsMetTable = new() {
             {2, IsConditionsMetHp},
@@ -42,10 +42,10 @@ namespace VXAOS_Server {
             var enemy = Enemy();
             if (client.IsInParty()) {
                client.PartyShare((int)(enemy.exp * ServerConfig.ExpBonus), 
-                  (int)(Rand((int)enemy.gold) * ServerConfig.GoldBonus), EnemyId);
+                  (int)(Rand(enemy.gold) * ServerConfig.GoldBonus), EnemyId);
             } else {
                client.GainExp((int)(enemy.exp * ServerConfig.ExpBonus * client.VipExpBonus()));
-               client.GainGold((int)(Rand((int)enemy.gold) * ServerConfig.GoldBonus * client.GoldRate() * client.VipGoldBonus()),
+               client.GainGold((int)(Rand(enemy.gold) * ServerConfig.GoldBonus * client.GoldRate() * client.VipGoldBonus()),
                   false, true);
                client.AddKillsCount(EnemyId);
             }
@@ -58,7 +58,7 @@ namespace VXAOS_Server {
                if (drop.kind == 0 || Rand() * drop.denominator > (ServerConfig.DropBonus + client.DropItemRate() + client.VipDropBonus() - 2))
                   continue;
                if (Network.Maps[MapId].IsFullDrops()) break;
-               Network.Maps[MapId].AddDrop((int)drop.data_id, (int)drop.kind, 1, X, Y, client.Name, client.PartyId);
+               Network.Maps[MapId].AddDrop(drop.data_id, drop.kind, 1, X, Y, client.Name, client.PartyId);
             }
          }
       }
@@ -100,7 +100,7 @@ namespace VXAOS_Server {
             if (action.skill_id == AttackSkillId) {
                AttackNormal();
             } else {
-               UseItem((int)action.skill_id);
+               UseItem(action.skill_id);
             }
          }
       }
@@ -113,11 +113,11 @@ namespace VXAOS_Server {
          return result;
       }
       internal bool IsActionValid(RPGEnemyAction action) {
-         return IsActionConditionsMet(action) && IsUsable(DataSkills[(int)action.skill_id]);
+         return IsActionConditionsMet(action) && IsUsable(DataSkills[action.skill_id]);
       }
       internal bool IsActionConditionsMet(RPGEnemyAction action) {
-         if (_conditionsMetTable.TryGetValue((int)action.condition_type, out var handler))
-            return handler((int)action.condition_param1, (int)action.condition_param2);
+         if (_conditionsMetTable.TryGetValue(action.condition_type, out var handler))
+            return handler(action.condition_param1, action.condition_param2);
          return true;
       }
       internal bool IsConditionsMetHp(int param1, int param2) {
@@ -150,7 +150,7 @@ namespace VXAOS_Server {
             if (client == null || !client.IsInGame() || client.MapId != MapId || 
                client.IsDead() || !IsInFront(client)) continue;
             int aniIndex = (DataEnemies[EnemyId].ani_index).OrDefaultValue(8, CharacterIndex);
-            client.ItemApply(this, DataSkills[AttackSkillId], (int)DataSkills[AttackSkillId].animation_id, aniIndex);
+            client.ItemApply(this, DataSkills[AttackSkillId], DataSkills[AttackSkillId].animation_id, aniIndex);
             return;
          }
       }
@@ -169,13 +169,13 @@ namespace VXAOS_Server {
       }
       public void ItemAttackNormal(RPGSkill item) {
          var target = GetTarget();
-         if (target == null || !IsValidTarget(target) || target.IsDead() || !IsInRange(target, (int)item.range)) return;
+         if (target == null || !IsValidTarget(target) || target.IsDead() || !IsInRange(target, item.range)) return;
          var xy = MaxPassage(target);
          if (BlockedPassage(target, xy.X, xy.Y)) return;
-         if (Configs.RangeSkills.ContainsKey((int)item.id))
+         if (Configs.RangeSkills.ContainsKey(item.id))
             Network.SendAddProjectile(this, (short)xy.X, (short)xy.Y, target, (byte)Enums.Projectile.SKILL, (byte)item.id);
-         target.ItemApply(this, item, (int)item.animation_id, (int)item.ani_index);
-         Mp -= (int)item.mp_cost;
+         target.ItemApply(this, item, item.animation_id, item.ani_index);
+         Mp -= item.mp_cost;
       }
       public void ItemAttackArea(RPGSkill item) {
          bool used = false;
@@ -187,12 +187,12 @@ namespace VXAOS_Server {
          }
          if (used) {
             Network.SendAnimation(this, (short)item.animation_id, (short)Id, 0, (byte)item.ani_index, (byte)Enums.Target.ENEMY);
-            Mp -= (int)item.mp_cost;
+            Mp -= item.mp_cost;
          }
       }
       public void ItemRecover(RPGSkill item) {
-         Mp -= (int)item.mp_cost;
-         ItemApply(this, item, (int)item.animation_id, item.ani_index);
+         Mp -= item.mp_cost;
+         ItemApply(this, item, item.animation_id, item.ani_index);
       }
       internal override void SendAttack(int hpDamage, int mpDamage, bool critical, int attackerId,
             int attackerType, int aniIndex, int animationId, bool notShowMissed) {

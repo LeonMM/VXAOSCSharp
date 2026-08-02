@@ -1,6 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System.Collections.Generic;
-using System.Linq;
 namespace VXAOS_Server.RPGData {
 	public class RPGSystemTerms {
 		[JsonConverter(typeof(ListConverter<string>))]

@@ -1,37 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace VXAOS_Server {
-   public class GameSwitches {
-      private readonly GameClient _client;
+﻿namespace VXAOS_Server {
+   public class GameSwitches(GameClient client, List<bool> data) {
       public List<bool> Data {
          get;
-      }
-      public GameSwitches(GameClient client, List<bool> data) {
-         _client = client;
-         Data = data;
-      }
+      } = data;
       public bool this[int switchId] {
          get => Data.GetWithFallback((switchId - 1), false);//[switchId - 1];
          set {
             Data[switchId - 1] = value;
-            Network.SendPlayerSwitch(_client, (short)switchId);
+            Network.SendPlayerSwitch(client, (short)switchId);
          }
       }
       public int Count { get { return Data.Count; } }
    }
-   public class GameVariables {
-      private readonly GameClient? _client;
+   public class GameVariables(GameClient client, List<int> data) {
+      private readonly GameClient? _client = client;
       public List<int> Data {
          get;
-      }
-      public GameVariables(GameClient client, List<int> data) {
-         _client = client;
-         Data = data;
-      }
+      } = data;
       public int this[int variableId] {
          get => Data.GetWithFallback((variableId - 1), 0);//[variableId - 1];
          set {
@@ -42,31 +27,23 @@ namespace VXAOS_Server {
       }
       public int Count { get { return Data.Count; } }
    }
-   public class GameSelfSwitches {
-      private readonly GameClient _client;
+   public class GameSelfSwitches(GameClient client, Dictionary<(int MapId, int EventId, char Ch), bool> data) {
       public Dictionary<(int MapId, int EventId, char Ch), bool> Data {
          get;
-      }
-      public GameSelfSwitches(GameClient client, Dictionary<(int MapId, int EventId, char Ch), bool> data) {
-         _client = client;
-         Data = data;
-      }
+      } = data;
       public bool this[(int MapId, int EventId, char Ch) key] {
          get => Data.TryGetValue(key, out bool value) && value;
          set {
             Data[key] = value;
-            Network.SendPlayerSelfSwitch(_client, key);
+            Network.SendPlayerSelfSwitch(client, key);
          }
       }
       public int Count { get { return Data.Count; } }
    }
-   public class GameGlobalSwitches {
+   public class GameGlobalSwitches(List<bool>? data = null) {
       public List<bool> Data {
          get;
-      }
-      public GameGlobalSwitches(List<bool>? data = null) {
-         Data = data ?? new();
-      }
+      } = data ?? [];
       public bool this[int switchId] {
          get {
             int index = switchId - Configs.MaxPlayerSwitches - 1;
@@ -74,8 +51,14 @@ namespace VXAOS_Server {
          }
          set {
             int index = switchId - Configs.MaxPlayerSwitches - 1;
-            Data[index] = value;
-            Network.SendGlobalSwitch((short)switchId, value);
+            if (Data.Count > index) {
+               Data[index] = value;
+            } else {
+               if (Data.Count - index > 1)
+                  Data.AddRange(Enumerable.Repeat(false, (Data.Count - index)));
+               Data.Add(value);
+            }
+            Network.SendGlobalSwitch((short)switchId, Data[index]);
             foreach (var map in Network.Maps.Values)
                map.Refresh();
          }

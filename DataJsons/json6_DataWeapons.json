@@ -1,0 +1,2439 @@
+[
+  null,
+  {
+    "id": 1,
+    "name": "Machadinha",
+    "icon_index": 144,
+    "description": "Um pequeno machado utilizado na colheita",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": -0.1
+      },
+      {
+        "code": 33,
+        "data_id": 0,
+        "value": -5.0
+      }
+    ],
+    "note": "Paperdoll=$Sword1",
+    "price": 100,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      15,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "wtype_id": 1,
+    "animation_id": 7
+  },
+  {
+    "id": 2,
+    "name": "Machado de Guerra",
+    "icon_index": 144,
+    "description": "Machado feito para o combate",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": -0.1
+      },
+      {
+        "code": 33,
+        "data_id": 0,
+        "value": -5.0
+      },
+      {
+        "code": 54,
+        "data_id": 1,
+        "value": 0.0
+      }
+    ],
+    "note": "Paperdoll=$Sword1\r\nLevel=2",
+    "price": 500,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      30,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "wtype_id": 1,
+    "animation_id": 7
+  },
+  {
+    "id": 3,
+    "name": "Machado VIP",
+    "icon_index": 144,
+    "description": "Machado exclusivo dos jogadores VIP",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": -0.1
+      },
+      {
+        "code": 33,
+        "data_id": 0,
+        "value": -5.0
+      }
+    ],
+    "note": "Paperdoll=$Sword1\r\nVIP=true",
+    "price": 3000,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      50,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "wtype_id": 1,
+    "animation_id": 7
+  },
+  {
+    "id": 4,
+    "name": "Machado de Mithril",
+    "icon_index": 144,
+    "description": "Machado feito do metal mágico Mithril",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": -0.1
+      }
+    ],
+    "note": "Paperdoll=$Sword1",
+    "price": 6000,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      70,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "wtype_id": 1,
+    "animation_id": 7
+  },
+  {
+    "id": 5,
+    "name": "Machado Escarlate",
+    "icon_index": 144,
+    "description": "Raro machado de guerra vermelho",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": -0.1
+      },
+      {
+        "code": 33,
+        "data_id": 0,
+        "value": -5.0
+      }
+    ],
+    "note": "Paperdoll=$Sword1",
+    "price": 15000,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      90,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "wtype_id": 1,
+    "animation_id": 7
+  },
+  {
+    "id": 6,
+    "name": "Machado Demoníaco",
+    "icon_index": 145,
+    "description": "Machado de lâmina dupla pesado",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": -0.1
+      },
+      {
+        "code": 22,
+        "data_id": 2,
+        "value": 0.03
+      },
+      {
+        "code": 33,
+        "data_id": 0,
+        "value": -5.0
+      }
+    ],
+    "note": "",
+    "price": 30000,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      110,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "wtype_id": 1,
+    "animation_id": 7
+  },
+  {
+    "id": 7,
+    "name": "Cestus",
+    "icon_index": 145,
+    "description": "Luva com espinhos no topo",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.04
+      },
+      {
+        "code": 34,
+        "data_id": 0,
+        "value": 1.0
+      },
+      {
+        "code": 54,
+        "data_id": 1,
+        "value": 0.0
+      }
+    ],
+    "note": "",
+    "price": 100,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      4,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "wtype_id": 2,
+    "animation_id": 1
+  },
+  {
+    "id": 8,
+    "name": "Bagunau",
+    "icon_index": 145,
+    "description": "Arma de combate montada com quatro unhas curtas",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.04
+      },
+      {
+        "code": 34,
+        "data_id": 0,
+        "value": 1.0
+      },
+      {
+        "code": 54,
+        "data_id": 1,
+        "value": 0.0
+      }
+    ],
+    "note": "",
+    "price": 500,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      8,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "wtype_id": 2,
+    "animation_id": 1
+  },
+  {
+    "id": 9,
+    "name": "Garra de Ferro",
+    "icon_index": 145,
+    "description": "Garras feitas de aço",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.04
+      },
+      {
+        "code": 34,
+        "data_id": 0,
+        "value": 1.0
+      },
+      {
+        "code": 54,
+        "data_id": 1,
+        "value": 0.0
+      }
+    ],
+    "note": "",
+    "price": 3000,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      16,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "wtype_id": 2,
+    "animation_id": 1
+  },
+  {
+    "id": 10,
+    "name": "Garra de Mithril",
+    "icon_index": 145,
+    "description": "Garras feitas do metal mágico Mithril",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.04
+      },
+      {
+        "code": 34,
+        "data_id": 0,
+        "value": 1.0
+      },
+      {
+        "code": 54,
+        "data_id": 1,
+        "value": 0.0
+      }
+    ],
+    "note": "",
+    "price": 6000,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      28,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "wtype_id": 2,
+    "animation_id": 1
+  },
+  {
+    "id": 11,
+    "name": "Punho do Dragão",
+    "icon_index": 145,
+    "description": "Arma feita com caninos de dragão",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.04
+      },
+      {
+        "code": 34,
+        "data_id": 0,
+        "value": 1.0
+      },
+      {
+        "code": 54,
+        "data_id": 1,
+        "value": 0.0
+      }
+    ],
+    "note": "",
+    "price": 15000,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      43,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "wtype_id": 2,
+    "animation_id": 1
+  },
+  {
+    "id": 12,
+    "name": "Garras de Zéfiro",
+    "icon_index": 145,
+    "description": "Garras mágicas que levam o nome de Zéfiro",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.04
+      },
+      {
+        "code": 34,
+        "data_id": 0,
+        "value": 1.0
+      },
+      {
+        "code": 54,
+        "data_id": 1,
+        "value": 0.0
+      }
+    ],
+    "note": "",
+    "price": 30000,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      58,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "wtype_id": 2,
+    "animation_id": 1
+  },
+  {
+    "id": 13,
+    "name": "Lança",
+    "icon_index": 146,
+    "description": "Lança curta feita com dedicação",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": -0.05
+      }
+    ],
+    "note": "",
+    "price": 100,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      12,
+      0,
+      0,
+      0,
+      -2,
+      0
+    ],
+    "wtype_id": 3,
+    "animation_id": 13
+  },
+  {
+    "id": 14,
+    "name": "Guerrilheira",
+    "icon_index": 146,
+    "description": "Longa lança com uma larga lâmina de aço",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": -0.05
+      },
+      {
+        "code": 33,
+        "data_id": 0,
+        "value": -3.0
+      }
+    ],
+    "note": "",
+    "price": 500,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      25,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "wtype_id": 3,
+    "animation_id": 13
+  },
+  {
+    "id": 15,
+    "name": "Alabarda",
+    "icon_index": 146,
+    "description": "Lança longa e forte, com lâmina de aço e com um machado na ponta",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": -0.05
+      },
+      {
+        "code": 33,
+        "data_id": 0,
+        "value": -3.0
+      }
+    ],
+    "note": "",
+    "price": 3000,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      38,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "wtype_id": 3,
+    "animation_id": 13
+  },
+  {
+    "id": 16,
+    "name": "Lança de Mithril",
+    "icon_index": 146,
+    "description": "Lança longa feita do metal mágico Mithril",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": -0.05
+      }
+    ],
+    "note": "",
+    "price": 6000,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      55,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "wtype_id": 3,
+    "animation_id": 13
+  },
+  {
+    "id": 17,
+    "name": "Lança Sagrada",
+    "icon_index": 146,
+    "description": "Lança sagrada e abençoada pelos deuses",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": -0.05
+      },
+      {
+        "code": 33,
+        "data_id": 0,
+        "value": -3.0
+      },
+      {
+        "code": 31,
+        "data_id": 9,
+        "value": 1.0
+      }
+    ],
+    "note": "",
+    "price": 15000,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      75,
+      0,
+      0,
+      5,
+      0,
+      0
+    ],
+    "wtype_id": 3,
+    "animation_id": 13
+  },
+  {
+    "id": 18,
+    "name": "Lança Demoníaca",
+    "icon_index": 146,
+    "description": "Lança provinda do país de sombras, onde recebeu \r\ninfluências malignas",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": -0.05
+      },
+      {
+        "code": 33,
+        "data_id": 0,
+        "value": -3.0
+      },
+      {
+        "code": 31,
+        "data_id": 10,
+        "value": 1.0
+      }
+    ],
+    "note": "",
+    "price": 30000,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      99,
+      0,
+      0,
+      10,
+      0,
+      0
+    ],
+    "wtype_id": 3,
+    "animation_id": 13
+  },
+  {
+    "id": 19,
+    "name": "Espada Curta",
+    "icon_index": 147,
+    "description": "Espada leve e fácil de manusear com lâmina curta",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.0
+      }
+    ],
+    "note": "",
+    "price": 100,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "wtype_id": 4,
+    "animation_id": 7
+  },
+  {
+    "id": 20,
+    "name": "Espada Longa",
+    "icon_index": 147,
+    "description": "Espada de maior alcance",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.0
+      }
+    ],
+    "note": "",
+    "price": 500,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      22,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "wtype_id": 4,
+    "animation_id": 7
+  },
+  {
+    "id": 21,
+    "name": "Cimitarra",
+    "icon_index": 147,
+    "description": "Espada larga com uma lâmina curvada",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.0
+      }
+    ],
+    "note": "Soulbound=true",
+    "price": 3000,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      35,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "wtype_id": 4,
+    "animation_id": 7
+  },
+  {
+    "id": 22,
+    "name": "Espada de Mithril",
+    "icon_index": 147,
+    "description": "Espada feita do metal mágico Mithril",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.0
+      }
+    ],
+    "note": "",
+    "price": 6000,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      50,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "wtype_id": 4,
+    "animation_id": 7
+  },
+  {
+    "id": 23,
+    "name": "Espada Rúnica",
+    "icon_index": 147,
+    "description": "Espada de lâmina com runas místicas",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.0
+      }
+    ],
+    "note": "",
+    "price": 15000,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      70,
+      0,
+      10,
+      0,
+      0,
+      0
+    ],
+    "wtype_id": 4,
+    "animation_id": 7
+  },
+  {
+    "id": 24,
+    "name": "Espada Lendária",
+    "icon_index": 147,
+    "description": "Espada mágica feita para triunfar sobre o mal",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.0
+      }
+    ],
+    "note": "",
+    "price": 30000,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      95,
+      0,
+      20,
+      0,
+      0,
+      0
+    ],
+    "wtype_id": 4,
+    "animation_id": 7
+  },
+  {
+    "id": 25,
+    "name": "Kotetsu",
+    "icon_index": 148,
+    "description": "Esta espada delgada tem uma inscrição",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": -0.08
+      },
+      {
+        "code": 54,
+        "data_id": 1,
+        "value": 0.0
+      }
+    ],
+    "note": "",
+    "price": 100,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      18,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "wtype_id": 5,
+    "animation_id": 7
+  },
+  {
+    "id": 26,
+    "name": "Zanbatou",
+    "icon_index": 148,
+    "description": "Katana enorme usada contra oponentes em montarias",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": -0.08
+      },
+      {
+        "code": 54,
+        "data_id": 1,
+        "value": 0.0
+      }
+    ],
+    "note": "",
+    "price": 498,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      35,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "wtype_id": 5,
+    "animation_id": 7
+  },
+  {
+    "id": 27,
+    "name": "Murasame",
+    "icon_index": 148,
+    "description": "Katana de lâmina temperada e resistente",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": -0.08
+      },
+      {
+        "code": 54,
+        "data_id": 1,
+        "value": 0.0
+      }
+    ],
+    "note": "",
+    "price": 3000,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      55,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "wtype_id": 5,
+    "animation_id": 7
+  },
+  {
+    "id": 28,
+    "name": "Murakumo",
+    "icon_index": 148,
+    "description": "Katana feita do metal mágico Mithril",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": -0.08
+      },
+      {
+        "code": 54,
+        "data_id": 1,
+        "value": 0.0
+      }
+    ],
+    "note": "",
+    "price": 6000,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      72,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "wtype_id": 5,
+    "animation_id": 7
+  },
+  {
+    "id": 29,
+    "name": "Osafune",
+    "icon_index": 148,
+    "description": "Espada antiga com poderes ocultos",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": -0.08
+      },
+      {
+        "code": 54,
+        "data_id": 1,
+        "value": 0.0
+      }
+    ],
+    "note": "",
+    "price": 15000,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      99,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "wtype_id": 5,
+    "animation_id": 7
+  },
+  {
+    "id": 30,
+    "name": "Muramasa",
+    "icon_index": 148,
+    "description": "Lâmina demoníaca que suga o sangue do samurai",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": -0.05
+      },
+      {
+        "code": 54,
+        "data_id": 1,
+        "value": 0.0
+      }
+    ],
+    "note": "",
+    "price": 30000,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      128,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "wtype_id": 5,
+    "animation_id": 7
+  },
+  {
+    "id": 31,
+    "name": "Arco Curto",
+    "icon_index": 149,
+    "description": "Arco curto feito para a caça",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.0
+      },
+      {
+        "code": 54,
+        "data_id": 1,
+        "value": 0.0
+      },
+      {
+        "code": 22,
+        "data_id": 2,
+        "value": 0.03
+      },
+      {
+        "code": 33,
+        "data_id": 0,
+        "value": 5.0
+      }
+    ],
+    "note": "Paperdoll=$Bow",
+    "price": 100,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      13,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "wtype_id": 6,
+    "animation_id": 13
+  },
+  {
+    "id": 32,
+    "name": "Arco Longo",
+    "icon_index": 149,
+    "description": "Arco longo de poder de combate melhorado",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.0
+      },
+      {
+        "code": 54,
+        "data_id": 1,
+        "value": 0.0
+      },
+      {
+        "code": 22,
+        "data_id": 2,
+        "value": 0.03
+      },
+      {
+        "code": 33,
+        "data_id": 0,
+        "value": 5.0
+      }
+    ],
+    "note": "Paperdoll=$Bow",
+    "price": 500,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      26,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "wtype_id": 6,
+    "animation_id": 13
+  },
+  {
+    "id": 33,
+    "name": "Besta",
+    "icon_index": 149,
+    "description": "Besta que atira rapidamente com uma mola forte",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.0
+      },
+      {
+        "code": 54,
+        "data_id": 1,
+        "value": 0.0
+      },
+      {
+        "code": 22,
+        "data_id": 2,
+        "value": 0.03
+      },
+      {
+        "code": 33,
+        "data_id": 0,
+        "value": 5.0
+      }
+    ],
+    "note": "Paperdoll=$Bow",
+    "price": 3000,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      40,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "wtype_id": 6,
+    "animation_id": 13
+  },
+  {
+    "id": 34,
+    "name": "Arco de Mithril",
+    "icon_index": 149,
+    "description": "Arco Longo feito do metal mágico Mithril",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.0
+      },
+      {
+        "code": 54,
+        "data_id": 1,
+        "value": 0.0
+      },
+      {
+        "code": 22,
+        "data_id": 2,
+        "value": 0.03
+      },
+      {
+        "code": 33,
+        "data_id": 0,
+        "value": 5.0
+      }
+    ],
+    "note": "Paperdoll=$Bow",
+    "price": 6000,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      56,
+      0,
+      0,
+      0,
+      5,
+      0
+    ],
+    "wtype_id": 6,
+    "animation_id": 13
+  },
+  {
+    "id": 35,
+    "name": "Arco Élfico",
+    "icon_index": 149,
+    "description": "Arco Longo feito do feixo das árvores da floresta das fadas",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.0
+      },
+      {
+        "code": 54,
+        "data_id": 1,
+        "value": 0.0
+      },
+      {
+        "code": 22,
+        "data_id": 2,
+        "value": 0.03
+      },
+      {
+        "code": 33,
+        "data_id": 0,
+        "value": 5.0
+      }
+    ],
+    "note": "Paperdoll=$Bow",
+    "price": 15000,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      75,
+      0,
+      0,
+      0,
+      10,
+      0
+    ],
+    "wtype_id": 6,
+    "animation_id": 13
+  },
+  {
+    "id": 36,
+    "name": "Arco de Ártemis",
+    "icon_index": 149,
+    "description": "O arco de prata carrega o nome da Deusa da Lua",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.0
+      },
+      {
+        "code": 54,
+        "data_id": 1,
+        "value": 0.0
+      },
+      {
+        "code": 22,
+        "data_id": 2,
+        "value": 0.03
+      },
+      {
+        "code": 33,
+        "data_id": 0,
+        "value": 5.0
+      }
+    ],
+    "note": "Paperdoll=$Bow",
+    "price": 30000,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      100,
+      0,
+      0,
+      0,
+      15,
+      0
+    ],
+    "wtype_id": 6,
+    "animation_id": 13
+  },
+  {
+    "id": 37,
+    "name": "Faca",
+    "icon_index": 150,
+    "description": "Facas também podem ser usadas ​​na vida cotidiana",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.04
+      },
+      {
+        "code": 22,
+        "data_id": 2,
+        "value": 0.03
+      },
+      {
+        "code": 22,
+        "data_id": 1,
+        "value": 0.03
+      }
+    ],
+    "note": "",
+    "price": 100,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      3,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "wtype_id": 7,
+    "animation_id": 7
+  },
+  {
+    "id": 38,
+    "name": "Punhal",
+    "icon_index": 150,
+    "description": "Arma de combate com uma lâmina larga",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.04
+      },
+      {
+        "code": 22,
+        "data_id": 2,
+        "value": 0.03
+      },
+      {
+        "code": 22,
+        "data_id": 1,
+        "value": 0.04
+      }
+    ],
+    "note": "",
+    "price": 500,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      7,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "wtype_id": 7,
+    "animation_id": 7
+  },
+  {
+    "id": 39,
+    "name": "Main Gauche",
+    "icon_index": 150,
+    "description": "Pode também rechaçar um ataque de faca",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.04
+      },
+      {
+        "code": 22,
+        "data_id": 2,
+        "value": 0.03
+      },
+      {
+        "code": 22,
+        "data_id": 1,
+        "value": 0.05
+      }
+    ],
+    "note": "",
+    "price": 3000,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      12,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "wtype_id": 7,
+    "animation_id": 7
+  },
+  {
+    "id": 40,
+    "name": "Faca de Mithril",
+    "icon_index": 150,
+    "description": "Faca feita do metal mágico Mithril",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.04
+      },
+      {
+        "code": 22,
+        "data_id": 2,
+        "value": 0.03
+      },
+      {
+        "code": 22,
+        "data_id": 1,
+        "value": 0.06
+      }
+    ],
+    "note": "",
+    "price": 6000,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      22,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "wtype_id": 7,
+    "animation_id": 7
+  },
+  {
+    "id": 41,
+    "name": "Punhal do Assassino",
+    "icon_index": 150,
+    "description": "Corvo, o assassino, utilizava este punhal",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.04
+      },
+      {
+        "code": 22,
+        "data_id": 2,
+        "value": 0.07
+      },
+      {
+        "code": 22,
+        "data_id": 1,
+        "value": 0.07
+      }
+    ],
+    "note": "",
+    "price": 15000,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      33,
+      0,
+      0,
+      0,
+      5,
+      0
+    ],
+    "wtype_id": 7,
+    "animation_id": 7
+  },
+  {
+    "id": 42,
+    "name": "Mesenquimais Votekusu",
+    "icon_index": 150,
+    "description": "Leva o nome de um punhal mágico.",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.04
+      },
+      {
+        "code": 22,
+        "data_id": 2,
+        "value": 0.03
+      },
+      {
+        "code": 22,
+        "data_id": 1,
+        "value": 0.1
+      }
+    ],
+    "note": "",
+    "price": 30000,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      50,
+      0,
+      0,
+      0,
+      10,
+      10
+    ],
+    "wtype_id": 7,
+    "animation_id": 7
+  },
+  {
+    "id": 43,
+    "name": "Clava",
+    "icon_index": 151,
+    "description": "Clava de metal com poder de ataque aumentado",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.0
+      }
+    ],
+    "note": "",
+    "price": 100,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      8,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "wtype_id": 8,
+    "animation_id": 19
+  },
+  {
+    "id": 44,
+    "name": "Clava de Metal",
+    "icon_index": 151,
+    "description": "Feita de ferro com uma ponta redonda, este martelo é impressionante e fácil de manusear",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.0
+      }
+    ],
+    "note": "",
+    "price": 500,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      18,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "wtype_id": 8,
+    "animation_id": 19
+  },
+  {
+    "id": 45,
+    "name": "Martelo de Guerra",
+    "icon_index": 151,
+    "description": "Martelo de Aço feito para batalha",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.0
+      }
+    ],
+    "note": "",
+    "price": 3000,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      26,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "wtype_id": 8,
+    "animation_id": 19
+  },
+  {
+    "id": 46,
+    "name": "Martelo de Mithril",
+    "icon_index": 151,
+    "description": "Martelo feito com metal mágico Mithril",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.0
+      }
+    ],
+    "note": "",
+    "price": 6000,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      36,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "wtype_id": 8,
+    "animation_id": 19
+  },
+  {
+    "id": 47,
+    "name": "Disjuntor do Solo",
+    "icon_index": 151,
+    "description": "Martelo potente com poderes ocultos da terra",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.0
+      }
+    ],
+    "note": "",
+    "price": 15000,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      45,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "wtype_id": 8,
+    "animation_id": 19
+  },
+  {
+    "id": 48,
+    "name": "Myoruniru",
+    "icon_index": 151,
+    "description": "Martelo dos deuses, apelidado de “A Paixão”",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.0
+      }
+    ],
+    "note": "",
+    "price": 30000,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      65,
+      0,
+      10,
+      0,
+      0,
+      0
+    ],
+    "wtype_id": 8,
+    "animation_id": 19
+  },
+  {
+    "id": 49,
+    "name": "Cajado de Madeira",
+    "icon_index": 152,
+    "description": "Cajado rígido feito de carvalho",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.0
+      }
+    ],
+    "note": "Paperdoll=$Staff",
+    "price": 100,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      1,
+      0,
+      3,
+      0,
+      0,
+      0
+    ],
+    "wtype_id": 9,
+    "animation_id": 19
+  },
+  {
+    "id": 50,
+    "name": "Cajado do Mago",
+    "icon_index": 152,
+    "description": "Cajado incrustado com gema para ajudar a concentração mental",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.0
+      },
+      {
+        "code": 54,
+        "data_id": 1,
+        "value": 0.0
+      }
+    ],
+    "note": "Paperdoll=$Staff",
+    "price": 500,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      6,
+      0,
+      5,
+      0,
+      0,
+      0
+    ],
+    "wtype_id": 9,
+    "animation_id": 19
+  },
+  {
+    "id": 51,
+    "name": "Varinha de Força",
+    "icon_index": 152,
+    "description": "Amplificador dos poderes mágicos do usuário",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.0
+      },
+      {
+        "code": 54,
+        "data_id": 1,
+        "value": 0.0
+      }
+    ],
+    "note": "Paperdoll=$Staff",
+    "price": 3000,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      14,
+      0,
+      8,
+      0,
+      0,
+      0
+    ],
+    "wtype_id": 9,
+    "animation_id": 19
+  },
+  {
+    "id": 52,
+    "name": "Cajado de Mithril",
+    "icon_index": 152,
+    "description": "Cajado feito do metal mágico Mithril",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.0
+      },
+      {
+        "code": 54,
+        "data_id": 1,
+        "value": 0.0
+      }
+    ],
+    "note": "Paperdoll=$Staff",
+    "price": 6000,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      22,
+      0,
+      12,
+      5,
+      0,
+      0
+    ],
+    "wtype_id": 9,
+    "animation_id": 19
+  },
+  {
+    "id": 53,
+    "name": "Cajado dos Espíritos da Floresta",
+    "icon_index": 152,
+    "description": "Cajado feito de uma árvore de azevinho",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.0
+      },
+      {
+        "code": 54,
+        "data_id": 1,
+        "value": 0.0
+      }
+    ],
+    "note": "Paperdoll=$Staff",
+    "price": 15000,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      30,
+      0,
+      15,
+      8,
+      0,
+      0
+    ],
+    "wtype_id": 9,
+    "animation_id": 19
+  },
+  {
+    "id": 54,
+    "name": "Azotto",
+    "icon_index": 152,
+    "description": "Cajado mágico imbuído com a Pedra Filosofal",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0.0
+      },
+      {
+        "code": 54,
+        "data_id": 1,
+        "value": 0.0
+      }
+    ],
+    "note": "Paperdoll=$Staff",
+    "price": 30000,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      40,
+      0,
+      20,
+      10,
+      0,
+      0
+    ],
+    "wtype_id": 9,
+    "animation_id": 19
+  },
+  {
+    "id": 55,
+    "name": "Pistola",
+    "icon_index": 153,
+    "description": "Pistolas antigas sem compartimento de tambor",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": -0.05
+      },
+      {
+        "code": 54,
+        "data_id": 1,
+        "value": 0.0
+      },
+      {
+        "code": 33,
+        "data_id": 0,
+        "value": -5.0
+      }
+    ],
+    "note": "",
+    "price": 100,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      16,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "wtype_id": 10,
+    "animation_id": 91
+  },
+  {
+    "id": 56,
+    "name": "Mosquete",
+    "icon_index": 153,
+    "description": "Arma usada por mosqueteiros",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": -0.05
+      },
+      {
+        "code": 54,
+        "data_id": 1,
+        "value": 0.0
+      },
+      {
+        "code": 33,
+        "data_id": 0,
+        "value": -5.0
+      }
+    ],
+    "note": "",
+    "price": 500,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      30,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "wtype_id": 10,
+    "animation_id": 91
+  },
+  {
+    "id": 57,
+    "name": "Dragoon",
+    "icon_index": 153,
+    "description": "Arma usada pela cavalaria",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": -0.05
+      },
+      {
+        "code": 54,
+        "data_id": 1,
+        "value": 0.0
+      },
+      {
+        "code": 33,
+        "data_id": 0,
+        "value": -5.0
+      }
+    ],
+    "note": "",
+    "price": 3000,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      48,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "wtype_id": 10,
+    "animation_id": 91
+  },
+  {
+    "id": 58,
+    "name": "Rifle de Mithril",
+    "icon_index": 153,
+    "description": "Rifle com tambor, feito com Mithril",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": -0.05
+      },
+      {
+        "code": 54,
+        "data_id": 1,
+        "value": 0.0
+      },
+      {
+        "code": 33,
+        "data_id": 0,
+        "value": -5.0
+      }
+    ],
+    "note": "",
+    "price": 6000,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      66,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "wtype_id": 10,
+    "animation_id": 91
+  },
+  {
+    "id": 59,
+    "name": "Pacificador",
+    "icon_index": 153,
+    "description": "Revólver de tambor automático que usa pólvora negra",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": -0.05
+      },
+      {
+        "code": 54,
+        "data_id": 1,
+        "value": 0.0
+      },
+      {
+        "code": 33,
+        "data_id": 0,
+        "value": -5.0
+      }
+    ],
+    "note": "",
+    "price": 15000,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      84,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "wtype_id": 10,
+    "animation_id": 91
+  },
+  {
+    "id": 60,
+    "name": "Rifle de Éter Explosivo",
+    "icon_index": 153,
+    "description": "Rifle mágico que não precisa de munição",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": -0.05
+      },
+      {
+        "code": 54,
+        "data_id": 1,
+        "value": 0.0
+      },
+      {
+        "code": 33,
+        "data_id": 0,
+        "value": -5.0
+      }
+    ],
+    "note": "",
+    "price": 30000,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      108,
+      0,
+      5,
+      0,
+      0,
+      0
+    ],
+    "wtype_id": 10,
+    "animation_id": 91
+  },
+  {
+    "id": 61,
+    "name": "Vara de Pesca",
+    "icon_index": 415,
+    "description": "Vara de madeira feita para pesca",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0
+      }
+    ],
+    "note": "",
+    "price": 3,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "wtype_id": 1,
+    "animation_id": 0
+  },
+  {
+    "id": 62,
+    "name": "Marreta",
+    "icon_index": 284,
+    "description": "Ferramenta",
+    "features": [
+      {
+        "code": 31,
+        "data_id": 1,
+        "value": 0
+      },
+      {
+        "code": 22,
+        "data_id": 0,
+        "value": 0
+      }
+    ],
+    "note": "",
+    "price": 3,
+    "etype_id": 0,
+    "params": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "wtype_id": 1,
+    "animation_id": 0
+  }
+]

@@ -1,11 +1,5 @@
-﻿using Microsoft.VisualBasic;
-using Newtonsoft.Json.Linq;
-using System.Collections.Concurrent;
-using System.Net;
-using System.Net.Sockets;
-using System.Text;
+﻿using Newtonsoft.Json.Linq;
 using VXAOS_Server.RPGData;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace VXAOS_Server {
    public partial class GameClient : GameBattler {
@@ -21,7 +15,7 @@ namespace VXAOS_Server {
       public int ClassId;
       public int Sex;
       public int Exp;
-      public List<int> Equips = new();
+      public List<int> Equips = [];
       private int _points;
       public int Points {
          get {
@@ -36,20 +30,20 @@ namespace VXAOS_Server {
       public int ReviveX;
       public int ReviveY;
       public int Gold;
-      public Dictionary<int, int> Items = new();
-      public Dictionary<int, int> Weapons = new();
-      public Dictionary<int, int> Armors = new();
-      public List<int> Skills = new();
-      public List<Hotbar> Hotbar = new();
+      public Dictionary<int, int> Items = [];
+      public Dictionary<int, int> Weapons = [];
+      public Dictionary<int, int> Armors = [];
+      public List<int> Skills = [];
+      public List<Hotbar> Hotbar = [];
       public GameSwitches Switches;
       public GameSelfSwitches SelfSwitches;
-      public List<JArray> ShopGoods = new();
+      public List<JArray> ShopGoods = [];
       public Request Request = new();
-      public Dictionary<int, GameQuest> Quests = new();
+      public Dictionary<int, GameQuest> Quests = [];
       public int TeleportId = -1;
-      public GameInterpreter EventInterpreter;
-      public Dictionary<int, GameInterpreter> CommonEvents = new();
-      public Dictionary<int, DateTimeOffset?> ParallelEventsWating = new();
+      public GameInterpreter EventInterpreter = new();
+      public Dictionary<int, GameInterpreter> CommonEvents = [];
+      public Dictionary<int, DateTimeOffset?> ParallelEventsWaiting = [];
       public bool CreatingGuild = false;
       public DateTimeOffset? WaitingEvent;
       public DateTimeOffset MutedTime;
@@ -61,7 +55,7 @@ namespace VXAOS_Server {
       public string GuildName = "";
       public DateTimeOffset WeaponAttackTime = DateTimeOffset.UtcNow;
       public DateTimeOffset ItemAttackTime = DateTimeOffset.UtcNow;
-      public Dictionary<int, DateTimeOffset> SkillCooldownTime = new();
+      public Dictionary<int, DateTimeOffset> SkillCooldownTime = [];
       public DateTimeOffset RecoverTime = DateTimeOffset.UtcNow.AddSeconds(ServerConfig.RecoverTime);
       public bool IsInShop() { return ShopGoods.Count > 0; }
       public bool IsInTrade() { return TradePlayerId >= 0; }
@@ -213,23 +207,21 @@ namespace VXAOS_Server {
          return Level >= Configs.MaxLevel;
       }
       public List<RPGBaseItem?> EquipsObjects() {
-         List<RPGBaseItem?> equips = new(Configs.MaxEquips);
-         equips.Add(DataWeapons[WeaponId]);
+         List<RPGBaseItem?> equips = new(Configs.MaxEquips) {
+            DataWeapons[WeaponId]
+         };
          for (int i = 1; i < Configs.MaxEquips; i++) {
             equips.Add(DataArmors[Equips[i]]);
          }
          return equips;
       }
       public Dictionary<int, int>? ItemContainer(RPGBaseItem item) {
-         switch (item) {
-            case RPGItem _:
-               return Items;
-            case RPGWeapon _:
-               return Weapons;
-            case RPGArmor _:
-               return Armors;
-         }
-         return null;
+         return item switch {
+            RPGItem _ => Items,
+            RPGWeapon _ => Weapons,
+            RPGArmor _ => Armors,
+            _ => null,
+         };
       }
       public RPGBaseItem? ItemObject(int kind, int itemId) {
          if (kind == 1) return DataItems[itemId];
@@ -238,22 +230,19 @@ namespace VXAOS_Server {
          return null;
       }
       public int? KindItem(RPGBaseItem item) {
-         switch (item) {
-            case RPGItem _:
-               return 1;
-            case RPGWeapon _:
-               return 2;
-            case RPGArmor _:
-               return 3;
-         }
-         return null;
+         return item switch {
+            RPGItem _ => 1,
+            RPGWeapon _ => 2,
+            RPGArmor _ => 3,
+            _ => null,
+         };
       }
       public RPGEquipItem? EquipObject(int slotId, int itemId) {
          return slotId == (int)Enums.Equip.WEAPON ? DataWeapons[itemId] : DataArmors[itemId];
       }
       public int ItemNumber(RPGBaseItem item) {
          var container = ItemContainer(item);
-         if (container != null && container.TryGetValue((int)item.id, out var value)) {
+         if (container != null && container.TryGetValue(item.id, out var value)) {
             return value;
          }
          return 0;
@@ -289,11 +278,11 @@ namespace VXAOS_Server {
          if(item.etype_id != slotId) return false;
          if(item.level > Level) return false;
          if(item.vip && !IsVip()) return false;
-         if (item is RPGArmor && ((RPGArmor)item).sex < 2 && ((RPGArmor)item).sex != Sex) return false;
+         if (item is RPGArmor armor && armor.sex < 2 && armor.sex != Sex) return false;
          if (HasSealEquip(item)) return false;
-         if (IsEquipTypeSealed((int)item.etype_id)) return false;
-         if (item is RPGWeapon) return IsEquipWTypeOk((int)((RPGWeapon)item).wtype_id);
-         if (item is RPGArmor) return IsEquipATypeOk((int)((RPGArmor)item).atype_id);
+         if (IsEquipTypeSealed(item.etype_id)) return false;
+         if (item is RPGWeapon weapon) return IsEquipWTypeOk(weapon.wtype_id);
+         if (item is RPGArmor armor1) return IsEquipATypeOk(armor1.atype_id);
          return false;
       }
       private bool HasSealEquip(RPGEquipItem item) {
@@ -304,8 +293,8 @@ namespace VXAOS_Server {
                equipItem.etype_id == feature.data_id));
       }
       public bool IsSkillWtypeOk(RPGSkill skill) {
-         int wtypeId1 = (int)skill.required_wtype_id1;
-         int wtypeId2 = (int)skill.required_wtype_id2;
+         int wtypeId1 = skill.required_wtype_id1;
+         int wtypeId2 = skill.required_wtype_id2;
          if (wtypeId1 == wtypeId2 && wtypeId2 == 0)
             return true;
          if (wtypeId1 > 0 && IsWtypeEquipped(wtypeId1))
@@ -359,7 +348,7 @@ namespace VXAOS_Server {
          for (int slotId = 0; slotId < Equips.Count; slotId++) {
             int itemId = Equips[slotId];
             if (itemId > 0) {
-               value += (float)EquipObject(slotId, itemId).@params[paramId];
+               value += EquipObject(slotId, itemId).@params[paramId];
             }
          }
          return value;
@@ -384,9 +373,9 @@ namespace VXAOS_Server {
          Hotbar[id].ItemId = itemId;
          Network.SendPlayerHotbar(this, (byte)id);
       }
-      public void ChangeExp(long exp) {
+      public void ChangeExp(int exp) {
          if (IsMaxLevel() && exp > Exp) return;
-         Network.SendPlayerExp(this, (int)(exp - Exp));
+         Network.SendPlayerExp(this, (exp - Exp));
          Exp = Math.Clamp(exp, 0, ExpForLevel(Configs.MaxLevel));
          int lastLevel = Level;
          while (!IsMaxLevel() && Exp >= NextLevelExp()) LevelUp();
@@ -399,7 +388,7 @@ namespace VXAOS_Server {
       internal void LevelUp() {
          foreach(var learning in DataClasses[ClassId].learnings) {
             if(learning.level == Level) {
-               LearnSkill((int)learning.skill_id);
+               LearnSkill(learning.skill_id);
             }
          }
          Level += 1;
@@ -408,7 +397,7 @@ namespace VXAOS_Server {
       internal void LevelDown() {
          foreach(var forgetting in DataClasses[ClassId].learnings) {
             if(forgetting.level == Level) {
-               ForgetSkill((int)forgetting.skill_id);
+               ForgetSkill(forgetting.skill_id);
             }
          }
          Points -= ServerConfig.LevelUpPoints;
@@ -418,7 +407,7 @@ namespace VXAOS_Server {
          return Skills.Contains(skillId);
       }
       public override bool HasAddedSkillType(RPGSkill skill) {
-         return AddedSkillTypes().Contains((int)skill.stype_id);
+         return AddedSkillTypes().Contains(skill.stype_id);
       }
       public void ChangeClass(int classId) {
          ClassId = classId;
@@ -484,12 +473,12 @@ namespace VXAOS_Server {
       }
       public bool HasItem(RPGBaseItem item, bool includeEquip = false) {
          if (ItemNumber(item) > 0) return true;
-         return includeEquip ? Equips.Contains((int)item.id) : false;
+         return includeEquip && Equips.Contains(item.id);
       }
       public void GainItem(RPGBaseItem item, int amount, bool dropSound = false, bool popup = false) {
          var container = ItemContainer(item);
          if (container == null) return;
-         int itemId = (int)item.id;
+         int itemId = item.id;
          container[itemId] = Math.Clamp((ItemNumber(item) + amount), 0, Configs.MaxItems);
          if (container[itemId] == 0)
             container.Remove(itemId);
@@ -511,7 +500,7 @@ namespace VXAOS_Server {
          Network.SendPlayerSkill(this, (short)skillId, false);
       }
       private void ItemEffectLearnSkill(GameBattler user, RPGUsableItem item, RPGUsableItemEffect effect) {
-         LearnSkill((int)effect.data_id);
+         LearnSkill(effect.data_id);
       }
       public int DropItemRate() {
          //ABILITY_DROP_ITEM_DOUBLE = 5
@@ -595,7 +584,7 @@ namespace VXAOS_Server {
       }
       public void AddItemsCount(RPGBaseItem item) {
          foreach (var quest in Quests.Values) {
-            if (!quest.IsInProgress() || quest.ItemId != (int)item.id || ItemNumber(item) > quest.ItemAmount)
+            if (!quest.IsInProgress() || quest.ItemId != item.id || ItemNumber(item) > quest.ItemAmount)
                continue;
             string text = $"#{Vocab.Have} #{ItemNumber(item)}/{quest.ItemAmount} {item.name}.";
             Network.PlayerChatMessage(this, text, Configs.SuccessColor);
@@ -653,7 +642,7 @@ namespace VXAOS_Server {
          StartMapEvent(x, y, [1, 2], true);
       }
       public void CheckTouchEvent() {
-         if (EventInterpreter == null || EventInterpreter.IsRunning) return;
+         if (EventInterpreter.IsRunning) return;
          CheckEventTriggerHere([1, 2]);
       }
       public void UpdateGame() {
@@ -675,7 +664,22 @@ namespace VXAOS_Server {
          }
       }
       public void UpdateCommonEvents() {
-      
+         foreach(var commonEvent in DataCommonEvents) {
+            if (commonEvent == null) continue;
+            if (ParallelEventsWaiting.TryGetValue(commonEvent.id, out var parallel) && DateTimeOffset.UtcNow >= parallel) {
+               ParallelEventsWaiting.Remove(commonEvent.id);
+               CommonEvents[commonEvent.id].Resume();
+               if (!CommonEvents[commonEvent.id].IsRunning && commonEvent.trigger == 0)
+                  CommonEvents.Remove(commonEvent.id);
+            }else if (commonEvent.IsParallel() && 
+               !(CommonEvents.TryGetValue(commonEvent.id, out var cEv) && cEv.IsRunning) &&
+               (commonEvent.switch_id == 0 || Switches[commonEvent.switch_id])
+               ) {
+               if (cEv == null)
+                  CommonEvents[commonEvent.id] = new();
+               CommonEvents[commonEvent.id].Setup(this, commonEvent.list, -commonEvent.id, commonEvent);
+            }
+         }
       }
       public void UpdateEventInterpreter() {
          if (WaitingEvent == null || WaitingEvent > DateTimeOffset.UtcNow)

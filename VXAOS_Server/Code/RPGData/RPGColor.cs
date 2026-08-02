@@ -1,7 +1,4 @@
-﻿using Newtonsoft.Json.Linq;
-using System;
-using System.Drawing;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+﻿using System.Drawing;
 
 namespace VXAOS_Server.RPGData {
 	public class RPGColor {

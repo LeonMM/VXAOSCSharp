@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using VXAOS_Server.RPGData;
+﻿using VXAOS_Server.RPGData;
 
 namespace VXAOS_Server {
    public partial class GameClient : GameBattler {
       public int PartyId = -1;
       public List<GameClient> PartyMembersInMap() {
-         List<GameClient> members = new List<GameClient>();
+         List<GameClient> members = [];
          foreach (var member in Network.Parties[PartyId].Clients) {
             if(member.MapId == MapId) {
                members.Add(member);

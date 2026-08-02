@@ -57,13 +57,12 @@ namespace VXAOS_Server {
                return;
             }
             Clients[id] = client;
-            //await Task.Delay(2);
+            await Task.Delay(150);
             client.Start();
          }
       }
       public static int FindClientId() {
-         int id;
-         if (ClientAvaiableIds.TryDequeue(out id)) {
+         if (ClientAvaiableIds.TryDequeue(out int id)) {
             return id;
          }
          return _clientHighestIdAvailable++;
@@ -73,8 +72,7 @@ namespace VXAOS_Server {
          ClientAvaiableIds.Enqueue(id);
       }
       public static int FindPartyId() {
-         int id;
-         if (PartyAvaiableIds.TryDequeue(out id)) {
+         if (PartyAvaiableIds.TryDequeue(out int id)) {
             return id;
          }
          return _partyHighestIdAvailable;

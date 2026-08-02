@@ -1,7 +1,5 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
 namespace VXAOS_Server.RPGData {
 	public class Table{
 		public int xsize;
@@ -10,11 +8,11 @@ namespace VXAOS_Server.RPGData {
 		[JsonConverter(typeof(ListConverter<int>))]
 		public List<int> data;
 
-		public Table(int xsize,int ysize = 1,int zsize = 1) {
-			this.xsize = xsize;
-			this.ysize = ysize;
-			this.zsize = zsize;
-			this.data = new List<int>(new int[(xsize * ysize * zsize)]);
+		public Table(int _xsize,int _ysize = 1,int _zsize = 1) {
+			xsize = _xsize;
+			ysize = _ysize;
+			zsize = _zsize;
+			data = new List<int>(new int[(xsize * ysize * zsize)]);
 		}
 
 		public void Resize(int newXsize,int newYsize = 1,int newZsize = 1) {
@@ -48,6 +46,12 @@ namespace VXAOS_Server.RPGData {
 			set {
 				data[x + y * xsize + z * xsize * ysize] = value.Value;
 			}
+		}
+		public int GetOrDefault(int x, int y = 0, int z = 0) {
+			var value = this[x, y, z];
+         if (value == null) 
+				return 0;
+			return (int)value;
 		}
 	}
 	public class TableConverter:JsonConverter<Table> {

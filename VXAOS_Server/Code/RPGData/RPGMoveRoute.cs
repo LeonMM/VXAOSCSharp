@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System.Collections.Generic;
 
 namespace VXAOS_Server.RPGData {
 	public class RPGMoveRoute {

@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Security;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
-using VXAOS_Server.RPGData;
+﻿using VXAOS_Server.RPGData;
 
 namespace VXAOS_Server {
    public partial class GameClient : GameBattler {
@@ -16,45 +9,45 @@ namespace VXAOS_Server {
          int aniIndex = (DataWeapons[WeaponId].ani_index).OrDefaultValue(8, CharacterIndex);
          foreach(var enemy in Network.Maps[MapId].Events.Values) {
             if (enemy == null || enemy.IsDead() || !IsInFront(enemy)) continue;
-            HitEnemy(enemy, (int)DataWeapons[WeaponId].animation_id, aniIndex, DataSkills[AttackSkillId]);
+            HitEnemy(enemy, DataWeapons[WeaponId].animation_id, aniIndex, DataSkills[AttackSkillId]);
             return;
          }
          if (!Network.Maps[MapId].PvPAble()) return;
          foreach(var client in Network.Clients.Values) {
             if (client == null || !client.IsInGame() || client.MapId != MapId || client.IsDead() ||
                !IsInFront(client) || client.IsAdmin() || HasProtectionLevel(client)) continue;
-            HitPlayer(client, (int)DataWeapons[WeaponId].animation_id, aniIndex, DataSkills[AttackSkillId]);
+            HitPlayer(client, DataWeapons[WeaponId].animation_id, aniIndex, DataSkills[AttackSkillId]);
             return;
          }
       }
       public void AttackRange() {
          if (Restriction() == 4) return;
          WeaponAttackTime = DateTimeOffset.UtcNow.AddSeconds(Configs.AttackTime);
-         int itemId = Configs.RangeWeapons[WeaponId].ItemId;
+         int itemId = Configs.RangeWeapons[WeaponId].Get<int>("ItemId");
          if (itemId > 0 && !HasItem(DataItems[itemId])) return;
-         int? mpCost = Configs.RangeWeapons[WeaponId].MpCost;
-         if (mpCost != null && Mp < mpCost) return;
+         int mpCost = Configs.RangeWeapons[WeaponId].Get<int>("MpCost");
+         if (mpCost > 0 && Mp < mpCost) return;
          var target = GetTarget();
-         if (target == null || !IsInRange(target, Configs.RangeWeapons[WeaponId].Range)) return;
+         if (target == null || !IsInRange(target, Configs.RangeWeapons[WeaponId].Get<int>("Range"))) return;
          if (itemId > 0) LoseItem(DataItems[itemId], 1);
-         if (mpCost != null) Mp -= (int)mpCost;
+         if (mpCost > 0) Mp -= mpCost;
          var xy = MaxPassage(target);
          Network.SendAddProjectile(this, (short)xy.X, (short)xy.Y, target, (byte)Enums.Projectile.WEAPON, (byte)WeaponId);
          if(BlockedPassage(target, xy.X, xy.Y)) return;
          int aniIndex = (DataWeapons[WeaponId].ani_index).OrDefaultValue(8, CharacterIndex);
          if(Target.Type == Enums.Target.PLAYER && IsValidTarget(target) && Network.Maps[MapId].PvP && 
             !((GameClient)target).IsAdmin() && !HasProtectionLevel((GameClient)target)) {
-            HitPlayer((GameClient)target, (int)DataWeapons[WeaponId].animation_id, aniIndex, DataSkills[AttackSkillId]);
+            HitPlayer((GameClient)target, DataWeapons[WeaponId].animation_id, aniIndex, DataSkills[AttackSkillId]);
          } else if (Target.Type == Enums.Target.ENEMY && !target.IsDead()) {
-            HitEnemy((GameEvent)target, (int)DataWeapons[WeaponId].animation_id, aniIndex, DataSkills[AttackSkillId]);
+            HitEnemy((GameEvent)target, DataWeapons[WeaponId].animation_id, aniIndex, DataSkills[AttackSkillId]);
          }
       }
       public void UseItem(RPGUsableItem usableItem) {
          if(!IsUsable(usableItem) || usableItem.level > Level) return;
          if(usableItem is RPGSkill skill) {
-            SkillCooldownTime.TryAdd((int)usableItem.id, DateTimeOffset.UtcNow.AddSeconds(skill.cooldown));
+            SkillCooldownTime.TryAdd(usableItem.id, DateTimeOffset.UtcNow.AddSeconds(skill.cooldown));
             Network.SendPlayerCooldown(this, (short)usableItem.id);
-            Mp -= (int)skill.mp_cost;
+            Mp -= skill.mp_cost;
          }else if (usableItem is RPGItem item) {
             ItemAttackTime = DateTimeOffset.UtcNow.AddSeconds(Configs.CooldownItemTime);
             ConsumeItem(item);
@@ -85,7 +78,7 @@ namespace VXAOS_Server {
       }
       public void ItemGlobalEffectApply(RPGUsableItemEffect effect) {
          if (effect.code != _effectCommonEvent) return;
-         int effectId = (int)effect.data_id;
+         int effectId = effect.data_id;
          if (CommonEvents.TryGetValue(effectId, out var cmnEv) &&
             cmnEv != null && cmnEv.IsRunning) return;
          CommonEvents[effectId] = new GameInterpreter();
@@ -95,22 +88,22 @@ namespace VXAOS_Server {
       }
       public void ItemAttackNormal(RPGUsableItem item) {
          var target = GetTarget();
-         if (target == null || target.IsDead() || !IsInRange(target, (int)item.range) ||
+         if (target == null || target.IsDead() || !IsInRange(target, item.range) ||
             Target.Type == Enums.Target.ENEMY && item.IsForFriend()) {
             if (item.IsForFriend())
-               ItemApply(this, item, (int)item.animation_id, item.ani_index);
+               ItemApply(this, item, item.animation_id, item.ani_index);
             return;
          }
          var xy = MaxPassage(target);
-         if(item is RPGSkill && Configs.RangeSkills.ContainsKey((int)item.id))
+         if(item is RPGSkill && Configs.RangeSkills.ContainsKey(item.id))
             Network.SendAddProjectile(this, (short)xy.X, (short)xy.Y, target, (byte)Enums.Projectile.SKILL, (byte)item.id);
          if (BlockedPassage(target, xy.X, xy.Y)) return;
          if (Target.Type == Enums.Target.PLAYER && IsValidTarget(target)){
             if(item.IsForFriend() || Network.Maps[MapId].PvP &&
                !((GameClient)target).IsAdmin() && !HasProtectionLevel((GameClient)target))
-               HitPlayer((GameClient)target, (int)item.animation_id, item.ani_index, item);
+               HitPlayer((GameClient)target, item.animation_id, item.ani_index, item);
          } else if (Target.Type == Enums.Target.ENEMY && !target.IsDead()) {
-            HitEnemy((GameEvent)target, (int)item.animation_id, item.ani_index, item);
+            HitEnemy((GameEvent)target, item.animation_id, item.ani_index, item);
          }
       }
       public void ItemAttackArea(RPGUsableItem item) {
@@ -128,7 +121,7 @@ namespace VXAOS_Server {
          Network.SendAnimation(this, (short)item.animation_id, (short)Id, 0, (byte)item.ani_index, (byte)Enums.Target.PLAYER);
       }
       public void ItemRecover(RPGUsableItem item) {
-         ItemApply(this, item, (int)item.animation_id, item.ani_index);
+         ItemApply(this, item, item.animation_id, item.ani_index);
       }
       public bool HasProtectionLevel(GameClient target) {
          return Level < Configs.MinLevelPvp || target.Level < Configs.MinLevelPvp;

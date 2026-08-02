@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using VXAOS_Server.RPGData;
+﻿using VXAOS_Server.RPGData;
 
 namespace VXAOS_Server {
    public partial class GameClient : GameBattler {
-      public Dictionary<int, int> TradeItems = new();
-      public Dictionary<int, int> TradeWeapons = new();
-      public Dictionary<int, int> TradeArmors = new();
+      public Dictionary<int, int> TradeItems = [];
+      public Dictionary<int, int> TradeWeapons = [];
+      public Dictionary<int, int> TradeArmors = [];
       public int TradeGold = 0;
       public int TradePlayerId = -1;
       public void OpenTrade() {
@@ -42,19 +37,16 @@ namespace VXAOS_Server {
          ClearRequest();
       }
       public Dictionary<int, int>? TradeItemContainer(RPGBaseItem item) {
-         switch (item) {
-            case RPGItem _:
-               return TradeItems;
-            case RPGWeapon _:
-               return TradeWeapons;
-            case RPGArmor _:
-               return TradeArmors;
-         }
-         return null;
+         return item switch {
+            RPGItem _ => TradeItems,
+            RPGWeapon _ => TradeWeapons,
+            RPGArmor _ => TradeArmors,
+            _ => null,
+         };
       }
       public int TradeItemNumber(RPGBaseItem item) {
          var container = ItemContainer(item);
-         if (container != null && container.TryGetValue((int)item.id, out var value)) {
+         if (container != null && container.TryGetValue(item.id, out var value)) {
             return value;
          }
          return 0;
@@ -69,7 +61,7 @@ namespace VXAOS_Server {
       public void GainTradeItem(RPGBaseItem item, int amount) {
          var container = TradeItemContainer(item);
          if (container == null) return;
-         int itemId = (int)item.id;
+         int itemId = item.id;
          int lastNumber = TradeItemNumber(item);
          int newNumber = lastNumber + amount;
          container[itemId] = Math.Clamp(newNumber, 0, Configs.MaxItems);

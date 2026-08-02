@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Net.Sockets;
-using System.Reflection.Metadata;
-using System.Runtime.Intrinsics.X86;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 using VXAOS_Server.RPGData;
 
 namespace VXAOS_Server {
@@ -70,7 +62,7 @@ namespace VXAOS_Server {
             value *= Rec;
          if (critical)
             value *= 3;
-         value = ApplyVariance(value, (float)item.damage.variance);
+         value = ApplyVariance(value, item.damage.variance);
          value = ApplyGuard(value);
          MakeDamage(value, item, user, critical, animationId, aniIndex);
       }
@@ -112,12 +104,12 @@ namespace VXAOS_Server {
          return damage / (damage > 0 && IsGuard() ? 2 * Grd : 1);
       }
       public float ItemHit(GameBattler user, RPGUsableItem item) {
-         float rate = (float)item.success_rate * 0.01f;
+         float rate = item.success_rate * 0.01f;
          if (item.IsPhysical())
             rate *= user.Hit;
          return rate;
       }
-      public float ItemEva(GameBattler user, RPGUsableItem item) {
+      public float ItemEva(GameBattler _, RPGUsableItem item) {
          if (item.IsPhysical())
             return Eva;
          if (item.IsMagical())
@@ -133,7 +125,7 @@ namespace VXAOS_Server {
                return 1.0f;
             return ElementsMaxRate(user.AtkElements());
          } else {
-            ElementRate((int)item.damage.element_id);
+            ElementRate(item.damage.element_id);
          }
          return 1f;
       }
@@ -164,20 +156,20 @@ namespace VXAOS_Server {
          }
       }
       public void ItemEffectApply(GameBattler user, RPGUsableItem item, RPGUsableItemEffect effect) {
-         if (_itemEffectTable.TryGetValue((int)effect.code, out var handler))
+         if (_itemEffectTable.TryGetValue(effect.code, out var handler))
             handler(user, item, effect);
       }
       private void ItemEffectRecoverHP(GameBattler user, RPGUsableItem item, RPGUsableItemEffect effect) {
          float value = (Mhp * (float)effect.value1 + (float)effect.value2) * Rec;
          if (item is RPGItem)
             value *= user.Pha;
-         ExecuteHPDamage(Convert.ToInt32(value), false, user, (int)item.animation_id, item.ani_index, true);
+         ExecuteHPDamage(Convert.ToInt32(value), false, user, item.animation_id, item.ani_index, true);
       }
       private void ItemEffectRecoverMP(GameBattler user, RPGUsableItem item, RPGUsableItemEffect effect) {
          float value = (Mmp * (float)effect.value1 + (float)effect.value2) * Rec;
          if (item is RPGItem)
             value *= user.Pha;
-         ExecuteMPDamage(Convert.ToInt32(value), false, user, (int)item.animation_id, item.ani_index, true);
+         ExecuteMPDamage(Convert.ToInt32(value), false, user, item.animation_id, item.ani_index, true);
       }
       private void ItemEffectAddState(GameBattler user, RPGUsableItem item, RPGUsableItemEffect effect) {
          if(effect.data_id == 0) {
@@ -186,7 +178,7 @@ namespace VXAOS_Server {
             ItemEffectAddStateNormal(user, item, effect);
          }
       }
-      private void ItemEffectAddStateAttack(GameBattler user, RPGUsableItem item, RPGUsableItemEffect effect) {
+      private void ItemEffectAddStateAttack(GameBattler user, RPGUsableItem _, RPGUsableItemEffect effect) {
          foreach(var stateId in user.AtkStates()) {
             float chance = (float)effect.value1;
             chance *= StateRate(stateId);
@@ -196,10 +188,10 @@ namespace VXAOS_Server {
                AddState(stateId);
          }
       }
-      private void ItemEffectAddStateNormal(GameBattler user, RPGUsableItem item, RPGUsableItemEffect effect) {
-         int stateId = (int)effect.data_id;
+      private void ItemEffectAddStateNormal(GameBattler user, RPGUsableItem _, RPGUsableItemEffect effect) {
+         int stateId = effect.data_id;
          float chance = (float)effect.value1;
-         if(this is GameClient && !(user is GameClient)) {
+         if(this is GameClient && user is not GameClient) {
             chance *= StateRate(stateId);
             chance *= LukEffectRate(user);
          }
@@ -209,29 +201,29 @@ namespace VXAOS_Server {
       private void ItemEffectRemoveState(GameBattler user, RPGUsableItem item, RPGUsableItemEffect effect) {
          float chance = (float)(effect.value1);
          if (Rand() < chance)
-            RemoveState((int)effect.data_id);
+            RemoveState(effect.data_id);
       }
       private void ItemEffectAddBuff(GameBattler user, RPGUsableItem item, RPGUsableItemEffect effect) {
-         AddBuff((int)effect.data_id, (int)effect.value1);
+         AddBuff(effect.data_id, (int)effect.value1);
       }
       private void ItemEffectAddDebuff(GameBattler user, RPGUsableItem item, RPGUsableItemEffect effect) {
-         int debuffId = (int)effect.data_id;
+         int debuffId = effect.data_id;
          float chance = DebuffRate(debuffId) * LukEffectRate(user);
          if(Rand() < chance)
             AddDeBuff(debuffId, (int)effect.value1);
       }
       private void ItemEffectRemoveBuff(GameBattler user, RPGUsableItem item, RPGUsableItemEffect effect) {
-         int buffId = (int)effect.data_id;
+         int buffId = effect.data_id;
          if (Buffs[buffId] > 0)
             RemoveBuff(buffId);
       }
       private void ItemEffectRemoveDebuff(GameBattler user, RPGUsableItem item, RPGUsableItemEffect effect) {
-         int debuffId = (int)effect.data_id;
+         int debuffId = effect.data_id;
          if (Buffs[debuffId] < 0)
             RemoveBuff(debuffId);
       }
       private void ItemEffectGrow(GameBattler user, RPGUsableItem item, RPGUsableItemEffect effect) {
-         AddParam((int)effect.data_id, (int)effect.value1);
+         AddParam(effect.data_id, (int)effect.value1);
       }
       private void ItemEffectLearnSkill(GameBattler user, RPGUsableItem item, RPGUsableItemEffect effect) {
 
@@ -272,7 +264,7 @@ namespace VXAOS_Server {
          int sx = DistanceXFrom(target.X);
          int sy = DistanceYFrom(target.Y);
          if (Math.Abs(sx) > Math.Abs(sy))
-            return sx > 0 ? (int)(int)Enums.Dir.LEFT : (int)Enums.Dir.RIGHT;
+            return sx > 0 ? (int)Enums.Dir.LEFT : (int)Enums.Dir.RIGHT;
          if (sy != 0)
             return sy > 0 ? (int)Enums.Dir.UP : (int)Enums.Dir.DOWN;
          return Direction;

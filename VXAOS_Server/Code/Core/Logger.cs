@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 
 namespace VXAOS_Server.Code.Core {
    public sealed class Logger {
-      private readonly Dictionary<string, StringBuilder> _text = new();
+      private readonly Dictionary<string, StringBuilder> _text = [];
 
       public void Add(object type, ConsoleColor color, string text) {
          string typeName = type switch {

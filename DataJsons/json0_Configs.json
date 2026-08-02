@@ -1,0 +1,134 @@
+{
+  "GameVersion": 12983,
+  "MinCharacters": 3,
+  "MaxCharacters": 13,
+  "MinLevelPvp": 2,
+  "MaxActors": 3,
+  "MaxHotbar": 9,
+  "MaxDefaultClasses": 5,
+  "MaxVipClasses": 9,
+  "MaxItems": 999,
+  "MaxGold": 99999999,
+  "MaxParams": 999999,
+  "MaxLevel": 99,
+  "MaxPlayerSwitches": 100,
+  "MaxPlayerVariables": 100,
+  "MaxFriends": 20,
+  "MaxGuildMembers": 50,
+  "MaxPlayerItems": 30,
+  "MaxTradeItems": 12,
+  "MaxBankItems": 42,
+  "MaxChatLines": 10,
+  "MaxPartyMembers": 4,
+  "MaxEquips": 9,
+  "PaperdollDownDir": [
+    3,
+    5,
+    2,
+    7,
+    6,
+    8,
+    1,
+    0,
+    4
+  ],
+  "PaperdollLeftDir": [
+    7,
+    0,
+    3,
+    5,
+    2,
+    6,
+    8,
+    1,
+    4
+  ],
+  "PaperdollRightDir": [
+    1,
+    3,
+    5,
+    2,
+    7,
+    6,
+    8,
+    0,
+    4
+  ],
+  "PaperdollUpDir": [
+    7,
+    1,
+    0,
+    3,
+    5,
+    2,
+    8,
+    6,
+    4
+  ],
+  "NormalColor": 0,
+  "GlobalColor": 1,
+  "SuccessColor": 5,
+  "ErrorColor": 10,
+  "AlertColor": 8,
+  "AdmMsgColor": 17,
+  "DefaultColor": 0,
+  "MonitorColor": 4,
+  "AdminColor": 6,
+  "EnemyColor": 0,
+  "BossColor": 10,
+  "GuildColor": 16,
+  "StartPoints": 10,
+  "Teleports": [
+    [
+      {
+        "MapId": 1,
+        "X": 21,
+        "Y": 12,
+        "Gold": 10
+      },
+      {
+        "MapId": 2,
+        "X": 4,
+        "Y": 20,
+        "Gold": 20
+      }
+    ]
+  ],
+  "RangeWeapons": {
+    "31": {
+      "ProjectileName": "Arrow",
+      "Range": 10,
+      "ItemId": 18
+    },
+    "49": {
+      "ProjectileName": "Fire",
+      "Range": 10,
+      "ItemId": 0,
+      "StepAnime": false,
+      "MpCost": 3
+    }
+  },
+  "RangeSkills": {
+    "51": {
+      "ProjectileName": "Fire"
+    },
+    "70": {
+      "ProjectileName": "Light",
+      "StepAnime": true
+    }
+  },
+  "ForbiddenNames": [
+    "adm ",
+    "admin ",
+    "gm ",
+    "god ",
+    "mod "
+  ],
+  "AttackTime": 0.8,
+  "CooldownSkillTime": 1,
+  "CooldownItemTime": 1,
+  "GlobalAntispamTime": 1,
+  "AttackAnimationTime": 30,
+  "LevelUpAnimationId": 40,
+  "MaxMapDrops": 20
+}

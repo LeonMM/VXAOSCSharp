@@ -1,9 +1,8 @@
 ﻿using Newtonsoft.Json;
-using System.Collections.Generic;
 
 namespace VXAOS_Server.RPGData {
 	public class RPGTroop {
-		public double id = 0;
+		public int id = 0;
 		public string name = "";
 		[JsonConverter(typeof(ListConverter<RPGTroopMember>))] 
 		public List<RPGTroopMember> members = new List<RPGTroopMember>();

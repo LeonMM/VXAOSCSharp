@@ -1,10 +1,4 @@
-﻿using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using VXAOS_Server.RPGData;
+﻿using VXAOS_Server.RPGData;
 
 namespace VXAOS_Server {
    public partial class GameEvent : GameBattler {
@@ -28,15 +22,15 @@ namespace VXAOS_Server {
       internal DateTimeOffset ReviveTime;
       public int CharacterIndex;
       public DateTimeOffset? ParallelProcessWaiting;
-      public List<int> Locked = new();
+      public List<int> Locked = [];
       public GameInterpreter? Interpreter;
       public List<RPGEventCommand>? List;
       public GameEvent(int id, RPGEvent @event, int mapId) {
          InitializeEnemy();
          Id = id;
          MapId = mapId;
-         X = (int)@event.x;
-         Y = (int)@event.y;
+         X = @event.x;
+         Y = @event.y;
          Pages = @event.pages;
          MoveSucceed = true;
          MoveRouteForcing = false;
@@ -82,7 +76,7 @@ namespace VXAOS_Server {
       }
       public override void Refresh() {
          var newPage = FindGlobalProperPage();
-         if(newPage == null || !ReferenceEquals(newPage, Page))//newPage != Page
+         if (newPage == null || !ReferenceEquals(newPage, Page))//newPage != Page
             SetupPage(newPage);
          StopCount = DateTimeOffset.UtcNow.AddSeconds(Rand(StopCountThreshold));
       }
@@ -115,16 +109,17 @@ namespace VXAOS_Server {
             ClearPageSettings();
             return;
          }
-         CharacterIndex = (int)Page.graphic.character_index;
-         TileId = (int)Page.graphic.tile_id;
-         Direction = (int)Page.graphic.direction;
-         MoveType = (int)Page.move_type;
-         MoveFrequency = (int)Page.move_frequency;
+         CharacterIndex = Page.graphic.character_index;
+         TileId = Page.graphic.tile_id;
+         Direction = Page.graphic.direction;
+         MoveType = Page.move_type;
+         MoveFrequency = Page.move_frequency;
          MoveRoute = Page.move_route;
          MoveRouteIndex = 0;
          MoveRouteForcing = false;
          Through = Page.through;
-         Trigger = (int)Page.trigger;
+         PriorityType = Page.priority_type;
+         Trigger = Page.trigger;
          List = Page.list;
          Interpreter = Trigger == 4 ? new GameInterpreter() : null;
          (EnemyId, FrequencyBattle, RegionId) = GetBattleParameters();
@@ -139,7 +134,7 @@ namespace VXAOS_Server {
       }
       public void SetupEnemySettings() {
          for(int i = 0; i < 8; i++) {
-            ParamBase[i] = (int)Enemy().@params[i];
+            ParamBase[i] = Enemy().@params[i];
          }
          Sight = Enemy().sight;
          Escape = Enemy().escape;
@@ -177,17 +172,17 @@ namespace VXAOS_Server {
       internal bool ConditionsMet(GameClient client, RPGEventPage page) {
          var c = page.condition;
          if (c.switch1_valid) {
-            int swId = (int)c.switch1_id;
+            int swId = c.switch1_id;
             if (swId <= Configs.MaxPlayerSwitches && !client.Switches[swId] || !Network.Switches[swId])
                return false;
          }
          if (c.switch2_valid) {
-            int swId = (int)c.switch2_id;
+            int swId = c.switch2_id;
             if (swId <= Configs.MaxPlayerSwitches && !client.Switches[swId] || !Network.Switches[swId])
                return false;
          }
          if (c.variable_valid) {
-            if (client.Variables[(int)c.variable_id] < c.variable_value)
+            if (client.Variables[c.variable_id] < c.variable_value)
                return false;
          }
          if (c.self_switch_valid) {
@@ -195,7 +190,7 @@ namespace VXAOS_Server {
                return false;
          }
          if (c.item_valid) {
-            if (client.Items.ContainsKey((int)c.item_id))
+            if (client.Items.ContainsKey(c.item_id))
                return false;
          }
          return true;
@@ -210,12 +205,12 @@ namespace VXAOS_Server {
       internal bool GlobalConditionsMet(RPGEventPage page) {
          var c = page.condition;
          if (c.switch1_valid) {
-            int swId = (int)c.switch1_id;
+            int swId = c.switch1_id;
             if (swId > Configs.MaxPlayerSwitches && !Network.Switches[swId])
                return false;
          }
          if (c.switch2_valid) {
-            int swId = (int)c.switch2_id;
+            int swId = c.switch2_id;
             if (swId > Configs.MaxPlayerSwitches && !Network.Switches[swId])
                return false;
          }

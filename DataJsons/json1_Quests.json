@@ -1,0 +1,39 @@
+{
+  "Data": [
+    {
+      "Name": "Estimulante Mágico",
+      "Desc": "Pegue 1 Estimulante no baú mágico.",
+      "SwitchId": 0,
+      "VariableId": 0,
+      "VariableAmount": 0,
+      "ItemId": 5,
+      "ItemKind": 1,
+      "ItemAmount": 1,
+      "EnemyId": 0,
+      "EnemyAmount": 0,
+      "RewExp": 10,
+      "RewGold": 10,
+      "RewItemId": 0,
+      "RewItemKind": 0,
+      "RewItemAmount": 0
+    },
+    {
+      "Name": "Morcegos Malditos",
+      "Desc": "Mate 10 Morcegos na Caverna.",
+      "SwitchId": 0,
+      "VariableId": 0,
+      "VariableAmount": 0,
+      "ItemId": 0,
+      "ItemKind": 0,
+      "ItemAmount": 0,
+      "EnemyId": 2,
+      "EnemyAmount": 10,
+      "RewExp": 20,
+      "RewGold": 20,
+      "RewItemId": 2,
+      "RewItemKind": 2,
+      "RewItemAmount": 1,
+      "Repeat": true
+    }
+  ]
+}

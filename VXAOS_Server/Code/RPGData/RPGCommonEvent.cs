@@ -1,13 +1,18 @@
 ﻿using Newtonsoft.Json;
-using System.Collections.Generic;
 
 namespace VXAOS_Server.RPGData {
 	public class RPGCommonEvent {
-		public double id = 0;
+		public int id = 0;
 		public string name = "";
-		public double trigger = 0;
-		public double switch_id = 1;
+		public int trigger = 0;
+		public int switch_id = 1;
 		[JsonConverter(typeof(ListConverter<RPGEventCommand>))] 
-		public List<RPGEventCommand> list = new List<RPGEventCommand>() { new() };
+		public List<RPGEventCommand> list = [new()];
+		public bool IsAutorun() {
+			return trigger == 1;
+		}
+		public bool IsParallel() {
+			return trigger == 2;
+		}
 	}
 }

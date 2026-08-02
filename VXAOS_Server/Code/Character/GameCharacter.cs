@@ -1,7 +1,4 @@
-﻿using Newtonsoft.Json.Linq;
-using System;
-using VXAOS_Server.RPGData;
-using static VXAOS_Server.Enums;
+﻿using VXAOS_Server.RPGData;
 
 namespace VXAOS_Server {
    public partial class GameCharacter {
@@ -16,11 +13,11 @@ namespace VXAOS_Server {
       public int TileId = 0;
       public bool MoveSucceed { get; internal set; } = false;
       public bool MoveRouteForcing = false;
-      public GameVariables Variables = new GameVariables(null, new List<int>());
-      public List<int> States = new();
-      public Dictionary<int, DateTimeOffset> StatesTime = new();
+      public GameVariables Variables = new(null, []);
+      public List<int> States = [];
+      public Dictionary<int, DateTimeOffset> StatesTime = [];
       public int[] ParamBase = new int[8];
-      public int[] Buffs = {0,0,0,0,0,0,0,0,0};
+      public int[] Buffs = [0,0,0,0,0,0,0,0,0];
       public DateTimeOffset[] BuffsTime = new DateTimeOffset[8];
       protected int _hp;
       protected int _mp;
@@ -67,15 +64,15 @@ namespace VXAOS_Server {
       public int GuardSkillId { get { return 2; } }
       public int DeathStateId { get { return 1; } }
       public List<RPGState> RPGStates() {
-         List<RPGState> states = new();
+         List<RPGState> states = [];
          foreach(var state in States) {
             states.Add(DataStates[state]);
          }
          return states;
       }
       public void ClearStates() {
-         States = new();
-         StatesTime = new();
+         States = [];
+         StatesTime = [];
       }
       public void ClearBuffs() {
          Array.Fill(Buffs, 0);
@@ -84,7 +81,7 @@ namespace VXAOS_Server {
       public void RemoveStatesOnDeath() {
          foreach (var state in RPGStates()) {
             if (state.remove_at_battle_end)
-               RemoveState((int)state.id);
+               RemoveState(state.id);
          }
          for (int buffId = 0; buffId < 8; buffId++)
             EraseBuff(buffId);
@@ -120,12 +117,11 @@ namespace VXAOS_Server {
       private void OnRestrict() {
          foreach(var state in RPGStates()) {
             if (state.remove_by_restriction)
-               RemoveState((int)state.id);
+               RemoveState(state.id);
          }
       }
       public virtual void RemoveState(int stateId) {
-         if (States.Contains(stateId)) {
-            States.Remove(stateId);
+         if (States.Remove(stateId)) {            
             StatesTime.Remove(stateId);
          }
       }
@@ -174,7 +170,7 @@ namespace VXAOS_Server {
       public void RemoveStatesByDamage() {
          foreach (var state in RPGStates()) {
             if (state.remove_by_damage && Random.Shared.Next(100) < state.chance_by_damage)
-               RemoveState((int)state.id);
+               RemoveState(state.id);
          }
       }
       public int Param(int paramId) {
@@ -232,10 +228,10 @@ namespace VXAOS_Server {
             yield return state;
       }
       public List<int> FeaturesSet(int code) {
-         HashSet<int> result = new();
+         HashSet<int> result = [];
 
          foreach (var feature in Features(code)) {
-            result.Add((int)feature.data_id);
+            result.Add(feature.data_id);
          }
 
          return result.ToList();
@@ -314,7 +310,7 @@ namespace VXAOS_Server {
          return SpecialFlag(FLAG_ID_GUARD) && Restriction() < 4;
       }
       public int Restriction() {
-         return RPGStates().Select(state => (int)state.restriction).Append(0).Max();
+         return RPGStates().Select(state => state.restriction).Append(0).Max();
       }
       private bool IsStateRestrict(int stateId) {
          return DataStates[stateId].remove_by_restriction && Restriction() > 0;
@@ -322,28 +318,28 @@ namespace VXAOS_Server {
       public virtual bool IsSkillLearned(int skillId) {
          return true;
       }
-      public bool IsSkillWTypeOk(RPGSkill skill) {
+      public bool IsSkillWTypeOk(RPGSkill _) {
          return true;
       }
-      public virtual bool HasAddedSkillType(RPGSkill skill) {
+      public virtual bool HasAddedSkillType(RPGSkill _) {
          return true;
       }
       public bool UsableItemConditionsMet(RPGUsableItem item) {
          return Restriction() < 4 && item.occasion < 3;
       }
       public bool SkillConditionsMet(RPGSkill skill) {
-         return (IsSkillLearned((int)skill.id) || AddedSkills().Contains((int)skill.id))
+         return (IsSkillLearned(skill.id) || AddedSkills().Contains(skill.id))
             && UsableItemConditionsMet(skill)
             && Mp >= skill.mp_cost
             && IsSkillWTypeOk(skill)
-            && !IsSkillSealed((int)skill.id)
-            && !IsSkillTypeSealed((int)skill.stype_id)
+            && !IsSkillSealed(skill.id)
+            && !IsSkillTypeSealed(skill.stype_id)
             && HasAddedSkillType(skill);
       }
       public bool ItemConditionsMet(RPGItem item) {
          return UsableItemConditionsMet(item) && HasItem(item);
       }
-      public bool HasItem(RPGItem item) {
+      public bool HasItem(RPGItem _) {
          return true;
       }
       public bool IsUsable(RPGUsableItem item) {
@@ -357,11 +353,11 @@ namespace VXAOS_Server {
          return Hp <= 0;
       }
       public float HpRate() {
-         return ((float)Hp) / ((float)Mhp);
+         return Hp / ((float)Mhp);
       }
       public float MpRate() {
          if(Mhp > 0)
-            return ((float)Mp) / ((float)Mmp);
+            return Mp / ((float)Mmp);
          return 0;
       }
       public virtual void Refresh() {
@@ -425,7 +421,7 @@ namespace VXAOS_Server {
          int y2 = Network.Maps[MapId].RoundYWithDirection(Y, Direction);
          CheckEventTriggerTouchFront(x2, y2);
       }
-      private void CheckEventTriggerTouchFront(int x2, int y2) {
+      private void CheckEventTriggerTouchFront(int _, int __) {
       }
       public void MoveStraight(int d, bool turnOk = true) {
          MoveSucceed = IsPassable(X, Y, d);

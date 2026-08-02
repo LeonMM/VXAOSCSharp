@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-
-namespace VXAOS_Server {
+﻿namespace VXAOS_Server {
    public partial class GameClient : GameBattler {
-      public Dictionary<int, int> BankItems = new();
-      public Dictionary<int, int> BankWeapons = new();
-      public Dictionary<int, int> BankArmors = new();
+      public Dictionary<int, int> BankItems = [];
+      public Dictionary<int, int> BankWeapons = [];
+      public Dictionary<int, int> BankArmors = [];
       public int BankGold = 0;
       public int BankIdDb = -1;
       private bool InBank = false;
@@ -23,17 +16,15 @@ namespace VXAOS_Server {
          if(!IsInBank()) return;
          Network.SendCloseWindow(this); 
          InBank = false;
+         EventInterpreter.Resume();
       }
       public Dictionary<int, int>? BankItemContainer(int kind) {
-         switch (kind) {
-            case 1:
-               return BankItems;
-            case 2:
-               return BankWeapons;
-            case 3:
-               return BankArmors;
-         }
-         return null;
+         return kind switch {
+            1 => BankItems,
+            2 => BankWeapons,
+            3 => BankArmors,
+            _ => null,
+         };
       }
       public int BankItemNumber(int kind, int itemId) {
          var container = BankItemContainer(kind);

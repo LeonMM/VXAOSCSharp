@@ -2,29 +2,23 @@
 using System.Dynamic;
 using System.Text.Json;
 namespace VXAOS_Server {
-   public class DynamicModule : DynamicObject {
-      private readonly Dictionary<string, object?> _data;
-      public DynamicModule(Dictionary<string, object?> data) {
-         _data = data;
-      }
+   public class DynamicModule(Dictionary<string, object?> data) : DynamicObject {
       public override bool TryGetMember(GetMemberBinder binder,out object? result) {
-         return _data.TryGetValue(binder.Name, out result);
+         return data.TryGetValue(binder.Name, out result);
       }
       public object? this[string key] {
          get {
-            _data.TryGetValue(key, out var value);
+            data.TryGetValue(key, out var value);
             return value;
          }
       }
-      public T Get<T>(
-          string name,
-          T defaultValue = default!) {
-         if (!_data.TryGetValue(name, out var value))
+      public T Get<T>(string name, T defaultValue = default!) {
+         if (!data.TryGetValue(name, out var value))
             return defaultValue;
-
-         return (T)Convert.ChangeType(
-             value,
-             typeof(T));
+         return (T)Convert.ChangeType(value, typeof(T));
+      }
+      public bool Contains(string name) {
+         return data.ContainsKey(name);
       }
    }
 
@@ -87,7 +81,7 @@ namespace VXAOS_Server {
             var text = line.Trim();
             if (string.IsNullOrWhiteSpace(text))
                continue;
-            if (text.StartsWith("#"))
+            if (text.StartsWith('#'))
                continue;
             var separator =
                 text.IndexOf('=');
@@ -97,8 +91,8 @@ namespace VXAOS_Server {
                 text[..separator].Trim();
             var value =
                 text[(separator + 1)..].Trim();
-            if (value.StartsWith("'") &&
-                value.EndsWith("'")) {
+            if (value.StartsWith('\'') &&
+                value.EndsWith('\'')) {
                value =
                    value[1..^1];
             }
@@ -109,8 +103,8 @@ namespace VXAOS_Server {
       }
    }
    public static class Modules {
-      public static dynamic Configs;
-      public static dynamic Quests;
-      public static dynamic Vocab;
+      public static dynamic Configs = 1;
+      public static dynamic MQuests = 1;
+      public static dynamic Vocab = 1;
    }
 }

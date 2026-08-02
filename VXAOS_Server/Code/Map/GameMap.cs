@@ -1,41 +1,36 @@
-﻿using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Concurrent;
+using System.Collections.ObjectModel;
 using VXAOS_Server.RPGData;
 namespace VXAOS_Server {
    public class GameMap {
       public ConcurrentDictionary<int, GameEvent> Events { get; private set; } = new();
-      public List<GameEvent> TileEvents { get; private set; } = new();
+      public List<GameEvent> TileEvents { get; private set; } = [];
       public ConcurrentDictionary<int, Drop> Drops { get; private set; } = new();
-      private ConcurrentQueue<int> AvailableDropIds = new();
+      private readonly ConcurrentQueue<int> AvailableDropIds = new();
       private int _dropHighestIdAvailable = 0;
       public bool PvP { get; private set; }
-      public List<List<Region>> ReviveRegions { get; private set; } = new();
+      public List<List<Region>> ReviveRegions { get; private set; } = [];
       public int TotalPlayers = 0;
       public int FindDropId() {
-         int id;
-         if (AvailableDropIds.TryDequeue(out id)) {
+         if (AvailableDropIds.TryDequeue(out int id)) {
             return id;
          }
-         return _dropHighestIdAvailable;
+         return _dropHighestIdAvailable++;
       }
-      private int Id = 0;
-      private Table Data;
-      private int Width = 1;
-      private int Height = 1;
-      private int TilesetId = 1;
+      private readonly int Id = 0;
+      private readonly Table Data;
+      private readonly int Width = 1;
+      private readonly int Height = 1;
+      private readonly int TilesetId = 1;
       public GameMap(int id, RPGMap map) {
          Id = id;
          Data = map.data;
-         Width = (int)map.width;
-         Height = (int)map.height;
-         TilesetId = (int)map.tileset_id;
+         Width = map.width;
+         Height = map.height;
+         TilesetId = map.tileset_id;
          PvP = Note.ReadBoolean("PvP", map.note);
          for (int i = 0; i < ServerConfig.MaxReviveRegions; i++) { 
-            ReviveRegions.Add(new List<Region>());
+            ReviveRegions.Add([]);
          }
          for (int x = 0; x < Width; x++) {
             for (int y = 0; y < Height; y++) {
@@ -66,7 +61,7 @@ namespace VXAOS_Server {
       public void Refresh() {
          foreach (var ev in Events.Values)
             ev.Refresh();
-         RefreshTileEvents();
+         RefreshTileEvents();         
       }
       public void RefreshTileEvents() {
          TileEvents = Events.Values.Where(ev => ev.IsTile()).ToList();
@@ -100,15 +95,15 @@ namespace VXAOS_Server {
          return false;
       }
       public int TileId(int x, int y, int z) {
-         return (int)Data[x, y, z];
+         return Data.GetOrDefault(x, y, z);
       }
       public int[] LayeredTiles(int x, int y) {
-         return new[]
-         {
+         return
+         [
             TileId(x, y, 2),
             TileId(x, y, 1),
             TileId(x, y, 0)
-         };
+         ];
       }
       public List<int> AllTiles(int x, int y) {
          return TileEventsXY(x, y)
@@ -148,16 +143,17 @@ namespace VXAOS_Server {
          return IsValid(x, y) ? (int)(Data[x, y, 3] >> 8) : 0;
       }
       public void AddDrop(int itemId, int kind, int amount, int x, int y, string name = "", int partyId = -1) {
-         Drop drop = new();
-         drop.ItemId = itemId;
-         drop.Kind = kind;
-         drop.Amount = amount;
-         drop.X = x;
-         drop.Y = y;
-         drop.Name = name;
-         drop.PartyId = partyId;
-         drop.DespawnTime = DateTimeOffset.UtcNow.AddSeconds(ServerConfig.DropDespawnTime);
-         drop.PickUpTime = DateTimeOffset.UtcNow.AddSeconds(ServerConfig.DropPickUpTime);
+         Drop drop = new() {
+            ItemId = itemId,
+            Kind = kind,
+            Amount = amount,
+            X = x,
+            Y = y,
+            Name = name,
+            PartyId = partyId,
+            DespawnTime = DateTimeOffset.UtcNow.AddSeconds(ServerConfig.DropDespawnTime),
+            PickUpTime = DateTimeOffset.UtcNow.AddSeconds(ServerConfig.DropPickUpTime)
+         };
          int dropId = FindDropId();
          Drops.TryAdd(dropId, drop);
          Network.SendAddDrop(Id, dropId, (short)itemId, (byte)kind, (short)amount, (short)x, (short)y);

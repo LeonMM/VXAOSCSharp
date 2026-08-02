@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Concurrent;
+﻿using System.Collections.Concurrent;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
-using VXAOS_Server.RPGData;
 
 namespace VXAOS_Server {
    public partial class GameClient {
@@ -18,8 +16,8 @@ namespace VXAOS_Server {
       public int Group = 0;
       public int AddedVipTime = 0;
       public DateTimeOffset VipTime = DateTimeOffset.UtcNow;
-      public Dictionary<int, Actor> Actors = new();
-      public List<string> Friends = new();
+      public Dictionary<int, Actor> Actors = [];
+      public List<string> Friends = [];
       public int OnlineFriendsSize = 0;
       TcpClient Tcp;
       NetworkStream Stream;
@@ -41,15 +39,16 @@ namespace VXAOS_Server {
       }
       async Task ReceiveLoop() {
          try {
-            while (true) {
-               int bytes = await Stream.ReadAsync(buffer, 0, buffer.Length);
+            while (!DisconnectPending) {
+               int bytes = await Stream.ReadAsync(buffer);
                if (bytes == 0)
                   break;
-               BufferReader bufferreader = new BufferReader(Encoding.Latin1.GetString(buffer, 0, bytes));
+               BufferReader bufferreader = new(Encoding.Latin1.GetString(buffer, 0, bytes));
                Network.HandleMessages(this, bufferreader);
             }
          } catch (Exception ex) {
-            Console.WriteLine(ex);
+            if (!Disconnected)
+               Console.WriteLine(ex);
          } finally {
             Disconnect();
          }
@@ -103,7 +102,7 @@ namespace VXAOS_Server {
          }
       }
       public bool IsConnected() { return (Id >= 0); }
-      public bool IsLogged() { return (User.Count() > 0); }
+      public bool IsLogged() { return (User.Length > 0); }
       public new bool IsInGame() { return ActorId >= 0; }
       public bool IsStandard() { return Group == (int)Enums.Group.STANDARD; }
       public bool IsAdmin() { return Group == (int)Enums.Group.ADMIN; }
@@ -180,7 +179,7 @@ namespace VXAOS_Server {
          GlobalAntispamTime = DateTimeOffset.UtcNow;
          WeaponAttackTime = DateTimeOffset.UtcNow;
          ItemAttackTime = DateTimeOffset.UtcNow;
-         SkillCooldownTime = new();
+         SkillCooldownTime = [];
          MutedTime = DateTimeOffset.UtcNow;
          StopCount = DateTimeOffset.UtcNow;
          OriginalCharacterName = string.Empty;
@@ -190,13 +189,13 @@ namespace VXAOS_Server {
          OnlineFriendsSize = 0;
          TeleportId = -1;
          PartyId = -1;
-         CommonEvents = new();
-         ParallelEventsWating = new();
+         CommonEvents = [];
+         ParallelEventsWaiting = [];
          CreatingGuild = false;
          InBank = false;
          MessageInterpreter = null;
          WaitingEvent = null;
-         ShopGoods = new();
+         ShopGoods = [];
          Choice = -1;
          ClearTarget();
          ClearRequest();
@@ -206,8 +205,8 @@ namespace VXAOS_Server {
       public void LoadStates() {
          foreach(var state in Actors[ActorId].States) {
             float time = 0;
-            if (Actors[ActorId].StatesTime.ContainsKey(state))
-               time = Actors[ActorId].StatesTime[state];
+            if (Actors[ActorId].StatesTime.TryGetValue(state, out float value))
+               time = value;
             AddNewState(state, time);
          }
       }

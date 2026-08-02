@@ -1,0 +1,18 @@
+{
+  "1": {
+    "name": "Floresta",
+    "parent_id": 0,
+    "order": 1,
+    "expanded": false,
+    "scroll_x": 649,
+    "scroll_y": 371
+  },
+  "2": {
+    "name": "Caverna",
+    "parent_id": 0,
+    "order": 2,
+    "expanded": false,
+    "scroll_x": 640,
+    "scroll_y": 419
+  }
+}

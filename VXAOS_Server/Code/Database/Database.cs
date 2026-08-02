@@ -1,21 +1,9 @@
 ﻿using Microsoft.Data.Sqlite;
-using Microsoft.Extensions.Logging;
 using MySqlConnector;
 using Npgsql;
-using Npgsql.Internal.Postgres;
 using SqlKata.Compilers;
 using SqlKata.Execution;
-using System;
 using System.Data;
-using System.Data.Common;
-using System.Diagnostics;
-using System.Net;
-using System.Numerics;
-using System.Security.Principal;
-using System.Xml.Linq;
-using VXAOS_Server.RPGData;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using static VXAOS_Server.Enums;
 
 namespace VXAOS_Server {
    public class Database {
@@ -61,16 +49,12 @@ namespace VXAOS_Server {
          }
       }
       public Compiler GetCompiler() {
-         switch (ServerConfig.DbType) {
-            case Enums.DatabaseType.POSTGRESQL:
-               return new PostgresCompiler();
-            case Enums.DatabaseType.MYSQL:
-               return new MySqlCompiler();
-            case Enums.DatabaseType.SQLITE:
-               return new SqliteCompiler();
-            default:
-               throw new Exception("Unsupported compiler type");
-         }
+         return ServerConfig.DbType switch {
+            Enums.DatabaseType.POSTGRESQL => new PostgresCompiler(),
+            Enums.DatabaseType.MYSQL => new MySqlCompiler(),
+            Enums.DatabaseType.SQLITE => new SqliteCompiler(),
+            _ => throw new Exception("Unsupported compiler type"),
+         };
       }
       private QueryFactory Query() {
          var conn = CreateConnection();
@@ -177,7 +161,7 @@ namespace VXAOS_Server {
          actor.FaceIndex = DataClasses[classId].graphics[sex + 2][characterIndex].Item2;
          actor.ClassId = classId;
          actor.Sex = sex;
-         actor.Level = (int)DataActors[classId].initial_level;
+         actor.Level = DataActors[classId].initial_level;
          actor.Exp = DataClasses[classId].Exp_For_Level(actor.Level);
          int maxHp = @params[(int)Enums.Param.MAXHP] * 10 + (int)DataClasses[classId].@params[(int)Enums.Param.MAXHP, actor.Level];
          int maxMp = @params[(int)Enums.Param.MAXMP] * 10 + (int)DataClasses[classId].@params[(int)Enums.Param.MAXMP, actor.Level];
@@ -189,26 +173,26 @@ namespace VXAOS_Server {
          foreach (double equip in DataActors[classId].equips) {
             actor.Equips.Add((int)equip);
          }
-         while (actor.Equips.Count < Configs.MAX_EQUIPS) {
+         while (actor.Equips.Count < Configs.MaxEquips) {
             actor.Equips.Add(0);
          }
          actor.Points = points;
          actor.GuildName = "";
-         actor.ReviveMapId = actor.MapId = (int)DataSystem.start_map_id;
-         actor.ReviveX = actor.X = (int)DataSystem.start_x;
-         actor.ReviveY = actor.Y = (int)DataSystem.start_y;
+         actor.ReviveMapId = actor.MapId = DataSystem.start_map_id;
+         actor.ReviveX = actor.X = DataSystem.start_x;
+         actor.ReviveY = actor.Y = DataSystem.start_y;
          actor.Direction = (int)Enums.Dir.DOWN;
          actor.Gold = 0;
-         actor.States = new();
-         actor.StatesTime = new();
-         actor.Items = new();
-         actor.Weapons = new();
-         actor.Armors = new();
+         actor.States = [];
+         actor.StatesTime = [];
+         actor.Items = [];
+         actor.Weapons = [];
+         actor.Armors = [];
          foreach (var learning in DataClasses[classId].learnings) {
             if (learning.level <= actor.Level)
-               actor.Skills.Add((int)learning.skill_id);
+               actor.Skills.Add(learning.skill_id);
          }
-         actor.Quests = new();
+         actor.Quests = [];
          for (int i = 0; i < Configs.MaxHotbar; i++) {
             actor.Hotbar.Add(new Hotbar(0, 0));
          }
@@ -374,7 +358,7 @@ namespace VXAOS_Server {
          return actor;
       }
       internal async Task LoadPlayerEquips(QueryFactory qry, Actor actor) {
-         actor.Equips = new();
+         actor.Equips = [];
          var equips = await qry.Query("actor_equips")
              .Where("actor_id", actor.IdDb)
              .Select("equip_id", "slot_id")
@@ -389,7 +373,7 @@ namespace VXAOS_Server {
          }
       }
       internal async Task LoadPlayerItems(QueryFactory qry, Actor actor) {
-         actor.Items = new();
+         actor.Items = [];
          var items = await qry.Query("actor_items")
                       .Where("actor_id", actor.IdDb)
                       .Select("item_id", "amount")
@@ -402,7 +386,7 @@ namespace VXAOS_Server {
          }
       }
       internal async Task LoadPlayerWeapons(QueryFactory qry, Actor actor) {
-         actor.Weapons = new();
+         actor.Weapons = [];
          var weapons = await qry.Query("actor_weapons")
                       .Where("actor_id", actor.IdDb)
                       .Select("weapon_id", "amount")
@@ -415,7 +399,7 @@ namespace VXAOS_Server {
          }
       }
       internal async Task LoadPlayerArmors(QueryFactory qry, Actor actor) {
-         actor.Armors = new();
+         actor.Armors = [];
          var armors = await qry.Query("actor_armors")
                       .Where("actor_id", actor.IdDb)
                       .Select("armor_id", "amount")
@@ -439,7 +423,7 @@ namespace VXAOS_Server {
          }
       }
       internal async Task LoadPlayerHotbar(QueryFactory qry, Actor actor) {
-         actor.Hotbar = new();
+         actor.Hotbar = [];
          var hotbar = await qry.Query("actor_hotbars")
                       .Where("actor_id", actor.IdDb)
                       .Select("item_id", "type")
@@ -463,8 +447,8 @@ namespace VXAOS_Server {
          }
       }
       internal async Task LoadPlayerStates(QueryFactory qry, Actor actor) {
-         actor.States = new();
-         actor.StatesTime = new();
+         actor.States = [];
+         actor.StatesTime = [];
          var states = await qry.Query("actor_states")
                       .Where("actor_id", actor.IdDb)
                       .Select("state_id", "state_time")
@@ -758,7 +742,7 @@ namespace VXAOS_Server {
                         .FirstAsync();
             client.BankIdDb = Convert.ToInt32(bank.id);
             client.BankGold = Convert.ToInt32(bank.gold);
-            client.BankItems = new Dictionary<int, int>();
+            client.BankItems = [];
             var items = await qry.Query("bank_items")
                 .Where("bank_id", client.BankIdDb)
                 .Select("item_id", "amount")
@@ -766,7 +750,7 @@ namespace VXAOS_Server {
             foreach (var item in items) {
                client.BankItems[(int)item.item_id] = (int)item.amount;
             }
-            client.BankWeapons = new Dictionary<int, int>();
+            client.BankWeapons = [];
             var weapons = await qry.Query("bank_weapons")
                 .Where("bank_id", client.BankIdDb)
                 .Select("weapon_id", "amount")
@@ -774,7 +758,7 @@ namespace VXAOS_Server {
             foreach (var weapon in weapons) {
                client.BankWeapons[(int)weapon.weapon_id] = (int)weapon.amount;
             }
-            client.BankArmors = new Dictionary<int, int>();
+            client.BankArmors = [];
             var armors = await qry.Query("bank_armors")
                 .Where("bank_id", client.BankIdDb)
                 .Select("armor_id", "amount")
@@ -932,6 +916,8 @@ namespace VXAOS_Server {
                          .FirstAsync<int?>();
             if(accountId.HasValue) {
                Network.BanList.TryRemove($"{accountId}", out _);
+               Network.GlobalChatMessage($"{playerName} {Vocab.NotBanned}");
+               Network.Log.Add(client.Group, ConsoleColor.Blue, $"{client.User} removeu o banimento de {playerName}");
             }
          } finally { qry.Connection.Dispose(); }
       }

@@ -1,16 +1,15 @@
 ﻿using Newtonsoft.Json;
-using System.Collections.Generic;
 
 namespace VXAOS_Server.RPGData {
 	public class RPGUsableItem:RPGBaseItem {
-		public double scope = 0;
-		public double occasion = 0;
-		public double speed = 0;
-		public double success_rate = 100;
-		public double repeats = 1;
-		public double tp_gain = 0;
-		public double hit_type = 0;
-		public double animation_id = 0;
+		public int scope = 0;
+		public int occasion = 0;
+		public int speed = 0;
+		public int success_rate = 100;
+		public int repeats = 1;
+		public int tp_gain = 0;
+		public int hit_type = 0;
+		public int animation_id = 0;
       public int range = 0;
       public int aoe = 0;
       public int level = 0;
@@ -37,7 +36,7 @@ namespace VXAOS_Server.RPGData {
          return scope is >= 3 and <= 6;
       }
       public int NumberOfTargets() {
-         return IsForRandom() ? (int)scope - 2 : 0;
+         return IsForRandom() ? scope - 2 : 0;
       }
       public bool IsForAll() {
          return scope == 2 || scope == 8 || scope == 10;

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace VXAOS_Server {
+﻿namespace VXAOS_Server {
    public class GameQuest {
       public Enums.Quest State;
       public int Kills;
@@ -21,20 +15,20 @@ namespace VXAOS_Server {
       public GameQuest(int id, Enums.Quest state, int kills) {
          State = state;
          Kills = kills;
-         SwitchId = Quests.Data[id].SwitchId;
-         VariableId = Quests.Data[id].VariableId;
-         VariableAmount = Quests.Data[id].VariableAmount;
-         ItemId = Quests.Data[id].ItemId;
-         ItemKind = Quests.Data[id].ItemKind;
-         ItemAmount = Quests.Data[id].ItemAmount;
-         EnemyId = Quests.Data[id].EnemyId;
-         MaxKills = Quests.Data[id].EnemyAmount;
-         Reward.ItemId = Quests.Data[id].RewItemId;
-         Reward.ItemKind = Quests.Data[id].RewItemKind;
-         Reward.ItemAmount = Quests.Data[id].RewItemAmount;
-         Reward.Exp = Quests.Data[id].RewExp;
-         Reward.Gold = Quests.Data[id].RewGold;
-         Repeat = Quests.Data[id].Get("Repeat", false);
+         SwitchId = MQuests.Data[id].SwitchId;
+         VariableId = MQuests.Data[id].VariableId;
+         VariableAmount = MQuests.Data[id].VariableAmount;
+         ItemId = MQuests.Data[id].ItemId;
+         ItemKind = MQuests.Data[id].ItemKind;
+         ItemAmount = MQuests.Data[id].ItemAmount;
+         EnemyId = MQuests.Data[id].EnemyId;
+         MaxKills = MQuests.Data[id].EnemyAmount;
+         Reward.ItemId = MQuests.Data[id].RewItemId;
+         Reward.ItemKind = MQuests.Data[id].RewItemKind;
+         Reward.ItemAmount = MQuests.Data[id].RewItemAmount;
+         Reward.Exp = MQuests.Data[id].RewExp;
+         Reward.Gold = MQuests.Data[id].RewGold;
+         Repeat = MQuests.Data[id].Get("Repeat", false);
       }
       public bool IsInProgress() {
          return State == Enums.Quest.IN_PROGRESS;

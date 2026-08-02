@@ -1,7 +1,4 @@
-﻿using Newtonsoft.Json.Linq;
-using System;
-using VXAOS_Server.RPGData;
-using static VXAOS_Server.Enums;
+﻿using static VXAOS_Server.Enums;
 
 namespace VXAOS_Server {
    public partial class GameCharacter {

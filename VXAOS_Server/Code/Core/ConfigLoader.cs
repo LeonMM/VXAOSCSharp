@@ -1,8 +1,7 @@
-﻿namespace VXAOS_Server {
-   using System.IO;
-   using System.Collections.Generic;
-   using System.Text.RegularExpressions;
-
+﻿using System.IO;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
+namespace VXAOS_Server {
    public static class ConfigLoader {
       public static void Load(string path) {
          var lines = File.ReadAllLines(path);
@@ -14,10 +13,10 @@
                continue;
             var commentIndex = line.IndexOf('#');
             if (commentIndex >= 0)
-               line = line.Substring(0, commentIndex);
+               line = line[..commentIndex];
             if (string.IsNullOrWhiteSpace(line))
                continue;
-            if (!line.Contains("="))
+            if (!line.Contains('='))
                continue;
             var parts = line.Split('=', 2);
             var key = parts[0].Trim();
@@ -65,7 +64,6 @@
          ParsePartyBonus(fullText);
          //return cfg;
       }
-
       static void ParseChatFilter(string text) {
          var match = Regex.Match(text,
             @"CHAT_FILTER\s*=\s*\[(.*?)\]",
@@ -80,7 +78,6 @@
                ServerConfig.ChatFilter.Add(word);
          }
       }
-
       static void ParsePartyBonus(string text) {
          var match = Regex.Match(text,
             @"PARTY_BONUS\s*=\s*\{(.*?)\}",
@@ -90,7 +87,7 @@
          var content = match.Groups[1].Value;
          var lines = content.Split(',');
          foreach (var l in lines) {
-            if (l.Contains("#"))
+            if (l.Contains('#'))
                continue;
             var parts = l.Split("=>");
             if (parts.Length != 2)
@@ -138,9 +135,9 @@
       public static int LoseVipExpRate;
       public static int LoseGoldRate;
       // CHAT
-      public static List<string> ChatFilter = new();
+      public static List<string> ChatFilter = [];
       // PARTY
-      public static Dictionary<int, int> PartyBonus = new();
+      public static Dictionary<int, int> PartyBonus = [];
       // LEVEL
       public static int LevelUpPoints;
       // ENEMY
