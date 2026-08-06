@@ -80,11 +80,6 @@ namespace VXAOS_Server {
       public void Disconnect() {
          if (Disconnected)
             return;
-         Disconnected = true;
-         try {
-            Tcp.Client.Shutdown(SocketShutdown.Both);
-         } catch { }
-         Tcp.Close();
          if (IsInGame()) {
             LoadOriginalGraphic();
             _ = LeaveGame();
@@ -92,6 +87,11 @@ namespace VXAOS_Server {
          if (IsLogged()) {
             Console.WriteLine($"{User} saiu.");
          }
+         Disconnected = true;
+         try {
+            Tcp.Client.Shutdown(SocketShutdown.Both);
+         } catch { }
+         Tcp.Close();
          Network.RemoveClient(Id);
       }
       public void CloseAfterWriting() {
@@ -145,6 +145,7 @@ namespace VXAOS_Server {
       }
       public void LoadData(int actorId) {
          Name = Actors[actorId].Name;
+         IdDb = Actors[actorId].IdDb;
          CharacterName = Actors[actorId].CharacterName;
          CharacterIndex = Actors[actorId].CharacterIndex;
          FaceName = Actors[actorId].FaceName;

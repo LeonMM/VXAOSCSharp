@@ -3,6 +3,26 @@
   "WorkspaceRootPath": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\code\\database\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:code\\database\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\code\\client\\gameaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:code\\client\\gameaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\code\\network\\nwhandledata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:code\\network\\nwhandledata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\code\\client\\gameclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:code\\client\\gameclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\code\\network\\nwsenddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:code\\network\\nwsenddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -15,14 +35,6 @@
       "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:code\\network\\buffer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\code\\client\\gameclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:code\\client\\gameclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\code\\network\\nwhandledata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:code\\network\\nwhandledata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\code\\core\\logger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:code\\core\\logger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -31,24 +43,12 @@
       "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:code\\core\\datamanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\code\\client\\gameaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:code\\client\\gameaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\code\\database\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:code\\database\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\code\\character\\gameinterpreter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:code\\character\\gameinterpreter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\code\\character\\gameevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:code\\character\\gameevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\code\\network\\network.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -146,7 +146,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 31,
+          "SelectedChildIndex": 17,
           "Children": [
             {
               "$type": "Bookmark",
@@ -190,7 +190,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "GameEvent.cs",
               "DocumentMoniker": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Code\\Character\\GameEvent.cs",
               "RelativeDocumentMoniker": "Code\\Character\\GameEvent.cs",
@@ -198,12 +198,11 @@
               "RelativeToolTip": "Code\\Character\\GameEvent.cs",
               "ViewState": "AgIAAMoAAAAAAAAAAADgv7oAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-24T19:50:01.085Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-24T19:50:01.085Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "GameInterpreter.cs",
               "DocumentMoniker": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Code\\Character\\GameInterpreter.cs",
               "RelativeDocumentMoniker": "Code\\Character\\GameInterpreter.cs",
@@ -211,8 +210,7 @@
               "RelativeToolTip": "Code\\Character\\GameInterpreter.cs",
               "ViewState": "AgIAABUDAAAAAAAAAAAqwCEDAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-13T18:26:43.471Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-13T18:26:43.471Z"
             },
             {
               "$type": "Document",
@@ -252,13 +250,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-08T15:55:43.881Z",
               "EditorCaption": ""
@@ -301,20 +299,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 1,
               "Title": "GameAccount.cs",
               "DocumentMoniker": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Code\\Client\\GameAccount.cs",
               "RelativeDocumentMoniker": "Code\\Client\\GameAccount.cs",
               "ToolTip": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Code\\Client\\GameAccount.cs",
               "RelativeToolTip": "Code\\Client\\GameAccount.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAUwCQAAAAHAAAAAAAAAA==",
+              "ViewState": "AgIAAJEAAAAAAAAAAAAMwJMAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-23T21:17:12.351Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "GameClient.cs",
               "DocumentMoniker": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Code\\Client\\GameClient.cs",
               "RelativeDocumentMoniker": "Code\\Client\\GameClient.cs",
@@ -351,20 +349,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 0,
               "Title": "Database.cs",
               "DocumentMoniker": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Code\\Database\\Database.cs",
               "RelativeDocumentMoniker": "Code\\Database\\Database.cs",
               "ToolTip": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Code\\Database\\Database.cs",
               "RelativeToolTip": "Code\\Database\\Database.cs",
-              "ViewState": "AgIAAFUBAAAAAAAAAAAQwAECAAA/AAAAAAAAAA==",
+              "ViewState": "AgIAAHUDAAAAAAAAAAAtwJcDAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-10T20:06:57.808Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "Logger.cs",
               "DocumentMoniker": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Code\\Core\\Logger.cs",
               "RelativeDocumentMoniker": "Code\\Core\\Logger.cs",
@@ -372,8 +370,7 @@
               "RelativeToolTip": "Code\\Core\\Logger.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAA4wBIAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-07T22:01:31.485Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-07T22:01:31.485Z"
             },
             {
               "$type": "Document",
@@ -449,7 +446,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "DataManager.cs",
               "DocumentMoniker": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Code\\Core\\DataManager.cs",
               "RelativeDocumentMoniker": "Code\\Core\\DataManager.cs",
@@ -457,8 +454,7 @@
               "RelativeToolTip": "Code\\Core\\DataManager.cs",
               "ViewState": "AgIAAKAAAAAAAAAAAAAIwKoAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-14T23:00:27.88Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-14T23:00:27.88Z"
             },
             {
               "$type": "Document",
@@ -486,13 +482,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "NWHandleData.cs",
               "DocumentMoniker": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Code\\Network\\NWHandleData.cs",
               "RelativeDocumentMoniker": "Code\\Network\\NWHandleData.cs",
               "ToolTip": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Code\\Network\\NWHandleData.cs",
               "RelativeToolTip": "Code\\Network\\NWHandleData.cs",
-              "ViewState": "AgIAAHQBAAAAAAAAAADwv3sBAAAHAAAAAAAAAA==",
+              "ViewState": "AgIAABoBAAAAAAAAAAAEwCUBAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-14T22:37:36.193Z",
               "EditorCaption": ""
@@ -523,7 +519,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "NWSendData.cs",
               "DocumentMoniker": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Code\\Network\\NWSendData.cs",
               "RelativeDocumentMoniker": "Code\\Network\\NWSendData.cs",
@@ -548,7 +544,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "server.cfg",
               "DocumentMoniker": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\server.cfg",
               "RelativeDocumentMoniker": "server.cfg",
@@ -556,12 +552,11 @@
               "RelativeToolTip": "server.cfg",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2026-03-10T20:08:44.226Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-10T20:08:44.226Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "Buffer.cs",
               "DocumentMoniker": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Code\\Network\\Buffer.cs",
               "RelativeDocumentMoniker": "Code\\Network\\Buffer.cs",
@@ -569,8 +564,7 @@
               "RelativeToolTip": "Code\\Network\\Buffer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-08T16:03:14.569Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-08T16:03:14.569Z"
             }
           ]
         }

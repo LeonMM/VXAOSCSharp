@@ -1,6 +1,7 @@
 ﻿using Microsoft.Data.Sqlite;
 using MySqlConnector;
 using Npgsql;
+using SqlKata;
 using SqlKata.Compilers;
 using SqlKata.Execution;
 using System.Data;

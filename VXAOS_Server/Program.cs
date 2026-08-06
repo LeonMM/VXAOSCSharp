@@ -14,6 +14,8 @@ internal class Program {
       } finally {
          if (noError)
             _ = SaveGameData();
+         Console.WriteLine("Pressione qualquer tecla para sair");
+         Console.ReadKey();
       }
    }
 }
