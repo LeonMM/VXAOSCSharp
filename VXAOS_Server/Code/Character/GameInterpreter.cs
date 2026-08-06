@@ -1,21 +1,27 @@
 ﻿using Microsoft.CodeAnalysis.CSharp.Scripting;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Scripting;
 using Microsoft.Extensions.Caching.Memory;
 using Newtonsoft.Json.Linq;
+using System.Collections.Concurrent;
 using System.Diagnostics.CodeAnalysis;
 using VXAOS_Server.RPGData;
 
 namespace VXAOS_Server {
    public class GameInterpreter {
       private static readonly MemoryCache _globalScriptCache = new(new MemoryCacheOptions());
+      private static readonly ConcurrentDictionary<string, ScriptRunner<object>> _actionCache = new();
+      private static readonly ConcurrentDictionary<string, ScriptRunner<bool>> _conditionCache = new();
+      private static readonly ConcurrentDictionary<string, ScriptRunner<int>> _integerCache = new();
       private static readonly ScriptOptions _scriptOptions = ScriptOptions.Default.
          WithReferences(typeof(GameInterpreter).Assembly, typeof(DataManager).Assembly,
-            typeof(Network).Assembly, typeof(Microsoft.CSharp.RuntimeBinder.Binder).Assembly).
+            typeof(Network).Assembly, typeof(Microsoft.CSharp.RuntimeBinder.Binder).Assembly,
+            typeof(Utils).Assembly).
          WithImports("System", "System.Math", "VXAOS_Server", "VXAOS_Server.RPGData",
-            "VXAOS_Server.DataManager", "VXAOS_Server.Modules");
+            "VXAOS_Server.DataManager", "VXAOS_Server.Modules" , "VXAOS_Server.Extensions.Utils");
       private readonly SemaphoreSlim Semaphore = new(0, 1);
       private List<RPGEventCommand> List = [];
-      private GameClient? Client;
+      public GameClient? Client;
       private int EventId = 0;
       private int Index;
       private int MapId;
@@ -23,7 +29,7 @@ namespace VXAOS_Server {
       private RPGCommonEvent? ObjCommonEvent;
       private JArray Params;
       private int Indent;
-      private Dictionary<int, int> Branch;
+      private Dictionary<int, int> Branch = new();
       public bool IsRunning = false;
       private readonly List<int> CmdExcludeList = [
             111, 113, 115, 117, 119, 121, 124, 138, 203, 204,
@@ -49,7 +55,7 @@ namespace VXAOS_Server {
                break;
          }
          IsRunning = true;
-         Task.Run(async () => await RunAsync());
+         Task.Run(RunAsync);
       }
       private async Task RunAsync() {
          while (Index < List.Count) {
@@ -194,6 +200,7 @@ namespace VXAOS_Server {
       internal async Task SetupChoices(JArray @params) {
          if (Client == null) return;
          await Semaphore.WaitAsync();
+         Branch.TryAdd(Indent, 0);
          Branch[Indent] = Math.Min(Client.Choice, @params[0].AsArray().Count);
          Client.CloseEventMessage();
       }
@@ -229,10 +236,10 @@ namespace VXAOS_Server {
          return Task.CompletedTask;
       }
       public async Task Choice() {
-         if (Branch[Indent] != Params[0].AsInt()) await CommandSkip();
+         if (Branch.TryGetValue(Indent, out int value) && value != Params[0].AsInt()) await CommandSkip();
       }
       public async Task Cancel() {
-         if (Branch[Indent] != 4) await CommandSkip();
+         if (Branch.TryGetValue(Indent, out int value) && value != 4) await CommandSkip();
       }
       public async Task Condition() {
          bool result = false;
@@ -335,11 +342,12 @@ namespace VXAOS_Server {
                result = await EvaluateCondition(Params[1].AsString());
                break;
          }
+         Branch.TryAdd(Indent, 0);
          Branch[Indent] = result ? 1 : 0;
          if (Branch[Indent] == 0) await CommandSkip();
       }
       public async Task CmdException() {
-         if(Branch[Indent] == 1) await CommandSkip();
+         if (Branch.TryGetValue(Indent, out int value) && value == 1) await CommandSkip();
       }
       public Task RepeatAbove() {
          do {
@@ -784,18 +792,15 @@ namespace VXAOS_Server {
          if(string.IsNullOrEmpty(code)) return false;
          string cacheKey = $"{code}_bool";
          try {
-            if (!_globalScriptCache.TryGetValue(cacheKey, out ScriptRunner<bool> runner)) {
-               var script = CSharpScript.Create<bool>(
-                  code, _scriptOptions, globalsType: typeof(GameInterpreter)
-                  );
+            var runner = _conditionCache.GetOrAdd(code, scriptCode => {
+               var script = CSharpScript.Create<bool>(scriptCode, _scriptOptions,
+                  globalsType: typeof(GameInterpreter));
                script.Compile();
-               runner = script.CreateDelegate();
-               var cacheOptions = new MemoryCacheEntryOptions()
-                  .SetSlidingExpiration(TimeSpan.FromMinutes(10));
-               _globalScriptCache.Set(cacheKey, runner, cacheOptions);
-            }
+               return script.CreateDelegate();
+            });
             return await runner(globals: this);
          } catch (Exception e) {
+            Console.WriteLine(e.ToString());
             return false;
          }
       }
@@ -803,16 +808,12 @@ namespace VXAOS_Server {
          if(string.IsNullOrEmpty(code)) return 0;
          string cacheKey = $"{code}_int";
          try {
-            if (!_globalScriptCache.TryGetValue(cacheKey, out ScriptRunner<int> runner)) {
-               var script = CSharpScript.Create<int>(
-                  code, _scriptOptions, globalsType: typeof(GameInterpreter)
-                  );
+            var runner = _integerCache.GetOrAdd(code, scriptCode => {
+               var script = CSharpScript.Create<int>(scriptCode, _scriptOptions,
+                  globalsType: typeof(GameInterpreter));
                script.Compile();
-               runner = script.CreateDelegate();
-               var cacheOptions = new MemoryCacheEntryOptions()
-                  .SetSlidingExpiration(TimeSpan.FromMinutes(10));
-               _globalScriptCache.Set(cacheKey, runner, cacheOptions);
-            }
+               return script.CreateDelegate();
+            });
             return await runner(globals: this);
          } catch (Exception e) {
             return 0;
@@ -822,19 +823,71 @@ namespace VXAOS_Server {
          if(string.IsNullOrEmpty(code)) return;
          string cacheKey = $"{code}_action";
          try {
-            if (!_globalScriptCache.TryGetValue(cacheKey, out ScriptRunner<object> runner)) {
-               var script = CSharpScript.Create<object>(
-                  code, _scriptOptions, globalsType: typeof(GameInterpreter)
-                  );
+            var runner = _actionCache.GetOrAdd(code, scriptCode => {
+               var script = CSharpScript.Create<object>(scriptCode, _scriptOptions,
+                  globalsType: typeof(GameInterpreter));
                script.Compile();
-               runner = script.CreateDelegate();
-               var cacheOptions = new MemoryCacheEntryOptions()
-                  .SetSlidingExpiration(TimeSpan.FromMinutes(10));
-               _globalScriptCache.Set(cacheKey, runner, cacheOptions);
-            }
+               return script.CreateDelegate();
+            });
             await runner(globals: this);
          } catch (Exception e) {
             Console.WriteLine(e);
+         }
+      }
+      public static void ProcessEvalPages(List<RPGEventPage> pages) {
+         foreach(var page in pages) {
+            ProcessEvalList(page.list);
+         }
+      }
+      public static void ProcessEvalList(List<RPGEventCommand> list) {
+         int index = 0;
+         while (index < list.Count) {
+            if (list[index].code == 355) {
+               string code = $"{list[index].parameters[0].AsString()}\n";
+               while (((index + 1 < list.Count) ? list[index + 1].code : 0) == 655) {
+                  index++;
+                  code += $"{list[index].parameters[0].AsString()}\n";
+               }
+               if (code.Contains("Client") || code.StartsWith("[NG]", StringComparison.CurrentCultureIgnoreCase)) {
+                  index++;
+                  continue;
+               }
+               var _ = _actionCache.GetOrAdd(code, scriptCode => {
+                  var script = CSharpScript.Create<object>(scriptCode, _scriptOptions,
+                     globalsType: typeof(GameInterpreter));
+                  script.Compile();
+                  return script.CreateDelegate();
+               });
+            } else if (list[index].code == 122) {
+               if (list[index].parameters.HasIndex(3) && list[index].parameters[3].AsInt() == 4) {
+                  string code = list[index].parameters[4].AsString();
+                  if (code.Contains("Client")) {
+                     index++;
+                     continue;
+                  }
+                  var _ = _integerCache.GetOrAdd(code, scriptCode => {
+                     var script = CSharpScript.Create<int>(scriptCode, _scriptOptions,
+                        globalsType: typeof(GameInterpreter));
+                     script.Compile();
+                     return script.CreateDelegate();
+                  });
+               }
+            } else if (list[index].code == 111) {
+               if (list[index].parameters[0].AsInt() == 12) {
+                  string code = list[index].parameters[1].AsString();
+                  if (code.Contains("Client")) {
+                     index++;
+                     continue;
+                  }
+                  var _ = _conditionCache.GetOrAdd(code, scriptCode => {
+                     var script = CSharpScript.Create<bool>(scriptCode, _scriptOptions,
+                        globalsType: typeof(GameInterpreter));
+                     script.Compile();
+                     return script.CreateDelegate();
+                  });
+               }
+            }
+            index++;
          }
       }
    }

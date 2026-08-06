@@ -484,14 +484,14 @@ namespace VXAOS_Server {
                });
             for (int slotId = 0; slotId < client.Equips.Count; slotId++) {
                await qry.Query("actor_equips").
-                  Where("actor_id", client.IdDb).Where("slot_id",slotId).
+                  Where("actor_id", client.IdDb).Where("slot_id", slotId).
                   UpdateAsync(new {
                      equip_id = client.Equips[slotId]
                   });
             }
             for (int slotId = 0; slotId < client.Hotbar.Count; slotId++) {
                await qry.Query("actor_hotbars").
-                  Where("actor_id", client.IdDb).Where("slot_id",slotId).
+                  Where("actor_id", client.IdDb).Where("slot_id", slotId).
                   UpdateAsync(new {
                      type = (int)client.Hotbar[slotId].Type,
                      item_id = client.Hotbar[slotId].ItemId
@@ -520,6 +520,8 @@ namespace VXAOS_Server {
             await SavePlayerStates(client, qry);
             await SaveAccount(client, qry);
             await SaveBank(client, qry);
+         } catch(Exception ex) {
+            Console.WriteLine(ex.ToString());
          } finally { qry.Connection.Dispose(); }
       }
       internal async Task SaveItems(GameClient client, QueryFactory qry, Dictionary<int, int> actItems, string iType, bool isBank = false) {

@@ -32,6 +32,7 @@ namespace VXAOS_Server {
          X = @event.x;
          Y = @event.y;
          Pages = @event.pages;
+         GameInterpreter.ProcessEvalPages(Pages);
          MoveSucceed = true;
          MoveRouteForcing = false;
          ParallelProcessWaiting = null;
@@ -186,11 +187,11 @@ namespace VXAOS_Server {
                return false;
          }
          if (c.self_switch_valid) {
-            if (client.SelfSwitches[(client.MapId, Id, c.self_switch_ch[0])])
+            if (!client.SelfSwitches[(client.MapId, Id, (char)c.self_switch_ch[0])])
                return false;
          }
          if (c.item_valid) {
-            if (client.Items.ContainsKey(c.item_id))
+            if (!client.Items.ContainsKey(c.item_id))
                return false;
          }
          return true;

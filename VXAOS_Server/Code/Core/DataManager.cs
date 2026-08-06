@@ -119,6 +119,10 @@ namespace VXAOS_Server {
                Console.WriteLine("Carregando Eventos Comuns...");
 					DataCommonEvents = JsonConvert.DeserializeObject<List<RPGCommonEvent>>(jsons[12].Remove(1,5),settings)!;
 					DataCommonEvents.Insert(0, null);
+					foreach(var commonEvent in DataCommonEvents) {
+						if (commonEvent == null) continue;
+						GameInterpreter.ProcessEvalList(commonEvent.list);
+					}
                Console.WriteLine("Carregando Sistema...");
 					DataSystem = JsonConvert.DeserializeObject<RPGSystem>(jsons[13],settings)!;
                if (File.Exists("Data/switches.json")) {

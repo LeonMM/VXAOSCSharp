@@ -516,6 +516,7 @@ namespace VXAOS_Server {
       public static void SendPlayerParam(GameClient client, byte paramId, short value) {
          BufferWriter buffer = new();
          buffer.WriteByte((byte)Packet.PLAYER_PARAM);
+         buffer.WriteShort(client.Id);
          buffer.WriteByte(paramId);
          buffer.WriteShort(value);
          SendDataToMap(client.MapId, buffer.ToStringBuffer());

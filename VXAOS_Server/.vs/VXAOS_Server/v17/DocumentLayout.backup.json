@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\code\\network\\nwhandledata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:code\\network\\nwhandledata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\code\\core\\logger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:code\\core\\logger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\code\\core\\datamanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:code\\core\\datamanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\code\\client\\gameaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:code\\client\\gameaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -11,52 +23,64 @@
       "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:code\\client\\gameclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\code\\network\\network.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:code\\network\\network.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\code\\network\\nwgamecommands.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:code\\network\\nwgamecommands.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\code\\network\\nwhandledata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:code\\network\\nwhandledata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\code\\character\\gameevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:code\\character\\gameevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\code\\character\\gamecharacter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:code\\character\\gamecharacter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\code\\map\\gamemap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:code\\map\\gamemap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\code\\core\\configs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:code\\core\\configs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\code\\rpgdata\\table.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:code\\rpgdata\\table.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\code\\database\\gameswitches.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:code\\database\\gameswitches.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\code\\database\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:code\\database\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\code\\character\\gameinterpreter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:code\\character\\gameinterpreter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\code\\network\\nwsenddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:code\\network\\nwsenddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\code\\character\\gameevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:code\\character\\gameevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\code\\network\\network.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:code\\network\\network.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\code\\network\\nwgamegeneral.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:code\\network\\nwgamegeneral.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\code\\core\\configloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:code\\core\\configloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\code\\core\\csext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:code\\core\\csext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\code\\network\\nwgamecommands.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:code\\network\\nwgamecommands.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\code\\rpgdata\\rpgcommonevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:code\\rpgdata\\rpgcommonevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\code\\map\\gamemap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:code\\map\\gamemap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\code\\character\\gamecharacter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:code\\character\\gamecharacter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\code\\core\\configs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:code\\core\\configs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\code\\database\\gameswitches.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:code\\database\\gameswitches.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\code\\network\\nwsenddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:code\\network\\nwsenddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\code\\client\\gamebank.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -67,32 +91,8 @@
       "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:code\\core\\structs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\code\\core\\datamanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:code\\core\\datamanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\code\\core\\configloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:code\\core\\configloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\code\\database\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:code\\database\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\code\\rpgdata\\rpgcommonevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:code\\rpgdata\\rpgcommonevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\code\\network\\nwgameguild.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:code\\network\\nwgameguild.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\code\\core\\logger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|solutionrelative:code\\core\\logger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B11D38AF-9284-4370-8CEC-C9EE1B5C9147}|VXAOS_Server.csproj|c:\\users\\leon\\documents\\github\\vxaoscsharp\\vxaos_server\\code\\client\\gameparty.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -146,7 +146,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 13,
+          "SelectedChildIndex": 28,
           "Children": [
             {
               "$type": "Bookmark",
@@ -154,15 +154,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Table.cs",
-              "DocumentMoniker": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Code\\RPGData\\Table.cs",
-              "RelativeDocumentMoniker": "Code\\RPGData\\Table.cs",
-              "ToolTip": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Code\\RPGData\\Table.cs",
-              "RelativeToolTip": "Code\\RPGData\\Table.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAgwDEAAAAZAAAAAAAAAA==",
+              "DocumentIndex": 12,
+              "Title": "CSExt.cs",
+              "DocumentMoniker": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Code\\Core\\CSExt.cs",
+              "RelativeDocumentMoniker": "Code\\Core\\CSExt.cs",
+              "ToolTip": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Code\\Core\\CSExt.cs",
+              "RelativeToolTip": "Code\\Core\\CSExt.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-31T18:47:05.059Z"
+              "WhenOpened": "2026-08-03T19:05:26.889Z"
             },
             {
               "$type": "Document",
@@ -190,28 +190,29 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "GameEvent.cs",
               "DocumentMoniker": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Code\\Character\\GameEvent.cs",
               "RelativeDocumentMoniker": "Code\\Character\\GameEvent.cs",
               "ToolTip": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Code\\Character\\GameEvent.cs",
               "RelativeToolTip": "Code\\Character\\GameEvent.cs",
-              "ViewState": "AgIAAGEAAAAAAAAAAAAswG0AAAATAAAAAAAAAA==",
+              "ViewState": "AgIAAMoAAAAAAAAAAADgv7oAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-24T19:50:01.085Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 6,
               "Title": "GameInterpreter.cs",
               "DocumentMoniker": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Code\\Character\\GameInterpreter.cs",
               "RelativeDocumentMoniker": "Code\\Character\\GameInterpreter.cs",
               "ToolTip": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Code\\Character\\GameInterpreter.cs",
               "RelativeToolTip": "Code\\Character\\GameInterpreter.cs",
-              "ViewState": "AgIAAHQBAAAAAAAAAAD4v38BAAA9AAAAAAAAAA==",
+              "ViewState": "AgIAABUDAAAAAAAAAAAqwCEDAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-13T18:26:43.471Z"
+              "WhenOpened": "2026-07-13T18:26:43.471Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -239,7 +240,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 21,
               "Title": "Structs.cs",
               "DocumentMoniker": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Code\\Core\\Structs.cs",
               "RelativeDocumentMoniker": "Code\\Core\\Structs.cs",
@@ -251,19 +252,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 8,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-08T15:55:43.881Z"
+              "WhenOpened": "2026-03-08T15:55:43.881Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 20,
               "Title": "GameBank.cs",
               "DocumentMoniker": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Code\\Client\\GameBank.cs",
               "RelativeDocumentMoniker": "Code\\Client\\GameBank.cs",
@@ -287,7 +289,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 14,
               "Title": "RPGCommonEvent.cs",
               "DocumentMoniker": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Code\\RPGData\\RPGCommonEvent.cs",
               "RelativeDocumentMoniker": "Code\\RPGData\\RPGCommonEvent.cs",
@@ -299,33 +301,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "GameAccount.cs",
               "DocumentMoniker": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Code\\Client\\GameAccount.cs",
               "RelativeDocumentMoniker": "Code\\Client\\GameAccount.cs",
               "ToolTip": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Code\\Client\\GameAccount.cs",
               "RelativeToolTip": "Code\\Client\\GameAccount.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAowCYAAAAHAAAAAAAAAA==",
+              "ViewState": "AgIAABcAAAAAAAAAAAAUwCQAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-23T21:17:12.351Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "GameClient.cs",
               "DocumentMoniker": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Code\\Client\\GameClient.cs",
               "RelativeDocumentMoniker": "Code\\Client\\GameClient.cs",
               "ToolTip": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Code\\Client\\GameClient.cs",
               "RelativeToolTip": "Code\\Client\\GameClient.cs",
-              "ViewState": "AgIAAEkBAAAAAAAAAAAQwHkBAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAqwHEAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-14T22:40:18.364Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 16,
               "Title": "GameCharacter.cs",
               "DocumentMoniker": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Code\\Character\\GameCharacter.cs",
               "RelativeDocumentMoniker": "Code\\Character\\GameCharacter.cs",
@@ -333,8 +335,7 @@
               "RelativeToolTip": "Code\\Character\\GameCharacter.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAKABAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-23T22:20:45.779Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-23T22:20:45.779Z"
             },
             {
               "$type": "Document",
@@ -350,44 +351,45 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 5,
               "Title": "Database.cs",
               "DocumentMoniker": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Code\\Database\\Database.cs",
               "RelativeDocumentMoniker": "Code\\Database\\Database.cs",
               "ToolTip": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Code\\Database\\Database.cs",
               "RelativeToolTip": "Code\\Database\\Database.cs",
-              "ViewState": "AgIAADkBAAAAAAAAAADwv0oBAAA3AAAAAAAAAA==",
+              "ViewState": "AgIAAFUBAAAAAAAAAAAQwAECAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-10T20:06:57.808Z"
+              "WhenOpened": "2026-03-10T20:06:57.808Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 1,
               "Title": "Logger.cs",
               "DocumentMoniker": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Code\\Core\\Logger.cs",
               "RelativeDocumentMoniker": "Code\\Core\\Logger.cs",
               "ToolTip": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Code\\Core\\Logger.cs",
               "RelativeToolTip": "Code\\Core\\Logger.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAA4wBIAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-07T22:01:31.485Z"
+              "WhenOpened": "2026-07-07T22:01:31.485Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 15,
               "Title": "GameMap.cs",
               "DocumentMoniker": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Code\\Map\\GameMap.cs",
               "RelativeDocumentMoniker": "Code\\Map\\GameMap.cs",
               "ToolTip": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Code\\Map\\GameMap.cs",
               "RelativeToolTip": "Code\\Map\\GameMap.cs",
-              "ViewState": "AgIAADEAAAAAAAAAAAAuwEIAAAA3AAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAAmwEIAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-24T17:56:02.455Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-24T17:56:02.455Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 18,
               "Title": "GameSwitches.cs",
               "DocumentMoniker": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Code\\Database\\GameSwitches.cs",
               "RelativeDocumentMoniker": "Code\\Database\\GameSwitches.cs",
@@ -399,7 +401,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "NWGameGuild.cs",
               "DocumentMoniker": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Code\\Network\\NWGameGuild.cs",
               "RelativeDocumentMoniker": "Code\\Network\\NWGameGuild.cs",
@@ -423,19 +425,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 11,
               "Title": "ConfigLoader.cs",
               "DocumentMoniker": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Code\\Core\\ConfigLoader.cs",
               "RelativeDocumentMoniker": "Code\\Core\\ConfigLoader.cs",
               "ToolTip": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Code\\Core\\ConfigLoader.cs",
               "RelativeToolTip": "Code\\Core\\ConfigLoader.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAmwCgAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-07-31T17:15:27.224Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 17,
               "Title": "Configs.cs",
               "DocumentMoniker": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Code\\Core\\Configs.cs",
               "RelativeDocumentMoniker": "Code\\Core\\Configs.cs",
@@ -447,32 +449,32 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 2,
               "Title": "DataManager.cs",
               "DocumentMoniker": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Code\\Core\\DataManager.cs",
               "RelativeDocumentMoniker": "Code\\Core\\DataManager.cs",
               "ToolTip": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Code\\Core\\DataManager.cs",
               "RelativeToolTip": "Code\\Core\\DataManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADAAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAKAAAAAAAAAAAAAIwKoAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-14T23:00:27.88Z"
+              "WhenOpened": "2026-03-14T23:00:27.88Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 9,
               "Title": "Network.cs",
               "DocumentMoniker": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Code\\Network\\Network.cs",
               "RelativeDocumentMoniker": "Code\\Network\\Network.cs",
               "ToolTip": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Code\\Network\\Network.cs",
               "RelativeToolTip": "Code\\Network\\Network.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAQwAMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACgAAAAAAAAAAAAgwAEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-14T22:37:17.961Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-14T22:37:17.961Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 13,
               "Title": "NWGameCommands.cs",
               "DocumentMoniker": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Code\\Network\\NWGameCommands.cs",
               "RelativeDocumentMoniker": "Code\\Network\\NWGameCommands.cs",
@@ -480,18 +482,17 @@
               "RelativeToolTip": "Code\\Network\\NWGameCommands.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAIAwwBUAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-25T19:01:04.767Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-25T19:01:04.767Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "NWHandleData.cs",
               "DocumentMoniker": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Code\\Network\\NWHandleData.cs",
               "RelativeDocumentMoniker": "Code\\Network\\NWHandleData.cs",
               "ToolTip": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Code\\Network\\NWHandleData.cs",
               "RelativeToolTip": "Code\\Network\\NWHandleData.cs",
-              "ViewState": "AgIAAGQAAAAAAAAAAAAuwGYBAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAAHQBAAAAAAAAAADwv38BAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-14T22:37:36.193Z",
               "EditorCaption": ""
@@ -510,19 +511,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 10,
               "Title": "NWGameGeneral.cs",
               "DocumentMoniker": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Code\\Network\\NWGameGeneral.cs",
               "RelativeDocumentMoniker": "Code\\Network\\NWGameGeneral.cs",
               "ToolTip": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Code\\Network\\NWGameGeneral.cs",
               "RelativeToolTip": "Code\\Network\\NWGameGeneral.cs",
-              "ViewState": "AgIAAGUAAAAAAAAAAAAYwHUAAAAPAAAAAAAAAA==",
+              "ViewState": "AgIAACcAAAAAAAAAAAAkwDsAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-10T20:32:09.828Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 19,
               "Title": "NWSendData.cs",
               "DocumentMoniker": "C:\\Users\\Leon\\Documents\\GitHub\\VXAOSCSharp\\VXAOS_Server\\Code\\Network\\NWSendData.cs",
               "RelativeDocumentMoniker": "Code\\Network\\NWSendData.cs",

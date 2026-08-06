@@ -57,7 +57,7 @@ namespace VXAOS_Server {
          );
          if (client != null && client.Ip == ip) { 
             if(client.IsInGame())
-               client.LeaveGame();
+               _ = client.LeaveGame();
             client.Disconnect();
             return false;
          }

@@ -32,6 +32,7 @@ namespace VXAOS_Server {
          Stream = tcp.GetStream();
          _ = StartHandshakeTimeout();
          AntispamTime = DateTimeOffset.UtcNow;
+         InactivityTime = DateTimeOffset.UtcNow.AddSeconds(ServerConfig.InactivityTime);
          Ip = (Tcp.Client.RemoteEndPoint as IPEndPoint).Address;
       }
       public void Start() {
@@ -46,9 +47,12 @@ namespace VXAOS_Server {
                BufferReader bufferreader = new(Encoding.Latin1.GetString(buffer, 0, bytes));
                Network.HandleMessages(this, bufferreader);
             }
+         } catch (IOException ex) when (ex.InnerException is SocketException se &&
+               se.SocketErrorCode == SocketError.ConnectionReset) {
+         } catch (SocketException ex) when (ex.SocketErrorCode == SocketError.ConnectionReset) {
          } catch (Exception ex) {
             if (!Disconnected)
-               Console.WriteLine(ex);
+               Console.WriteLine(ex.ToString());
          } finally {
             Disconnect();
          }
@@ -83,7 +87,7 @@ namespace VXAOS_Server {
          Tcp.Close();
          if (IsInGame()) {
             LoadOriginalGraphic();
-            LeaveGame();
+            _ = LeaveGame();
          }
          if (IsLogged()) {
             Console.WriteLine($"{User} saiu.");
@@ -210,7 +214,18 @@ namespace VXAOS_Server {
             AddNewState(state, time);
          }
       }
-      public void LeaveGame() {
+      public async Task LeaveGame() {
+         await Network.DB.SavePlayer(this);
+         ActorId = -1;
+         if(EventInterpreter.IsRunning)
+            EventInterpreter.FinalizeRun();
+         Network.Maps[MapId].TotalPlayers--;
+         await Network.DB.ChangeWhosOnline(IdDb, false);
+         Network.SendRemovePlayer(Id, MapId);
+         ClearTargetPlayers(Enums.Target.PLAYER);
+         Name = "";
+         CloseTrade();
+         LeaveParty();
       }
       public void UpdateCurrentActor() {
          Actor().CharacterName = CharacterName;

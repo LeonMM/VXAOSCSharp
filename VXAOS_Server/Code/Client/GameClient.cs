@@ -90,7 +90,7 @@ namespace VXAOS_Server {
          }
          return false;
       }
-      public bool IsQuestInFinished(int questId) {
+      public bool IsQuestFinished(int questId) {
          if(Quests.TryGetValue(questId - 1, out var quest)) {
             return quest.IsFinished();
          }

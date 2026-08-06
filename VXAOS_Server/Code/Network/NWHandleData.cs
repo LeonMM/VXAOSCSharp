@@ -16,7 +16,7 @@ namespace VXAOS_Server {
                throw new Exception("Packet Inválido / Invalid Packet");
             }
          } catch (Exception e) {
-            WriteColor($"Error {e.Message}",ConsoleColor.Red);
+            WriteColor($"Error {e}",ConsoleColor.Red);
             client.Disconnect();
          }
       }
@@ -380,8 +380,8 @@ namespace VXAOS_Server {
       }
       private static void HandleUseHotbar(GameClient client, BufferReader buffer) {
          byte id = buffer.ReadByte();
-         var itemId = buffer.ReadShort();
          if (client.Hotbar[id] == null) return;
+         var itemId = client.Hotbar[id].ItemId;
          if (client.Hotbar[id].Type == Enums.Hotbar.ITEM && client.IsUsingItem()) return;
          if (client.Hotbar[id].Type == Enums.Hotbar.SKILL && client.IsUsingSkill(itemId)) return;
          client.UseItem(client.Hotbar[id].Type == Enums.Hotbar.ITEM ? DataItems[itemId] : DataSkills[itemId]);
@@ -712,7 +712,7 @@ namespace VXAOS_Server {
          client.LoadOriginalGraphic();
          SendLogout(client);
          client.UpdateCurrentActor();
-         client.LeaveGame();
+         _ = client.LeaveGame();
          client.InactivityTime = DateTimeOffset.UtcNow.AddSeconds(ServerConfig.InactivityTime);
       }
       private static void HandleAdminCommand(GameClient client, BufferReader buffer) {
