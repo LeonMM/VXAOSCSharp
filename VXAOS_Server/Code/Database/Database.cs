@@ -8,10 +8,8 @@ using System.Data;
 
 namespace VXAOS_Server {
    public class Database {
-      //private ServerConfig cfg;
       private readonly Compiler compiler;
       public Database() {
-         //this.cfg = cfg;
          compiler = GetCompiler();
          Console.WriteLine($"Banco de Dados {ServerConfig.DbType} incializado.");
       }

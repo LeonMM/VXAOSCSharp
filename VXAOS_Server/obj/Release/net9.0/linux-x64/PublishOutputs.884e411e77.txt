@@ -1,0 +1,7 @@
+C:\Users\Leon\Documents\GitHub\VXAOSCSharp\VXAOS_Server\bin\Release\net9.0\linux-x64\publish\VXAOS_Server.pdb
+C:\Users\Leon\Documents\GitHub\VXAOSCSharp\VXAOS_Server\bin\Release\net9.0\linux-x64\publish\Ruby\import.rb
+C:\Users\Leon\Documents\GitHub\VXAOSCSharp\VXAOS_Server\bin\Release\net9.0\linux-x64\publish\Ruby\rgss.rb
+C:\Users\Leon\Documents\GitHub\VXAOSCSharp\VXAOS_Server\bin\Release\net9.0\linux-x64\publish\Ruby\rpg.rb
+C:\Users\Leon\Documents\GitHub\VXAOSCSharp\VXAOS_Server\bin\Release\net9.0\linux-x64\publish\server.cfg
+C:\Users\Leon\Documents\GitHub\VXAOSCSharp\VXAOS_Server\bin\Release\net9.0\linux-x64\publish\libe_sqlite3.so
+C:\Users\Leon\Documents\GitHub\VXAOSCSharp\VXAOS_Server\bin\Release\net9.0\linux-x64\publish\VXAOS_Server

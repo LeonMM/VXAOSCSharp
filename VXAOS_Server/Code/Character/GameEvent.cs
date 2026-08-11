@@ -77,7 +77,7 @@ namespace VXAOS_Server {
       }
       public override void Refresh() {
          var newPage = FindGlobalProperPage();
-         if (newPage == null || !ReferenceEquals(newPage, Page))//newPage != Page
+         if (newPage == null || !ReferenceEquals(newPage, Page))
             SetupPage(newPage);
          StopCount = DateTimeOffset.UtcNow.AddSeconds(Rand(StopCountThreshold));
       }

@@ -13,7 +13,7 @@
     <SourceRoot Include="C:\Users\Leon\.nuget\packages\" />
   </ItemGroup>
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <Import Project="$(NuGetPackageRoot)parlot\1.5.7\buildTransitive\Parlot.props" Condition="Exists('$(NuGetPackageRoot)parlot\1.5.7\buildTransitive\Parlot.props')" />
+    <Import Project="$(NuGetPackageRoot)parlot\1.5.8\buildTransitive\Parlot.props" Condition="Exists('$(NuGetPackageRoot)parlot\1.5.8\buildTransitive\Parlot.props')" />
     <Import Project="$(NuGetPackageRoot)microsoft.codeanalysis.analyzers\5.3.0\buildTransitive\Microsoft.CodeAnalysis.Analyzers.props" Condition="Exists('$(NuGetPackageRoot)microsoft.codeanalysis.analyzers\5.3.0\buildTransitive\Microsoft.CodeAnalysis.Analyzers.props')" />
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">

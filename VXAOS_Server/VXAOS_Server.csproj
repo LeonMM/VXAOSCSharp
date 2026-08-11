@@ -5,23 +5,28 @@
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+	<RuntimeIdentifier>win-x64</RuntimeIdentifier>
+	<SatelliteResourceLanguages>en</SatelliteResourceLanguages>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Dapper" Version="2.1.72" />
+    <PackageReference Include="Dapper" Version="2.1.79" />
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="5.6.0" />
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="5.6.0" />
-    <PackageReference Include="Microsoft.Data.Sqlite" Version="10.0.4" />
-    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="10.0.10" />
-    <PackageReference Include="MySqlConnector" Version="2.5.0" />
-    <PackageReference Include="NCalc" Version="6.3.2" />
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="10.0.10" />
+    <PackageReference Include="MySqlConnector" Version="2.6.1" />
+    <PackageReference Include="NCalc" Version="7.1.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
-    <PackageReference Include="Npgsql" Version="10.0.1" />
+    <PackageReference Include="Npgsql" Version="10.0.3" />
+    <PackageReference Include="SQLitePCLRaw.lib.e_sqlite3" Version="2.1.12" />
     <PackageReference Include="SqlKata" Version="4.0.1" />
     <PackageReference Include="SqlKata.Execution" Version="4.0.1" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="motd.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Ruby\import.rb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -34,6 +39,16 @@
     <None Update="server.cfg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="vocab.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
-
+  <Target Name="RedirectDllsToSubfolder" AfterTargets="AfterBuild">
+    <MakeDir Directories="$(OutputPath)libs" />
+    <ItemGroup>
+	  <DependenciesToMove Include="$(OutputPath)*.dll" Exclude="$(OutputPath)$(AssemblyName).dll" />
+	  <SatelliteAssembliesToMove Include="$(OutputPath)**\*.resources.dll" />
+    </ItemGroup>
+    <Move SourceFiles="@(DependenciesToMove)" DestinationFolder="$(OutputPath)libs" />
+  </Target>
 </Project>

@@ -8,7 +8,6 @@ using VXAOS_Server.Code.Core;
 namespace VXAOS_Server {
    public static partial class Network {
       static TcpListener Listener;
-      //public static ServerConfig Cfg;
       public static ConcurrentDictionary<int, GameClient> Clients = new();
       public static ConcurrentQueue<int> ClientAvaiableIds = new();
       private static int _clientHighestIdAvailable = 0;
@@ -24,7 +23,6 @@ namespace VXAOS_Server {
       public static Logger Log;
       public static void Start() {
          try {
-            //Cfg = ConfigLoader.Load("server.cfg");
             ConfigLoader.Load("server.cfg");
             Console.WriteLine("Iniciando Servidor...");
             DB = new();
@@ -108,7 +106,6 @@ namespace VXAOS_Server {
       static async Task SaveLoop() {
          var timer = new PeriodicTimer(
              TimeSpan.FromSeconds(ServerConfig.SaveDataTime));
-
          while (await timer.WaitForNextTickAsync()) {
             await SaveGameData();
          }

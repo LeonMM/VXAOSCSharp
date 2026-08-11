@@ -70,18 +70,16 @@ namespace VXAOS_Server {
 					return;
 				}
 				JsonSerializerSettings settings = new() {
-					NullValueHandling = NullValueHandling.Ignore//, 
-					//DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate,
-					//Converters = new List<JsonConverter> { new TableConverter() }
+					NullValueHandling = NullValueHandling.Ignore
 				};
 				bool _success = true;
 				try { 
 					Console.WriteLine("Carregando Configs...");
 					Configs = ModuleLoader.Load(jsons[0]);
-					Console.WriteLine(Configs.RangeWeapons.TryGetValue(49, out dynamic rng2));
-					Console.WriteLine(rng2.Get<int>("MpCost"));
-					Console.WriteLine(Configs.RangeWeapons.ContainsKey(31));
-					Console.WriteLine(Configs.AttackTime);
+					//Console.WriteLine(Configs.RangeWeapons.TryGetValue(49, out dynamic rng2));
+					//Console.WriteLine(rng2.Get<int>("MpCost"));
+					//Console.WriteLine(Configs.RangeWeapons.ContainsKey(31));
+					//Console.WriteLine(Configs.AttackTime);
 					Console.WriteLine("Carregando Vocab...");
 					Vocab = VocabLoader.Load("vocab.ini");
 					Console.WriteLine("Carregando Quests...");

@@ -1,7 +1,6 @@
 ﻿using Microsoft.CodeAnalysis.CSharp.Scripting;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Scripting;
-using Microsoft.Extensions.Caching.Memory;
 using Newtonsoft.Json.Linq;
 using System.Collections.Concurrent;
 using System.Diagnostics.CodeAnalysis;
@@ -9,7 +8,6 @@ using VXAOS_Server.RPGData;
 
 namespace VXAOS_Server {
    public class GameInterpreter {
-      private static readonly MemoryCache _globalScriptCache = new(new MemoryCacheOptions());
       private static readonly ConcurrentDictionary<string, ScriptRunner<object>> _actionCache = new();
       private static readonly ConcurrentDictionary<string, ScriptRunner<bool>> _conditionCache = new();
       private static readonly ConcurrentDictionary<string, ScriptRunner<int>> _integerCache = new();

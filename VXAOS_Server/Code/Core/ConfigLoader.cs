@@ -23,7 +23,6 @@ namespace VXAOS_Server {
             var value = parts[1].Trim();
             data[key] = value;
          }
-         //var cfg = new ServerConfig();
          ServerConfig.ServerPort = int.Parse(data["SERVER_PORT"]);
          ServerConfig.MaxConnections = int.Parse(data["MAX_CONNECTIONS"]);
          ServerConfig.DbType = (Enums.DatabaseType)int.Parse(data["DB_TYPE"]);
@@ -62,7 +61,6 @@ namespace VXAOS_Server {
          ServerConfig.RecoverMP = int.Parse(data["RECOVER_MP"]);
          ParseChatFilter(fullText);
          ParsePartyBonus(fullText);
-         //return cfg;
       }
       static void ParseChatFilter(string text) {
          var match = Regex.Match(text,

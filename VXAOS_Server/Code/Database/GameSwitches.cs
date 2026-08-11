@@ -4,7 +4,7 @@
          get;
       } = data;
       public bool this[int switchId] {
-         get => Data.GetWithFallback((switchId - 1), false);//[switchId - 1];
+         get => Data.GetWithFallback((switchId - 1), false);
          set {
             Data[switchId - 1] = value;
             Network.SendPlayerSwitch(client, (short)switchId);
@@ -18,7 +18,7 @@
          get;
       } = data;
       public int this[int variableId] {
-         get => Data.GetWithFallback((variableId - 1), 0);//[variableId - 1];
+         get => Data.GetWithFallback((variableId - 1), 0);
          set {
             Data[variableId - 1] = value;
             if(_client is not null)

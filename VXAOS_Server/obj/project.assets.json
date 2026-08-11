@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     "net9.0": {
-      "Dapper/2.1.72": {
+      "Dapper/2.1.79": {
         "type": "package",
         "compile": {
           "lib/net8.0/Dapper.dll": {
@@ -15,7 +15,7 @@
           }
         }
       },
-      "ExtendedNumerics.BigDecimal/3003.0.0.346": {
+      "ExtendedNumerics.BigDecimal/3003.2.0.161": {
         "type": "package",
         "compile": {
           "lib/net8.0/ExtendedNumerics.BigDecimal.dll": {
@@ -289,10 +289,10 @@
           }
         }
       },
-      "Microsoft.Data.Sqlite/10.0.4": {
+      "Microsoft.Data.Sqlite/10.0.10": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Data.Sqlite.Core": "10.0.4",
+          "Microsoft.Data.Sqlite.Core": "10.0.10",
           "SQLitePCLRaw.bundle_e_sqlite3": "2.1.11",
           "SQLitePCLRaw.core": "2.1.11"
         },
@@ -303,7 +303,7 @@
           "lib/netstandard2.0/_._": {}
         }
       },
-      "Microsoft.Data.Sqlite.Core/10.0.4": {
+      "Microsoft.Data.Sqlite.Core/10.0.10": {
         "type": "package",
         "dependencies": {
           "SQLitePCLRaw.core": "2.1.11"
@@ -317,48 +317,6 @@
           "lib/net8.0/Microsoft.Data.Sqlite.dll": {
             "related": ".xml"
           }
-        }
-      },
-      "Microsoft.Extensions.Caching.Abstractions/10.0.10": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Extensions.Primitives": "10.0.10"
-        },
-        "compile": {
-          "lib/net9.0/Microsoft.Extensions.Caching.Abstractions.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net9.0/Microsoft.Extensions.Caching.Abstractions.dll": {
-            "related": ".xml"
-          }
-        },
-        "build": {
-          "buildTransitive/net8.0/_._": {}
-        }
-      },
-      "Microsoft.Extensions.Caching.Memory/10.0.10": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Extensions.Caching.Abstractions": "10.0.10",
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "10.0.10",
-          "Microsoft.Extensions.Logging.Abstractions": "10.0.10",
-          "Microsoft.Extensions.Options": "10.0.10",
-          "Microsoft.Extensions.Primitives": "10.0.10"
-        },
-        "compile": {
-          "lib/net9.0/Microsoft.Extensions.Caching.Memory.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net9.0/Microsoft.Extensions.Caching.Memory.dll": {
-            "related": ".xml"
-          }
-        },
-        "build": {
-          "buildTransitive/net8.0/_._": {}
         }
       },
       "Microsoft.Extensions.DependencyInjection.Abstractions/10.0.10": {
@@ -397,43 +355,7 @@
           "buildTransitive/net8.0/Microsoft.Extensions.Logging.Abstractions.targets": {}
         }
       },
-      "Microsoft.Extensions.Options/10.0.10": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "10.0.10",
-          "Microsoft.Extensions.Primitives": "10.0.10"
-        },
-        "compile": {
-          "lib/net9.0/Microsoft.Extensions.Options.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net9.0/Microsoft.Extensions.Options.dll": {
-            "related": ".xml"
-          }
-        },
-        "build": {
-          "buildTransitive/net8.0/Microsoft.Extensions.Options.targets": {}
-        }
-      },
-      "Microsoft.Extensions.Primitives/10.0.10": {
-        "type": "package",
-        "compile": {
-          "lib/net9.0/Microsoft.Extensions.Primitives.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net9.0/Microsoft.Extensions.Primitives.dll": {
-            "related": ".xml"
-          }
-        },
-        "build": {
-          "buildTransitive/net8.0/_._": {}
-        }
-      },
-      "MySqlConnector/2.5.0": {
+      "MySqlConnector/2.6.1": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2",
@@ -450,10 +372,10 @@
           }
         }
       },
-      "NCalc/6.3.2": {
+      "NCalc/7.1.0": {
         "type": "package",
         "dependencies": {
-          "NCalc.Core": "6.3.2"
+          "NCalc.Core": "7.1.0"
         },
         "compile": {
           "lib/net8.0/NCalc.dll": {}
@@ -462,14 +384,14 @@
           "lib/net8.0/NCalc.dll": {}
         }
       },
-      "NCalc.Core/6.3.2": {
+      "NCalc.Core/7.1.0": {
         "type": "package",
         "dependencies": {
-          "ExtendedNumerics.BigDecimal": "3003.0.0.346",
-          "Microsoft.Extensions.Logging.Abstractions": "10.0.7",
-          "NCalc.Parser": "6.3.2",
-          "Parlot": "1.5.7",
-          "System.Collections.Immutable": "10.0.7"
+          "ExtendedNumerics.BigDecimal": "3003.2.0.161",
+          "Microsoft.Extensions.Logging.Abstractions": "10.0.10",
+          "NCalc.Parser": "7.1.0",
+          "Parlot": "1.5.8",
+          "System.Collections.Immutable": "10.0.10"
         },
         "compile": {
           "lib/net8.0/NCalc.Core.dll": {}
@@ -478,7 +400,7 @@
           "lib/net8.0/NCalc.Core.dll": {}
         }
       },
-      "NCalc.Domain/6.3.2": {
+      "NCalc.Domain/7.1.0": {
         "type": "package",
         "compile": {
           "lib/net8.0/NCalc.Domain.dll": {}
@@ -487,11 +409,11 @@
           "lib/net8.0/NCalc.Domain.dll": {}
         }
       },
-      "NCalc.Parser/6.3.2": {
+      "NCalc.Parser/7.1.0": {
         "type": "package",
         "dependencies": {
-          "NCalc.Domain": "6.3.2",
-          "Parlot": "1.5.7"
+          "NCalc.Domain": "7.1.0",
+          "Parlot": "1.5.8"
         },
         "compile": {
           "lib/net8.0/NCalc.Parser.dll": {}
@@ -513,7 +435,7 @@
           }
         }
       },
-      "Npgsql/10.0.1": {
+      "Npgsql/10.0.3": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.Logging.Abstractions": "9.0.0"
@@ -529,7 +451,7 @@
           }
         }
       },
-      "Parlot/1.5.7": {
+      "Parlot/1.5.8": {
         "type": "package",
         "compile": {
           "lib/net8.0/Parlot.dll": {
@@ -570,7 +492,7 @@
           "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
         }
       },
-      "SQLitePCLRaw.lib.e_sqlite3/2.1.11": {
+      "SQLitePCLRaw.lib.e_sqlite3/2.1.12": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/_._": {}
@@ -658,10 +580,6 @@
             "assetType": "native",
             "rid": "osx-x64"
           },
-          "runtimes/win-arm/native/e_sqlite3.dll": {
-            "assetType": "native",
-            "rid": "win-arm"
-          },
           "runtimes/win-arm64/native/e_sqlite3.dll": {
             "assetType": "native",
             "rid": "win-arm64"
@@ -711,7 +629,609 @@
           "lib/net8.0/SqlKata.Execution.dll": {}
         }
       },
-      "System.Collections.Immutable/10.0.7": {
+      "System.Collections.Immutable/10.0.10": {
+        "type": "package",
+        "compile": {
+          "lib/net9.0/System.Collections.Immutable.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net9.0/System.Collections.Immutable.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net8.0/_._": {}
+        }
+      },
+      "System.Diagnostics.DiagnosticSource/10.0.10": {
+        "type": "package",
+        "compile": {
+          "lib/net9.0/System.Diagnostics.DiagnosticSource.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net9.0/System.Diagnostics.DiagnosticSource.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net8.0/_._": {}
+        }
+      },
+      "System.Memory/4.5.3": {
+        "type": "package",
+        "compile": {
+          "ref/netcoreapp2.1/_._": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.1/_._": {}
+        }
+      },
+      "System.Reflection.Metadata/10.0.1": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections.Immutable": "10.0.1"
+        },
+        "compile": {
+          "lib/net9.0/System.Reflection.Metadata.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net9.0/System.Reflection.Metadata.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net8.0/_._": {}
+        }
+      }
+    },
+    "net9.0/win-x64": {
+      "Dapper/2.1.79": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Dapper.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Dapper.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "ExtendedNumerics.BigDecimal/3003.2.0.161": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/ExtendedNumerics.BigDecimal.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/ExtendedNumerics.BigDecimal.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Humanizer.Core/2.8.26": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Humanizer.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Humanizer.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.CodeAnalysis.Analyzers/5.3.0": {
+        "type": "package",
+        "build": {
+          "buildTransitive/Microsoft.CodeAnalysis.Analyzers.props": {},
+          "buildTransitive/Microsoft.CodeAnalysis.Analyzers.targets": {}
+        }
+      },
+      "Microsoft.CodeAnalysis.Common/5.6.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.CodeAnalysis.Analyzers": "5.3.0",
+          "System.Collections.Immutable": "10.0.1",
+          "System.Reflection.Metadata": "10.0.1"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.CodeAnalysis.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.CodeAnalysis.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "resource": {
+          "lib/net8.0/cs/Microsoft.CodeAnalysis.resources.dll": {
+            "locale": "cs"
+          },
+          "lib/net8.0/de/Microsoft.CodeAnalysis.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net8.0/es/Microsoft.CodeAnalysis.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net8.0/fr/Microsoft.CodeAnalysis.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net8.0/it/Microsoft.CodeAnalysis.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net8.0/ja/Microsoft.CodeAnalysis.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/net8.0/ko/Microsoft.CodeAnalysis.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/net8.0/pl/Microsoft.CodeAnalysis.resources.dll": {
+            "locale": "pl"
+          },
+          "lib/net8.0/pt-BR/Microsoft.CodeAnalysis.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "lib/net8.0/ru/Microsoft.CodeAnalysis.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net8.0/tr/Microsoft.CodeAnalysis.resources.dll": {
+            "locale": "tr"
+          },
+          "lib/net8.0/zh-Hans/Microsoft.CodeAnalysis.resources.dll": {
+            "locale": "zh-Hans"
+          },
+          "lib/net8.0/zh-Hant/Microsoft.CodeAnalysis.resources.dll": {
+            "locale": "zh-Hant"
+          }
+        }
+      },
+      "Microsoft.CodeAnalysis.CSharp/5.6.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.CodeAnalysis.Analyzers": "5.3.0",
+          "Microsoft.CodeAnalysis.Common": "[5.6.0]",
+          "System.Collections.Immutable": "10.0.1",
+          "System.Reflection.Metadata": "10.0.1"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.CodeAnalysis.CSharp.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.CodeAnalysis.CSharp.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "resource": {
+          "lib/net8.0/cs/Microsoft.CodeAnalysis.CSharp.resources.dll": {
+            "locale": "cs"
+          },
+          "lib/net8.0/de/Microsoft.CodeAnalysis.CSharp.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net8.0/es/Microsoft.CodeAnalysis.CSharp.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net8.0/fr/Microsoft.CodeAnalysis.CSharp.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net8.0/it/Microsoft.CodeAnalysis.CSharp.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net8.0/ja/Microsoft.CodeAnalysis.CSharp.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/net8.0/ko/Microsoft.CodeAnalysis.CSharp.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/net8.0/pl/Microsoft.CodeAnalysis.CSharp.resources.dll": {
+            "locale": "pl"
+          },
+          "lib/net8.0/pt-BR/Microsoft.CodeAnalysis.CSharp.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "lib/net8.0/ru/Microsoft.CodeAnalysis.CSharp.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net8.0/tr/Microsoft.CodeAnalysis.CSharp.resources.dll": {
+            "locale": "tr"
+          },
+          "lib/net8.0/zh-Hans/Microsoft.CodeAnalysis.CSharp.resources.dll": {
+            "locale": "zh-Hans"
+          },
+          "lib/net8.0/zh-Hant/Microsoft.CodeAnalysis.CSharp.resources.dll": {
+            "locale": "zh-Hant"
+          }
+        }
+      },
+      "Microsoft.CodeAnalysis.CSharp.Scripting/5.6.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.CodeAnalysis.Analyzers": "5.3.0",
+          "Microsoft.CodeAnalysis.CSharp": "[5.6.0]",
+          "Microsoft.CodeAnalysis.Common": "[5.6.0]",
+          "Microsoft.CodeAnalysis.Scripting.Common": "[5.6.0]",
+          "System.Collections.Immutable": "10.0.1",
+          "System.Reflection.Metadata": "10.0.1"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.CodeAnalysis.CSharp.Scripting.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.CodeAnalysis.CSharp.Scripting.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "resource": {
+          "lib/net8.0/cs/Microsoft.CodeAnalysis.CSharp.Scripting.resources.dll": {
+            "locale": "cs"
+          },
+          "lib/net8.0/de/Microsoft.CodeAnalysis.CSharp.Scripting.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net8.0/es/Microsoft.CodeAnalysis.CSharp.Scripting.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net8.0/fr/Microsoft.CodeAnalysis.CSharp.Scripting.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net8.0/it/Microsoft.CodeAnalysis.CSharp.Scripting.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net8.0/ja/Microsoft.CodeAnalysis.CSharp.Scripting.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/net8.0/ko/Microsoft.CodeAnalysis.CSharp.Scripting.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/net8.0/pl/Microsoft.CodeAnalysis.CSharp.Scripting.resources.dll": {
+            "locale": "pl"
+          },
+          "lib/net8.0/pt-BR/Microsoft.CodeAnalysis.CSharp.Scripting.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "lib/net8.0/ru/Microsoft.CodeAnalysis.CSharp.Scripting.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net8.0/tr/Microsoft.CodeAnalysis.CSharp.Scripting.resources.dll": {
+            "locale": "tr"
+          },
+          "lib/net8.0/zh-Hans/Microsoft.CodeAnalysis.CSharp.Scripting.resources.dll": {
+            "locale": "zh-Hans"
+          },
+          "lib/net8.0/zh-Hant/Microsoft.CodeAnalysis.CSharp.Scripting.resources.dll": {
+            "locale": "zh-Hant"
+          }
+        }
+      },
+      "Microsoft.CodeAnalysis.Scripting.Common/5.6.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.CodeAnalysis.Analyzers": "5.3.0",
+          "Microsoft.CodeAnalysis.Common": "[5.6.0]",
+          "System.Collections.Immutable": "10.0.1",
+          "System.Reflection.Metadata": "10.0.1"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.CodeAnalysis.Scripting.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.CodeAnalysis.Scripting.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "resource": {
+          "lib/net8.0/cs/Microsoft.CodeAnalysis.Scripting.resources.dll": {
+            "locale": "cs"
+          },
+          "lib/net8.0/de/Microsoft.CodeAnalysis.Scripting.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net8.0/es/Microsoft.CodeAnalysis.Scripting.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net8.0/fr/Microsoft.CodeAnalysis.Scripting.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net8.0/it/Microsoft.CodeAnalysis.Scripting.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net8.0/ja/Microsoft.CodeAnalysis.Scripting.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/net8.0/ko/Microsoft.CodeAnalysis.Scripting.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/net8.0/pl/Microsoft.CodeAnalysis.Scripting.resources.dll": {
+            "locale": "pl"
+          },
+          "lib/net8.0/pt-BR/Microsoft.CodeAnalysis.Scripting.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "lib/net8.0/ru/Microsoft.CodeAnalysis.Scripting.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net8.0/tr/Microsoft.CodeAnalysis.Scripting.resources.dll": {
+            "locale": "tr"
+          },
+          "lib/net8.0/zh-Hans/Microsoft.CodeAnalysis.Scripting.resources.dll": {
+            "locale": "zh-Hans"
+          },
+          "lib/net8.0/zh-Hant/Microsoft.CodeAnalysis.Scripting.resources.dll": {
+            "locale": "zh-Hant"
+          }
+        }
+      },
+      "Microsoft.Data.Sqlite/10.0.10": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Data.Sqlite.Core": "10.0.10",
+          "SQLitePCLRaw.bundle_e_sqlite3": "2.1.11",
+          "SQLitePCLRaw.core": "2.1.11"
+        },
+        "compile": {
+          "lib/netstandard2.0/_._": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/_._": {}
+        }
+      },
+      "Microsoft.Data.Sqlite.Core/10.0.10": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.1.11"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Data.Sqlite.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Data.Sqlite.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.Extensions.DependencyInjection.Abstractions/10.0.10": {
+        "type": "package",
+        "compile": {
+          "lib/net9.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net9.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net8.0/_._": {}
+        }
+      },
+      "Microsoft.Extensions.Logging.Abstractions/10.0.10": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "10.0.10",
+          "System.Diagnostics.DiagnosticSource": "10.0.10"
+        },
+        "compile": {
+          "lib/net9.0/Microsoft.Extensions.Logging.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net9.0/Microsoft.Extensions.Logging.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net8.0/Microsoft.Extensions.Logging.Abstractions.targets": {}
+        }
+      },
+      "MySqlConnector/2.6.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.2"
+        },
+        "compile": {
+          "lib/net9.0/MySqlConnector.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net9.0/MySqlConnector.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "NCalc/7.1.0": {
+        "type": "package",
+        "dependencies": {
+          "NCalc.Core": "7.1.0"
+        },
+        "compile": {
+          "lib/net8.0/NCalc.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/NCalc.dll": {}
+        }
+      },
+      "NCalc.Core/7.1.0": {
+        "type": "package",
+        "dependencies": {
+          "ExtendedNumerics.BigDecimal": "3003.2.0.161",
+          "Microsoft.Extensions.Logging.Abstractions": "10.0.10",
+          "NCalc.Parser": "7.1.0",
+          "Parlot": "1.5.8",
+          "System.Collections.Immutable": "10.0.10"
+        },
+        "compile": {
+          "lib/net8.0/NCalc.Core.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/NCalc.Core.dll": {}
+        }
+      },
+      "NCalc.Domain/7.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/NCalc.Domain.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/NCalc.Domain.dll": {}
+        }
+      },
+      "NCalc.Parser/7.1.0": {
+        "type": "package",
+        "dependencies": {
+          "NCalc.Domain": "7.1.0",
+          "Parlot": "1.5.8"
+        },
+        "compile": {
+          "lib/net8.0/NCalc.Parser.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/NCalc.Parser.dll": {}
+        }
+      },
+      "Newtonsoft.Json/13.0.4": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Npgsql/10.0.3": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Logging.Abstractions": "9.0.0"
+        },
+        "compile": {
+          "lib/net9.0/Npgsql.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net9.0/Npgsql.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Parlot/1.5.8": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Parlot.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Parlot.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/Parlot.props": {}
+        }
+      },
+      "SQLitePCLRaw.bundle_e_sqlite3/2.1.11": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.lib.e_sqlite3": "2.1.11",
+          "SQLitePCLRaw.provider.e_sqlite3": "2.1.11"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLitePCLRaw.batteries_v2.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.batteries_v2.dll": {}
+        }
+      },
+      "SQLitePCLRaw.core/2.1.11": {
+        "type": "package",
+        "dependencies": {
+          "System.Memory": "4.5.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
+        }
+      },
+      "SQLitePCLRaw.lib.e_sqlite3/2.1.12": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/_._": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/_._": {}
+        },
+        "native": {
+          "runtimes/win-x64/native/e_sqlite3.dll": {}
+        },
+        "build": {
+          "buildTransitive/net9.0/SQLitePCLRaw.lib.e_sqlite3.targets": {}
+        }
+      },
+      "SQLitePCLRaw.provider.e_sqlite3/2.1.11": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.1.11"
+        },
+        "compile": {
+          "lib/net6.0/SQLitePCLRaw.provider.e_sqlite3.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/SQLitePCLRaw.provider.e_sqlite3.dll": {}
+        }
+      },
+      "SqlKata/4.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/SqlKata.Core.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/SqlKata.Core.dll": {}
+        }
+      },
+      "SqlKata.Execution/4.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Humanizer.Core": "2.8.26",
+          "SqlKata": "4.0.1",
+          "dapper": "2.0.123"
+        },
+        "compile": {
+          "lib/net8.0/SqlKata.Execution.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/SqlKata.Execution.dll": {}
+        }
+      },
+      "System.Collections.Immutable/10.0.10": {
         "type": "package",
         "compile": {
           "lib/net9.0/System.Collections.Immutable.dll": {
@@ -774,15 +1294,15 @@
     }
   },
   "libraries": {
-    "Dapper/2.1.72": {
-      "sha512": "ns4mGqQd9a/MhP8m6w556vVlZIa0/MfUu03zrxjZC/jlr1uVCsUac8bkdB+Fs98Llbd56rRSo1eZH5VVmeGZyw==",
+    "Dapper/2.1.79": {
+      "sha512": "8YijbzgTfmqmQOnVNorYM6K++pxqnW3nJ4aC1sRHzxUA2CcuoJ9gsTem3kgBnPRMc38zZHl4Esb6hAezXIEEuw==",
       "type": "package",
-      "path": "dapper/2.1.72",
+      "path": "dapper/2.1.79",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Dapper.png",
-        "dapper.2.1.72.nupkg.sha512",
+        "dapper.2.1.79.nupkg.sha512",
         "dapper.nuspec",
         "lib/net10.0/Dapper.dll",
         "lib/net10.0/Dapper.xml",
@@ -795,15 +1315,15 @@
         "readme.md"
       ]
     },
-    "ExtendedNumerics.BigDecimal/3003.0.0.346": {
-      "sha512": "o6qdyacVFNvDKX6T0sDEdhMKppdCiTwpj22kdgNfQlIviLSAiLqv/i4G/gYL4ZzqBYzR/o3t8wDWCX21Tt/i1A==",
+    "ExtendedNumerics.BigDecimal/3003.2.0.161": {
+      "sha512": "VMTiP6rMaghsAILVw+2W7FzReJH0kuF+YU9/4u110IWtsCWe+5HvzJqWxyknd860zFEbA9N37+qk5IjRLdF5UQ==",
       "type": "package",
-      "path": "extendednumerics.bigdecimal/3003.0.0.346",
+      "path": "extendednumerics.bigdecimal/3003.2.0.161",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "README.md",
-        "extendednumerics.bigdecimal.3003.0.0.346.nupkg.sha512",
+        "extendednumerics.bigdecimal.3003.2.0.161.nupkg.sha512",
         "extendednumerics.bigdecimal.nuspec",
         "lib/net45/ExtendedNumerics.BigDecimal.dll",
         "lib/net45/ExtendedNumerics.BigDecimal.xml",
@@ -1191,24 +1711,24 @@
         "microsoft.codeanalysis.scripting.common.nuspec"
       ]
     },
-    "Microsoft.Data.Sqlite/10.0.4": {
-      "sha512": "psCr4snt5X4nUYsbdKEVAd+Mi87youewT0aG3oZznkLoKKn7wCaKdvRdAWRZLjCl8QVkNPC1PivO9gd0pmsQPw==",
+    "Microsoft.Data.Sqlite/10.0.10": {
+      "sha512": "58JwZ39lCvRXHfV5O6RQfbHEDu8ZsXI7weRoVRR4jrGRxxkS+qyeuGrN2xD+9VYEICApYr0iTSL6PuU+DdsvPg==",
       "type": "package",
-      "path": "microsoft.data.sqlite/10.0.4",
+      "path": "microsoft.data.sqlite/10.0.10",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "PACKAGE.md",
         "lib/netstandard2.0/_._",
-        "microsoft.data.sqlite.10.0.4.nupkg.sha512",
+        "microsoft.data.sqlite.10.0.10.nupkg.sha512",
         "microsoft.data.sqlite.nuspec"
       ]
     },
-    "Microsoft.Data.Sqlite.Core/10.0.4": {
-      "sha512": "UkmpN2pDkrtVLh+ypRDCbBij9mhPqOPzvHI625rf+VeT3FHnBwBjAY7XgjK8rGDI74fDx7C1SSIf2OAaAX4g2A==",
+    "Microsoft.Data.Sqlite.Core/10.0.10": {
+      "sha512": "TPCs0ldm7AWqcKmp6f/Xr+14sat7hx4rHfRlS4RgCURBH2thEWbAKEyX7cCWr63zVJVOJIJZTg2cBiUXa8ys6g==",
       "type": "package",
-      "path": "microsoft.data.sqlite.core/10.0.4",
+      "path": "microsoft.data.sqlite.core/10.0.10",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1218,66 +1738,8 @@
         "lib/net8.0/Microsoft.Data.Sqlite.xml",
         "lib/netstandard2.0/Microsoft.Data.Sqlite.dll",
         "lib/netstandard2.0/Microsoft.Data.Sqlite.xml",
-        "microsoft.data.sqlite.core.10.0.4.nupkg.sha512",
+        "microsoft.data.sqlite.core.10.0.10.nupkg.sha512",
         "microsoft.data.sqlite.core.nuspec"
-      ]
-    },
-    "Microsoft.Extensions.Caching.Abstractions/10.0.10": {
-      "sha512": "4ZFBNE+jzR+CrWWlhOesnmywCW7pYKT0dxyAQRdL11yJwxe4jvcAu31eorFtEkoFeCDcUTeNssgPv2yaRRptaQ==",
-      "type": "package",
-      "path": "microsoft.extensions.caching.abstractions/10.0.10",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "PACKAGE.md",
-        "THIRD-PARTY-NOTICES.TXT",
-        "buildTransitive/net461/Microsoft.Extensions.Caching.Abstractions.targets",
-        "buildTransitive/net462/_._",
-        "buildTransitive/net8.0/_._",
-        "buildTransitive/netcoreapp2.0/Microsoft.Extensions.Caching.Abstractions.targets",
-        "lib/net10.0/Microsoft.Extensions.Caching.Abstractions.dll",
-        "lib/net10.0/Microsoft.Extensions.Caching.Abstractions.xml",
-        "lib/net462/Microsoft.Extensions.Caching.Abstractions.dll",
-        "lib/net462/Microsoft.Extensions.Caching.Abstractions.xml",
-        "lib/net8.0/Microsoft.Extensions.Caching.Abstractions.dll",
-        "lib/net8.0/Microsoft.Extensions.Caching.Abstractions.xml",
-        "lib/net9.0/Microsoft.Extensions.Caching.Abstractions.dll",
-        "lib/net9.0/Microsoft.Extensions.Caching.Abstractions.xml",
-        "lib/netstandard2.0/Microsoft.Extensions.Caching.Abstractions.dll",
-        "lib/netstandard2.0/Microsoft.Extensions.Caching.Abstractions.xml",
-        "microsoft.extensions.caching.abstractions.10.0.10.nupkg.sha512",
-        "microsoft.extensions.caching.abstractions.nuspec",
-        "useSharedDesignerContext.txt"
-      ]
-    },
-    "Microsoft.Extensions.Caching.Memory/10.0.10": {
-      "sha512": "N1w5H7uK6gCTnCBZAWzE0/EQYSPysij/uYwDqntqBVvBa6bjMmBKitsnEFd6yh/SX3wLm67nO6+OnZ84K+gZWg==",
-      "type": "package",
-      "path": "microsoft.extensions.caching.memory/10.0.10",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "PACKAGE.md",
-        "THIRD-PARTY-NOTICES.TXT",
-        "buildTransitive/net461/Microsoft.Extensions.Caching.Memory.targets",
-        "buildTransitive/net462/_._",
-        "buildTransitive/net8.0/_._",
-        "buildTransitive/netcoreapp2.0/Microsoft.Extensions.Caching.Memory.targets",
-        "lib/net10.0/Microsoft.Extensions.Caching.Memory.dll",
-        "lib/net10.0/Microsoft.Extensions.Caching.Memory.xml",
-        "lib/net462/Microsoft.Extensions.Caching.Memory.dll",
-        "lib/net462/Microsoft.Extensions.Caching.Memory.xml",
-        "lib/net8.0/Microsoft.Extensions.Caching.Memory.dll",
-        "lib/net8.0/Microsoft.Extensions.Caching.Memory.xml",
-        "lib/net9.0/Microsoft.Extensions.Caching.Memory.dll",
-        "lib/net9.0/Microsoft.Extensions.Caching.Memory.xml",
-        "lib/netstandard2.0/Microsoft.Extensions.Caching.Memory.dll",
-        "lib/netstandard2.0/Microsoft.Extensions.Caching.Memory.xml",
-        "microsoft.extensions.caching.memory.10.0.10.nupkg.sha512",
-        "microsoft.extensions.caching.memory.nuspec",
-        "useSharedDesignerContext.txt"
       ]
     },
     "Microsoft.Extensions.DependencyInjection.Abstractions/10.0.10": {
@@ -1383,85 +1845,10 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Extensions.Options/10.0.10": {
-      "sha512": "srnhnk7nE8krBiIXp71LvBmKBtraBONWSRzdjJgRv1Ko9Mp8IVNqv4vIS9hGeVteBig8aQkva9ZG+sC+o5sVcA==",
+    "MySqlConnector/2.6.1": {
+      "sha512": "MzNSfnHWBc0Mo3zVbYxG+556zuex9obs8NYtwcPCwFahel40e49stH+osjX4k/doEHp4LT/zTtGdax4nlGWhcw==",
       "type": "package",
-      "path": "microsoft.extensions.options/10.0.10",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "PACKAGE.md",
-        "THIRD-PARTY-NOTICES.TXT",
-        "analyzers/dotnet/roslyn4.4/cs/Microsoft.Extensions.Options.SourceGeneration.dll",
-        "analyzers/dotnet/roslyn4.4/cs/cs/Microsoft.Extensions.Options.SourceGeneration.resources.dll",
-        "analyzers/dotnet/roslyn4.4/cs/de/Microsoft.Extensions.Options.SourceGeneration.resources.dll",
-        "analyzers/dotnet/roslyn4.4/cs/es/Microsoft.Extensions.Options.SourceGeneration.resources.dll",
-        "analyzers/dotnet/roslyn4.4/cs/fr/Microsoft.Extensions.Options.SourceGeneration.resources.dll",
-        "analyzers/dotnet/roslyn4.4/cs/it/Microsoft.Extensions.Options.SourceGeneration.resources.dll",
-        "analyzers/dotnet/roslyn4.4/cs/ja/Microsoft.Extensions.Options.SourceGeneration.resources.dll",
-        "analyzers/dotnet/roslyn4.4/cs/ko/Microsoft.Extensions.Options.SourceGeneration.resources.dll",
-        "analyzers/dotnet/roslyn4.4/cs/pl/Microsoft.Extensions.Options.SourceGeneration.resources.dll",
-        "analyzers/dotnet/roslyn4.4/cs/pt-BR/Microsoft.Extensions.Options.SourceGeneration.resources.dll",
-        "analyzers/dotnet/roslyn4.4/cs/ru/Microsoft.Extensions.Options.SourceGeneration.resources.dll",
-        "analyzers/dotnet/roslyn4.4/cs/tr/Microsoft.Extensions.Options.SourceGeneration.resources.dll",
-        "analyzers/dotnet/roslyn4.4/cs/zh-Hans/Microsoft.Extensions.Options.SourceGeneration.resources.dll",
-        "analyzers/dotnet/roslyn4.4/cs/zh-Hant/Microsoft.Extensions.Options.SourceGeneration.resources.dll",
-        "buildTransitive/net461/Microsoft.Extensions.Options.targets",
-        "buildTransitive/net462/Microsoft.Extensions.Options.targets",
-        "buildTransitive/net8.0/Microsoft.Extensions.Options.targets",
-        "buildTransitive/netcoreapp2.0/Microsoft.Extensions.Options.targets",
-        "buildTransitive/netstandard2.0/Microsoft.Extensions.Options.targets",
-        "lib/net10.0/Microsoft.Extensions.Options.dll",
-        "lib/net10.0/Microsoft.Extensions.Options.xml",
-        "lib/net462/Microsoft.Extensions.Options.dll",
-        "lib/net462/Microsoft.Extensions.Options.xml",
-        "lib/net8.0/Microsoft.Extensions.Options.dll",
-        "lib/net8.0/Microsoft.Extensions.Options.xml",
-        "lib/net9.0/Microsoft.Extensions.Options.dll",
-        "lib/net9.0/Microsoft.Extensions.Options.xml",
-        "lib/netstandard2.0/Microsoft.Extensions.Options.dll",
-        "lib/netstandard2.0/Microsoft.Extensions.Options.xml",
-        "lib/netstandard2.1/Microsoft.Extensions.Options.dll",
-        "lib/netstandard2.1/Microsoft.Extensions.Options.xml",
-        "microsoft.extensions.options.10.0.10.nupkg.sha512",
-        "microsoft.extensions.options.nuspec",
-        "useSharedDesignerContext.txt"
-      ]
-    },
-    "Microsoft.Extensions.Primitives/10.0.10": {
-      "sha512": "5wu/GrYVd8mG2DVUw3vFJzF+O336TyTGg/Kmcgw9bfwYhCoFiV5lR5QeEmKecJyrW4W54nMfD3p3589E8a7czQ==",
-      "type": "package",
-      "path": "microsoft.extensions.primitives/10.0.10",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "PACKAGE.md",
-        "THIRD-PARTY-NOTICES.TXT",
-        "buildTransitive/net461/Microsoft.Extensions.Primitives.targets",
-        "buildTransitive/net462/_._",
-        "buildTransitive/net8.0/_._",
-        "buildTransitive/netcoreapp2.0/Microsoft.Extensions.Primitives.targets",
-        "lib/net10.0/Microsoft.Extensions.Primitives.dll",
-        "lib/net10.0/Microsoft.Extensions.Primitives.xml",
-        "lib/net462/Microsoft.Extensions.Primitives.dll",
-        "lib/net462/Microsoft.Extensions.Primitives.xml",
-        "lib/net8.0/Microsoft.Extensions.Primitives.dll",
-        "lib/net8.0/Microsoft.Extensions.Primitives.xml",
-        "lib/net9.0/Microsoft.Extensions.Primitives.dll",
-        "lib/net9.0/Microsoft.Extensions.Primitives.xml",
-        "lib/netstandard2.0/Microsoft.Extensions.Primitives.dll",
-        "lib/netstandard2.0/Microsoft.Extensions.Primitives.xml",
-        "microsoft.extensions.primitives.10.0.10.nupkg.sha512",
-        "microsoft.extensions.primitives.nuspec",
-        "useSharedDesignerContext.txt"
-      ]
-    },
-    "MySqlConnector/2.5.0": {
-      "sha512": "hoAwfHHF8DlRRqwHOhN3u1KLi+XbX/4LPS7Anfa+SYC97vRyIfdEOEEfj1L50q01Ik8aDNvmDrNmu/VPFiAiaQ==",
-      "type": "package",
-      "path": "mysqlconnector/2.5.0",
+      "path": "mysqlconnector/2.6.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1485,14 +1872,14 @@
         "lib/netstandard2.1/MySqlConnector.dll",
         "lib/netstandard2.1/MySqlConnector.xml",
         "logo.png",
-        "mysqlconnector.2.5.0.nupkg.sha512",
+        "mysqlconnector.2.6.1.nupkg.sha512",
         "mysqlconnector.nuspec"
       ]
     },
-    "NCalc/6.3.2": {
-      "sha512": "xwKLg60HZcTauiI2cbRB0KS77ZfSHQRX2nHOXi6WVHefroE0C0dgRZwiMU80RxmZohkdo/G7IGb3zwCd8IIgjQ==",
+    "NCalc/7.1.0": {
+      "sha512": "/Z8tzTKYvOIkGQHtKrd4zwvx8ZPqkBi7U5GbQ+LhGxqJd1LOM5R/xF/VIhRIcN9XLAy/RE5t2gN3YmDRNFBYHw==",
       "type": "package",
-      "path": "ncalc/6.3.2",
+      "path": "ncalc/7.1.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1502,14 +1889,14 @@
         "lib/net462/NCalc.dll",
         "lib/net8.0/NCalc.dll",
         "lib/netstandard2.0/NCalc.dll",
-        "ncalc.6.3.2.nupkg.sha512",
+        "ncalc.7.1.0.nupkg.sha512",
         "ncalc.nuspec"
       ]
     },
-    "NCalc.Core/6.3.2": {
-      "sha512": "qiafSDXLGQno5E5dnsxDQQcXPjaE4l38XN1nXvmvbS6phgmJQeUf05d5kIsaEv7D5cCj8olf3zp9TI9ihrMYHQ==",
+    "NCalc.Core/7.1.0": {
+      "sha512": "AW0R2aiRkZqSv2GZcO5QJ3dirCuiE+1U53NYF2ONzKts9fbE3J3oZPzujJzBuLO1EaXiirzibghgPRavufiDGg==",
       "type": "package",
-      "path": "ncalc.core/6.3.2",
+      "path": "ncalc.core/7.1.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1519,14 +1906,14 @@
         "lib/net462/NCalc.Core.dll",
         "lib/net8.0/NCalc.Core.dll",
         "lib/netstandard2.0/NCalc.Core.dll",
-        "ncalc.core.6.3.2.nupkg.sha512",
+        "ncalc.core.7.1.0.nupkg.sha512",
         "ncalc.core.nuspec"
       ]
     },
-    "NCalc.Domain/6.3.2": {
-      "sha512": "XY3ojhgAIQ5fPvz4lcxLuhjZEZVi16IYAWWiA7Q3kD7yQ3M0B6qJmxK8TETOK0ZtJsnHe0ZWvuYg8diO/sPtMw==",
+    "NCalc.Domain/7.1.0": {
+      "sha512": "+TJaDQ1EkWE9v672uwf2PjjTS9Pd5IxZKPOL/KjvH06DdgFqBGAC+7ws1VVn1vXR59SWfCM1wm1K/Dr5msiMRQ==",
       "type": "package",
-      "path": "ncalc.domain/6.3.2",
+      "path": "ncalc.domain/7.1.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1535,14 +1922,14 @@
         "lib/net462/NCalc.Domain.dll",
         "lib/net8.0/NCalc.Domain.dll",
         "lib/netstandard2.0/NCalc.Domain.dll",
-        "ncalc.domain.6.3.2.nupkg.sha512",
+        "ncalc.domain.7.1.0.nupkg.sha512",
         "ncalc.domain.nuspec"
       ]
     },
-    "NCalc.Parser/6.3.2": {
-      "sha512": "O82elGarSsi8h3r2fQQsSNoaLYx+BcZl/GMuNHygDTsbgiLwRJWc+74k8xn4gc2CmFS9UEFjSVx/TuORUe93iw==",
+    "NCalc.Parser/7.1.0": {
+      "sha512": "I93ttSN4BVQ6nC9QB41ttjVTOVlNFRY/5UyGJLNvqiuLAVDW2YLONyyf0CVInI0zMKg6F7TIvaVhDMrtQQ32MA==",
       "type": "package",
-      "path": "ncalc.parser/6.3.2",
+      "path": "ncalc.parser/7.1.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1551,7 +1938,7 @@
         "lib/net462/NCalc.Parser.dll",
         "lib/net8.0/NCalc.Parser.dll",
         "lib/netstandard2.0/NCalc.Parser.dll",
-        "ncalc.parser.6.3.2.nupkg.sha512",
+        "ncalc.parser.7.1.0.nupkg.sha512",
         "ncalc.parser.nuspec"
       ]
     },
@@ -1585,10 +1972,10 @@
         "packageIcon.png"
       ]
     },
-    "Npgsql/10.0.1": {
-      "sha512": "XyUcxEfqlFomhNTG/ZdGlec+uSOQArKz0Mzz8jYKP/Jj9GM2YabU5CVZtp0yiC4f9hRp+tRZTnHMatJeJ3rwgw==",
+    "Npgsql/10.0.3": {
+      "sha512": "7nb5YzXuvWWJxB0J8DiyL3we+X4FOctZrt0fIBnucOIaIevFEEwGQVZKtiu9olXdlNAK1eNgqSral6r/jlhI4w==",
       "type": "package",
-      "path": "npgsql/10.0.1",
+      "path": "npgsql/10.0.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1599,15 +1986,15 @@
         "lib/net8.0/Npgsql.xml",
         "lib/net9.0/Npgsql.dll",
         "lib/net9.0/Npgsql.xml",
-        "npgsql.10.0.1.nupkg.sha512",
+        "npgsql.10.0.3.nupkg.sha512",
         "npgsql.nuspec",
         "postgresql.png"
       ]
     },
-    "Parlot/1.5.7": {
-      "sha512": "D0PhSypMx1JJVTQUqB8ebwcJxH4NAvdn1d8eKi9lLoNz8c1+8qHw+/Sq5/6HaJFgOaqy1VJBpvYFCIC4I2uvqQ==",
+    "Parlot/1.5.8": {
+      "sha512": "QBFNAMKQPRvBwrXOl6Gp24a2nbhzqJ5X4pe0I1g1RtR4SqoT2ThyE6RwFAOZLcWMQxzo8YC08VmHspPDeOLYWg==",
       "type": "package",
-      "path": "parlot/1.5.7",
+      "path": "parlot/1.5.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1620,7 +2007,7 @@
         "lib/net8.0/Parlot.xml",
         "lib/netstandard2.0/Parlot.dll",
         "lib/netstandard2.0/Parlot.xml",
-        "parlot.1.5.7.nupkg.sha512",
+        "parlot.1.5.8.nupkg.sha512",
         "parlot.nuspec"
       ]
     },
@@ -1656,10 +2043,10 @@
         "sqlitepclraw.core.nuspec"
       ]
     },
-    "SQLitePCLRaw.lib.e_sqlite3/2.1.11": {
-      "sha512": "Ev2ytaXiOlWZ4b3R67GZBsemTINslLD1DCJr2xiacpn4tbapu0Q4dHEzSvZSMnVWeE5nlObU3VZN2p81q3XOYQ==",
+    "SQLitePCLRaw.lib.e_sqlite3/2.1.12": {
+      "sha512": "fWi8Dbknuhgg72fWinIdjXVaqO1hHL4YBBwVLnr7e1c9TAZwJ0QE38j9syW1hwx6HaqEVTwI+O07WPdZn8Rp0w==",
       "type": "package",
-      "path": "sqlitepclraw.lib.e_sqlite3/2.1.11",
+      "path": "sqlitepclraw.lib.e_sqlite3/2.1.12",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1692,15 +2079,10 @@
         "runtimes/maccatalyst-x64/native/libe_sqlite3.dylib",
         "runtimes/osx-arm64/native/libe_sqlite3.dylib",
         "runtimes/osx-x64/native/libe_sqlite3.dylib",
-        "runtimes/win-arm/native/e_sqlite3.dll",
         "runtimes/win-arm64/native/e_sqlite3.dll",
         "runtimes/win-x64/native/e_sqlite3.dll",
         "runtimes/win-x86/native/e_sqlite3.dll",
-        "runtimes/win10-arm/nativeassets/uap10.0/e_sqlite3.dll",
-        "runtimes/win10-arm64/nativeassets/uap10.0/e_sqlite3.dll",
-        "runtimes/win10-x64/nativeassets/uap10.0/e_sqlite3.dll",
-        "runtimes/win10-x86/nativeassets/uap10.0/e_sqlite3.dll",
-        "sqlitepclraw.lib.e_sqlite3.2.1.11.nupkg.sha512",
+        "sqlitepclraw.lib.e_sqlite3.2.1.12.nupkg.sha512",
         "sqlitepclraw.lib.e_sqlite3.nuspec"
       ]
     },
@@ -1742,10 +2124,10 @@
         "sqlkata.execution.nuspec"
       ]
     },
-    "System.Collections.Immutable/10.0.7": {
-      "sha512": "0Ti4Jv1ga3eurH5HaCVsPybcBl+08YfzM9smqAJzHvqV494xK+0pSbytGrMTWhph+zsyKIaoGNiR5u3by5bj+A==",
+    "System.Collections.Immutable/10.0.10": {
+      "sha512": "Ih5zrydoDc1H5I0eNP6f4Lzw3cjsPMN4Nikd86kbyi66y0flkM9GfjVo62aUbcxeTbypzBCFAFQ+/6RF2jRORg==",
       "type": "package",
-      "path": "system.collections.immutable/10.0.7",
+      "path": "system.collections.immutable/10.0.10",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1766,7 +2148,7 @@
         "lib/net9.0/System.Collections.Immutable.xml",
         "lib/netstandard2.0/System.Collections.Immutable.dll",
         "lib/netstandard2.0/System.Collections.Immutable.xml",
-        "system.collections.immutable.10.0.7.nupkg.sha512",
+        "system.collections.immutable.10.0.10.nupkg.sha512",
         "system.collections.immutable.nuspec",
         "useSharedDesignerContext.txt"
       ]
@@ -1852,15 +2234,15 @@
   },
   "projectFileDependencyGroups": {
     "net9.0": [
-      "Dapper >= 2.1.72",
+      "Dapper >= 2.1.79",
       "Microsoft.CodeAnalysis.CSharp >= 5.6.0",
       "Microsoft.CodeAnalysis.CSharp.Scripting >= 5.6.0",
-      "Microsoft.Data.Sqlite >= 10.0.4",
-      "Microsoft.Extensions.Caching.Memory >= 10.0.10",
-      "MySqlConnector >= 2.5.0",
-      "NCalc >= 6.3.2",
+      "Microsoft.Data.Sqlite >= 10.0.10",
+      "MySqlConnector >= 2.6.1",
+      "NCalc >= 7.1.0",
       "Newtonsoft.Json >= 13.0.4",
-      "Npgsql >= 10.0.1",
+      "Npgsql >= 10.0.3",
+      "SQLitePCLRaw.lib.e_sqlite3 >= 2.1.12",
       "SqlKata >= 4.0.1",
       "SqlKata.Execution >= 4.0.1"
     ]
@@ -1913,7 +2295,7 @@
         "dependencies": {
           "Dapper": {
             "target": "Package",
-            "version": "[2.1.72, )"
+            "version": "[2.1.79, )"
           },
           "Microsoft.CodeAnalysis.CSharp": {
             "target": "Package",
@@ -1925,19 +2307,15 @@
           },
           "Microsoft.Data.Sqlite": {
             "target": "Package",
-            "version": "[10.0.4, )"
-          },
-          "Microsoft.Extensions.Caching.Memory": {
-            "target": "Package",
             "version": "[10.0.10, )"
           },
           "MySqlConnector": {
             "target": "Package",
-            "version": "[2.5.0, )"
+            "version": "[2.6.1, )"
           },
           "NCalc": {
             "target": "Package",
-            "version": "[6.3.2, )"
+            "version": "[7.1.0, )"
           },
           "Newtonsoft.Json": {
             "target": "Package",
@@ -1945,7 +2323,11 @@
           },
           "Npgsql": {
             "target": "Package",
-            "version": "[10.0.1, )"
+            "version": "[10.0.3, )"
+          },
+          "SQLitePCLRaw.lib.e_sqlite3": {
+            "target": "Package",
+            "version": "[2.1.12, )"
           },
           "SqlKata": {
             "target": "Package",
@@ -1973,6 +2355,11 @@
           }
         },
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.315/PortableRuntimeIdentifierGraph.json"
+      }
+    },
+    "runtimes": {
+      "win-x64": {
+        "#import": []
       }
     }
   }
