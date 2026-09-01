@@ -7,7 +7,8 @@ Projeto Original:  https://github.com/Valentine90/vxa-os
 A versão usada aqui é a versão 2.1.6 com as minhas modificações (Estados e Cooldown).
 
 ## Planejamento de Desenvolvimento
-- [ ] Primeiro: Adaptar o Servidor Ruby do VXA-OS para C#;
+- [x] Primeiro: Adaptar o Servidor Ruby do VXA-OS para C#;
+- [ ] Primeiro.1: Debugar.
 - [ ] Segundo: Criar um novo Cliente em C#, ainda decidindo entre Godot ou Monogame ou outro motor ou API;
 - [ ] Terceiro: Adaptar o novo Servidor e o novo Cliente do VXA-OS para ler arquivos do RPG Maker MZ;
 - [ ] Terceiro.1: Renomear projeto para MZC#OS ou algum novo nome, aberto a sugestões;
@@ -56,9 +57,9 @@ O projeto utiliza os seguintes pacotes NuGet:
 | [SqlKata](https://www.nuget.org/packages/SqlKata/)                                                                 |   `4.0.1` | Query Builder para construção de consultas SQL.          |
 | [SqlKata.Execution](https://www.nuget.org/packages/SqlKata.Execution/)                                             |   `4.0.1` | Execução de consultas SQL utilizando SqlKata.            |
 
-# 🚀 Tutorial de Uso
+## 🚀 Tutorial de Uso
 
-## 1. Abrindo o projeto
+### 1. Abrindo o projeto
 
 Para abrir e compilar o projeto, utilize o **Visual Studio**.
 
@@ -66,7 +67,7 @@ O projeto foi desenvolvido utilizando o **Visual Studio Community 2022**.
 
 ---
 
-## 2. Requisitos
+### 2. Requisitos
 
 O projeto tem como alvo **.NET 9 para Windows 64-bit (Win64)**.
 
@@ -76,7 +77,7 @@ Para instalar o .NET 9 SDK, consulte a documentação oficial da Microsoft:
 
 https://dotnet.microsoft.com/download/dotnet/9.0
 
-### Gerando para Linux
+#### Gerando para Linux
 
 Gerar executável ÚNICO para Linux (Sem precisar instalar .NET no servidor Linux):
 
@@ -92,7 +93,7 @@ dotnet publish -c Release -r linux-x64 --self-contained false -p:PublishSingleFi
 
 ---
 
-## 3. Testando o servidor
+### 3. Testando o servidor
 
 Durante o desenvolvimento e os testes, recomenda-se executar o servidor no modo **Debug**.
 
@@ -100,7 +101,7 @@ Isso permite analisar com maior facilidade as mensagens de erro e identificar po
 
 ---
 
-## 4. Executando o servidor fora do Debug
+### 4. Executando o servidor fora do Debug
 
 Para utilizar o servidor fora do Visual Studio, compile o projeto em **Release**.
 
@@ -128,7 +129,7 @@ A estrutura final pode variar de acordo com a plataforma e a configuração util
 
 ---
 
-## 5. Pasta Data
+### 5. Pasta Data
 
 Caso não exista uma pasta `Data`, tanto durante a execução em **Debug** quanto em **Release**, crie manualmente uma:
 
@@ -156,13 +157,13 @@ Servidor/
 
 ---
 
-## 6. Configurando o `server.cfg`
+### 6. Configurando o `server.cfg`
 
 O arquivo `server.cfg` fica na raiz da pasta do servidor.
 
 Nele é possível configurar o caminho da pasta `Data` e o banco de dados utilizado pelo servidor.
 
-### DATA_PATH
+#### DATA_PATH
 
 Altere `DATA_PATH` para o caminho real da pasta `Data` do cliente a ser utilizada pelo servidor.
 
@@ -178,7 +179,7 @@ No Linux, por exemplo:
 DATA_PATH=/home/vxaos/Client/Data
 ```
 
-### Configuração do banco de dados
+#### Configuração do banco de dados
 
 O tipo de banco de dados pode ser alterado através de `DB_TYPE`.
 
@@ -213,7 +214,7 @@ DB_FILE=Database.db
 
 ---
 
-## 7. Requisito do Ruby
+### 7. Requisito do Ruby
 
 É necessário possuir pelo menos o **Ruby 3.x** instalado no servidor.
 
@@ -233,7 +234,7 @@ Depois disso, o servidor deverá possuir todos os requisitos necessários para s
 
 ---
 
-## 8. Cliente recomendado
+### 8. Cliente recomendado
 
 Como este projeto ainda está em fase **experimental**, recomenda-se utilizar **apenas o Cliente fornecido junto ao projeto para realizar os testes**.
 
@@ -243,7 +244,7 @@ Assim que os problemas forem corrigidos, este tutorial será atualizado com as m
 
 ---
 
-## 9. Documentação do código
+### 9. Documentação do código
 
 Em breve serão adicionados comentários em todo o código do servidor, com explicações sobre seu funcionamento e sobre as principais partes da implementação.
 
