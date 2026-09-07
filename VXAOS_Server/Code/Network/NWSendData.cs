@@ -61,7 +61,7 @@ namespace VXAOS_Server {
       }
       public static void SendCreateActor(GameClient client, int actorId, Actor actor) {
          BufferWriter buffer = new();
-         buffer.WriteByte((byte)Packet.CREATE_ACCOUNT);
+         buffer.WriteByte((byte)Packet.ACTOR);
          buffer.WriteByte(actorId);
          buffer.WriteString(actor.Name);
          buffer.WriteString(actor.CharacterName);
@@ -73,7 +73,7 @@ namespace VXAOS_Server {
             buffer.WriteShort(equip);
          }
          client.Send(buffer.ToStringBuffer());
-      }
+      }      
       public static void SendFailedCreateActor(GameClient client) {
          BufferWriter buffer = new();
          buffer.WriteByte((byte)Packet.FAIL_CREATE_ACTOR);

@@ -78,7 +78,7 @@ namespace VXAOS_Server {
                email.Length > 40;
       }
       public static bool IllegalName(string name) {
-         foreach (string word in (IEnumerable<string>)Configs.ForbiddenNames) {
+         foreach (string word in (Configs.ForbiddenNames) ){
             if (name.Contains(word, StringComparison.OrdinalIgnoreCase))
                return true;
          }

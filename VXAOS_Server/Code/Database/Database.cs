@@ -164,6 +164,7 @@ namespace VXAOS_Server {
          actor.Exp = DataClasses[classId].Exp_For_Level(actor.Level);
          int maxHp = @params[(int)Enums.Param.MAXHP] * 10 + (int)DataClasses[classId].@params[(int)Enums.Param.MAXHP, actor.Level];
          int maxMp = @params[(int)Enums.Param.MAXMP] * 10 + (int)DataClasses[classId].@params[(int)Enums.Param.MAXMP, actor.Level];
+         actor.Hp = maxHp; actor.Mp = maxMp;
          actor.ParamBase[(int)Enums.Param.MAXHP] = maxHp;
          actor.ParamBase[(int)Enums.Param.MAXMP] = maxMp;
          for (int paramId = (int)Enums.Param.ATK; paramId <= (int)Enums.Param.LUK; paramId++) {
@@ -195,8 +196,8 @@ namespace VXAOS_Server {
          for (int i = 0; i < Configs.MaxHotbar; i++) {
             actor.Hotbar.Add(new Hotbar(0, 0));
          }
-         actor.Switches = Enumerable.Repeat(false, Configs.MaxPlayerSwitches).ToList();
-         actor.Variables = Enumerable.Repeat(0, Configs.MaxPlayerVariables).ToList();
+         actor.Switches = Enumerable.Repeat(false, (int)Configs.MaxPlayerSwitches).ToList();
+         actor.Variables = Enumerable.Repeat(0, (int)Configs.MaxPlayerVariables).ToList();
          var qry = Query();
          bool success = false;
          try {
@@ -253,22 +254,16 @@ namespace VXAOS_Server {
                   slot_id = slotId
                });
             }
-            var switches = new List<object>();
+            var switches = new List<object[]>();
             for (int switchId = 1; switchId <= Configs.MaxPlayerSwitches; switchId++) {
-               switches.Add(new {
-                  actor_id = actor.IdDb,
-                  switch_id = switchId
-               });
+               switches.Add([ actor.IdDb, switchId]);
             }
-            await qry.Query("actor_switches").InsertAsync(switches);
-            var variables = new List<object>();
+            await qry.ExecuteAsync(new Query("actor_switches").AsInsert(new[] {"actor_id", "switch_id"},switches));
+            var variables = new List<object[]>();
             for (int variableId = 1; variableId <= Configs.MaxPlayerVariables; variableId++) {
-               variables.Add(new {
-                  actor_id = actor.IdDb,
-                  variable_id = variableId
-               });
+               variables.Add([actor.IdDb, variableId]);
             }
-            await qry.Query("actor_variables").InsertAsync(variables);
+            await qry.ExecuteAsync(new Query("actor_variables").AsInsert(new[] {"actor_id", "variable_id"}, variables));
             success = true;
          } finally { qry.Connection.Dispose(); }
          if (success)
