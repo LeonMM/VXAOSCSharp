@@ -1,117 +1,141 @@
-﻿using System.Text;
+﻿using System;
+using System.IO;
+using System.Text;
 
 namespace VXAOS_Server {
-   public class BufferWriter {
-      private MemoryStream stream;
-      private BinaryWriter writer;
-
-      public BufferWriter() {
-         stream = new MemoryStream();
-         writer = new BinaryWriter(stream);
+   public class BufferWriter : IDisposable {
+      private readonly MemoryStream _stream;
+      public BufferWriter(int initialCapacity = 64) {
+         _stream = new MemoryStream(initialCapacity);
       }
-
       public void WriteByte(int value) {
-         writer.Write((byte)value);
+         _stream.WriteByte((byte)value);
       }
-
       public void WriteBoolean(bool value) {
-         WriteByte((byte)(value ? 1 : 0));
+         WriteByte(value ? 1 : 0);
       }
-
       public void WriteShort(int value) {
-         writer.Write((short)value);
+         Span<byte> buffer = stackalloc byte[2];
+         BitConverter.TryWriteBytes(buffer, (short)value);
+         _stream.Write(buffer);
       }
-
       public void WriteFloat(float value) {
-         writer.Write(value);
+         Span<byte> buffer = stackalloc byte[4];
+         BitConverter.TryWriteBytes(buffer, value);
+         _stream.Write(buffer);
       }
-
       public void WriteDouble(double value) {
-         writer.Write(value);
+         Span<byte> buffer = stackalloc byte[8];
+         BitConverter.TryWriteBytes(buffer, value);
+         _stream.Write(buffer);
       }
-
       public void WriteInt(int value) {
-         writer.Write(value);
+         Span<byte> buffer = stackalloc byte[4];
+         BitConverter.TryWriteBytes(buffer, value);
+         _stream.Write(buffer);
       }
-
       public void WriteLong(long value) {
-         writer.Write(value);
+         Span<byte> buffer = stackalloc byte[8];
+         BitConverter.TryWriteBytes(buffer, value);
+         _stream.Write(buffer);
       }
-
       public void WriteString(string str) {
-         byte[] bytes = Encoding.UTF8.GetBytes(str);
-         WriteShort((short)bytes.Length);
-         writer.Write(bytes);
-      }
+         if (string.IsNullOrEmpty(str)) {
+            WriteShort(0);
+            return;
+         }
+         int byteCount = Encoding.UTF8.GetByteCount(str);
+         WriteShort((short)byteCount);
+         byte[]? rented = null;
+         Span<byte> buffer = byteCount <= 256
+            ? stackalloc byte[byteCount]
+            : (rented = System.Buffers.ArrayPool<byte>.Shared.Rent(byteCount));
 
+         try {
+            Encoding.UTF8.GetBytes(str, buffer);
+            _stream.Write(buffer.Slice(0, byteCount));
+         } finally {
+            if (rented != null) {
+               System.Buffers.ArrayPool<byte>.Shared.Return(rented);
+            }
+         }
+      }
       public void WriteTime(DateTimeOffset time) {
-         WriteShort((short)time.Year);
-         WriteByte((byte)time.Month);
-         WriteByte((byte)time.Day);
+         WriteShort(time.Year);
+         WriteByte(time.Month);
+         WriteByte(time.Day);
       }
-
       public string ToStringBuffer() {
-         byte[] data = stream.ToArray();
-         return Encoding.Latin1.GetString(data);
+         byte[] rawBuffer = _stream.GetBuffer();
+         return Encoding.Latin1.GetString(rawBuffer, 0, (int)_stream.Length);
       }
       public byte[] ToArray() {
-         return stream.ToArray();
+         return _stream.ToArray();
+      }
+      public void Dispose() {
+         _stream.Dispose();
       }
    }
 
    public class BufferReader {
-      private MemoryStream stream;
-      private BinaryReader reader;
-
+      private readonly byte[] _data;
+      private int _position;
       public BufferReader(string data) {
-         byte[] bytes = Encoding.Latin1.GetBytes(data);
-         stream = new MemoryStream(bytes);
-         reader = new BinaryReader(stream);
+         _data = Encoding.Latin1.GetBytes(data);
+         _position = 0;
       }
-
+      public BufferReader(byte[] data) {
+         _data = data;
+         _position = 0;
+      }
       public byte ReadByte() {
-         return reader.ReadByte();
+         if (_position >= _data.Length) throw new EndOfStreamException();
+         return _data[_position++];
       }
-
       public bool ReadBoolean() {
          return ReadByte() == 1;
       }
-
       public short ReadShort() {
-         return reader.ReadInt16();
+         short value = BitConverter.ToInt16(_data, _position);
+         _position += 2;
+         return value;
       }
-
       public float ReadFloat() {
-         return reader.ReadSingle();
+         float value = BitConverter.ToSingle(_data, _position);
+         _position += 4;
+         return value;
       }
-
       public double ReadDouble() {
-         return reader.ReadDouble();
+         double value = BitConverter.ToDouble(_data, _position);
+         _position += 8;
+         return value;
       }
-
       public int ReadInt() {
-         return reader.ReadInt32();
+         int value = BitConverter.ToInt32(_data, _position);
+         _position += 4;
+         return value;
       }
-
       public long ReadLong() {
-         return reader.ReadInt64();
+         long value = BitConverter.ToInt64(_data, _position);
+         _position += 8;
+         return value;
       }
-
       public string ReadString() {
          short size = ReadShort();
-         byte[] bytes = reader.ReadBytes(size);
-         return Encoding.UTF8.GetString(bytes);
-      }
+         if (size <= 0) return string.Empty;
 
+         string str = Encoding.UTF8.GetString(_data, _position, size);
+         _position += size;
+         return str;
+      }
       public DateTimeOffset ReadTime() {
          int year = ReadShort();
          int month = ReadByte();
          int day = ReadByte();
          return new DateTimeOffset(new DateTime(year, month, day));
       }
-
       public bool EOF() {
-         return stream.Position >= stream.Length;
+         return _position >= _data.Length;
       }
    }
 }

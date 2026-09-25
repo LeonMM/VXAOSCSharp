@@ -83,7 +83,7 @@ namespace VXAOS_Server {
          if (!Network.Clients.TryGetValue(TradePlayerId, out var tradePlayer)) return;
          foreach(var (itemId, amount) in TradeItems) {
             var item = DataItems[itemId];
-            if(item != null && tradePlayer.IsFullInventory(item)) {
+            if(item != null && !tradePlayer.IsFullInventory(item)) {
                int amnt = Math.Min(amount, Configs.MaxItems - tradePlayer.ItemNumber(item));
                LoseItem(item, amnt);
                tradePlayer.GainItem(item, amount);
@@ -91,7 +91,7 @@ namespace VXAOS_Server {
          }
          foreach(var (weaponId, amount) in TradeWeapons) {
             var item = DataWeapons[weaponId];
-            if(item != null && tradePlayer.IsFullInventory(item)) {
+            if(item != null && !tradePlayer.IsFullInventory(item)) {
                int amnt = Math.Min(amount, Configs.MaxItems - tradePlayer.ItemNumber(item));
                LoseItem(item, amnt);
                tradePlayer.GainItem(item, amount);
@@ -99,7 +99,7 @@ namespace VXAOS_Server {
          }
          foreach(var (armorId, amount) in TradeArmors) {
             var item = DataArmors[armorId];
-            if(item != null && tradePlayer.IsFullInventory(item)) {
+            if(item != null && !tradePlayer.IsFullInventory(item)) {
                int amnt = Math.Min(amount, Configs.MaxItems - tradePlayer.ItemNumber(item));
                LoseItem(item, amnt);
                tradePlayer.GainItem(item, amount);
@@ -107,7 +107,7 @@ namespace VXAOS_Server {
          }
          foreach (var (itemId, amount) in tradePlayer.TradeItems) {
             var item = DataItems[itemId];
-            if(item != null && IsFullInventory(item)) {
+            if(item != null && !IsFullInventory(item)) {
                int amnt = Math.Min(amount, Configs.MaxItems - tradePlayer.ItemNumber(item));
                GainItem(item, amount);
                tradePlayer.LoseItem(item, amnt);
@@ -115,7 +115,7 @@ namespace VXAOS_Server {
          }
          foreach(var (weaponId, amount) in tradePlayer.TradeWeapons) {
             var item = DataWeapons[weaponId];
-            if(item != null && IsFullInventory(item)) {
+            if(item != null && !IsFullInventory(item)) {
                int amnt = Math.Min(amount, Configs.MaxItems - tradePlayer.ItemNumber(item));
                GainItem(item, amount);
                tradePlayer.LoseItem(item, amnt);
@@ -123,7 +123,7 @@ namespace VXAOS_Server {
          }
          foreach(var (armorId, amount) in tradePlayer.TradeArmors) {
             var item = DataArmors[armorId];
-            if(item != null && IsFullInventory(item)) {
+            if(item != null && !IsFullInventory(item)) {
                int amnt = Math.Min(amount, Configs.MaxItems - tradePlayer.ItemNumber(item));
                GainItem(item, amount);
                tradePlayer.LoseItem(item, amnt);

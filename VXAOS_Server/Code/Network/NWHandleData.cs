@@ -362,7 +362,7 @@ namespace VXAOS_Server {
       }
       private static void HandleUseItem(GameClient client, BufferReader buffer) {
          int itemId = buffer.ReadShort();
-         if (client.IsUsingItem()) {
+         if (!client.IsUsingItem()) {
             client.UseItem(DataItems[itemId]);
          }
       }

@@ -42,6 +42,7 @@ namespace VXAOS_Server {
       static async Task AcceptLoop() {
          while (true) {
             var tcp = await Listener.AcceptTcpClientAsync();
+            tcp.NoDelay = true;
             int id = FindClientId();
             var client = new GameClient(id, tcp);
             Console.WriteLine($"Tentativa de conexão IP {client.Ip}");
@@ -73,7 +74,7 @@ namespace VXAOS_Server {
          if (PartyAvaiableIds.TryDequeue(out int id)) {
             return id;
          }
-         return _partyHighestIdAvailable;
+         return _partyHighestIdAvailable++;
       }
       public static void RemoveParty(int id) {
          Parties.TryRemove(id, out _);

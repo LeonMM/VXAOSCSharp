@@ -125,9 +125,8 @@ namespace VXAOS_Server {
                return 1.0f;
             return ElementsMaxRate(user.AtkElements());
          } else {
-            ElementRate(item.damage.element_id);
+            return ElementRate(item.damage.element_id);
          }
-         return 1f;
       }
       private float ElementsMaxRate(List<int> elements) {
          float max = 0f;

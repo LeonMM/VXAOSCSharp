@@ -60,7 +60,7 @@ namespace VXAOS_Server {
       public bool IsInShop() { return ShopGoods.Count > 0; }
       public bool IsInTrade() { return TradePlayerId >= 0; }
       public bool IsInTeleport() { return TeleportId >= 0; }
-      public bool IsInGuild() { return string.IsNullOrEmpty(GuildName); }
+      public bool IsInGuild() { return !(string.IsNullOrEmpty(GuildName)); }
       public bool IsInParty() { return PartyId >= 0; }
       public bool IsInBank() { return InBank; }
       public bool IsGuildLeader() { return Network.Guilds[GuildName].Leader == Name; }
